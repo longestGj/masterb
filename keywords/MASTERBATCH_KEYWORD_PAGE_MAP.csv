@@ -1,0 +1,21 @@
+cluster_id,page_name,primary_keyword,page_type,supporting_keywords,status,gate
+PG01,Homepage and supplier hub,masterbatch,首页,plastic masterbatch; master batch; masterbatches; masterbatch supplier; masterbatch producer,draft,A/D
+PG02,Black Masterbatch RFQ,black masterbatch,产品询盘页,black masterbatch supplier; black masterbatch manufacturer; black masterbatch factory; carbon black masterbatch; custom black masterbatch; bulk black masterbatch; China black masterbatch manufacturer,P0,B/D/G
+PG03,White Masterbatch RFQ,white masterbatch,产品询盘页,white masterbatch supplier; white masterbatch manufacturer; white masterbatch factory; custom white masterbatch; bulk white masterbatch; China white masterbatch supplier,P0,B/C
+PG04,Color Masterbatch RFQ,color masterbatch,产品询盘页,color masterbatch supplier; color masterbatch manufacturer; color masterbatch factory; custom color masterbatch; colour masterbatch; bulk color masterbatch; China color masterbatch factory,P0,B
+PG05,RFQ and quotation process,masterbatch RFQ,RFQ指南页,masterbatch quotation; masterbatch sample request; masterbatch sample policy; custom masterbatch supplier,P0,A/D/G
+PG06,Technical document request,masterbatch document request,技术文件页,request masterbatch TDS; request masterbatch SDS; request masterbatch COA; masterbatch test report; masterbatch certification,P0,A/B/C/D
+PG07,What is masterbatch,what is masterbatch,基础文章,how does masterbatch work; masterbatch for plastics; master batch; masterbatches,P1,A
+PG08,Types and composition,types of masterbatch,基础文章,color concentrate; black concentrate; white concentrate; additive concentrate; pigment vs dye in masterbatch; masterbatch colorant,P1,A/B
+PG09,How to choose masterbatch,how to choose a masterbatch supplier,采购指南页,masterbatch supplier checklist; masterbatch producer; masterbatch maker; masterbatch supplier for export; masterbatch exporter,P1,B/D
+PG10,Black masterbatch for film,black masterbatch for film,应用文章,black masterbatch for film blowing; black masterbatch for PE film; black masterbatch for LDPE film; masterbatch for blown film,P1,B
+PG11,Black masterbatch for injection,black masterbatch for injection molding,应用文章,black masterbatch for plastic bags; carbon black dispersion in masterbatch,P1,B
+PG12,Black masterbatch for recycling,black masterbatch for recycled plastic,应用文章,masterbatch for recycled polyethylene; black masterbatch for extrusion,P1,B
+PG13,White masterbatch for film and packaging,white masterbatch for film,应用文章,white masterbatch for film blowing; white masterbatch for packaging; white masterbatch for plastic bags; white masterbatch for LDPE; white masterbatch for LLDPE,P1,B
+PG14,Color reference and sampling,color masterbatch color reference,采购指南页,color masterbatch sample matching; color matching masterbatch; pantone color masterbatch; RAL color masterbatch; spectrophotometer color matching,P1,A/B/D/G
+PG15,Masterbatch TDS and indicators,masterbatch TDS,技术文件页,masterbatch technical data sheet; masterbatch test conditions; typical value vs specification value masterbatch; masterbatch MFR; masterbatch MVR; masterbatch density; masterbatch bulk density,P1,B
+PG16,Compliance document scope,masterbatch compliance documents,技术文件页,masterbatch RoHS; masterbatch FDA; masterbatch REACH; food contact masterbatch; masterbatch certification,P1,C/D
+PG17,Dispersion and black spot issues,poor dispersion masterbatch,故障排查页,masterbatch dispersion problems; black spots in plastic film; carbon black spots in film; masterbatch filtration test; screen pack blockage masterbatch,P1,B
+PG18,Color variation and measurement,color variation in plastic products,技术文章,masterbatch colour difference; masterbatch color measurement; batch to batch color variation; masterbatch color difference testing,P1,B
+PG19,Trade packaging and logistics,masterbatch HS code,采购指南页,masterbatch packaging; masterbatch container loading; black masterbatch exporter; masterbatch importer; masterbatch trading company,P1,D/G
+PG20,Other product and market research,filler masterbatch,研究备用页,desiccant masterbatch; defoaming masterbatch; ppa masterbatch; slip masterbatch; anti block masterbatch; regional supplier terms,HOLD,D/E/F

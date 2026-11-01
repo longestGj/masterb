@@ -1,0 +1,261 @@
+id,cluster,keyword,intent,priority,page_type,gate
+1,C01-核心品类,masterbatch,Commercial,P1,品类支柱页,A
+2,C01-核心品类,plastic masterbatch,Commercial,P1,品类支柱页,A
+3,C01-核心品类,color masterbatch,Commercial,P0,产品询盘页,B
+4,C01-核心品类,black masterbatch,Commercial,P0,产品询盘页,B
+5,C01-核心品类,white masterbatch,Commercial,P0,产品询盘页,B/C
+6,C01-核心品类,additive masterbatch,Commercial,P1,品类说明页,D
+7,C01-核心品类,functional masterbatch,Commercial,P2,研究备用页,E
+8,C01-核心品类,filler masterbatch,Commercial,HOLD,研究备用页,E
+9,C01-核心品类,calcium carbonate masterbatch,Commercial,HOLD,研究备用页,E
+10,C01-核心品类,desiccant masterbatch,Commercial,HOLD,研究备用页,D/E
+11,C01-核心品类,defoaming masterbatch,Commercial,HOLD,研究备用页,D/E
+12,C01-核心品类,ppa masterbatch,Commercial,HOLD,研究备用页,E
+13,C01-核心品类,processing aid masterbatch,Commercial,HOLD,研究备用页,E
+14,C01-核心品类,slip masterbatch,Commercial,HOLD,研究备用页,E
+15,C01-核心品类,anti block masterbatch,Commercial,HOLD,研究备用页,E
+16,C01-核心品类,anti aging masterbatch,Commercial,HOLD,研究备用页,E
+17,C01-核心品类,what is masterbatch,Informational,P1,基础文章,A
+18,C01-核心品类,types of masterbatch,Informational,P1,基础文章,A
+19,C01-核心品类,how does masterbatch work,Informational,P1,基础文章,A
+20,C01-核心品类,masterbatch for plastics,Commercial,P2,基础文章,A
+21,C02-黑色母粒,black masterbatch supplier,Commercial,P1,产品询盘页,B/D
+22,C02-黑色母粒,black masterbatch manufacturer,Commercial,P1,产品询盘页,B/D
+23,C02-黑色母粒,carbon black masterbatch,Commercial,P0,产品询盘页,B
+24,C02-黑色母粒,black masterbatch for film,Commercial,P0,应用文章,B
+25,C02-黑色母粒,black masterbatch for film blowing,Commercial,P0,应用文章,B
+26,C02-黑色母粒,black masterbatch for injection molding,Commercial,P0,应用文章,B
+27,C02-黑色母粒,black masterbatch for recycled plastic,Commercial,P1,应用文章,B
+28,C02-黑色母粒,black masterbatch for plastic bags,Commercial,P1,应用文章,B
+29,C02-黑色母粒,black masterbatch for trash bags,Commercial,P1,应用文章,B
+30,C02-黑色母粒,black masterbatch for extrusion,Commercial,P1,应用文章,B
+31,C02-黑色母粒,black masterbatch for HDPE,Commercial,P2,应用文章,B
+32,C02-黑色母粒,black masterbatch for LDPE film,Commercial,P1,应用文章,B
+33,C02-黑色母粒,black masterbatch carbon black content,Informational,P1,选型文章,B
+34,C02-黑色母粒,black masterbatch carrier resin,Informational,P1,选型文章,B
+35,C02-黑色母粒,black masterbatch MFI,Informational,P1,选型文章,B
+36,C02-黑色母粒,black masterbatch dispersion,Informational,P1,选型文章,B
+37,C02-黑色母粒,black masterbatch particle size,Informational,P2,选型文章,B
+38,C02-黑色母粒,custom black masterbatch,Commercial,P1,产品询盘页,B
+39,C02-黑色母粒,black masterbatch RFQ,Transactional,P0,RFQ指南页,A
+40,C02-黑色母粒,black masterbatch sample,Transactional,P1,RFQ指南页,D/G
+41,C03-白色母粒,white masterbatch supplier,Commercial,P1,产品询盘页,B/C
+42,C03-白色母粒,white masterbatch manufacturer,Commercial,P1,产品询盘页,B/C
+43,C03-白色母粒,tio2 masterbatch,Commercial,P0,产品询盘页,B
+44,C03-白色母粒,white masterbatch for film,Commercial,P0,应用文章,B
+45,C03-白色母粒,white masterbatch for film blowing,Commercial,P0,应用文章,B
+46,C03-白色母粒,white masterbatch for injection molding,Commercial,P0,应用文章,B
+47,C03-白色母粒,white masterbatch for packaging,Commercial,P0,应用文章,B
+48,C03-白色母粒,white masterbatch for plastic bags,Commercial,P1,应用文章,B
+49,C03-白色母粒,white masterbatch for extrusion,Commercial,P1,应用文章,B
+50,C03-白色母粒,white masterbatch for LDPE,Commercial,P1,应用文章,B
+51,C03-白色母粒,white masterbatch for LLDPE,Commercial,P1,应用文章,B
+52,C03-白色母粒,white masterbatch for HDPE,Commercial,P2,应用文章,B
+53,C03-白色母粒,white masterbatch whiteness,Informational,P1,选型文章,B
+54,C03-白色母粒,white masterbatch opacity,Informational,P1,选型文章,B
+55,C03-白色母粒,white masterbatch tio2 content,Informational,P1,选型文章,B
+56,C03-白色母粒,white masterbatch carrier resin,Informational,P2,选型文章,B
+57,C03-白色母粒,white masterbatch dispersion,Informational,P2,选型文章,B
+58,C03-白色母粒,custom white masterbatch,Commercial,P1,产品询盘页,B
+59,C03-白色母粒,white masterbatch RFQ,Transactional,P0,RFQ指南页,A
+60,C03-白色母粒,white masterbatch sample,Transactional,P1,RFQ指南页,D/G
+61,C04-彩色母粒,color masterbatch supplier,Commercial,P1,产品询盘页,B/D
+62,C04-彩色母粒,color masterbatch manufacturer,Commercial,P1,产品询盘页,B/D
+63,C04-彩色母粒,custom color masterbatch,Commercial,P0,产品询盘页,B
+64,C04-彩色母粒,color masterbatch for injection molding,Commercial,P0,应用文章,B
+65,C04-彩色母粒,color masterbatch for film,Commercial,P0,应用文章,B
+66,C04-彩色母粒,color masterbatch for packaging film,Commercial,P1,应用文章,B
+67,C04-彩色母粒,color masterbatch for plastic bags,Commercial,P1,应用文章,B
+68,C04-彩色母粒,color masterbatch for extrusion,Commercial,P1,应用文章,B
+69,C04-彩色母粒,color masterbatch for LDPE,Commercial,P2,应用文章,B
+70,C04-彩色母粒,color masterbatch for LLDPE,Commercial,P2,应用文章,B
+71,C04-彩色母粒,color masterbatch for PP,Commercial,P1,应用文章,B
+72,C04-彩色母粒,color matching masterbatch,Commercial,P1,采购指南页,B/C
+73,C04-彩色母粒,pantone color masterbatch,Commercial,P1,采购指南页,B/C
+74,C04-彩色母粒,RAL color masterbatch,Commercial,P1,采购指南页,B/C
+75,C04-彩色母粒,color masterbatch color difference,Informational,P1,选型文章,B
+76,C04-彩色母粒,color masterbatch delta E,Informational,P2,选型文章,B
+77,C04-彩色母粒,color masterbatch color reference,Informational,P1,采购指南页,A
+78,C04-彩色母粒,color masterbatch sample matching,Commercial,P1,采购指南页,D/G
+79,C04-彩色母粒,color masterbatch RFQ,Transactional,P0,RFQ指南页,A
+80,C04-彩色母粒,color masterbatch price,Commercial,P2,采购指南页,G
+81,C05-应用场景,masterbatch for packaging film,Commercial,P1,应用文章,B
+82,C05-应用场景,masterbatch for blown film,Commercial,P1,应用文章,B
+83,C05-应用场景,masterbatch for plastic bags,Commercial,P1,应用文章,B
+84,C05-应用场景,masterbatch for injection molding,Commercial,P1,应用文章,B
+85,C05-应用场景,masterbatch for extrusion,Commercial,P1,应用文章,B
+86,C05-应用场景,masterbatch for blow molding,Commercial,P2,应用文章,B
+87,C05-应用场景,masterbatch for recycled plastic,Commercial,P1,应用文章,B
+88,C05-应用场景,masterbatch for recycled polyethylene,Commercial,P2,应用文章,B
+89,C05-应用场景,masterbatch for PP injection molding,Commercial,P1,应用文章,B
+90,C05-应用场景,masterbatch for PE film,Commercial,P1,应用文章,B
+91,C05-应用场景,masterbatch for HDPE pipe,Commercial,HOLD,研究备用页,B/E
+92,C05-应用场景,masterbatch for agricultural film,Commercial,HOLD,研究备用页,B/E
+93,C05-应用场景,masterbatch for cable,Commercial,HOLD,研究备用页,B/E
+94,C05-应用场景,masterbatch for food packaging,Commercial,HOLD,研究备用页,C/E
+95,C05-应用场景,masterbatch for plastic sheets,Commercial,P2,应用文章,B
+96,C05-应用场景,masterbatch for thermoforming,Commercial,P2,应用文章,B
+97,C05-应用场景,masterbatch for woven bags,Commercial,P2,应用文章,B
+98,C05-应用场景,masterbatch for profiles,Commercial,P2,应用文章,B
+99,C05-应用场景,masterbatch for pipe applications,Commercial,HOLD,研究备用页,B/E
+100,C05-应用场景,masterbatch for packaging industry,Commercial,P2,应用文章,B
+101,C06-采购与询盘,masterbatch supplier,Commercial,P1,采购指南页,D
+102,C06-采购与询盘,masterbatch manufacturer,Commercial,P1,采购指南页,D
+103,C06-采购与询盘,masterbatch factory,Commercial,P1,采购指南页,D
+104,C06-采购与询盘,masterbatch wholesale,Commercial,P2,采购指南页,D/G
+105,C06-采购与询盘,masterbatch supplier in China,Commercial,P2,研究备用页,D
+106,C06-采购与询盘,China masterbatch manufacturer,Commercial,P2,研究备用页,D
+107,C06-采购与询盘,masterbatch supplier for export,Commercial,P1,采购指南页,D
+108,C06-采购与询盘,custom masterbatch manufacturer,Commercial,P1,产品询盘页,B/D
+109,C06-采购与询盘,masterbatch price,Commercial,P2,采购指南页,G
+110,C06-采购与询盘,masterbatch cost,Commercial,P2,采购指南页,G
+111,C06-采购与询盘,masterbatch price per kg,Commercial,P2,采购指南页,G
+112,C06-采购与询盘,masterbatch MOQ,Commercial,P2,采购指南页,G
+113,C06-采购与询盘,masterbatch lead time,Commercial,P2,采购指南页,G
+114,C06-采购与询盘,masterbatch sample request,Transactional,P1,RFQ指南页,D/G
+115,C06-采购与询盘,masterbatch quotation,Transactional,P0,RFQ指南页,G
+116,C06-采购与询盘,masterbatch RFQ,Transactional,P0,RFQ指南页,A
+117,C06-采购与询盘,how to choose a masterbatch supplier,Commercial,P1,采购指南页,D
+118,C06-采购与询盘,masterbatch wholesaler,Commercial,P2,采购指南页,D/G
+119,C06-采购与询盘,bulk masterbatch supplier,Commercial,P1,采购指南页,D/G
+120,C06-采购与询盘,OEM masterbatch supplier,Commercial,P1,采购指南页,D/G
+121,C07-技术文件与合规,masterbatch TDS,Commercial,P0,技术文件页,B
+122,C07-技术文件与合规,masterbatch technical data sheet,Informational,P0,技术文件页,B
+123,C07-技术文件与合规,request masterbatch TDS,Transactional,P0,技术文件页,B
+124,C07-技术文件与合规,masterbatch SDS,Commercial,P1,技术文件页,B
+125,C07-技术文件与合规,masterbatch MSDS,Commercial,P1,技术文件页,B
+126,C07-技术文件与合规,request masterbatch SDS,Transactional,P0,技术文件页,B
+127,C07-技术文件与合规,masterbatch COA,Commercial,P1,技术文件页,B
+128,C07-技术文件与合规,request masterbatch COA,Transactional,P0,技术文件页,B
+129,C07-技术文件与合规,masterbatch RoHS,Commercial,P1,技术文件页,C
+130,C07-技术文件与合规,masterbatch RoHS report,Commercial,P1,技术文件页,C
+131,C07-技术文件与合规,masterbatch FDA,Commercial,P1,技术文件页,C
+132,C07-技术文件与合规,masterbatch FDA report,Commercial,P1,技术文件页,C
+133,C07-技术文件与合规,food contact masterbatch,Commercial,HOLD,研究备用页,C/E
+134,C07-技术文件与合规,food grade masterbatch,Commercial,HOLD,研究备用页,C/E
+135,C07-技术文件与合规,masterbatch REACH,Commercial,P2,技术文件页,C/D
+136,C07-技术文件与合规,masterbatch COO,Commercial,P2,技术文件页,D
+137,C07-技术文件与合规,masterbatch compliance documents,Commercial,P1,技术文件页,C
+138,C07-技术文件与合规,TDS vs SDS vs COA,Informational,P1,技术文件页,A
+139,C07-技术文件与合规,masterbatch document request,Transactional,P0,技术文件页,A
+140,C07-技术文件与合规,masterbatch certification,Commercial,P2,技术文件页,C/D
+141,C08-质量问题,black spots in plastic film,Informational,P1,故障排查页,B
+142,C08-质量问题,carbon black spots in film,Informational,P1,故障排查页,B
+143,C08-质量问题,poor dispersion masterbatch,Informational,P1,故障排查页,B
+144,C08-质量问题,masterbatch dispersion problems,Informational,P1,故障排查页,B
+145,C08-质量问题,color streaks in plastic film,Informational,P2,故障排查页,B
+146,C08-质量问题,color variation in plastic products,Informational,P1,故障排查页,B
+147,C08-质量问题,inconsistent color masterbatch,Informational,P1,故障排查页,B
+148,C08-质量问题,white masterbatch opacity problems,Informational,P1,故障排查页,B
+149,C08-质量问题,white masterbatch whiteness problems,Informational,P1,故障排查页,B
+150,C08-质量问题,masterbatch moisture bubbles,Informational,P1,故障排查页,B
+151,C08-质量问题,screen filter blockage masterbatch,Informational,P1,故障排查页,B
+152,C08-质量问题,filter pressure rise masterbatch,Informational,P2,故障排查页,B
+153,C08-质量问题,masterbatch agglomeration,Informational,P2,故障排查页,B
+154,C08-质量问题,masterbatch feeding problems,Informational,P2,故障排查页,B
+155,C08-质量问题,masterbatch pellet size problems,Informational,P2,故障排查页,B
+156,C08-质量问题,batch to batch color variation,Informational,P1,故障排查页,B
+157,C08-质量问题,masterbatch quality control,Informational,P1,质量说明页,D
+158,C08-质量问题,masterbatch testing methods,Informational,P1,质量说明页,B
+159,C08-质量问题,masterbatch MFI testing,Informational,P2,技术文章,B
+160,C08-质量问题,masterbatch color difference testing,Informational,P2,技术文章,B
+161,C09-其他功能母粒,filler masterbatch for film,Commercial,HOLD,研究备用页,E
+162,C09-其他功能母粒,filler masterbatch for injection molding,Commercial,HOLD,研究备用页,E
+163,C09-其他功能母粒,calcium carbonate filler masterbatch,Commercial,HOLD,研究备用页,E
+164,C09-其他功能母粒,desiccant masterbatch for recycled plastic,Commercial,HOLD,研究备用页,D/E
+165,C09-其他功能母粒,defoaming masterbatch for recycled plastic,Commercial,HOLD,研究备用页,D/E
+166,C09-其他功能母粒,desiccant masterbatch for PE film,Commercial,HOLD,研究备用页,D/E
+167,C09-其他功能母粒,ppa masterbatch for film blowing,Commercial,HOLD,研究备用页,E
+168,C09-其他功能母粒,slip anti block masterbatch,Commercial,HOLD,研究备用页,E
+169,C10-市场与区域研究,masterbatch market,Informational,P2,研究备用页,F
+170,C10-市场与区域研究,masterbatch manufacturers in India,Commercial,HOLD,研究备用页,F
+171,C10-市场与区域研究,masterbatch suppliers in India,Commercial,HOLD,研究备用页,F
+172,C10-市场与区域研究,masterbatch manufacturers in Vietnam,Commercial,HOLD,研究备用页,F
+173,C10-市场与区域研究,masterbatch suppliers in Vietnam,Commercial,HOLD,研究备用页,F
+174,C10-市场与区域研究,masterbatch manufacturers in Indonesia,Commercial,HOLD,研究备用页,F
+175,C10-市场与区域研究,masterbatch suppliers in Indonesia,Commercial,HOLD,研究备用页,F
+176,C10-市场与区域研究,masterbatch distributor,Commercial,P2,采购指南页,D
+177,C11-专业术语与检测,masterbatch let-down ratio,Informational,P1,选型文章,B
+178,C11-专业术语与检测,masterbatch base resin,Informational,P1,选型文章,B
+179,C11-专业术语与检测,carrier resin compatibility,Informational,P1,选型文章,B
+180,C11-专业术语与检测,masterbatch processing temperature,Informational,P1,选型文章,B
+181,C11-专业术语与检测,masterbatch processing window,Informational,P1,选型文章,B
+182,C11-专业术语与检测,pigment vs dye in masterbatch,Informational,P1,基础文章,A
+183,C11-专业术语与检测,masterbatch colorant,Informational,P1,基础文章,A
+184,C11-专业术语与检测,masterbatch tinting strength,Informational,P2,技术文章,B
+185,C11-专业术语与检测,masterbatch colour difference,Informational,P1,技术文章,B
+186,C11-专业术语与检测,masterbatch MFR,Informational,P1,技术文章,B
+187,C11-专业术语与检测,masterbatch MVR,Informational,P2,技术文章,B
+188,C11-专业术语与检测,masterbatch moisture content,Informational,P1,技术文章,B
+189,C11-专业术语与检测,masterbatch heat resistance,Informational,P2,技术文章,B
+190,C11-专业术语与检测,masterbatch light resistance,Informational,P2,技术文章,B
+191,C11-专业术语与检测,masterbatch filtration performance,Informational,P1,技术文章,B
+192,C11-专业术语与检测,masterbatch test conditions,Informational,P1,技术文章,B
+193,C11-专业术语与检测,typical value vs specification value masterbatch,Informational,P1,技术文件页,B
+194,C11-专业术语与检测,masterbatch control sample,Informational,P1,故障排查页,B
+195,C11-专业术语与检测,screen pack blockage masterbatch,Informational,P1,故障排查页,B
+196,C11-专业术语与检测,machine trial masterbatch,Commercial,P1,采购指南页,D/G
+197,C11-专业术语与检测,masterbatch test report,Commercial,P1,技术文件页,B
+198,C11-专业术语与检测,masterbatch batch number,Informational,P2,质量说明页,B
+199,C11-专业术语与检测,masterbatch for plastics converters,Commercial,P1,应用文章,D
+200,C11-专业术语与检测,masterbatch specification change,Informational,P2,技术文件页,D
+201,C12-B端采购修饰词,black masterbatch factory,Commercial,P1,产品询盘页,B/D
+202,C12-B端采购修饰词,white masterbatch factory,Commercial,P1,产品询盘页,B/D
+203,C12-B端采购修饰词,color masterbatch factory,Commercial,P1,产品询盘页,B/D
+204,C12-B端采购修饰词,carbon black masterbatch supplier,Commercial,P1,产品询盘页,B/D
+205,C12-B端采购修饰词,custom black masterbatch supplier,Commercial,P1,产品询盘页,B/D
+206,C12-B端采购修饰词,custom white masterbatch supplier,Commercial,P1,产品询盘页,B/D
+207,C12-B端采购修饰词,custom color masterbatch supplier,Commercial,P1,产品询盘页,B/D
+208,C12-B端采购修饰词,black masterbatch wholesale,Commercial,P1,采购指南页,D/G
+209,C12-B端采购修饰词,white masterbatch wholesale,Commercial,P1,采购指南页,D/G
+210,C12-B端采购修饰词,color masterbatch wholesale,Commercial,P1,采购指南页,D/G
+211,C12-B端采购修饰词,bulk black masterbatch,Commercial,P1,采购指南页,D/G
+212,C12-B端采购修饰词,bulk white masterbatch,Commercial,P1,采购指南页,D/G
+213,C12-B端采购修饰词,bulk color masterbatch,Commercial,P1,采购指南页,D/G
+214,C12-B端采购修饰词,OEM masterbatch manufacturer,Commercial,P1,采购指南页,D/G
+215,C12-B端采购修饰词,private label masterbatch,Commercial,P2,采购指南页,D/G
+216,C12-B端采购修饰词,masterbatch contract manufacturer,Commercial,P2,采购指南页,D/G
+217,C12-B端采购修饰词,custom masterbatch supplier,Commercial,P1,产品询盘页,B/D
+218,C12-B端采购修饰词,masterbatch exporter,Commercial,P1,采购指南页,D
+219,C12-B端采购修饰词,black masterbatch exporter,Commercial,P1,采购指南页,D
+220,C12-B端采购修饰词,plastic masterbatch supplier,Commercial,P1,采购指南页,D
+221,C12-B端采购修饰词,film grade masterbatch supplier,Commercial,P1,采购指南页,B/D
+222,C12-B端采购修饰词,injection grade masterbatch supplier,Commercial,P1,产品询盘页,B/D
+223,C12-B端采购修饰词,extrusion grade masterbatch supplier,Commercial,P1,采购指南页,B/D
+224,C12-B端采购修饰词,PE masterbatch supplier,Commercial,P1,产品询盘页,B/D
+225,C12-B端采购修饰词,PP masterbatch supplier,Commercial,P1,产品询盘页,B/D
+226,C12-B端采购修饰词,China masterbatch factory,Commercial,P1,采购指南页,D
+227,C12-B端采购修饰词,masterbatch factory in China,Commercial,P1,采购指南页,D
+228,C12-B端采购修饰词,China black masterbatch manufacturer,Commercial,P1,产品询盘页,B/D
+229,C12-B端采购修饰词,China white masterbatch supplier,Commercial,P1,产品询盘页,B/D
+230,C12-B端采购修饰词,China color masterbatch factory,Commercial,P1,产品询盘页,B/D
+231,C13-别名与贸易技术词,master batch,Commercial,P1,品类支柱页,A
+232,C13-别名与贸易技术词,masterbatches,Commercial,P1,品类支柱页,A
+233,C13-别名与贸易技术词,colour masterbatch,Commercial,P1,产品询盘页,A
+234,C13-别名与贸易技术词,color concentrate,Commercial,P1,产品询盘页,B
+235,C13-别名与贸易技术词,black concentrate,Commercial,P1,产品询盘页,B
+236,C13-别名与贸易技术词,white concentrate,Commercial,P1,产品询盘页,B
+237,C13-别名与贸易技术词,carbon black concentrate,Commercial,P1,产品询盘页,B
+238,C13-别名与贸易技术词,additive concentrate,Commercial,P2,品类说明页,D
+239,C13-别名与贸易技术词,masterbatch producer,Commercial,P1,采购指南页,D
+240,C13-别名与贸易技术词,masterbatch maker,Commercial,P1,采购指南页,D
+241,C13-别名与贸易技术词,masterbatch importer,Commercial,P2,采购指南页,D
+242,C13-别名与贸易技术词,masterbatch buyer,Commercial,P2,采购指南页,D
+243,C13-别名与贸易技术词,masterbatch reseller,Commercial,P2,采购指南页,D
+244,C13-别名与贸易技术词,masterbatch trading company,Commercial,P2,采购指南页,D
+245,C13-别名与贸易技术词,masterbatch HS code,Commercial,P1,采购指南页,D
+246,C13-别名与贸易技术词,masterbatch packaging,Commercial,P1,采购指南页,D/G
+247,C13-别名与贸易技术词,masterbatch container loading,Commercial,P1,采购指南页,D/G
+248,C13-别名与贸易技术词,masterbatch sample policy,Commercial,P1,RFQ指南页,D/G
+249,C13-别名与贸易技术词,masterbatch supplier checklist,Commercial,P1,采购指南页,D
+250,C13-别名与贸易技术词,how to verify masterbatch quality,Informational,P1,采购指南页,B
+251,C13-别名与贸易技术词,carbon black dispersion in masterbatch,Informational,P1,技术文章,B
+252,C13-别名与贸易技术词,pigment loading in masterbatch,Informational,P1,技术文章,B
+253,C13-别名与贸易技术词,masterbatch density,Informational,P2,技术文章,B
+254,C13-别名与贸易技术词,masterbatch bulk density,Informational,P2,技术文章,B
+255,C13-别名与贸易技术词,masterbatch volatile content,Informational,P2,技术文章,B
+256,C13-别名与贸易技术词,masterbatch filtration test,Informational,P1,技术文章,B
+257,C13-别名与贸易技术词,masterbatch color measurement,Informational,P1,技术文章,B
+258,C13-别名与贸易技术词,spectrophotometer color matching,Commercial,P1,技术文章,B
+259,C13-别名与贸易技术词,masterbatch price per ton,Commercial,P2,采购指南页,G
+260,C13-别名与贸易技术词,masterbatch cost per kg,Commercial,P2,采购指南页,G
