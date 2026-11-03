@@ -1,7 +1,7 @@
 # 色母粒 B2B 独立站内容结构草案
 
 - 状态：内容结构草案
-- 日期：2026-11-01
+- 日期：2026-11-02
 - 公开主体：GE CHEMICAL & POLYMER GROUP CO., LTD
 - 适用范围：英文 B2B 询盘型独立站的内容规划
 - 说明：本文不是最终网站 PRD，不确定最终 URL、技术栈或开发任务。
@@ -585,6 +585,7 @@ Contact
 
 ## 16. 相关文件
 
+- [WordPress 内容实施规格](WORDPRESS_CONTENT_IMPLEMENTATION_SPEC.md)
 - [市场研究决策摘要](../Cmp_Info/MASTERBATCH_RESEARCH_DECISION_SUMMARY.md)
 - [首批页面决策](../Cmp_Info/MASTERBATCH_FIRST_BATCH_PAGE_DECISION.md)
 - [Limited PRD：黑、白、彩色母粒 RFQ 内容](../Cmp_Info/LIMITED_PRD_BLACK_WHITE_COLOR_RFQ_CONTENT_GE_ONLY_DOCUMENT_REQUEST.md)
