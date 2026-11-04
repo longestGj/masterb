@@ -1,7 +1,7 @@
 # 色母粒 B2B 独立站内容结构草案
 
 - 状态：内容结构草案
-- 日期：2026-11-02
+- 日期：2026-11-03
 - 公开主体：GE CHEMICAL & POLYMER GROUP CO., LTD
 - 适用范围：英文 B2B 询盘型独立站的内容规划
 - 说明：本文不是最终网站 PRD，不确定最终 URL、技术栈或开发任务。
@@ -110,26 +110,216 @@
 
 ### 6.1 首版建议页面
 
-| 栏目 | 中文页面名称 | 英文工作名称 | 主要内容 | 当前状态 |
-|---|---|---|---|---|
-| 首页 | 首页 | Home | 公司定位、三类产品、目标买家、服务流程和询盘入口 | 可起草 |
-| 产品与询盘 | 黑色母粒询盘指南 | Black Masterbatch RFQ Guide | 树脂、应用、黑度、分散、文件要求和 RFQ | 已有内容草稿 |
-| 产品与询盘 | 白色母粒询盘指南 | White Masterbatch RFQ Guide | 白度、遮盖力、TiO2、包装和文件要求 | 已有内容草稿 |
-| 产品与询盘 | 彩色母粒询盘指南 | Color Masterbatch RFQ Guide | 颜色参考、树脂、工艺、打样和文件要求 | 已有内容草稿 |
-| 技术文件 | 技术文件申请 | Request Technical Documents | TDS、SDS、COA 和合规文件申请 | 已有表单说明 |
-| 联系与询盘 | RFQ / 联系页面 | Request a Quote | 收集完整询盘信息 | 已有字段设计 |
-| 关于我们 | 公司与质量控制 | About / Quality | 公司信息、质量控制和服务流程 | 内容待审核 |
-| 资源中心 | 常见问题 | Masterbatch Buyer FAQ | 回应采购前常见问题 | 可整理 |
-| 法律页面 | 隐私政策 | Privacy Policy | 表单数据、Cookie 和邮件用途说明 | 待编写 |
+本节把首版页面拆成可创建、可导入、可验收的页面单元。以下路由是首版建议，最终仍须业务负责人确认后固定。
 
-首版还应发布少量基础资源文章：
+#### 6.1.1 首版页面分层
 
-1. 什么是母粒；
-2. 如何选择母粒；
-3. 母粒 RFQ 需要提供哪些信息；
-4. TDS、SDS 和 COA 有什么区别；
-5. 为什么技术文件需要按牌号审核；
-6. 母粒买家常问问题。
+首版页面分为三组：
+
+| 层级 | 目标 | 页面 |
+|---|---|---|
+| P0 转化闭环 | 让买家从了解产品进入询盘或文件申请 | 首页、Guides 索引、黑/白/彩三个指南、Request a Quote、Technical Documents、Privacy Policy |
+| P0 信任 | 解释公开主体和询盘流程，但不做未经证明的规模声明 | About / Quality |
+| P1 内容获取 | 建立基础主题集群，为指南和产品页面提供内链入口 | Resources 索引、Buyer FAQ、6 篇基础文章 |
+
+首版不单独创建 `/contact/`。`Request a Quote` 同时承担联系与 RFQ 入口，避免两个页面争同一搜索意图。若业务方坚持保留 `/contact/`，应通过 301 指向 `/request-a-quote/`。
+
+#### 6.1.2 WordPress 页面矩阵
+
+| 优先级 | 中文名称 | 英文页面名称 | 建议路由 | WordPress 类型/模板 | 主要转化 | 当前条件 |
+|---|---|---|---|---|---|---|
+| P0 | 首页 | Home | `/` | Page / `front-page` | RFQ | 公司事实和品牌信息待审核 |
+| P0 | 母粒指南索引 | Masterbatch Guides | `/masterbatch-guides/` | Page / `page` 或专用索引模板 | 进入三类产品指南 | 可起草 |
+| P0 | 黑色母粒询盘指南 | Black Masterbatch RFQ Guide | `/masterbatch-guides/black-masterbatch/` | Page / `page-product-guide` | Black RFQ + 文件审核 | 已有内容和首个导入包 |
+| P0 | 白色母粒询盘指南 | White Masterbatch RFQ Guide | `/masterbatch-guides/white-masterbatch/` | Page / `page-product-guide` | White RFQ + 文件审核 | 已有页面文案草稿 |
+| P0 | 彩色母粒询盘指南 | Color Masterbatch RFQ Guide | `/masterbatch-guides/color-masterbatch/` | Page / `page-product-guide` | Color RFQ + 文件审核 | 已有页面文案草稿 |
+| P0 | 询价与 RFQ | Request a Quote | `/request-a-quote/` | Page / `page-request-a-quote` | 提交 RFQ | 字段已定义，表单和收件人待实现 |
+| P0 | 技术文件申请 | Request Technical Documents | `/technical-documents/` | Page / `page-document-request` | 提交文件审核申请 | 字段已定义，表单和审核人待实现 |
+| P0 | 公司与质量控制 | About / Quality | `/about-quality/` | Page / `page-about-quality` | 了解主体并询盘 | 仅可用已批准公司事实 |
+| P0 | 隐私政策 | Privacy Policy | `/privacy-policy/` | Page / `page-privacy` | 满足表单和数据处理说明 | 保存方式、Cookie 和保留期限待确认 |
+| P1 | 资源中心 | Resources | `/resources/` | Page / `page-resources` | 进入知识文章 | 首批文章完成后上线 |
+| P1 | 买家常问问题 | Masterbatch Buyer FAQ | `/faq/` | Page / `page-faq` | 进入指南、RFQ 或文件申请 | 题目可整理，答案须证据审核 |
+| P1 | 什么是母粒 | What Is Masterbatch? | `/resources/what-is-masterbatch/` | Post / `single` | 进入选型指南 | 可基于已核验知识库改写 |
+| P1 | 如何选择母粒 | How to Choose the Right Masterbatch | `/resources/how-to-choose-masterbatch/` | Post / `single` | 进入三类产品指南 | 可基于已核验知识库改写 |
+| P1 | 母粒 RFQ 清单 | Masterbatch RFQ Checklist | `/resources/masterbatch-rfq-checklist/` | Post / `single` | RFQ | 表单字段仍需最终确认 |
+| P1 | TDS、SDS 与 COA 区别 | TDS vs. SDS vs. COA | `/resources/tds-vs-sds-vs-coa/` | Post / `single` | 文件申请 | 可写通用区别，不承诺具体文件 |
+| P1 | 为什么技术文件按牌号审核 | Why Technical Documents Need Grade Review | `/resources/why-technical-documents-need-grade-review/` | Post / `single` | 文件申请 | 可写流程，不扩展文件范围 |
+| P1 | 常见质量问题和核查顺序 | Common Masterbatch Quality Problems | `/resources/common-masterbatch-quality-problems/` | Post / `single` | 相关指南 + RFQ | 只写可能原因和核查步骤 |
+
+路由说明：
+
+- 当前主题注册的 `product` CPT 已占用 `/products/`，普通 Page 不得再用 `/products/black-masterbatch/` 等路径。
+- `/masterbatch-guides/` 是内容指南索引，不是 `product` CPT 归档。
+- `/technical-documents/` 是人工审核申请页，不是公开文件下载中心。
+- 已发布 URL 后续如修改，必须同步 Canonical、内链、Sitemap 并设置 301。
+
+#### 6.1.3 P0 页面大纲
+
+##### Home
+
+页面任务：让海外买家快速确认业务范围、三类母粒入口和询盘流程。
+
+首版 `front-page` 模板结构：
+
+1. Hero：说明面向塑料加工应用审核 black、white、color masterbatch 询盘。
+2. 三类母粒入口：Black、White、Color 三张产品卡片，以及产品采购信息对比表。
+3. 应用场景入口：薄膜与包装、注塑、挤出、再生塑料。
+4. 询盘审核流程：提交应用 → 描述目标 → 核对牌号和文件范围 → 邮件回复。
+5. 技术文件说明：按具体牌号、应用、国家和用途人工审核。
+6. About / Quality 摘要：只使用已批准的公司主体和询盘流程。
+7. 资源与 FAQ：基础知识、选型应用、RFQ 与技术文件三个内容方向，并回答产品范围、RFQ 准备和文件审核问题。
+8. 最终 CTA：RFQ 和技术文件申请。
+
+不得加入：未确认的产能、生产线数量、市场数量、客户名称、实验室能力或全系列认证。
+
+##### Masterbatch Guides
+
+页面任务：帮助买家判断应该进入黑色、白色还是彩色母粒指南。
+
+建议结构：
+
+1. H1：`Masterbatch Guides for Black, White and Color Requirements`。
+2. 三类买家和应用场景概览。
+3. Black / White / Color 三张指南卡片。
+4. 选择对照表：买家的主要问题、需要准备的资料、对应指南。
+5. 文件审核说明和 RFQ CTA。
+
+此页不是产品归档页，不展示虚构价格、MOQ、库存或具体牌号参数。
+
+##### 三个产品指南
+
+黑色、白色和彩色页面共用 `page-product-guide`，但保持各自不同的搜索意图、RFQ 字段和证据边界：
+
+| 页面 | 主要搜索意图 | 必须覆盖的买方输入 | 主要内链 |
+|---|---|---|---|
+| Black | 黑度、遮盖、分散、树脂、工艺、替换和文件需求 | 树脂、工艺、应用、黑度、当前问题、现用牌号、数量、目的港 | Guides、RFQ Checklist、技术文件申请 |
+| White | 白度、遮盖、TiO2、树脂、应用和文件需求 | 树脂、工艺、应用、白度/遮盖、TiO2 context、现用牌号、数量 | Guides、RFQ Checklist、技术文件申请 |
+| Color | 颜色参考、树脂、工艺、色差预期和打样沟通 | 树脂、工艺、最终制品、颜色参考类型、容差期望、现用牌号 | Guides、RFQ Checklist、技术文件申请 |
+
+三页统一保留：证据边界、文件人工审核、一个主 RFQ CTA 和一个技术文件次 CTA。
+
+##### Request a Quote
+
+页面任务：集中收集完整 RFQ，而不是重复解释三类产品。
+
+建议结构：
+
+1. H1 和简短说明。
+2. 表单前置说明：需要哪些信息、资料如何审核。
+3. 共享 `rfq_document_request` 表单，RFQ 模式。
+4. 产品兴趣通过查询参数预填：black、white 或 color。
+5. 成功状态只说明已收到并人工审核，不承诺价格、MOQ、交期或文件可用。
+
+##### Request Technical Documents
+
+页面任务：收集文件审核请求，不提供公开文件下载。
+
+建议结构：
+
+1. H1：`Request Masterbatch Technical Documents`。
+2. TDS、SDS/MSDS、COA 和合规文件的基础说明。
+3. 文件按产品、牌号、应用、国家和用途审核的原因。
+4. 文档类型和 Document Purpose 条件字段。
+5. 人工审核和邮件回复说明。
+6. 成功状态与隐私提示。
+
+##### About / Quality
+
+页面任务：建立主体和流程信任，不把内部公司资料原文直接发布。
+
+建议结构：
+
+1. 已批准的公开主体和公司定位。
+2. 主营黑色、白色和彩色母粒询盘方向。
+3. 需求核对、牌号审核、样品讨论和文件申请的流程。
+4. 经证明和授权的生产、检测、包装或出口内容；没有证明则删除。
+5. 不展示个人电话、未授权邮箱、客户品牌或未确认认证。
+
+##### Privacy Policy
+
+页面任务：说明表单和邮件处理的数据范围。
+
+最低覆盖：
+
+- 收集字段及用途；
+- 数据保存位置和访问权限；
+- 保留期限；
+- 第三方邮件、反垃圾、分析或 Cookie 工具；
+- 用户请求修改或删除信息的方式。
+
+表单上线前，隐私政策必须与真实实现一致。
+
+#### 6.1.4 P1 资源文章大纲
+
+| 文章 | 主要意图 | 建议 H2 结构 | 结束路径 |
+|---|---|---|---|
+| What Is Masterbatch? | 理解母粒定义、组成和用途 | Definition；Composition；Common Types；Why Carrier Matters；Next Step | How to Choose → Guides |
+| How to Choose the Right Masterbatch | 建立选型框架 | Confirm Resin；Define Process；Describe End Product；Set Target Requirement；Review Evidence and Sample | 三类指南 |
+| Masterbatch RFQ Checklist | 准备完整询盘 | Product and Application；Resin and Process；Target Requirement；Quantity and Destination；Documents | Request a Quote |
+| TDS vs. SDS vs. COA | 区分常用文件 | TDS；SDS/MSDS；COA；What Each File Cannot Prove；How to Request Review | Technical Documents |
+| Why Technical Documents Need Grade Review | 理解文件适用范围 | Why Product Line Is Too Broad；Grade and Test Scope；Application and Country；Manual Review | Technical Documents + relevant guide |
+| Common Masterbatch Quality Problems | 建立问题排查顺序 | Describe the Problem；Compare Control Sample；Check Batch and Process Records；Possible Causes；Next Verification | relevant guide + RFQ |
+
+资源文章规则：
+
+- 每篇只服务一个主要搜索意图；
+- 使用买方问题组织 H2/H3；
+- 不把知识库课程逐字翻译；
+- 每篇至少链接到 2 个相关内容并从一个指南或索引获得反向链接；
+- 质量文章不远程诊断唯一根因；
+- 技术文件文章不承诺文件存在或公开下载。
+
+#### 6.1.5 页面之间必须打通的链接
+
+```text
+Home
+├── Masterbatch Guides
+│   ├── Black Guide
+│   ├── White Guide
+│   └── Color Guide
+├── Resources
+│   ├── What Is Masterbatch?
+│   ├── How to Choose
+│   ├── RFQ Checklist
+│   ├── TDS vs SDS vs COA
+│   ├── Grade Review
+│   └── Quality Problems
+├── About / Quality
+├── Technical Documents
+└── Request a Quote
+```
+
+最低链接要求：
+
+- 三个指南都链接到 RFQ 和技术文件申请；
+- 三个指南互相链接，但不重复整个页面正文；
+- 资源文章按上下文链接到相关指南；
+- 指南和资源索引须至少链接回一篇资源文章；
+- Header 和 Footer 不出现尚未创建的 404 链接；
+- 所有链接使用规范 URL，带 `intent` 的参数只用于表单预填。
+
+#### 6.1.6 实施顺序与完成条件
+
+建议按以下顺序实现：
+
+1. 固定 `/masterbatch-guides/`、`/request-a-quote/`、`/technical-documents/`、`/privacy-policy/` 路由。
+2. 完成共享表单和隐私政策。
+3. 重新导入黑色指南，完成 `page-product-guide` 验收。
+4. 用同一模板创建白色和彩色指南。
+5. 创建 Guides 索引并补齐三页内部链接。
+6. 审核 About / Quality，再创建 Home。
+7. 完成 Resources 索引、FAQ 和首批文章。
+8. 检查所有页面、内链、Canonical、Sitemap、表单和移动端表现。
+
+首版内容完成的判断不是“页面已经创建”，而是：
+
+- 9 个 P0 页面均有实质内容；
+- 三类指南的证据边界和表单上下文正确；
+- 所有导航、CTA 和相关链接返回 200；
+- 表单能够提交并由人工审核；
+- 隐私政策与表单实现一致；
+- 所有页面保持单一 H1、唯一 Title 和 Description；
+- 没有非 GE 公开主体、未批准参数或全系列合规声明。
 
 ### 6.2 黑色母粒询盘指南
 

@@ -2,7 +2,9 @@
 
 ## 项目定位
 
-本仓库是色母粒（masterbatch）B2B 外贸项目的资料与内容工作区，现阶段不是已开发的网站或软件项目。
+本仓库是色母粒（masterbatch）B2B 外贸项目的资料、内容与有限 WordPress
+实施工作区。项目已进入首版首页和单个黑色母粒指南的实现阶段，但仍未完成
+完整网站 PRD、全部首版页面或完整站点上线。
 
 主要工作可能包括：
 
@@ -10,9 +12,11 @@
 - 整理公司资料、产品 TDS、合规文件和媒体素材；
 - 调研海外市场、关键词、竞争对手和客户开发方向；
 - 编写黑、白、彩色母粒的 RFQ 页面、文档申请页面和表单文案；
-- 在业务决策和证据齐备后，再开展网站开发。
+- 在业务决策和证据齐备的范围内开展 WordPress 页面、主题和导入器开发。
 
-仓库当前没有前端或后端代码、`package.json`、构建配置或自动化测试。任务明确要求开发时，先确认技术栈和范围，并按仓库根目录及全局前端测试约定补充 Playwright。
+`xuqiu/wordpress/` 当前包含 WordPress 内容包、MU Plugin、子主题、部署脚本说明、
+Playwright 测试和 PHP 语法检查工具。其他产品页、应用页、表单页、隐私政策
+和公司公开信息仍需继续建设，不能因为首页已经上线就推定整站完成。
 
 ## 开始任务前
 
@@ -52,15 +56,169 @@
 
 生产设备、包装、托盘、装柜和出口等图片与视频。用于公开网站前，应确认素材归属、人物肖像、水印和公开授权。
 
+### `img/`
+
+从 `Cmp_Info/PIC&Vedio/` 分类整理出的网站素材目录，包含 factory、product、
+packaging、export-loading、customer-visit、exhibition 和 videos。用户已确认
+`img/` 下的图片可用于网站；图片 Alt 仍必须描述实际画面，不能据此推断具体
+牌号、性能、产能或合规结论。
+
+### `xuqiu/wordpress/`
+
+当前 WordPress 实施目录：
+
+- `content/pages/home.md`：首页 Page 的可导入内容包；
+- `content/guides/black-masterbatch.md`：黑色母粒指南内容包；
+- `mu-plugins/mb-content-importer.php`：Markdown 和受控 Gutenberg 区块导入器；
+- `themes/mtm-b2b-masterbatch/`：当前启用的子主题；
+- `tests/homepage.spec.js`：首页 Playwright 测试；
+- `tests/importer-syntax.js`：无 PHP CLI 时的导入器/主题 PHP 语法检查；
+- `masterbatch-home-import.zip`：当前首页部署包。
+
 ## 当前状态
 
 - 知识库 12 课标记为在当前范围内“已核验”，日期为 2026-08-04。
 - 市场研究和页面规划文件日期主要为 2026-07-05 至 2026-07-06。
-- 黑、白、彩色母粒内容仅进入 Limited PRD 草稿阶段。
+- 首页已于 2026-11-03 部署到 `https://gzh.hzscf.site/`，Page ID 为 38，
+  标题为 `Masterbatch Products`，状态为 `publish`。
+- WordPress 当前设置为静态首页：`show_on_front=page`、
+  `page_on_front=38`、`blog_public=1`，首页 noindex 已移除。
+- 首页主关键词为 `masterbatch`，SEO 标题为
+  `Masterbatch Products for Plastic Processing | GE CHEMICAL`。
+- 子主题版本为 `0.4.2`，Header 品牌为 `GE Chemical & Polymer Group`，
+  完整公开主体名称仍保留在 Footer 和公司内容中。
+- 黑色母粒指南已导入；白色指南、彩色指南、Resources、Documents、
+  About / Quality 和 Request a Quote 页面尚未完成，当前仍为主要 404。
 - 多个文件明确标注 `Market Research Only`、`Not for PRD`、`Not for Dev` 或 `Do Not Use Yet`。
-- 尚未完成完整网站 PRD、最终路由、业务负责人审批或网站开发。
+- 尚未完成完整网站 PRD、全部页面、表单收件流程和业务负责人最终审批。
 
 除非用户明确要求推进下一阶段，不要擅自把研究草稿改成最终 PRD、开发任务或已上线事实。
+
+## 2026-11-03 首页实施记录
+
+### 页面与 SEO
+
+- 首页 8 个主内容区块：Hero、产品、应用、询盘审核流程、技术文件、
+  About / Quality、Resources、最终 CTA。
+- 产品区包含 Black、White、Color 三类产品的采购信息对比表；手机端
+  自动转换为单列产品卡片，不使用横向滚动表格。
+- Resources 区后包含 5 个可见 FAQ，并输出对应的 `FAQPage` 结构化数据。
+- 首页使用 4 张业务图片：Hero 母粒产品图，以及 About 区的厂房、
+  车间设备和包装图。图片位于子主题
+  `assets/images/`，均有描述画面的 Alt 文本。
+- 首页 HTML 只保留一个 H1；当前 H1 为
+  `Masterbatch Products for Plastic Processing`。
+- 首页 Meta Description 为：
+  `Black, white and color masterbatch products for film, packaging,
+  injection molding, extrusion and recycled plastics. Share your application
+  requirements.`
+- Header 导航按当前首版结构使用：
+  `Home / Products / Resources / Documents / About`，Contact CTA 指向
+  `/request-a-quote/`。
+
+### 内容边界
+
+- 首页目前只写黑、白、彩三类母粒方向和一般应用背景。
+- 尚未加入 `manufacturer`、产能、生产线、客户数量、实验室能力、
+  BK/PT 具体牌号、固定 MOQ、价格、交期或全系列合规承诺。
+- 技术文件仍按牌号、应用、国家和用途人工审核，通过邮件回复；
+  不提供公开文件下载。
+- `img/` 图片已经可用于网站，但照片本身不能作为产品参数、工厂产能、
+  客户背书或合规证据。
+- `example/` 是首页视觉参考；其中生产线、产能、客户市场和具体牌号等
+  内容仍需业务证据后才能使用。
+- `https://deltatecnic.com/complete-guide-to-masterbatch/` 是同行知识型
+  指南参考，不等于同行首页；可借鉴其长文结构，不直接复制其行业、
+  产品系列或公司声明。
+
+### 技术实现
+
+- 首页正文保存在 `content/pages/home.md`，由 MU Plugin 导入为
+  Page ID 38 的 Gutenberg 内容。
+- 静态首页使用
+  `themes/mtm-b2b-masterbatch/templates/front-page.html`；同名模板必须
+  放在子主题 `templates/` 下，放在主题根目录不会被 WordPress 采用。
+- `templates/page-home.html` 用于 Page 绑定和草稿预览。
+- 当前 WordPress 版本中 `core/post-content` 没有在自定义 Page 模板中
+  获得稳定的 `postId` 上下文，因此两个首页模板都通过
+  `[mb_page_content]` 短代码渲染当前 Page 正文。
+- 首页 SEO Title、Description 和 FAQ Schema 由子主题 `functions.php`
+  输出；安装 Yoast 或 Rank Math 后代码会跳过 Description/FAQ 输出，
+  避免重复。
+- 手机端产品对比表通过 `data-label` 属性转换成分组卡片；修改表格时
+  必须同步保留这些属性。
+- 首页使用图片优先加载、About 图片懒加载；部署图片前应继续压缩。
+
+### 验证命令
+
+```bash
+cd xuqiu/wordpress
+npm run test:importer-syntax
+npx playwright test
+git diff --check
+```
+
+服务器部署后还应验证：
+
+```bash
+curl -sS -o /dev/null -w '%{http_code}\n' https://gzh.hzscf.site/
+```
+
+并在真实浏览器检查桌面和移动端无横向溢出、图片全部加载、H1 只有一个。
+
+### 部署环境与 wpcli 调用
+
+- 仓库内 `xuqiu/wordpress/bin/wpcli` 是面向本地 Docker 环境的包装脚本，
+  默认容器为 `wpdev-wp-1`，默认导入目录为 `/root/wpdev/import`。
+  当前开发主机没有 Docker，因此不能直接用该脚本操作线上 WordPress。
+- 线上 WordPress 通过项目专用 SSH 部署账号访问；该账号需要具备 Docker
+  权限，并拥有单独的可写导入目录（部署时使用
+  `$HOME/wpdev/import`）。线上调用格式为：
+
+  ```bash
+  ssh "$SSH_ALIAS" \
+    'MASTERBATCH_IMPORT_DIR="$HOME/wpdev/import" wpcli core version'
+  ```
+
+- 当前开发机已将 SSH alias 配置为 `masterbatch-vm`；配置保存在仓库外的
+  `~/.ssh/config`。本次验证命令为：
+
+  ```bash
+  ssh -o BatchMode=yes masterbatch-vm \
+    'MASTERBATCH_IMPORT_DIR="$HOME/wpdev/import" wpcli core version'
+  ```
+
+  当前返回 WordPress `7.1.4`。
+- SSH 主机、用户名、端口、私钥路径和任何密码都是环境凭据，禁止写入
+  `AGENTS.md`、代码、日志或提交记录。新会话如需访问服务器，应由用户
+  在当前安全环境中提供 SSH alias 或身份文件路径。
+- 新会话只读取仓库时，可以继续编辑内容和运行本地测试，但不能假定仍拥有
+  远程写入权限。执行远程部署前，先用只读命令确认：
+
+  ```bash
+  ssh "$SSH_ALIAS" \
+    'MASTERBATCH_IMPORT_DIR="$HOME/wpdev/import" wpcli core version'
+  ```
+
+- 已发布 Page 的正文更新不要依赖 `wpcli mb-content import --update`：
+  当前导入器会拒绝覆盖 published 页面。应先校验内容包，再备份当前正文，
+  通过受控的 WP-CLI eval/更新流程写入正文并验证，或先取得明确授权将页面
+  临时改为 Draft 后执行标准导入。
+- 导入文件在宿主机与容器中的路径不同：宿主机
+  `$HOME/wpdev/import/home.md` 对应 wpcli 容器内的 `/import/home.md`。
+
+### 下一步
+
+1. 创建白色母粒、彩色母粒、Resources、Documents、About / Quality 和
+   Request a Quote 正式页面，清除导航与 CTA 的 404。
+2. 优先完成 RFQ 和技术文件申请表单，确认收件人、保存方式、隐私政策和
+   人工审核流程后再公开。
+3. 建立应用页：Film & Packaging、Injection Molding、General Extrusion、
+   Recycled PE/PP。
+4. 建立 `Masterbatch Guide` 或 `Buyer’s Guide` 长文，承接知识型搜索并
+   内链到三类产品页。
+5. 完成公司事实、产能、生产线、市场覆盖和图片授权审核后，再决定是否
+   采用 Example 或同行首页中的公司实力表达。
 
 ## 事实与证据规则
 
@@ -134,6 +292,20 @@
 - 修改页面文案时，检查 RFQ 字段、文档申请规则、证据边界和禁止声明是否仍一致。
 - 修改市场研究时，保留数据日期、国家/地区和关键词口径；搜索量、竞争度等数据只代表采集时点。
 - 除非任务明确要求，不覆盖原始 TDS、MSDS、检测报告和公司资料。
+
+## Skills
+
+- `humanizer` v3.1.0 已从 `https://github.com/blader/humanizer` 安装到
+  `~/.codex/skills/humanizer/`。新会话中可以用 `$humanizer` 显式调用。
+- 适用于英文官网页面、资源文章、FAQ、销售邮件和对外公司文案的自然化改写；
+  它用于去除明显的模板化、空泛和 AI 写作痕迹。
+- 改写时必须保留具体事实、数字、日期、产品牌号、测试条件、引用、SEO 字段、
+  CTA 目标和证据边界。不得为了“更像人写的”而删除“按具体牌号审核”
+  “文件可能不适用”“待确认”等必要限制。
+- 不用于改写原始 TDS、MSDS、检测报告、法规原文、来源索引或待确认事项；
+  这些文件优先保证技术含义和证据准确性。
+- Humanizer 的选择性规则不能覆盖本项目已有的非 GE 主体、合规文件、
+  公司事实和产品参数边界。
 
 ## 修改与验证
 

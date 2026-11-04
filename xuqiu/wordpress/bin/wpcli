@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+wp_container="${MASTERBATCH_WP_CONTAINER:-wpdev-wp-1}"
+import_dir="${MASTERBATCH_IMPORT_DIR:-/root/wpdev/import}"
+cli_image="${MASTERBATCH_WP_CLI_IMAGE:-wordpress:cli}"
+
+if ! command -v docker >/dev/null 2>&1; then
+	printf 'Error: docker command not found.\n' >&2
+	exit 1
+fi
+
+if ! docker inspect -f '{{.State.Running}}' "$wp_container" 2>/dev/null | grep -qx 'true'; then
+	printf 'Error: WordPress container %s is not running.\n' "$wp_container" >&2
+	exit 1
+fi
+
+if [ ! -d "$import_dir" ]; then
+	if ! mkdir -p "$import_dir"; then
+		printf 'Error: could not create import directory %s.\n' "$import_dir" >&2
+		exit 1
+	fi
+fi
+
+env_file="$(mktemp "${TMPDIR:-/tmp}/mb-wpcli-env.XXXXXX")"
+trap 'rm -f "$env_file"' EXIT
+chmod 600 "$env_file"
+
+docker inspect --format '{{range .Config.Env}}{{println .}}{{end}}' "$wp_container" |
+	while IFS= read -r item; do
+		case "$item" in
+			WORDPRESS_*)
+				printf '%s\n' "$item" >>"$env_file"
+				;;
+		esac
+	done
+
+docker run --rm \
+	--volumes-from "$wp_container" \
+	--network "container:$wp_container" \
+	--user 33:33 \
+	--env-file "$env_file" \
+	--volume "$import_dir:/import:ro" \
+	--entrypoint wp \
+	"$cli_image" \
+	--path=/var/www/html \
+	"$@"

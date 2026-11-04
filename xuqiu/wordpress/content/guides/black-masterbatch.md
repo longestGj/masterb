@@ -3,7 +3,7 @@ content_id: "guide.black"
 content_type: "product_guide"
 schema_version: 1
 locale: "en-US"
-route_key: "products.black"
+route_key: "guides.black"
 status: "review"
 title: "Black Masterbatch RFQ Guide"
 primary_keyword: "black masterbatch"
@@ -25,7 +25,8 @@ wp:
   object_type: "page"
   title: "Black Masterbatch RFQ Guide"
   slug: "black-masterbatch"
-  parent_slug: "products"
+  parent_slug: "masterbatch-guides"
+  parent_title: "Masterbatch Guides"
   parent_required: true
   template: "page-product-guide"
   status: "draft"
@@ -34,15 +35,15 @@ wp:
   noindex: true
 
 route:
-  path: "/products/black-masterbatch/"
-  canonical: "/products/black-masterbatch/"
+  path: "/masterbatch-guides/black-masterbatch/"
+  canonical: "/masterbatch-guides/black-masterbatch/"
   trailing_slash: true
 
 seo:
   title: "Black Masterbatch RFQ Guide | GE CHEMICAL"
   description: "Prepare a black masterbatch RFQ with resin, application, blackness target, dispersion needs, quantity and document request details for manual review."
   robots: "noindex,nofollow"
-  canonical_route_key: "products.black"
+  canonical_route_key: "guides.black"
   open_graph_image_id: null
   structured_data:
     - "WebPage"
@@ -139,21 +140,15 @@ import:
   create_status: "draft"
   body_h1_allowed: false
   publish_blockers:
-    - "Products parent page and final route not confirmed"
+    - "Masterbatch Guides parent page and final route not confirmed"
     - "RFQ and document request form pages not available"
     - "Form recipient and review workflow not confirmed"
     - "Company facts and product-grade evidence require approval"
     - "Privacy policy and image rights require approval"
 ---
 
-<!-- mb:hero-summary -->
-Prepare a clearer black masterbatch inquiry by sharing your resin, application, processing method, blackness target, dispersion requirement, current issue and document needs.
-
+<!-- mb:body-intro -->
 GE CHEMICAL & POLYMER GROUP CO., LTD reviews each inquiry by product grade, application and document scope before confirming technical data or document availability.
-
-<!-- mb:cta-group primary="cta.black.rfq" secondary="cta.black.documents" -->
-[Submit Black Masterbatch RFQ](/request-a-quote/?intent=black-masterbatch&source=black-guide) | [Request Technical Documents](/technical-documents/?intent=black-masterbatch#request-form)
-<!-- /mb:cta-group -->
 
 ## What black masterbatch buyers usually need to clarify
 
@@ -261,8 +256,8 @@ Send your black masterbatch RFQ with resin, application, processing method, blac
 
 ## Related masterbatch guides
 
-- [White masterbatch RFQ guide](/products/white-masterbatch/)
-- [Color masterbatch RFQ guide](/products/color-masterbatch/)
+- [White masterbatch RFQ guide](/masterbatch-guides/white-masterbatch/)
+- [Color masterbatch RFQ guide](/masterbatch-guides/color-masterbatch/)
 - [How to prepare a masterbatch RFQ](/resources/masterbatch-rfq-checklist/)
 
 <!--

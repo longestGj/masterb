@@ -34,7 +34,7 @@ Markdown 主源
 
 这一设计让内容团队继续维护可审阅的文本，同时让 WordPress 获得稳定的结构化字段，不依赖标题中的随机文字识别页面内容。
 
-本文可以用于确定 WordPress 内容模型和导入器契约，但不会把现状自动升级为“完整 PRD”“最终路由”或“可以公开上线”。首页、FAQ、隐私政策和部分技术内容仍未完成正式审核。
+本文可以用于确定 WordPress 内容模型和导入器契约，但不会把现状自动升级为“完整 PRD”“最终路由”或“可以公开上线”。首页已有可导入草稿包和页面模板，但公司事实、FAQ、隐私政策和部分技术内容仍未完成正式审核。
 
 ## 2. 采用的 SEO 原则
 
@@ -69,7 +69,7 @@ Markdown 主源
 | [表单文案](../Cmp_Info/FORM_COPY_RFQ_DOCUMENT_REQUEST.md) | 共享表单字段与提示 | 表单配置 | `form-rfq-document` | Form Copy Draft |
 | [表单说明](../Cmp_Info/DOCUMENT_REQUEST_FORM_BRIEF.md) | 表单业务逻辑 | 表单配置 | 无 | Form Brief Draft |
 | 色母粒知识库课程 | 英文资源文章 | Post | `single` | 需要重新改写，不能逐字导入 |
-| 首页 | `home` | Page | `front-page` | 待编写和审核 |
+| 首页 | `home` | Page | `page-home` / `front-page` | 可导入草稿，待业务审核 |
 | FAQ | `faq` | Page 或资源文章 | `page-faq` | 待整理 |
 | 隐私政策 | `privacy` | Page | `page-privacy` | 待编写 |
 
@@ -114,6 +114,7 @@ xuqiu/
 - `taxonomies.yml`：资源主题、产品线、应用场景等受控词表。
 - `cta.yml`：CTA 的名称、目标路由键、表单上下文和允许的页面来源。
 - `forms/`：字段名、选项、条件逻辑和通知信息，不存放收件邮箱或其他密钥。
+- `content/pages/home.md`：首页正文包，使用受控 Gutenberg 区块保存 8 个首版区块。
 - `content/guides/`：三个 RFQ 指南，不把研究决策文件混入正文。
 - `content/resources/`：面向搜索的英文文章，每篇对应一个主要搜索意图。
 - `redirects.csv`：已发布 URL 的迁移记录，导入 WordPress 前完成冲突校验。
@@ -153,7 +154,7 @@ privacy.policy
 | --- | --- | --- |
 | `content_id` | 稳定 ID | `guide.black` |
 | `content_type` | 内容类型 | `product_guide` |
-| `route_key` | 路由键 | `products.black` |
+| `route_key` | 路由键 | `guides.black` |
 | `locale` | 页面语言 | `en-US` |
 | `status` | 编辑和发布状态 | `review` |
 | `search_intent` | 主要搜索意图 | `commercial_investigation` |
@@ -190,7 +191,7 @@ content_id: guide.black
 content_type: product_guide
 schema_version: 1
 locale: en-US
-route_key: products.black
+route_key: guides.black
 status: review
 title: Black Masterbatch RFQ Guide
 primary_keyword: black masterbatch
@@ -202,7 +203,7 @@ seo:
   title: Black Masterbatch RFQ Guide | GE CHEMICAL
   description: Prepare a black masterbatch RFQ with resin, application, blackness target, dispersion needs, quantity and document request details for manual review.
   robots: noindex,nofollow
-  canonical_route_key: products.black
+  canonical_route_key: guides.black
 
 hero:
   eyebrow: Black Masterbatch
@@ -295,7 +296,9 @@ secondary_cta_id: cta.black.documents
 
 正文约束：
 
-- H1 只来自 `hero.title`，Markdown 正文从 H2 开始。
+- 普通指南的 H1 只来自 `hero.title`，Markdown 正文从 H2 开始。
+- 首页是唯一例外：使用 `body_format: gutenberg-blocks-v1`，正文包含且只包含一个 H1，并由 `page-home` 模板渲染 `post-content`。
+- Gutenberg 首页正文只允许 `group`、`columns`、`column`、`paragraph`、`heading`、`buttons`、`button`、`list`、`list-item` 和 `table` 区块；禁止脚本、iframe、表单标签和事件处理属性。
 - H2/H3 层级连续，不使用 H4～H6 代替版式。
 - 表格不用于堆关键词，列名必须回答真实比较问题。
 - `faq` 内容必须在页面上实际可见，不能只输出 Schema。
@@ -408,9 +411,9 @@ secondary_cta_id: cta.black.documents
 
 ```yaml
 home: /
-products.black: /products/black-masterbatch/
-products.white: /products/white-masterbatch/
-products.color: /products/color-masterbatch/
+guides.black: /masterbatch-guides/black-masterbatch/
+guides.white: /masterbatch-guides/white-masterbatch/
+guides.color: /masterbatch-guides/color-masterbatch/
 documents.request: /technical-documents/
 quote.request: /request-a-quote/
 resources.index: /resources/
@@ -655,6 +658,7 @@ TDS、SDS、COA、RoHS 和 FDA 文件不进入公开媒体库，也不放在可�
 - staging 默认导入为草稿或待审。
 - Front Matter 字段映射到明确的 post fields、post meta、taxonomy 和 SEO 插件字段。
 - 正文只转换成白名单区块，不将任意 HTML、脚本或 iframe 直接写入数据库。
+- 首页 Gutenberg 正文执行区块名称、嵌套配对、H1、危险标签和链接协议校验。
 - 媒体先从注册表匹配，缺失时保留占位并报告，不自动从外部抓取。
 - 导入日志记录内容 ID、旧状态、新状态、内容哈希、操作者和时间。
 - 不把 WordPress 自动生成的 ID 回写为内容主键。
@@ -873,6 +877,8 @@ WordPress 内容实施第一阶段完成时，应满足：
 
 ## 21. 相关文件
 
+- [WordPress 内容导入器与测试说明](wordpress/README.md)
+- [首个可导入首页：8 区块内容包](wordpress/content/pages/home.md)
 - [首个可导入内容包：黑色母粒指南](wordpress/content/guides/black-masterbatch.md)
 - [网站内容结构草案](MASTERBATCH_WEBSITE_CONTENT_STRUCTURE.md)
 - [公司公开信息整理草案](COMPANY_PUBLIC_INFORMATION_DRAFT.md)

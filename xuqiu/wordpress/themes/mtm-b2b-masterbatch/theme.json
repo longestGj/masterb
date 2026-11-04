@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"customTemplates": [
+		{
+			"name": "landing",
+			"postTypes": [
+				"page"
+			],
+			"title": "No Header or Footer (Landing Page)"
+		},
+		{
+			"name": "page-product-guide",
+			"postTypes": [
+				"page"
+			],
+			"title": "Masterbatch Product Guide"
+		},
+		{
+			"name": "page-home",
+			"postTypes": [
+				"page"
+			],
+			"title": "Masterbatch Homepage"
+		}
+	]
+}
