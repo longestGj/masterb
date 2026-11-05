@@ -133,10 +133,10 @@
 | P0 | 黑色母粒询盘指南 | Black Masterbatch RFQ Guide | `/masterbatch-guides/black-masterbatch/` | Page / `page-product-guide` | Black RFQ + 文件审核 | 已有内容和首个导入包 |
 | P0 | 白色母粒询盘指南 | White Masterbatch RFQ Guide | `/masterbatch-guides/white-masterbatch/` | Page / `page-product-guide` | White RFQ + 文件审核 | 已有页面文案草稿 |
 | P0 | 彩色母粒询盘指南 | Color Masterbatch RFQ Guide | `/masterbatch-guides/color-masterbatch/` | Page / `page-product-guide` | Color RFQ + 文件审核 | 已有页面文案草稿 |
-| P0 | 询价与 RFQ | Request a Quote | `/request-a-quote/` | Page / `page-request-a-quote` | 提交 RFQ | 字段已定义，表单和收件人待实现 |
+| P0 | 询价与 RFQ | Request a Quote | `/request-a-quote/` | Page / `page-request-a-quote` | 提交 RFQ | 页面已发布；表单已启用私有存储，邮件投递待配置 |
 | P0 | 技术文件申请 | Request Technical Documents | `/technical-documents/` | Page / `page-document-request` | 提交文件审核申请 | 字段已定义，表单和审核人待实现 |
 | P0 | 公司与质量控制 | About / Quality | `/about-quality/` | Page / `page-about-quality` | 了解主体并询盘 | 仅可用已批准公司事实 |
-| P0 | 隐私政策 | Privacy Policy | `/privacy-policy/` | Page / `page-privacy` | 满足表单和数据处理说明 | 保存方式、Cookie 和保留期限待确认 |
+| P0 | 隐私政策 | Privacy Policy | `/privacy-policy/` | Page / `page-privacy` | 满足表单和数据处理说明 | 页面已发布并说明私有存储与条件式邮件通知；需业务和法务复核 |
 | P1 | 资源中心 | Resources | `/resources/` | Page / `page-resources` | 进入知识文章 | 首批文章完成后上线 |
 | P1 | 买家常问问题 | Masterbatch Buyer FAQ | `/faq/` | Page / `page-faq` | 进入指南、RFQ 或文件申请 | 题目可整理，答案须证据审核 |
 | P1 | 什么是母粒 | What Is Masterbatch? | `/resources/what-is-masterbatch/` | Post / `single` | 进入选型指南 | 可基于已核验知识库改写 |
@@ -162,11 +162,11 @@
 首版 `front-page` 模板结构：
 
 1. Hero：说明面向塑料加工应用审核 black、white、color masterbatch 询盘。
-2. 三类母粒入口：Black、White、Color 三张产品卡片，以及产品采购信息对比表。
+2. 三类母粒入口：Black、White、Color 三张产品卡片，每张卡片说明买方需要准备的信息。
 3. 应用场景入口：薄膜与包装、注塑、挤出、再生塑料。
 4. 询盘审核流程：提交应用 → 描述目标 → 核对牌号和文件范围 → 邮件回复。
 5. 技术文件说明：按具体牌号、应用、国家和用途人工审核。
-6. About / Quality 摘要：只使用已批准的公司主体和询盘流程。
+6. About 摘要：使用已批准的 masterbatch supplier 定位、产品范围和三张素材库图片。
 7. 资源与 FAQ：基础知识、选型应用、RFQ 与技术文件三个内容方向，并回答产品范围、RFQ 准备和文件审核问题。
 8. 最终 CTA：RFQ 和技术文件申请。
 

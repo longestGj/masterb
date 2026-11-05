@@ -10,8 +10,18 @@ const themeFunctionsPath = path.resolve(
   __dirname,
   "../themes/mtm-b2b-masterbatch/functions.php",
 );
+const rfqPluginPath = path.resolve(
+  __dirname,
+  "../mu-plugins/mb-rfq-submissions.php",
+);
+const rfqRuntimeSmokePath = path.resolve(__dirname, "rfq-runtime-smoke.php");
 
-for (const phpPath of [importerPath, themeFunctionsPath]) {
+for (const phpPath of [
+  importerPath,
+  themeFunctionsPath,
+  rfqPluginPath,
+  rfqRuntimeSmokePath,
+]) {
   const source = fs.readFileSync(phpPath, "utf8");
   const parser = new PhpParser({
     parser: {

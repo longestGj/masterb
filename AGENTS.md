@@ -79,18 +79,23 @@ packaging、export-loading、customer-visit、exhibition 和 videos。用户已�
 
 - 知识库 12 课标记为在当前范围内“已核验”，日期为 2026-08-04。
 - 市场研究和页面规划文件日期主要为 2026-07-05 至 2026-07-06。
-- 首页已于 2026-11-03 部署到 `https://gzh.hzscf.site/`，Page ID 为 38，
+- 首页已于 2026-11-03 部署到 `https://gzh.hzscf.site/`，当前 Page ID 为 53，
   标题为 `Masterbatch Products`，状态为 `publish`。
 - WordPress 当前设置为静态首页：`show_on_front=page`、
-  `page_on_front=38`、`blog_public=1`，首页 noindex 已移除。
+  `page_on_front=53`、`blog_public=1`，首页 noindex 已移除。
 - 首页主关键词为 `masterbatch`，SEO 标题为
   `Masterbatch Products for Plastic Processing | GE CHEMICAL`。
-- 子主题版本为 `0.4.2`，Header 品牌为 `GE Chemical & Polymer Group`，
+- 子主题版本为 `0.6.0`，Header 品牌为 `GE Chemical & Polymer Group`，
   完整公开主体名称仍保留在 Footer 和公司内容中。
-- 黑色母粒指南已导入；白色指南、彩色指南、Resources、Documents、
-  About / Quality 和 Request a Quote 页面尚未完成，当前仍为主要 404。
+- 黑色母粒指南、About / Quality、Request a Quote 和 Privacy Policy
+  已发布；Masterbatch Guides 与 Buyer FAQ 仍为 Draft。
+- 白色指南、彩色指南、Resources 和 Technical Documents 尚未完成，
+  当前仍为主要 404。
+- 黑色母粒页 ID 31 仍挂在已删除的 Guides 父页 ID 30 下，访问
+  `/masterbatch-guides/black-masterbatch/` 会跳到带
+  `masterbatch-guides__trashed-2` 的路径；新的 Guides 草稿是 ID 59。
 - 多个文件明确标注 `Market Research Only`、`Not for PRD`、`Not for Dev` 或 `Do Not Use Yet`。
-- 尚未完成完整网站 PRD、全部页面、表单收件流程和业务负责人最终审批。
+- 尚未完成完整网站 PRD、全部页面、邮件投递配置和业务负责人最终审批。
 
 除非用户明确要求推进下一阶段，不要擅自把研究草稿改成最终 PRD、开发任务或已上线事实。
 
@@ -99,13 +104,13 @@ packaging、export-loading、customer-visit、exhibition 和 videos。用户已�
 ### 页面与 SEO
 
 - 首页 8 个主内容区块：Hero、产品、应用、询盘审核流程、技术文件、
-  About / Quality、Resources、最终 CTA。
-- 产品区包含 Black、White、Color 三类产品的采购信息对比表；手机端
-  自动转换为单列产品卡片，不使用横向滚动表格。
+  About、Resources 与 FAQ、最终 CTA。
+- 产品区使用 Black、White、Color 三张产品入口卡；原先重复的采购信息
+  对比表已移除，避免同一信息在首页出现两次。
 - Resources 区后包含 5 个可见 FAQ，并输出对应的 `FAQPage` 结构化数据。
-- 首页使用 4 张业务图片：Hero 母粒产品图，以及 About 区的厂房、
-  车间设备和包装图。图片位于子主题
-  `assets/images/`，均有描述画面的 Alt 文本。
+- 首页 Hero 使用厂房主图和母粒产品内嵌图；About 区使用车间设备、
+  包装和整托出货三张图。图片位于子主题 `assets/images/`，均有描述画面
+  的 Alt 文本。
 - 首页 HTML 只保留一个 H1；当前 H1 为
   `Masterbatch Products for Plastic Processing`。
 - 首页 Meta Description 为：
@@ -119,7 +124,9 @@ packaging、export-loading、customer-visit、exhibition 和 videos。用户已�
 ### 内容边界
 
 - 首页目前只写黑、白、彩三类母粒方向和一般应用背景。
-- 尚未加入 `manufacturer`、产能、生产线、客户数量、实验室能力、
+- 用户已于 2026-11-05 确认可以使用 `masterbatch supplier` 定位。
+  首页 About 区可以使用该定位，但仍不扩展为 `manufacturer`、产能、
+  生产线、客户数量、实验室能力、
   BK/PT 具体牌号、固定 MOQ、价格、交期或全系列合规承诺。
 - 技术文件仍按牌号、应用、国家和用途人工审核，通过邮件回复；
   不提供公开文件下载。
@@ -134,7 +141,7 @@ packaging、export-loading、customer-visit、exhibition 和 videos。用户已�
 ### 技术实现
 
 - 首页正文保存在 `content/pages/home.md`，由 MU Plugin 导入为
-  Page ID 38 的 Gutenberg 内容。
+  Page ID 53 的 Gutenberg 内容。
 - 静态首页使用
   `themes/mtm-b2b-masterbatch/templates/front-page.html`；同名模板必须
   放在子主题 `templates/` 下，放在主题根目录不会被 WordPress 采用。
@@ -207,17 +214,47 @@ curl -sS -o /dev/null -w '%{http_code}\n' https://gzh.hzscf.site/
 - 导入文件在宿主机与容器中的路径不同：宿主机
   `$HOME/wpdev/import/home.md` 对应 wpcli 容器内的 `/import/home.md`。
 
+### 2026-11-05 内容同步、隐私页与 RFQ 提交
+
+- 线上 Page 53 的正文已同步回 `content/pages/home.md`，同时保留本地
+  Front Matter。以后编辑首页前先确认线上与 Markdown 主源没有再次分叉。
+- 首页主题文件和新增模板也已从线上同步回本地，避免部署旧主题覆盖线上。
+- 新增 `content/pages/privacy-policy.md` 与
+  `templates/page-privacy.html`，Privacy Policy 页面 ID 为 69。
+  WordPress `wp_page_for_privacy_policy` 已指向 69。
+- 当前 RFQ 表单由 `[mb_rfq_form]` 输出，并由
+  `mu-plugins/mb-rfq-submissions.php` 接受到 `admin-post.php`。
+- 提交处理包含 nonce、蜜罐、服务端必填、邮箱和产品校验、30 秒邮箱与
+  IP 限流；成功后保存为私有 `mb_inquiry` 记录，后台菜单为 `Inquiries`。
+- 处理成功后会尝试通过 `wp_mail` 通知
+  `MASTERBATCH_RFQ_RECIPIENT`，未设置时回退 WordPress `admin_email`。
+  邮件失败不会丢失询盘，记录会保存 `_mb_rfq_email_sent=0`。
+- 当前 WordPress 容器没有可执行的 `/usr/sbin/sendmail`，也没有启用 SMTP
+  插件，因此不能把邮件通知视为已投递。真实询盘仍可在后台 `Inquiries`
+  查看；生产邮件投递必须另行配置并确认。
+- Privacy Policy 已说明私有记录和条件式邮件通知，不再写 UI-only 状态；
+  页面仍需业务和法务最终审核。
+- `tests/rfq-runtime-smoke.php` 会拦截邮件、验证私有记录并删除测试记录；
+  `tests/rfq-live.spec.js` 在提供 `MB_LIVE_BASE_URL` 时检查线上桌面和
+  手机表单，不提交表单。
+- 2026-11-05 已用真实页面 nonce 向线上 `admin-post.php` 提交两次隔离测试：
+  服务端返回 302 到带 `rfq_status=success#request-form` 的表单页，记录为
+  private 且 `_mb_rfq_email_sent=0`；两条测试记录均已删除。
+- Footer 与 Quote 页面已增加 Privacy Policy 链接。
+
 ### 下一步
 
-1. 创建白色母粒、彩色母粒、Resources、Documents、About / Quality 和
-   Request a Quote 正式页面，清除导航与 CTA 的 404。
-2. 优先完成 RFQ 和技术文件申请表单，确认收件人、保存方式、隐私政策和
-   人工审核流程后再公开。
-3. 建立应用页：Film & Packaging、Injection Molding、General Extrusion、
+1. 修复黑色母粒页 ID 31 的 trashed 父页关系，完成并发布 ID 59 的
+   Masterbatch Guides 索引。
+2. 创建白色母粒、彩色母粒、Resources 和 Technical Documents 正式页面，
+   清除导航与 CTA 的 404。
+3. 配置并验证生产邮件投递（SMTP 或事务邮件服务），确认 RFQ 收件人、
+   回复负责人和数据保留期限；技术文件申请页可复用当前表单处理器。
+4. 建立应用页：Film & Packaging、Injection Molding、General Extrusion、
    Recycled PE/PP。
-4. 建立 `Masterbatch Guide` 或 `Buyer’s Guide` 长文，承接知识型搜索并
+5. 建立 `Masterbatch Guide` 或 `Buyer’s Guide` 长文，承接知识型搜索并
    内链到三类产品页。
-5. 完成公司事实、产能、生产线、市场覆盖和图片授权审核后，再决定是否
+6. 完成公司事实、产能、生产线、市场覆盖和图片授权审核后，再决定是否
    采用 Example 或同行首页中的公司实力表达。
 
 ## 事实与证据规则

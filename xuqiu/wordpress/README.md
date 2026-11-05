@@ -1,8 +1,8 @@
 # WordPress 内容导入器
 
 - 状态：测试版
-- 日期：2026-11-03
-- 适用范围：staging 中导入 `black-masterbatch.md` 的第一份草稿
+- 日期：2026-11-05
+- 适用范围：导入黑色母粒、首页和 Privacy Policy 内容包，并接收私有 RFQ 记录
 
 ## 文件
 
@@ -13,15 +13,21 @@ wordpress/
 ├── themes/
 │   └── mtm-b2b-masterbatch/
 ├── mu-plugins/
-│   └── mb-content-importer.php
+│   ├── mb-content-importer.php
+│   └── mb-rfq-submissions.php
 ├── content/
 │   ├── pages/
-│   │   └── home.md
+│   │   ├── home.md
+│   │   └── privacy-policy.md
 │   └── guides/
 │       └── black-masterbatch.md
 └── tests/
-    ├── test-importer.php
-    └── homepage.spec.js
+    ├── homepage.spec.js
+    ├── importer-syntax.js
+    ├── playwright_page_audit.py
+    ├── rfq-live.spec.js
+    ├── rfq-runtime-smoke.php
+    └── test-importer.php
 ```
 
 ## 本地检查
@@ -33,6 +39,9 @@ cd xuqiu/wordpress
 npm install
 npm run test:importer-syntax
 npx playwright test
+
+MB_LIVE_BASE_URL=https://gzh.hzscf.site \
+  npx playwright test tests/rfq-live.spec.js
 ```
 
 首页测试使用项目本地 Playwright Chromium，直接渲染子主题的
@@ -69,7 +78,8 @@ wpcli plugin list
 
 ## 安装 MU Plugin
 
-先把 `mb-content-importer.php` 上传到服务器 `/root/wpdev/`。导入器必须放到 WordPress 持久化的 `wp-content/mu-plugins/`。
+先把 `mb-content-importer.php` 和 `mb-rfq-submissions.php` 上传到服务器部署账号的
+可写目录。两个 MU Plugin 必须放到 WordPress 持久化的 `wp-content/mu-plugins/`。
 
 ```bash
 docker exec -u 0 wpdev-wp-1 \
@@ -77,12 +87,18 @@ docker exec -u 0 wpdev-wp-1 \
 
 docker cp /root/wpdev/mb-content-importer.php \
   wpdev-wp-1:/var/www/html/wp-content/mu-plugins/mb-content-importer.php
+docker cp /root/wpdev/mb-rfq-submissions.php \
+  wpdev-wp-1:/var/www/html/wp-content/mu-plugins/mb-rfq-submissions.php
 
 docker exec -u 0 wpdev-wp-1 \
-  chown 33:33 /var/www/html/wp-content/mu-plugins/mb-content-importer.php
+  chown 33:33 \
+  /var/www/html/wp-content/mu-plugins/mb-content-importer.php \
+  /var/www/html/wp-content/mu-plugins/mb-rfq-submissions.php
 
 docker exec wpdev-wp-1 \
   php -l /var/www/html/wp-content/mu-plugins/mb-content-importer.php
+docker exec wpdev-wp-1 \
+  php -l /var/www/html/wp-content/mu-plugins/mb-rfq-submissions.php
 
 wpcli help mb-content
 ```
@@ -118,11 +134,66 @@ wpcli mb-content import /import/home.md
 
 导入结果为 Draft Page：
 
-- Title：`Masterbatch Inquiries`
+- Title：`Masterbatch Products`
 - Slug：`home`
 - Template：`page-home`
 - Body format：`gutenberg-blocks-v1`
 - Noindex：开启
+
+## Privacy Policy 导入
+
+`privacy-policy.md` 使用普通 Markdown 正文和 `page-privacy` 模板：
+
+```bash
+wpcli mb-content import /import/privacy-policy.md --dry-run
+wpcli mb-content import /import/privacy-policy.md
+```
+
+导入后检查页面 ID、模板和正文，再发布并设置：
+
+```bash
+wpcli option update wp_page_for_privacy_policy <PAGE_ID>
+```
+
+隐私政策与当前实现一致：表单会保存私有 WordPress 询盘记录，并在邮件
+投递可用时通知内部团队。
+
+## RFQ 提交
+
+`[mb_rfq_form]` 输出表单，`mb-rfq-submissions.php` 处理
+`admin-post.php` 的 POST 请求。当前实现包含：
+
+- nonce、蜜罐、必填、邮箱和产品选项校验；
+- 相同邮箱与 IP 的 30 秒限流；
+- 私有 `mb_inquiry` 记录和后台 `Inquiries` 菜单；
+- 邮件通知尝试与 `_mb_rfq_email_sent` 状态；
+- 安全重定向到表单的 `#request-form` 成功或错误提示。
+
+运行时不发送真实邮件的集成测试：
+
+```bash
+scp tests/rfq-runtime-smoke.php \
+  "$SSH_ALIAS:$HOME/wpdev/import/rfq-runtime-smoke.php"
+
+ssh "$SSH_ALIAS" \
+  'MASTERBATCH_IMPORT_DIR="$HOME/wpdev/import" \
+  wpcli eval-file /import/rfq-runtime-smoke.php'
+```
+
+测试会拦截 `wp_mail`，创建一条测试询盘，检查其为 private 且字段保存正确，
+然后删除该记录。不要在实际生产收件箱未确认时改成发送真实邮件。
+
+线上不提交表单的桌面和手机检查：
+
+```bash
+MB_LIVE_BASE_URL=https://gzh.hzscf.site \
+  npx playwright test tests/rfq-live.spec.js
+```
+
+邮件收件人优先读取 `MASTERBATCH_RFQ_RECIPIENT`，未设置时回退
+WordPress `admin_email`。当前容器没有可执行的 `sendmail`，也没有启用
+SMTP 插件；因此后台私有记录可用，但邮件投递仍需配置 SMTP 或事务邮件
+服务后验证。
 
 导入后先在 WordPress Preview 中检查完整的 8 个区块。**导入器不会自动把
 草稿设为静态首页**，避免未审核草稿导致站点首页不可访问。完成公司事实、
@@ -199,6 +270,7 @@ wpcli post meta list <PAGE_ID> --format=table
 - 普通指南支持受限 Markdown；首页支持受控 Gutenberg 区块格式。
 - 支持本项目使用的 YAML 子集、H2/H3、段落、列表、表格、粗体和站内/HTTPS 链接。
 - 不自动安装 SEO 或表单插件。
+- 不自动配置 SMTP 或验证外部邮件投递。
 - 不自动发布页面。
 - 不自动修改 WordPress 的静态首页设置。
 - 不处理技术文件上传或公开下载。

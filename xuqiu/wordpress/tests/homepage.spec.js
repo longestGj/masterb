@@ -211,25 +211,25 @@ test("renders the eight homepage sections and conversion paths", async ({
   }
 
   await expect(
-    page.locator('a[href="/masterbatch-guides/black-masterbatch/"]'),
+    page.locator('a[href="/masterbatch-guides/black-masterbatch/"]').first(),
   ).toBeVisible();
   await expect(
-    page.locator('a[href="/masterbatch-guides/white-masterbatch/"]'),
+    page.locator('a[href="/masterbatch-guides/white-masterbatch/"]').first(),
   ).toBeVisible();
   await expect(
-    page.locator('a[href="/masterbatch-guides/color-masterbatch/"]'),
+    page.locator('a[href="/masterbatch-guides/color-masterbatch/"]').first(),
   ).toBeVisible();
   await expect(page.locator(".mtm-home-hero-photo img")).toHaveCount(1);
   await expect(page.locator(".mtm-home-about-gallery img")).toHaveCount(3);
-  await expect(page.locator(".mtm-home-product-table")).toHaveCount(1);
+  await expect(page.locator(".mtm-home-product-table")).toHaveCount(0);
+  await expect(
+    page.getByText(/is a masterbatch supplier/i),
+  ).toBeVisible();
+  await expect(
+    page.locator('footer a[href="/privacy-policy/"]'),
+  ).toHaveCount(1);
   await expect(page.locator(".mtm-home-faq__item")).toHaveCount(5);
   await expect(page.locator(".mtm-home-faq h3")).toHaveCount(5);
-  expect(
-    await page
-      .locator(".mtm-home-product-table tr")
-      .first()
-      .evaluate((element) => getComputedStyle(element).display),
-  ).toBe(testInfo.project.name === "mobile" ? "block" : "table-row");
   for (const image of await page.locator("main img").all()) {
     await expect(image).toHaveAttribute("alt", /\S+/);
   }
@@ -313,5 +313,42 @@ test("ships a WordPress-importable homepage package", async ({ page }) => {
     const template = readThemeFile(templateName);
     expect(template).toContain("[mb_page_content]");
     expect(template).not.toContain('id="hero"');
+  }
+});
+
+test("ships an implementation-aligned privacy policy package", async () => {
+  const source = readWordPressFile("content/pages/privacy-policy.md");
+  const privacy = parseContentPackage(source);
+
+  expect(privacy.frontMatter).toContain('content_id: "privacy.policy"');
+  expect(privacy.frontMatter).toContain('slug: "privacy-policy"');
+  expect(privacy.body).toContain("## How the inquiry form works");
+  expect(privacy.body).toContain("private WordPress inquiry record");
+  expect(privacy.body).not.toMatch(/^#\s+/m);
+});
+
+test("wires the RFQ form for secure server-side submission", async () => {
+  const themeFunctions = readThemeFile("functions.php");
+  const rfqPlugin = readWordPressFile("mu-plugins/mb-rfq-submissions.php");
+
+  for (const token of [
+    "admin-post.php",
+    "mb_submit_rfq",
+    "mb_rfq_nonce",
+    "website_url",
+    "privacy_consent",
+    "intent_map",
+  ]) {
+    expect(themeFunctions).toContain(token);
+  }
+
+  for (const token of [
+    "admin_post_nopriv_mb_submit_rfq",
+    "wp_verify_nonce",
+    "register_post_type",
+    "_mb_rfq_email_sent",
+    "wp_safe_redirect",
+  ]) {
+    expect(rfqPlugin).toContain(token);
   }
 });

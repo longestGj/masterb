@@ -187,3 +187,175 @@ add_action(
 	},
 	3
 );
+
+/**
+ * Render a product-family-aware media band on the shared guide template.
+ *
+ * The importer stores each guide's product family in the _mb_product_family
+ * meta. This shortcode picks a matching granule photo and pairs it with the
+ * shared packaging and pallet photos, so the black, white and color guides
+ * each show relevant imagery while still using one template.
+ *
+ * @return string
+ */
+add_shortcode(
+	'mb_guide_media',
+	static function () {
+		$post_id = get_the_ID();
+		if ( ! $post_id ) {
+			$post_id = get_queried_object_id();
+		}
+		if ( ! $post_id ) {
+			return '';
+		}
+
+		$family = strtolower( trim( (string) get_post_meta( $post_id, '_mb_product_family', true ) ) );
+
+		$base = trailingslashit( get_stylesheet_directory_uri() ) . 'assets/images/';
+
+		$granule_map = array(
+			'black' => array( 'guide-black-granules.jpg', 'Black masterbatch granules' ),
+			'white' => array( 'guide-white-granules.jpg', 'White masterbatch granules' ),
+			'color' => array( 'guide-color-granules.jpg', 'Masterbatch granules' ),
+		);
+		$granule = isset( $granule_map[ $family ] ) ? $granule_map[ $family ] : $granule_map['color'];
+
+		$items = array(
+			array( $granule[0], $granule[1], $granule[1] ),
+			array( 'home-masterbatch-packaging.jpg', 'Stacked bags of white and black masterbatch on a pallet', 'Bagged masterbatch on a pallet' ),
+			array( 'masterbatch-palletized-shipment.jpg', 'Palletized masterbatch bags wrapped in stretch film, ready for shipment', 'Wrapped pallets ready for shipment' ),
+		);
+
+		$html = '<div class="mtm-guide-media">';
+		foreach ( $items as $item ) {
+			$html .= '<figure class="mtm-guide-media__item">'
+				. '<img src="' . esc_url( $base . $item[0] ) . '" alt="' . esc_attr( $item[1] ) . '"'
+				. ' loading="lazy" decoding="async" />'
+				. '<figcaption>' . esc_html( $item[2] ) . '</figcaption>'
+				. '</figure>';
+		}
+		$html .= '</div>';
+
+		return $html;
+	}
+);
+
+/**
+ * Render the shared RFQ intake form.
+ *
+ * Submission is handled by the mb-rfq-submissions MU Plugin.
+ *
+ * @param array<string,string> $atts Shortcode attributes.
+ * @return string
+ */
+add_shortcode(
+	'mb_rfq_form',
+	static function ( $atts = array() ) {
+		$atts = shortcode_atts(
+			array(
+				'context' => 'rfq',
+			),
+			$atts,
+			'mb_rfq_form'
+		);
+
+		$context      = sanitize_key( $atts['context'] );
+		$status       = isset( $_GET['rfq_status'] )
+			? sanitize_key( wp_unslash( $_GET['rfq_status'] ) )
+			: '';
+		$intent       = isset( $_GET['intent'] )
+			? sanitize_key( wp_unslash( $_GET['intent'] ) )
+			: '';
+		$intent_map   = array(
+			'black'              => 'Black masterbatch',
+			'black-masterbatch'  => 'Black masterbatch',
+			'white'              => 'White masterbatch',
+			'white-masterbatch'  => 'White masterbatch',
+			'color'              => 'Color masterbatch',
+			'color-masterbatch'  => 'Color masterbatch',
+		);
+		$product_interest = $intent_map[ $intent ] ?? 'Not sure';
+		$source_page      = get_permalink() ?: home_url( '/request-a-quote/' );
+		$fields = array(
+			array( 'name' => 'full_name', 'label' => 'Full name', 'type' => 'text', 'required' => true, 'autocomplete' => 'name' ),
+			array( 'name' => 'company', 'label' => 'Company', 'type' => 'text', 'required' => true, 'autocomplete' => 'organization' ),
+			array( 'name' => 'email', 'label' => 'Email', 'type' => 'email', 'required' => true, 'autocomplete' => 'email' ),
+			array( 'name' => 'country', 'label' => 'Country / region', 'type' => 'text', 'required' => true, 'autocomplete' => 'country-name' ),
+			array( 'name' => 'product_interest', 'label' => 'Product interest', 'type' => 'select', 'required' => true, 'options' => array( 'Black masterbatch', 'White masterbatch', 'Color masterbatch', 'Not sure' ) ),
+			array( 'name' => 'application', 'label' => 'Application (how it will be used)', 'type' => 'text', 'required' => true, 'full' => true ),
+			array( 'name' => 'base_resin', 'label' => 'Base resin', 'type' => 'select', 'options' => array( 'Not sure', 'PE', 'PP', 'LDPE', 'LLDPE', 'HDPE', 'ABS', 'PET', 'PVC', 'Other' ) ),
+			array( 'name' => 'processing_method', 'label' => 'Processing method', 'type' => 'select', 'options' => array( 'Not sure', 'Film blowing', 'Injection molding', 'Extrusion', 'Re-granulating', 'Other' ) ),
+			array( 'name' => 'target_color_function', 'label' => 'Target color or function', 'type' => 'text' ),
+			array( 'name' => 'color_reference_type', 'label' => 'Color reference type', 'type' => 'select', 'options' => array( 'Not sure', 'Physical sample', 'Pantone', 'RAL', 'Photo', 'Existing product', 'Previous grade', 'Customer standard' ) ),
+			array( 'name' => 'product_grade', 'label' => 'Product grade or model (if known)', 'type' => 'text' ),
+			array( 'name' => 'quantity', 'label' => 'Quantity (trial and estimated monthly)', 'type' => 'text' ),
+			array( 'name' => 'destination_port', 'label' => 'Destination port (optional)', 'type' => 'text' ),
+			array( 'name' => 'documents_requested', 'label' => 'Documents requested (optional)', 'type' => 'text' ),
+			array( 'name' => 'message', 'label' => 'Message / details', 'type' => 'textarea', 'full' => true ),
+		);
+
+		$html = '';
+		if ( 'success' === $status ) {
+			$html .= '<div class="mtm-rfq-form__notice mtm-rfq-form__notice--success" role="status">'
+				. '<p>Your request has been received. Our team will review the product grade, application and document scope, then reply by email.</p>'
+				. '</div>';
+		} elseif ( 'error' === $status ) {
+			$html .= '<div class="mtm-rfq-form__notice mtm-rfq-form__notice--error" role="alert">'
+				. '<p>We could not submit your request. Check the required fields and try again.</p>'
+				. '</div>';
+		}
+
+		$html .= '<form class="mtm-rfq-form" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '" method="post">';
+		$html .= '<input type="hidden" name="action" value="mb_submit_rfq" />';
+		$html .= '<input type="hidden" name="form_context" value="' . esc_attr( $context ) . '" />';
+		$html .= '<input type="hidden" name="source_page" value="' . esc_url( $source_page ) . '" />';
+		$html .= wp_nonce_field( 'mb_submit_rfq', 'mb_rfq_nonce', true, false );
+		$html .= '<div class="mtm-rfq-form__honeypot" aria-hidden="true">'
+			. '<label for="mb-rfq-website-url">Leave this field empty</label>'
+			. '<input type="text" id="mb-rfq-website-url" name="website_url" value="" tabindex="-1" autocomplete="off" />'
+			. '</div>';
+		$html .= '<div class="mtm-rfq-form__grid">';
+
+		foreach ( $fields as $field ) {
+			$name = $field['name'];
+			$id   = 'mb-rfq-' . $name;
+			$full = ! empty( $field['full'] ) ? ' mtm-rfq-form__field--full' : '';
+			$star = ! empty( $field['required'] ) ? ' <span class="mtm-rfq-form__req" aria-hidden="true">*</span>' : '';
+			$req  = ! empty( $field['required'] ) ? ' required' : '';
+
+			$html .= '<div class="mtm-rfq-form__field' . $full . '">';
+			$html .= '<label for="' . esc_attr( $id ) . '">' . esc_html( $field['label'] ) . $star . '</label>';
+
+			if ( 'select' === $field['type'] ) {
+				$html .= '<select id="' . esc_attr( $id ) . '" name="' . esc_attr( $name ) . '"' . $req . '>';
+				$html .= '<option value="">Please choose</option>';
+				foreach ( $field['options'] as $option ) {
+					$selected = 'product_interest' === $name && $product_interest === $option
+						? ' selected'
+						: '';
+					$html .= '<option value="' . esc_attr( $option ) . '"' . $selected . '>' . esc_html( $option ) . '</option>';
+				}
+				$html .= '</select>';
+			} elseif ( 'textarea' === $field['type'] ) {
+				$html .= '<textarea id="' . esc_attr( $id ) . '" name="' . esc_attr( $name ) . '" rows="5"' . $req . '></textarea>';
+			} else {
+				$type = 'email' === $field['type'] ? 'email' : 'text';
+				$ac   = ! empty( $field['autocomplete'] ) ? ' autocomplete="' . esc_attr( $field['autocomplete'] ) . '"' : '';
+				$html .= '<input type="' . esc_attr( $type ) . '" id="' . esc_attr( $id ) . '" name="' . esc_attr( $name ) . '"' . $ac . $req . ' />';
+			}
+
+			$html .= '</div>';
+		}
+
+		$html .= '</div>';
+		$html .= '<div class="mtm-rfq-form__field mtm-rfq-form__field--full mtm-rfq-form__consent">'
+			. '<label><input type="checkbox" name="privacy_consent" value="1" required /> '
+			. 'I have read the <a href="/privacy-policy/">Privacy Policy</a>.</label>'
+			. '</div>';
+		$html .= '<p class="mtm-rfq-form__note">Fields marked <span aria-hidden="true">*</span> are the core details the team needs to review and reply. Share your resin, processing method, end product and target requirement where you can.</p>';
+		$html .= '<div class="mtm-rfq-form__actions"><button type="submit" class="mtm-rfq-form__submit">Send inquiry</button></div>';
+		$html .= '</form>';
+
+		return $html;
+	}
+);

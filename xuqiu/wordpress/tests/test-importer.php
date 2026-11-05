@@ -54,4 +54,17 @@ mbci_assert( 8 === preg_match_all( '/class="wp-block-group mtm-home-section /', 
 mbci_assert( false === strpos( $home_blocks, '<!-- wp:post-content' ), 'Page content does not render itself through a nesting template.' );
 mbci_assert( false === strpos( $home_blocks, '<!-- wp:template-part' ), 'Page content excludes Header and Footer template parts.' );
 
-echo "OK: black and homepage packages parse, validate and convert to WordPress blocks.\n";
+$privacy_file = dirname( __DIR__ ) . '/content/pages/privacy-policy.md';
+$privacy_raw  = file_get_contents( $privacy_file );
+mbci_assert( false !== $privacy_raw, 'Privacy policy fixture file is readable.' );
+
+$privacy = MBCI_Content_Importer::parse_document( $privacy_raw );
+MBCI_Content_Importer::validate_document( $privacy['front_matter'], $privacy['body'] );
+$privacy_blocks = MBCI_Content_Importer::to_wordpress_blocks( $privacy['front_matter'], $privacy['body'] );
+
+mbci_assert( 'privacy.policy' === $privacy['front_matter']['content_id'], 'Privacy policy content ID is parsed.' );
+mbci_assert( false === strpos( $privacy_blocks, '<h1' ), 'Privacy page leaves H1 to the page template.' );
+mbci_assert( false !== strpos( $privacy_blocks, 'private WordPress inquiry record' ), 'Privacy page describes private inquiry storage.' );
+mbci_assert( false === strpos( $privacy_raw, 'The RFQ form submission service is not enabled' ), 'Privacy package does not retain the obsolete UI-only blocker.' );
+
+echo "OK: black, home and privacy policy packages parse, validate and convert to WordPress blocks.\n";

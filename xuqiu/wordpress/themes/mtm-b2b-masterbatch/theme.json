@@ -22,6 +22,48 @@
 				"page"
 			],
 			"title": "Masterbatch Homepage"
+		},
+		{
+			"name": "page-faq",
+			"postTypes": [
+				"page"
+			],
+			"title": "Masterbatch Buyer FAQ"
+		},
+		{
+			"name": "page-guides",
+			"postTypes": [
+				"page"
+			],
+			"title": "Masterbatch Guides Index"
+		},
+		{
+			"name": "page-request-a-quote",
+			"postTypes": [
+				"page"
+			],
+			"title": "Request a Masterbatch Quote"
+		},
+		{
+			"name": "page-document-request",
+			"postTypes": [
+				"page"
+			],
+			"title": "Request Masterbatch Technical Documents"
+		},
+		{
+			"name": "page-about-quality",
+			"postTypes": [
+				"page"
+			],
+			"title": "About and Quality"
+		},
+		{
+			"name": "page-privacy",
+			"postTypes": [
+				"page"
+			],
+			"title": "Privacy Policy"
 		}
 	]
 }
