@@ -129,19 +129,19 @@
 | 优先级 | 中文名称 | 英文页面名称 | 建议路由 | WordPress 类型/模板 | 主要转化 | 当前条件 |
 |---|---|---|---|---|---|---|
 | P0 | 首页 | Home | `/` | Page / `front-page` | RFQ | 公司事实和品牌信息待审核 |
-| P0 | 母粒指南索引 | Masterbatch Guides | `/masterbatch-guides/` | Page / `page` 或专用索引模板 | 进入三类产品指南 | 可起草 |
-| P0 | 黑色母粒询盘指南 | Black Masterbatch RFQ Guide | `/masterbatch-guides/black-masterbatch/` | Page / `page-product-guide` | Black RFQ + 文件审核 | 已有内容和首个导入包 |
-| P0 | 白色母粒询盘指南 | White Masterbatch RFQ Guide | `/masterbatch-guides/white-masterbatch/` | Page / `page-product-guide` | White RFQ + 文件审核 | 已有页面文案草稿 |
-| P0 | 彩色母粒询盘指南 | Color Masterbatch RFQ Guide | `/masterbatch-guides/color-masterbatch/` | Page / `page-product-guide` | Color RFQ + 文件审核 | 已有页面文案草稿 |
+| P0 | 母粒指南索引 | Masterbatch Guides | `/masterbatch-guides/` | Page / `page-guides` | 进入三类产品指南 | 已发布，三页内链闭合 |
+| P0 | 黑色母粒询盘指南 | Black Masterbatch RFQ Guide | `/masterbatch-guides/black-masterbatch/` | Page / `page-product-guide` | Black RFQ + 文件审核 | 已发布，父页已修复 |
+| P0 | 白色母粒询盘指南 | White Masterbatch RFQ Guide | `/masterbatch-guides/white-masterbatch/` | Page / `page-product-guide` | White RFQ + 文件审核 | 已发布，内容包已纳入仓库 |
+| P0 | 彩色母粒询盘指南 | Color Masterbatch RFQ Guide | `/masterbatch-guides/color-masterbatch/` | Page / `page-product-guide` | Color RFQ + 文件审核 | 已发布，内容包已纳入仓库 |
 | P0 | 询价与 RFQ | Request a Quote | `/request-a-quote/` | Page / `page-request-a-quote` | 提交 RFQ | 页面已发布；表单已启用私有存储，邮件投递待配置 |
-| P0 | 技术文件申请 | Request Technical Documents | `/technical-documents/` | Page / `page-document-request` | 提交文件审核申请 | 字段已定义，表单和审核人待实现 |
+| P0 | 技术文件申请 | Request Technical Documents | `/technical-documents/` | Page / `page-document-request` | 提交文件审核申请 | 已发布；表单启用，审核人待确认 |
 | P0 | 公司与质量控制 | About / Quality | `/about-quality/` | Page / `page-about-quality` | 了解主体并询盘 | 仅可用已批准公司事实 |
 | P0 | 隐私政策 | Privacy Policy | `/privacy-policy/` | Page / `page-privacy` | 满足表单和数据处理说明 | 页面已发布并说明私有存储与条件式邮件通知；需业务和法务复核 |
-| P1 | 资源中心 | Resources | `/resources/` | Page / `page-resources` | 进入知识文章 | 首批文章完成后上线 |
-| P1 | 买家常问问题 | Masterbatch Buyer FAQ | `/faq/` | Page / `page-faq` | 进入指南、RFQ 或文件申请 | 题目可整理，答案须证据审核 |
+| P1 | 资源中心 | Resources | `/resources/` | Page / `page-resources` | 进入知识文章 | 已发布，首批入口和 RFQ Checklist 已上线 |
+| P1 | 买家常问问题 | Masterbatch Buyer FAQ | `/faq/` | Page / `page-faq` | 进入指南、RFQ 或文件申请 | 已发布，答案仍受证据边界约束 |
 | P1 | 什么是母粒 | What Is Masterbatch? | `/resources/what-is-masterbatch/` | Post / `single` | 进入选型指南 | 可基于已核验知识库改写 |
 | P1 | 如何选择母粒 | How to Choose the Right Masterbatch | `/resources/how-to-choose-masterbatch/` | Post / `single` | 进入三类产品指南 | 可基于已核验知识库改写 |
-| P1 | 母粒 RFQ 清单 | Masterbatch RFQ Checklist | `/resources/masterbatch-rfq-checklist/` | Post / `single` | RFQ | 表单字段仍需最终确认 |
+| P1 | 母粒 RFQ 清单 | Masterbatch RFQ Checklist | `/resources/masterbatch-rfq-checklist/` | Page / `page-resources` | RFQ | 已发布并链接到 RFQ 与文件申请 |
 | P1 | TDS、SDS 与 COA 区别 | TDS vs. SDS vs. COA | `/resources/tds-vs-sds-vs-coa/` | Post / `single` | 文件申请 | 可写通用区别，不承诺具体文件 |
 | P1 | 为什么技术文件按牌号审核 | Why Technical Documents Need Grade Review | `/resources/why-technical-documents-need-grade-review/` | Post / `single` | 文件申请 | 可写流程，不扩展文件范围 |
 | P1 | 常见质量问题和核查顺序 | Common Masterbatch Quality Problems | `/resources/common-masterbatch-quality-problems/` | Post / `single` | 相关指南 + RFQ | 只写可能原因和核查步骤 |

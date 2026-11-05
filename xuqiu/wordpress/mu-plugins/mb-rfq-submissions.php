@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Masterbatch RFQ Submissions
  * Description: Stores and emails masterbatch RFQ submissions from the website form.
- * Version: 0.1.0
+ * Version: 0.2.0
  * Author: GE CHEMICAL website project
  */
 
@@ -84,6 +84,13 @@ final class MB_RFQ_Submission {
 			return array( 'status' => 'error' );
 		}
 
+		if (
+			'documents' === $data['form_context']
+			&& ( '' === $data['documents_requested'] || '' === $data['document_purpose'] )
+		) {
+			return array( 'status' => 'error' );
+		}
+
 		$rate_key = 'mb_rfq_rate_' . md5(
 			strtolower( $data['email'] ) . '|' . ( $_SERVER['REMOTE_ADDR'] ?? '' )
 		);
@@ -117,6 +124,7 @@ final class MB_RFQ_Submission {
 					'_mb_rfq_quantity'           => $data['quantity'],
 					'_mb_rfq_destination_port'   => $data['destination_port'],
 					'_mb_rfq_documents_requested' => $data['documents_requested'],
+					'_mb_rfq_document_purpose'   => $data['document_purpose'],
 					'_mb_rfq_message'            => $data['message'],
 					'_mb_rfq_form_context'       => $data['form_context'],
 					'_mb_rfq_source_page'        => $data['source_page'],
@@ -182,6 +190,7 @@ final class MB_RFQ_Submission {
 			'quantity',
 			'destination_port',
 			'documents_requested',
+			'document_purpose',
 			'form_context',
 			'source_page',
 		);
@@ -228,6 +237,7 @@ final class MB_RFQ_Submission {
 			'Quantity'              => 'quantity',
 			'Destination port'      => 'destination_port',
 			'Documents requested'   => 'documents_requested',
+			'Document purpose'      => 'document_purpose',
 			'Message'               => 'message',
 			'Form context'          => 'form_context',
 			'Source page'           => 'source_page',
@@ -352,6 +362,7 @@ add_action(
 					'Quantity'              => '_mb_rfq_quantity',
 					'Destination port'      => '_mb_rfq_destination_port',
 					'Documents requested'   => '_mb_rfq_documents_requested',
+					'Document purpose'      => '_mb_rfq_document_purpose',
 					'Message'               => '_mb_rfq_message',
 					'Form context'          => '_mb_rfq_form_context',
 					'Source page'           => '_mb_rfq_source_page',

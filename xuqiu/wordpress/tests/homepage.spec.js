@@ -347,8 +347,38 @@ test("wires the RFQ form for secure server-side submission", async () => {
     "wp_verify_nonce",
     "register_post_type",
     "_mb_rfq_email_sent",
+    "document_purpose",
+    "'documents' === $data['form_context']",
     "wp_safe_redirect",
   ]) {
     expect(rfqPlugin).toContain(token);
   }
+});
+
+test("ships the page-closure content packages and templates", async () => {
+  for (const contentPath of [
+    "content/guides/white-masterbatch.md",
+    "content/guides/color-masterbatch.md",
+    "content/pages/technical-documents.md",
+    "content/pages/resources.md",
+    "content/pages/masterbatch-rfq-checklist.md",
+  ]) {
+    const source = readWordPressFile(contentPath);
+    expect(source).toMatch(/^---\n/);
+    expect(source).not.toMatch(/^#\s+/m);
+  }
+
+  for (const templatePath of [
+    "templates/page-document-request.html",
+    "templates/page-resources.html",
+  ]) {
+    const template = readThemeFile(templatePath);
+    expect(template).toContain("<!-- wp:post-content");
+    expect(template).toContain('slug":"footer"');
+  }
+
+  expect(readThemeFile("templates/page-document-request.html")).toContain(
+    '[mb_rfq_form context="documents"]',
+  );
+  expect(readThemeFile("parts/footer.html")).toContain('href="/#applications"');
 });

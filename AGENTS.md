@@ -68,7 +68,8 @@ packaging、export-loading、customer-visit、exhibition 和 videos。用户已�
 当前 WordPress 实施目录：
 
 - `content/pages/home.md`：首页 Page 的可导入内容包；
-- `content/guides/black-masterbatch.md`：黑色母粒指南内容包；
+- `content/guides/`：黑色、白色和彩色母粒指南内容包；
+- `content/pages/`：首页、隐私政策、技术文件、资源索引和 RFQ 清单；
 - `mu-plugins/mb-content-importer.php`：Markdown 和受控 Gutenberg 区块导入器；
 - `themes/mtm-b2b-masterbatch/`：当前启用的子主题；
 - `tests/homepage.spec.js`：首页 Playwright 测试；
@@ -85,15 +86,23 @@ packaging、export-loading、customer-visit、exhibition 和 videos。用户已�
   `page_on_front=53`、`blog_public=1`，首页 noindex 已移除。
 - 首页主关键词为 `masterbatch`，SEO 标题为
   `Masterbatch Products for Plastic Processing | GE CHEMICAL`。
-- 子主题版本为 `0.6.0`，Header 品牌为 `GE Chemical & Polymer Group`，
+- Rank Math SEO `1.0.281` 已安装并启用；Open Graph、Organization/WebSite
+  Schema、页面 Title/Description/robots 和 Rank Math Sitemap 已接管输出。
+- Google Search Console 数据连接仍需业务方使用 Google 账号完成 OAuth；
+  当前无法在没有账号授权或 DNS/验证码的情况下自动验证属性。
+- 子主题版本为 `0.7.0`，Header 品牌为 `GE Chemical & Polymer Group`，
   完整公开主体名称仍保留在 Footer 和公司内容中。
-- 黑色母粒指南、About / Quality、Request a Quote 和 Privacy Policy
-  已发布；Masterbatch Guides 与 Buyer FAQ 仍为 Draft。
-- 白色指南、彩色指南、Resources 和 Technical Documents 尚未完成，
-  当前仍为主要 404。
-- 黑色母粒页 ID 31 仍挂在已删除的 Guides 父页 ID 30 下，访问
-  `/masterbatch-guides/black-masterbatch/` 会跳到带
-  `masterbatch-guides__trashed-2` 的路径；新的 Guides 草稿是 ID 59。
+- 首页、Masterbatch Guides、Black/White/Color 指南、Request a Quote、
+  Technical Documents、Resources、RFQ Checklist、Buyer FAQ、
+  About / Quality 和 Privacy Policy 均已发布。
+- 黑色母粒 Page 31 已从回收站父页迁到 Page 59；规范 URL
+  `/masterbatch-guides/black-masterbatch/` 直接返回 200。
+- Header、Footer、首页产品和 CTA 的主要目标均已闭环。Footer 的
+  Applications 指向首页 `/#applications` 区，避免为尚未有独立证据的
+  应用页创建空路由。
+- 已发布内容页统一使用 `_mb_robots=index,follow`；Privacy Policy 使用
+  `_mb_robots=noindex,nofollow`。`_mb_robots` 为实际 SEO 指令来源，
+  `_mb_noindex` 仅作为旧数据回退。
 - 多个文件明确标注 `Market Research Only`、`Not for PRD`、`Not for Dev` 或 `Do Not Use Yet`。
 - 尚未完成完整网站 PRD、全部页面、邮件投递配置和业务负责人最终审批。
 
@@ -242,19 +251,45 @@ curl -sS -o /dev/null -w '%{http_code}\n' https://gzh.hzscf.site/
   private 且 `_mb_rfq_email_sent=0`；两条测试记录均已删除。
 - Footer 与 Quote 页面已增加 Privacy Policy 链接。
 
+### 2026-11-05 SEO 状态与页面闭环
+
+- 修正导入器 SEO 语义：`_mb_robots` 是实际 robots 指令来源；
+  `noindex` 会输出 `noindex,nofollow`，`index,follow` 不额外输出限制。
+  `_mb_noindex` 只在 `_mb_robots` 缺失时作为旧数据回退。
+- 线上已发布内容页统一为 `index,follow`；Privacy Policy 保持
+  `noindex,nofollow`。`noindex` 页面会同时从 WordPress 页面 Sitemap 排除。
+- 主题保留无 SEO 插件时的回退：为每个 Page 输出对应的
+  `_mb_seo_title` 和 `_mb_seo_description`。Rank Math 启用后该回退输出
+  自动停用，由插件接管。
+- 发布 Page 59 `Masterbatch Guides`、Page 58 `Masterbatch Buyer FAQ`，
+  并将 Page 31 重新挂到 Page 59。
+- 新增并发布：
+  - Page 77 `White Masterbatch RFQ Guide`；
+  - Page 78 `Color Masterbatch RFQ Guide`；
+  - Page 79 `Request Masterbatch Technical Documents`；
+  - Page 80 `Masterbatch Buyer Resources`；
+  - Page 81 `Masterbatch RFQ Checklist`。
+- 新增 `page-document-request` 和 `page-resources` 模板。Documents 表单使用
+  `[mb_rfq_form context="documents"]`，服务端要求文件类型和用途。
+- 主路由、单一 H1、桌面/手机横向溢出、robots 输出和 Documents 表单均有
+  Playwright 线上覆盖。
+- 安装 Rank Math SEO，配置公开语言为 `en-US`、公司知识图谱为
+  `GE CHEMICAL & POLYMER GROUP CO., LTD`、Organization/WebSite Schema、
+  默认 Open Graph 图片和 Twitter Card。
+- `sitemap_index.xml` 与 `page-sitemap.xml` 已返回 200；noindex 的
+  Privacy Policy 不在页面 Sitemap 中。
+
 ### 下一步
 
-1. 修复黑色母粒页 ID 31 的 trashed 父页关系，完成并发布 ID 59 的
-   Masterbatch Guides 索引。
-2. 创建白色母粒、彩色母粒、Resources 和 Technical Documents 正式页面，
-   清除导航与 CTA 的 404。
-3. 配置并验证生产邮件投递（SMTP 或事务邮件服务），确认 RFQ 收件人、
+1. 配置并验证生产邮件投递（SMTP 或事务邮件服务），确认 RFQ 收件人、
    回复负责人和数据保留期限；技术文件申请页可复用当前表单处理器。
-4. 建立应用页：Film & Packaging、Injection Molding、General Extrusion、
+2. 使用 Google 账号完成 Rank Math Analytics/Search Console OAuth，验证域名
+   属性并提交 `https://gzh.hzscf.site/sitemap_index.xml`。
+3. 建立应用页：Film & Packaging、Injection Molding、General Extrusion、
    Recycled PE/PP。
-5. 建立 `Masterbatch Guide` 或 `Buyer’s Guide` 长文，承接知识型搜索并
+4. 建立 `Masterbatch Guide` 或 `Buyer’s Guide` 长文，承接知识型搜索并
    内链到三类产品页。
-6. 完成公司事实、产能、生产线、市场覆盖和图片授权审核后，再决定是否
+5. 完成公司事实、产能、生产线、市场覆盖和图片授权审核后，再决定是否
    采用 Example 或同行首页中的公司实力表达。
 
 ## 事实与证据规则

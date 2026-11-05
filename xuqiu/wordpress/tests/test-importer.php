@@ -67,4 +67,20 @@ mbci_assert( false === strpos( $privacy_blocks, '<h1' ), 'Privacy page leaves H1
 mbci_assert( false !== strpos( $privacy_blocks, 'private WordPress inquiry record' ), 'Privacy page describes private inquiry storage.' );
 mbci_assert( false === strpos( $privacy_raw, 'The RFQ form submission service is not enabled' ), 'Privacy package does not retain the obsolete UI-only blocker.' );
 
-echo "OK: black, home and privacy policy packages parse, validate and convert to WordPress blocks.\n";
+$closure_packages = array(
+	'content/guides/white-masterbatch.md',
+	'content/guides/color-masterbatch.md',
+	'content/pages/technical-documents.md',
+	'content/pages/resources.md',
+	'content/pages/masterbatch-rfq-checklist.md',
+);
+foreach ( $closure_packages as $relative_file ) {
+	$raw = file_get_contents( dirname( __DIR__ ) . '/' . $relative_file );
+	mbci_assert( false !== $raw, $relative_file . ' is readable.' );
+	$document = MBCI_Content_Importer::parse_document( $raw );
+	MBCI_Content_Importer::validate_document( $document['front_matter'], $document['body'] );
+	$blocks = MBCI_Content_Importer::to_wordpress_blocks( $document['front_matter'], $document['body'] );
+	mbci_assert( false === strpos( $blocks, '<h1' ), $relative_file . ' leaves H1 to its template.' );
+}
+
+echo "OK: homepage, guide, privacy and page-closure packages parse, validate and convert to WordPress blocks.\n";

@@ -15,12 +15,14 @@ const rfqPluginPath = path.resolve(
   "../mu-plugins/mb-rfq-submissions.php",
 );
 const rfqRuntimeSmokePath = path.resolve(__dirname, "rfq-runtime-smoke.php");
+const importerTestPath = path.resolve(__dirname, "test-importer.php");
 
 for (const phpPath of [
   importerPath,
   themeFunctionsPath,
   rfqPluginPath,
   rfqRuntimeSmokePath,
+  importerTestPath,
 ]) {
   const source = fs.readFileSync(phpPath, "utf8");
   const parser = new PhpParser({

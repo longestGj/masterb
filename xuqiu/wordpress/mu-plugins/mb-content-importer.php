@@ -1051,12 +1051,90 @@ if ( function_exists( 'add_filter' ) ) {
 		'wp_robots',
 		static function ( $robots ) {
 			$post_id = get_queried_object_id();
-			if ( $post_id && '1' === get_post_meta( $post_id, '_mb_noindex', true ) ) {
+		if ( ! $post_id ) {
+			return $robots;
+		}
+
+		$robots_meta = strtolower( trim( (string) get_post_meta( $post_id, '_mb_robots', true ) ) );
+		if ( '' !== $robots_meta ) {
+			if ( preg_match( '/(^|,)\s*noindex\s*(,|$)/', $robots_meta ) ) {
+				$robots['noindex'] = true;
+			}
+			if ( preg_match( '/(^|,)\s*nofollow\s*(,|$)/', $robots_meta ) ) {
+				$robots['nofollow'] = true;
+			}
+		} elseif ( '1' === get_post_meta( $post_id, '_mb_noindex', true ) ) {
+			// Legacy fallback for pages imported before _mb_robots became canonical.
 				$robots['noindex'] = true;
 				$robots['nofollow'] = true;
 			}
+
 			return $robots;
 		},
 		1
 	);
+
+	add_filter(
+		'wp_sitemaps_posts_query_args',
+		static function ( $args, $post_type ) {
+			if ( 'page' !== $post_type ) {
+				return $args;
+			}
+
+			$meta_query   = isset( $args['meta_query'] ) && is_array( $args['meta_query'] )
+				? $args['meta_query']
+				: array();
+			$meta_query[] = array(
+				'relation' => 'OR',
+				array(
+					'key'     => '_mb_robots',
+					'compare' => 'NOT EXISTS',
+				),
+				array(
+					'key'     => '_mb_robots',
+					'value'   => 'noindex',
+					'compare' => 'NOT LIKE',
+				),
+			);
+			$args['meta_query'] = $meta_query;
+
+			return $args;
+		},
+		10,
+		2
+	);
 }
+
+/**
+ * Mirror importer SEO fields into Rank Math metadata when the plugin is present.
+ *
+ * @param int    $meta_id  Meta ID.
+ * @param int    $post_id  Post ID.
+ * @param string $meta_key Meta key.
+ * @param mixed  $value    Meta value.
+ * @return void
+ */
+function mbci_sync_rank_math_meta( $meta_id, $post_id, $meta_key, $value ) {
+	$key_map = array(
+		'_mb_seo_title'       => 'rank_math_title',
+		'_mb_seo_description' => 'rank_math_description',
+		'_mb_primary_keyword' => 'rank_math_focus_keyword',
+	);
+
+	if ( isset( $key_map[ $meta_key ] ) ) {
+		update_post_meta( $post_id, $key_map[ $meta_key ], (string) $value );
+		return;
+	}
+
+	if ( '_mb_robots' === $meta_key ) {
+		$robots = array_values(
+			array_filter(
+				array_map( 'trim', explode( ',', strtolower( (string) $value ) ) )
+			)
+		);
+		update_post_meta( $post_id, 'rank_math_robots', $robots ?: array( 'noindex', 'nofollow' ) );
+	}
+}
+
+add_action( 'added_post_meta', 'mbci_sync_rank_math_meta', 10, 4 );
+add_action( 'updated_post_meta', 'mbci_sync_rank_math_meta', 10, 4 );

@@ -32,6 +32,7 @@ $result = MB_RFQ_Submission::process(
 		'quantity'              => '1 test',
 		'destination_port'      => '',
 		'documents_requested'   => 'TDS',
+		'document_purpose'      => 'Internal evaluation',
 		'message'               => 'Automated integration test.',
 		'privacy_consent'       => '1',
 		'form_context'          => 'rfq',
@@ -61,13 +62,63 @@ foreach ( $checks as $check => $passed ) {
 
 wp_delete_post( $post_id, true );
 
+$invalid_document_request = MB_RFQ_Submission::process(
+	array(
+		'full_name'             => 'Document Validation Test',
+		'company'               => 'Test Company',
+		'email'                 => 'rfq-document-invalid@example.com',
+		'country'               => 'Test Country',
+		'product_interest'      => 'White masterbatch',
+		'application'           => 'Integration test only',
+		'privacy_consent'       => '1',
+		'form_context'          => 'documents',
+		'documents_requested'   => '',
+		'document_purpose'      => '',
+		'source_page'           => home_url( '/technical-documents/' ),
+	)
+);
+
+if ( 'error' !== ( $invalid_document_request['status'] ?? '' ) ) {
+	WP_CLI::error( 'Document requests without a type and purpose must be rejected.' );
+}
+
+$document_result = MB_RFQ_Submission::process(
+	array(
+		'full_name'             => 'Document Integration Test',
+		'company'               => 'Test Company',
+		'email'                 => 'rfq-document-valid@example.com',
+		'country'               => 'Test Country',
+		'product_interest'      => 'White masterbatch',
+		'application'           => 'Document review integration test',
+		'privacy_consent'       => '1',
+		'form_context'          => 'documents',
+		'documents_requested'   => 'SDS / MSDS',
+		'document_purpose'      => 'Customer approval',
+		'source_page'           => home_url( '/technical-documents/' ),
+	)
+);
+
+if ( 'success' !== ( $document_result['status'] ?? '' ) ) {
+	WP_CLI::error( 'The valid document request was not accepted.' );
+}
+
+$document_post_id = (int) $document_result['id'];
+if ( 'Customer approval' !== get_post_meta( $document_post_id, '_mb_rfq_document_purpose', true ) ) {
+	wp_delete_post( $document_post_id, true );
+	WP_CLI::error( 'The document purpose was not stored.' );
+}
+wp_delete_post( $document_post_id, true );
+
 WP_CLI::success(
 	wp_json_encode(
 		array(
-			'processed'       => true,
-			'private_record'  => true,
-			'email_intercept' => true,
-			'test_record_gone' => null === get_post( $post_id ),
+			'processed'                => true,
+			'private_record'           => true,
+			'email_intercept'          => true,
+			'document_validation'      => true,
+			'document_purpose_saved'   => true,
+			'test_records_gone'        => null === get_post( $post_id )
+				&& null === get_post( $document_post_id ),
 		)
 	)
 );

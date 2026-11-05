@@ -52,6 +52,13 @@
 			"title": "Request Masterbatch Technical Documents"
 		},
 		{
+			"name": "page-resources",
+			"postTypes": [
+				"page"
+			],
+			"title": "Masterbatch Buyer Resources"
+		},
+		{
 			"name": "page-about-quality",
 			"postTypes": [
 				"page"

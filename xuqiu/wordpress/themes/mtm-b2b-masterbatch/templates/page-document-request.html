@@ -1,0 +1,65 @@
+<!-- wp:template-part {"slug":"header","area":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","layout":{"type":"constrained","contentSize":"1120px"},"style":{"spacing":{"padding":{"top":"var(--wp--preset--spacing--l)","bottom":"var(--wp--preset--spacing--xl)","left":"1.5rem","right":"1.5rem"}}}} -->
+<main class="wp-block-group" style="padding-top:var(--wp--preset--spacing--l);padding-right:1.5rem;padding-bottom:var(--wp--preset--spacing--xl);padding-left:1.5rem">
+
+	<!-- wp:group {"align":"wide","className":"mtm-docs-hero","backgroundColor":"paper","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"var(--wp--preset--spacing--m)","bottom":"var(--wp--preset--spacing--m)","left":"var(--wp--preset--spacing--m)","right":"var(--wp--preset--spacing--m)"}}}} -->
+	<div class="wp-block-group alignwide mtm-docs-hero has-paper-background-color has-background" style="padding-top:var(--wp--preset--spacing--m);padding-right:var(--wp--preset--spacing--m);padding-bottom:var(--wp--preset--spacing--m);padding-left:var(--wp--preset--spacing--m)">
+		<!-- wp:paragraph {"className":"mtm-eyebrow"} -->
+		<p class="mtm-eyebrow">Technical Documents</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:post-title {"level":1} /-->
+
+		<!-- wp:post-excerpt {"className":"mtm-docs-summary","moreText":"","showMoreOnNewLine":false,"excerptLength":1000} /-->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:columns {"align":"wide","className":"mtm-quote-media","style":{"spacing":{"margin":{"top":"var(--wp--preset--spacing--m)"}}}} -->
+	<div class="wp-block-columns alignwide mtm-quote-media" style="margin-top:var(--wp--preset--spacing--m)">
+		<!-- wp:column -->
+		<div class="wp-block-column">
+			<!-- wp:image {"sizeSlug":"medium","linkDestination":"none"} -->
+			<figure class="wp-block-image size-medium"><img src="/wp-content/themes/mtm-b2b-masterbatch/assets/images/home-masterbatch-product.jpg" alt="Masterbatch product granules" loading="lazy" decoding="async"/><figcaption class="wp-element-caption">Product identification starts with the grade</figcaption></figure>
+			<!-- /wp:image -->
+		</div>
+		<!-- /wp:column -->
+
+		<!-- wp:column -->
+		<div class="wp-block-column">
+			<!-- wp:image {"sizeSlug":"medium","linkDestination":"none"} -->
+			<figure class="wp-block-image size-medium"><img src="/wp-content/themes/mtm-b2b-masterbatch/assets/images/home-masterbatch-packaging.jpg" alt="Stacked bags of white and black masterbatch on a pallet" loading="lazy" decoding="async"/><figcaption class="wp-element-caption">Bagged masterbatch on a pallet</figcaption></figure>
+			<!-- /wp:image -->
+		</div>
+		<!-- /wp:column -->
+
+		<!-- wp:column -->
+		<div class="wp-block-column">
+			<!-- wp:image {"sizeSlug":"medium","linkDestination":"none"} -->
+			<figure class="wp-block-image size-medium"><img src="/wp-content/themes/mtm-b2b-masterbatch/assets/images/masterbatch-palletized-shipment.jpg" alt="Palletized masterbatch bags wrapped in stretch film, ready for shipment" loading="lazy" decoding="async"/><figcaption class="wp-element-caption">Wrapped pallets ready for shipment</figcaption></figure>
+			<!-- /wp:image -->
+		</div>
+		<!-- /wp:column -->
+	</div>
+	<!-- /wp:columns -->
+
+	<!-- wp:group {"align":"wide","className":"mtm-docs-content","layout":{"type":"constrained","contentSize":"860px"},"style":{"spacing":{"margin":{"top":"var(--wp--preset--spacing--m)"}}}} -->
+	<div class="wp-block-group alignwide mtm-docs-content" style="margin-top:var(--wp--preset--spacing--m)">
+		<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"align":"wide","anchor":"request-form","className":"mtm-rfq-form-wrap","layout":{"type":"constrained","contentSize":"860px"},"style":{"spacing":{"margin":{"top":"var(--wp--preset--spacing--l)"}}}} -->
+	<div id="request-form" class="wp-block-group alignwide mtm-rfq-form-wrap" style="margin-top:var(--wp--preset--spacing--l)">
+		<!-- wp:shortcode -->[mb_rfq_form context="documents"]<!-- /wp:shortcode -->
+
+		<!-- wp:paragraph {"fontSize":"small"} -->
+		<p class="has-small-font-size">Review the <a href="/privacy-policy/">Privacy Policy</a> before sharing business information.</p>
+		<!-- /wp:paragraph -->
+	</div>
+	<!-- /wp:group -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer","tagName":"footer"} /-->

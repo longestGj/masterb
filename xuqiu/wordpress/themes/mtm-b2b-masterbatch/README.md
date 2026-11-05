@@ -1,6 +1,6 @@
 # MTM B2B Masterbatch 子主题
 
-- 状态：首版首页、产品指南模板与私有 RFQ 提交
+- 状态：首版首页、三类指南、Documents、Resources 与私有 RFQ 提交
 - 父主题：`mtm-b2b`
 - 子主题 slug：`mtm-b2b-masterbatch`
 - 主要内容：替换 Header/Footer，并新增首页、产品指南、About、FAQ、
@@ -57,7 +57,8 @@ wpcli theme list --fields=name,status,version
 4. Footer 品牌名称不再产生额外 H3。
 5. `/masterbatch-guides/black-masterbatch/` 使用 `page-product-guide` 模板。
 6. 页面只有一个 H1，Hero 摘要不重复正文。
-7. 页面、正文预览和 Markdown Front Matter 状态一致。
+7. 内容包重新导入时仍生成 Draft + noindex；正式发布时通过受控步骤将
+   `_mb_robots` 改为 `index,follow`，避免把草稿策略和线上发布状态混为一谈。
 8. Hero、正文、表格、CTA 和右侧询盘审核说明正常显示。
 9. 移动端没有横向滚动或导航遮挡。
 10. WordPress 已创建并指定静态首页，访问 `/` 时使用 `page-home`
@@ -65,15 +66,20 @@ wpcli theme list --fields=name,status,version
 11. 首页依次显示 8 个区块，且只有一个 H1。
 12. 首页草稿使用 `page-home` 模板，Preview 中显示完整的 8 个区块。
 13. `/privacy-policy/` 使用 `page-privacy` 模板，Footer 和 Quote 页面均可进入。
-14. RFQ 表单通过 `admin-post.php` 提交到 `mb-rfq-submissions` MU Plugin，
+14. RFQ 与 Documents 表单通过 `admin-post.php` 提交到
+    `mb-rfq-submissions` MU Plugin，
     包含 nonce、蜜罐、隐私同意、服务端验证和 `#request-form` 状态提示。
 15. 提交成功后在后台 `Inquiries` 中生成私有 `mb_inquiry` 记录；邮件发送
     状态单独保存在 `_mb_rfq_email_sent`。
+16. `/masterbatch-guides/`、三类指南、`/technical-documents/`、
+    `/resources/`、`/resources/masterbatch-rfq-checklist/` 和 `/faq/`
+    均已发布并返回 200。
+17. Documents 表单要求 Document type 和 Document purpose，服务端重复校验。
+18. Footer 的 Applications 指向首页 `/#applications`，不创建空页面。
 
 ## 尚未处理
 
-- 白色、彩色、Resources 和 Technical Documents 页面尚未创建。
 - RFQ 私有存储已实现；生产邮件投递仍需配置 SMTP 或事务邮件服务。
-- SEO 插件尚未安装。
-- 黑色母粒页仍挂在已删除的 Guides 父页下，需要修复页面层级。
+- Rank Math SEO 已安装并接管 Open Graph、Organization/WebSite Schema、
+  Title、Description、robots 和 Sitemap；Search Console OAuth 待业务方完成。
 - Privacy Policy 需要业务和法务最终审核。

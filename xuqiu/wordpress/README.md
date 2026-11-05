@@ -2,7 +2,8 @@
 
 - 状态：测试版
 - 日期：2026-11-05
-- 适用范围：导入黑色母粒、首页和 Privacy Policy 内容包，并接收私有 RFQ 记录
+- 适用范围：导入首页、三类产品指南、Documents、Resources 和 Privacy Policy
+  内容包，并接收私有 RFQ/Documents 请求
 
 ## 文件
 
@@ -18,15 +19,21 @@ wordpress/
 ├── content/
 │   ├── pages/
 │   │   ├── home.md
-│   │   └── privacy-policy.md
+│   │   ├── masterbatch-rfq-checklist.md
+│   │   ├── privacy-policy.md
+│   │   ├── resources.md
+│   │   └── technical-documents.md
 │   └── guides/
-│       └── black-masterbatch.md
+│       ├── black-masterbatch.md
+│       ├── color-masterbatch.md
+│       └── white-masterbatch.md
 └── tests/
     ├── homepage.spec.js
     ├── importer-syntax.js
     ├── playwright_page_audit.py
     ├── rfq-live.spec.js
     ├── rfq-runtime-smoke.php
+    ├── site-closure-live.spec.js
     └── test-importer.php
 ```
 
@@ -41,7 +48,7 @@ npm run test:importer-syntax
 npx playwright test
 
 MB_LIVE_BASE_URL=https://gzh.hzscf.site \
-  npx playwright test tests/rfq-live.spec.js
+  npx playwright test tests/rfq-live.spec.js tests/site-closure-live.spec.js
 ```
 
 首页测试使用项目本地 Playwright Chromium，直接渲染子主题的
@@ -168,6 +175,8 @@ wpcli option update wp_page_for_privacy_policy <PAGE_ID>
 - 私有 `mb_inquiry` 记录和后台 `Inquiries` 菜单；
 - 邮件通知尝试与 `_mb_rfq_email_sent` 状态；
 - 安全重定向到表单的 `#request-form` 成功或错误提示。
+- Documents 页面使用 `context="documents"`，文件类型和用途为必填，并由
+  服务端再次校验。
 
 运行时不发送真实邮件的集成测试：
 
@@ -187,13 +196,31 @@ ssh "$SSH_ALIAS" \
 
 ```bash
 MB_LIVE_BASE_URL=https://gzh.hzscf.site \
-  npx playwright test tests/rfq-live.spec.js
+  npx playwright test tests/rfq-live.spec.js tests/site-closure-live.spec.js
 ```
 
 邮件收件人优先读取 `MASTERBATCH_RFQ_RECIPIENT`，未设置时回退
 WordPress `admin_email`。当前容器没有可执行的 `sendmail`，也没有启用
 SMTP 插件；因此后台私有记录可用，但邮件投递仍需配置 SMTP 或事务邮件
 服务后验证。
+
+## SEO 与页面闭环
+
+- Rank Math SEO `1.0.281` 已安装；Open Graph、Organization/WebSite Schema、
+  Title、Description、robots 和 XML Sitemap 由插件接管。
+- 公开页面使用 `en-US`，WordPress 后台语言可继续使用中文。
+- `_mb_robots` 是实际 robots 指令来源，支持 `index,follow` 与
+  `noindex,nofollow`。
+- `_mb_noindex` 仅作为旧内容包的回退字段；新页面应保持两个字段一致。
+- 已发布内容页使用 `index,follow`，Privacy Policy 使用
+  `noindex,nofollow`。
+- `_mb_robots` 含 `noindex` 的页面会从 WordPress 核心页面 Sitemap 排除。
+- 无 SEO 插件时，主题输出每个 Page 的 `_mb_seo_title` 和
+  `_mb_seo_description`；安装 Yoast 或 Rank Math 后回退输出自动停用。
+- Search Console 数据连接需要 Google OAuth；完成后提交
+  `https://gzh.hzscf.site/sitemap_index.xml`。
+- `site-closure-live.spec.js` 检查主路由返回 200、最终路径正确、每页只有一个
+  H1、没有横向溢出，并核对 robots 输出。
 
 导入后先在 WordPress Preview 中检查完整的 8 个区块。**导入器不会自动把
 草稿设为静态首页**，避免未审核草稿导致站点首页不可访问。完成公司事实、

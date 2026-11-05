@@ -5,6 +5,20 @@
 
 defined( 'ABSPATH' ) || exit;
 
+if ( defined( 'RANK_MATH_VERSION' ) ) {
+	// Rank Math also moves the core title renderer into rank_math/head.
+	// Keep WordPress's normal title output only, while Rank Math still
+	// supplies the generated title through its document-title filters.
+	remove_action( 'rank_math/head', '_wp_render_title_tag', 1 );
+	add_action(
+		'wp_head',
+		static function () {
+			remove_action( 'rank_math/head', '_wp_render_title_tag', 1 );
+		},
+		0
+	);
+}
+
 add_action(
 	'wp_enqueue_scripts',
 	static function () {
@@ -17,6 +31,54 @@ add_action(
 		);
 	},
 	20
+);
+
+/**
+ * The public site is English even though the WordPress admin uses Chinese.
+ *
+ * @param string $locale Current locale.
+ * @return string
+ */
+add_filter(
+	'locale',
+	static function ( $locale ) {
+		if ( is_admin() || wp_doing_ajax() || wp_doing_cron() ) {
+			return $locale;
+		}
+
+		return 'en_US';
+	},
+	99
+);
+
+add_filter(
+	'rank_math/schema/language',
+	static function () {
+		return 'en-US';
+	}
+);
+
+/**
+ * Keep JSON-LD values free from HTML entities such as &amp;.
+ *
+ * @param mixed $data Schema data.
+ * @return mixed
+ */
+add_filter(
+	'rank_math/json_ld',
+	static function ( $data ) {
+		array_walk_recursive(
+			$data,
+			static function ( &$value ) {
+				if ( is_string( $value ) ) {
+					$value = html_entity_decode( $value, ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+				}
+			}
+		);
+
+		return $data;
+	},
+	99
 );
 
 /**
@@ -49,7 +111,7 @@ add_shortcode(
 );
 
 /**
- * Use the imported homepage SEO title as the exact document title.
+ * Use the imported page SEO title as the exact document title.
  *
  * @param string $title Precomputed document title.
  * @return string
@@ -57,13 +119,17 @@ add_shortcode(
 add_filter(
 	'pre_get_document_title',
 	static function ( $title ) {
-		$front_page_id = (int) get_option( 'page_on_front' );
-		$queried_id    = (int) get_queried_object_id();
-		if ( ! $front_page_id || $front_page_id !== $queried_id ) {
+		if ( defined( 'WPSEO_VERSION' ) || defined( 'RANK_MATH_VERSION' ) ) {
 			return $title;
 		}
 
-		$seo_title = trim( (string) get_post_meta( $front_page_id, '_mb_seo_title', true ) );
+		$queried_id = (int) get_queried_object_id();
+		$post       = $queried_id ? get_post( $queried_id ) : null;
+		if ( ! $post || 'page' !== $post->post_type ) {
+			return $title;
+		}
+
+		$seo_title = trim( (string) get_post_meta( $queried_id, '_mb_seo_title', true ) );
 		return '' !== $seo_title ? $seo_title : $title;
 	},
 	99
@@ -78,13 +144,17 @@ add_filter(
 add_filter(
 	'document_title_parts',
 	static function ( $parts ) {
-		$front_page_id = (int) get_option( 'page_on_front' );
-		$queried_id    = (int) get_queried_object_id();
-		if ( ! $front_page_id || $front_page_id !== $queried_id ) {
+		if ( defined( 'WPSEO_VERSION' ) || defined( 'RANK_MATH_VERSION' ) ) {
 			return $parts;
 		}
 
-		$seo_title = trim( (string) get_post_meta( $front_page_id, '_mb_seo_title', true ) );
+		$queried_id = (int) get_queried_object_id();
+		$post       = $queried_id ? get_post( $queried_id ) : null;
+		if ( ! $post || 'page' !== $post->post_type ) {
+			return $parts;
+		}
+
+		$seo_title = trim( (string) get_post_meta( $queried_id, '_mb_seo_title', true ) );
 		if ( '' === $seo_title ) {
 			return $parts;
 		}
@@ -95,7 +165,7 @@ add_filter(
 );
 
 /**
- * Output the imported homepage meta description when no SEO plugin is active.
+ * Output the imported page meta description when no SEO plugin is active.
  *
  * @return void
  */
@@ -103,14 +173,18 @@ add_action(
 	'wp_head',
 	static function () {
 		if (
-			! is_front_page() ||
 			defined( 'WPSEO_VERSION' ) ||
 			defined( 'RANK_MATH_VERSION' )
 		) {
 			return;
 		}
 
-		$post_id     = (int) get_option( 'page_on_front' );
+		$post_id = (int) get_queried_object_id();
+		$post    = $post_id ? get_post( $post_id ) : null;
+		if ( ! $post || 'page' !== $post->post_type ) {
+			return;
+		}
+
 		$description = $post_id
 			? trim( (string) get_post_meta( $post_id, '_mb_seo_description', true ) )
 			: '';
@@ -260,6 +334,10 @@ add_shortcode(
 		);
 
 		$context      = sanitize_key( $atts['context'] );
+		if ( in_array( $context, array( 'documents', 'document', 'document-request', 'document_request' ), true ) ) {
+			$context = 'documents';
+		}
+		$is_document_request = 'documents' === $context;
 		$status       = isset( $_GET['rfq_status'] )
 			? sanitize_key( wp_unslash( $_GET['rfq_status'] ) )
 			: '';
@@ -290,7 +368,8 @@ add_shortcode(
 			array( 'name' => 'product_grade', 'label' => 'Product grade or model (if known)', 'type' => 'text' ),
 			array( 'name' => 'quantity', 'label' => 'Quantity (trial and estimated monthly)', 'type' => 'text' ),
 			array( 'name' => 'destination_port', 'label' => 'Destination port (optional)', 'type' => 'text' ),
-			array( 'name' => 'documents_requested', 'label' => 'Documents requested (optional)', 'type' => 'text' ),
+			array( 'name' => 'documents_requested', 'label' => $is_document_request ? 'Documents requested' : 'Documents requested (optional)', 'type' => 'select', 'required' => $is_document_request, 'options' => array( 'Not sure', 'TDS', 'SDS / MSDS', 'COA', 'RoHS-related documents', 'FDA-related documents', 'Food-contact-related documents', 'Other' ) ),
+			array( 'name' => 'document_purpose', 'label' => $is_document_request ? 'Document purpose' : 'Document purpose (optional)', 'type' => 'select', 'required' => $is_document_request, 'options' => array( 'Not sure', 'Internal evaluation', 'Customer approval', 'Import clearance', 'Compliance review', 'Sample testing', 'Other' ) ),
 			array( 'name' => 'message', 'label' => 'Message / details', 'type' => 'textarea', 'full' => true ),
 		);
 
@@ -352,7 +431,9 @@ add_shortcode(
 			. '<label><input type="checkbox" name="privacy_consent" value="1" required /> '
 			. 'I have read the <a href="/privacy-policy/">Privacy Policy</a>.</label>'
 			. '</div>';
-		$html .= '<p class="mtm-rfq-form__note">Fields marked <span aria-hidden="true">*</span> are the core details the team needs to review and reply. Share your resin, processing method, end product and target requirement where you can.</p>';
+		$html .= $is_document_request
+			? '<p class="mtm-rfq-form__note">Fields marked <span aria-hidden="true">*</span> are required for document review. Document availability depends on the exact grade, application, country and intended use.</p>'
+			: '<p class="mtm-rfq-form__note">Fields marked <span aria-hidden="true">*</span> are the core details the team needs to review and reply. Share your resin, processing method, end product and target requirement where you can.</p>';
 		$html .= '<div class="mtm-rfq-form__actions"><button type="submit" class="mtm-rfq-form__submit">Send inquiry</button></div>';
 		$html .= '</form>';
 
