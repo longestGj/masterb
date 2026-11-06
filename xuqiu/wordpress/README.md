@@ -218,7 +218,11 @@ SMTP 插件；因此后台私有记录可用，但邮件投递仍需配置 SMTP 
 - 无 SEO 插件时，主题输出每个 Page 的 `_mb_seo_title` 和
   `_mb_seo_description`；安装 Yoast 或 Rank Math 后回退输出自动停用。
 - Search Console 数据连接需要 Google OAuth；完成后提交
-  `https://gzh.hzscf.site/sitemap_index.xml`。
+  `https://gzh.hzscf.site/sitemap_index.xml`。具体步骤见
+  [Search Console 接入待办](../SEARCH_CONSOLE_TODO.md)。
+- GA4 转化跟踪已接入但默认停用。配置 `mb_ga4_measurement_id` 后启用；
+  邮件失败事件还需要环境变量 `MASTERBATCH_GA4_API_SECRET`。具体事件和步骤
+  见 [GA4 转化统计接入待办](../GA4_SETUP_TODO.md)。
 - `site-closure-live.spec.js` 检查主路由返回 200、最终路径正确、每页只有一个
   H1、没有横向溢出，并核对 robots 输出。
 

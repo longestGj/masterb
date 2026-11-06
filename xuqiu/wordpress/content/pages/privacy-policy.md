@@ -58,6 +58,7 @@ evidence:
     - "Cmp_Info/DOCUMENT_REQUEST_FORM_BRIEF.md"
     - "xuqiu/wordpress/themes/mtm-b2b-masterbatch/templates/page-request-a-quote.html"
     - "xuqiu/wordpress/mu-plugins/mb-rfq-submissions.php"
+    - "xuqiu/wordpress/themes/mtm-b2b-masterbatch/functions.php"
   public_claims: "Current form behavior and general website data-handling information only"
 
 review:
@@ -121,7 +122,9 @@ Contact the GE Chemical team through the business channel you already use for th
 
 ## Cookies and technical logs
 
-The WordPress site may use essential cookies for administration, security and user preferences. The site does not currently use advertising cookies.
+The WordPress site may use essential cookies for administration, security and user preferences.
+
+If Google Analytics 4 is enabled, Google may process analytics data such as page visits, referral source, device and browser information, approximate location and form conversion events. The event data used for inquiry reporting does not include the submitted name, company, email address, message or other form contents. Google Analytics is not used by this site for advertising personalization.
 
 The web server and hosting infrastructure may record standard technical information such as IP address, browser details, requested page and time of access. These logs are used for security, troubleshooting and service reliability.
 

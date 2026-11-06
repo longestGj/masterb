@@ -29,6 +29,14 @@ add_action(
 			array( 'mtm-b2b-theme' ),
 			$theme->get( 'Version' )
 		);
+		if ( is_front_page() ) {
+			wp_enqueue_style(
+				'mtm-b2b-material-field-manual',
+				get_stylesheet_directory_uri() . '/assets/css/material-field-manual.css',
+				array( 'mtm-b2b-masterbatch' ),
+				$theme->get( 'Version' )
+			);
+		}
 	},
 	20
 );
@@ -77,6 +85,123 @@ add_filter(
 		);
 
 		return $data;
+	},
+	99
+);
+
+/**
+ * Resolve the GA4 measurement ID without committing credentials.
+ *
+ * @return string
+ */
+function mb_ga4_measurement_id() {
+	$measurement_id = getenv( 'MASTERBATCH_GA4_MEASUREMENT_ID' );
+	if ( ! $measurement_id ) {
+		$measurement_id = get_option( 'mb_ga4_measurement_id', '' );
+	}
+	$measurement_id = strtoupper( trim( (string) $measurement_id ) );
+
+	return preg_match( '/^G-[A-Z0-9]{4,}$/', $measurement_id ) ? $measurement_id : '';
+}
+
+/**
+ * Load GA4 and report form conversion outcomes without sending form contents.
+ *
+ * @return void
+ */
+add_action(
+	'wp_head',
+	static function () {
+		if ( is_admin() || ( is_user_logged_in() && current_user_can( 'manage_options' ) ) ) {
+			return;
+		}
+
+		$measurement_id = mb_ga4_measurement_id();
+		if ( '' === $measurement_id ) {
+			return;
+		}
+		?>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo esc_attr( $measurement_id ); ?>"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', <?php echo wp_json_encode( $measurement_id ); ?>, {
+				'anonymize_ip': true,
+				'send_page_view': true
+			});
+
+			(function () {
+				var storageKey = 'mb_ga4_entry_referrer';
+				var clientKey = 'mb_ga4_client_id';
+
+				function safeGet(storage, key) {
+					try { return storage.getItem(key); } catch (error) { return null; }
+				}
+
+				function safeSet(storage, key, value) {
+					try { storage.setItem(key, value); } catch (error) {}
+				}
+
+				function getClientId() {
+					var match = document.cookie.match(/(?:^|; )_ga=GA\d+\.\d+\.(\d+\.\d+)/);
+					if (match) { return match[1]; }
+
+					var generated = safeGet(sessionStorage, clientKey);
+					if (!generated) {
+						generated = window.crypto && window.crypto.randomUUID
+							? window.crypto.randomUUID()
+							: 'mb-' + Date.now() + '-' + Math.random().toString(16).slice(2);
+						safeSet(sessionStorage, clientKey, generated);
+					}
+					return generated;
+				}
+
+				if (!safeGet(sessionStorage, storageKey)) {
+					safeSet(sessionStorage, storageKey, document.referrer || 'direct');
+				}
+
+				function runAnalytics() {
+					var form = document.querySelector('form.mtm-rfq-form');
+					if (form) {
+						var clientInput = form.querySelector('input[name="ga_client_id"]');
+						if (clientInput) { clientInput.value = getClientId(); }
+					}
+
+					var params = new URLSearchParams(window.location.search);
+					var status = params.get('rfq_status');
+					if (status !== 'success' && status !== 'error') { return; }
+
+					var context = params.get('rfq_context') === 'documents' ? 'documents' : 'rfq';
+					var eventNames = {
+						'rfq:success': 'rfq_submit_success',
+						'rfq:error': 'rfq_submit_error',
+						'documents:success': 'documents_submit_success',
+						'documents:error': 'documents_submit_error'
+					};
+					gtag('event', eventNames[context + ':' + status], {
+						'form_context': context,
+						'product_interest': params.get('rfq_product') || 'Not sure',
+						'source_page': params.get('rfq_source') || window.location.pathname,
+						'page_location': window.location.href,
+						'entry_referrer': safeGet(sessionStorage, storageKey) || 'direct'
+					});
+
+					var cleanUrl = new URL(window.location.href);
+					['rfq_status', 'rfq_context', 'rfq_product', 'rfq_source'].forEach(function (key) {
+						cleanUrl.searchParams.delete(key);
+					});
+					window.history.replaceState({}, '', cleanUrl.pathname + cleanUrl.search + cleanUrl.hash);
+				}
+
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', runAnalytics);
+				} else {
+					runAnalytics();
+				}
+			}());
+		</script>
+		<?php
 	},
 	99
 );
@@ -388,6 +513,7 @@ add_shortcode(
 		$html .= '<input type="hidden" name="action" value="mb_submit_rfq" />';
 		$html .= '<input type="hidden" name="form_context" value="' . esc_attr( $context ) . '" />';
 		$html .= '<input type="hidden" name="source_page" value="' . esc_url( $source_page ) . '" />';
+		$html .= '<input type="hidden" name="ga_client_id" value="" />';
 		$html .= wp_nonce_field( 'mb_submit_rfq', 'mb_rfq_nonce', true, false );
 		$html .= '<div class="mtm-rfq-form__honeypot" aria-hidden="true">'
 			. '<label for="mb-rfq-website-url">Leave this field empty</label>'

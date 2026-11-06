@@ -90,7 +90,10 @@ packaging、export-loading、customer-visit、exhibition 和 videos。用户已�
   Schema、页面 Title/Description/robots 和 Rank Math Sitemap 已接管输出。
 - Google Search Console 数据连接仍需业务方使用 Google 账号完成 OAuth；
   当前无法在没有账号授权或 DNS/验证码的情况下自动验证属性。
-- 子主题版本为 `0.7.0`，Header 品牌为 `GE Chemical & Polymer Group`，
+- GA4 转化跟踪代码已接入，但在配置 `mb_ga4_measurement_id` 或
+  `MASTERBATCH_GA4_MEASUREMENT_ID` 前保持停用；邮件失败事件还需要仅在
+  环境变量中提供 `MASTERBATCH_GA4_API_SECRET`。
+- 子主题版本为 `0.9.7`，Header 品牌为 `GE Chemical & Polymer Group`，
   完整公开主体名称仍保留在 Footer 和公司内容中。
 - 首页、Masterbatch Guides、Black/White/Color 指南、Request a Quote、
   Technical Documents、Resources、RFQ Checklist、Buyer FAQ、
@@ -279,17 +282,78 @@ curl -sS -o /dev/null -w '%{http_code}\n' https://gzh.hzscf.site/
 - `sitemap_index.xml` 与 `page-sitemap.xml` 已返回 200；noindex 的
   Privacy Policy 不在页面 Sitemap 中。
 
+### 2026-11-05 Material Lab 首页重设计
+
+- 首页从工业编辑布局升级为 `Material Lab` 方向：工业编辑质感与技术样本册
+  信息密度结合。
+- Hero H1 改为 `Masterbatch for the run, not the catalog.`，增加
+  Materials、Process fit、Review basis 三条技术信息。
+- 黑、白、彩三张产品卡改成连续产品章节，并使用对应颗粒图片、编号、
+  规格标签和独立产品路线 CTA。
+- 产品区内新增 Factory Context：单张大幅工厂建筑图、应用审核说明和
+  Material context、Processing review、Packing & shipment 标签。
+- 应用区改为编号工艺索引；审核流程改为四列连续技术栅格；Resources
+  改为规格化条目。
+- Documents 从高饱和黄铜色改为暖纸色技术文件台。最终 CTA 增加
+  Resin、Process、Target、Documents 四个提交字段提示。
+- PC 和手机均验证无横向溢出，保留单一 H1、8 个首页主区块、RFQ 和
+  Documents 表单路由闭环。
+- 下半页统一为暖纸色体系：Applications、Process、Documents、About、
+  Resources 使用同一色系与细线分隔，Documents 不再切换为突兀的深色块。
+- 手机端移除 Hero 叠图，产品改为图文横向编排，流程改为纵向时间线，
+  About 图片改为横向 scroll-snap，CTA 字段压缩为两列。
+- 手机 Header 收敛为 61px 单行，移除首页渲染壳和 section 的继承空隙；
+  Documents、About、Resources 统一为连续暖纸色。移动端最终页面宽度
+  保持 390px 无横向溢出。
+- Header 改为与 Hero 连续的深墨色品牌栏，Logo 使用暖纸色小方底，
+  导航文字使用浅色，CTA 保持黄铜色。下半页面统一为低饱和暖灰纸色：
+  Applications/About `#efebe3`、Process/Resources/CTA outer `#e8e2d8`、
+  Documents `#e1dbd1`。
+- 桌面和手机均移除 WordPress 根布局继承的 24px 块间距。桌面 Header
+  底边与 Hero 起点现均为 123px，手机分别为 63px，页面不显示白色空隙。
+- Applications 标题区改为与产品区连续的深墨色全宽过渡带，底部使用
+  3px 黄铜线切入暖纸色应用列表。PC 宽度 1440px、手机宽度 390px 时均
+  从视口左边缘完整铺到右边缘，无横向溢出。
+- 最终 CTA 面板改为下半部暖色体系：外层 `#e8e2d8`、内面板
+  `#ded7cb`、深墨标题与主按钮、黄铜标签和深墨描边次按钮，不再切回
+  整块黑色。
+
+### 2026-11-05 Technical Field Manual 首页
+
+- 首页视觉替换为完整的 `Technical Field Manual` 方向，并通过仅静态首页
+  加载的 `assets/css/material-field-manual.css` 与 A 版样式隔离。
+- Hero 改为暖纸色编辑部版式，衬线 H1 为
+  `Masterbatch, tuned to the line.`，主图为工厂建筑，黑色母粒作为样本叠图。
+- 黑、白、彩改为三块连续产品版面，分别使用深墨、暖白和黄铜背景；
+  产品颗粒图占完整右侧版心。
+- Applications 恢复暖色工艺索引；Process 使用深墨连续审核序列；
+  Documents 使用暖纸登记表；About 使用车间全幅背景和工厂语境；
+  Resources 扩为四项，最终 CTA 使用黏土色。
+- 手机端采用独立纵向产品版面、审核时间线、About 横向图片带和两列 CTA
+  字段；PC/手机均无横向溢出，H1 唯一。
+- Header 导航严格对齐 D：Materials、Applications、Documents、About；
+  Hero 后增加黑底材料彩条；Products 与 Applications 标题采用三列编辑网格。
+- 桌面导航使用 12.48px、800 字重的深墨色文字和透明底边；手机菜单展开
+  使用深墨背景、浅色链接和浅色关闭按钮，避免继承响应式容器造成低对比。
+- 桌面导航进一步改为独立浅暖色导航条：`#fffaf1` 背景、
+  `#b8ad9c` 描边、14.72px 字号、800 字重和纯黑文字。
+- Documents 改为四行登记表；About 改为车间全幅图片与工厂语境叠层；
+  Resources 为四项索引；FAQ 为双栏；最终 CTA 为左右分栏黏土色区域。
+
 ### 下一步
 
 1. 配置并验证生产邮件投递（SMTP 或事务邮件服务），确认 RFQ 收件人、
    回复负责人和数据保留期限；技术文件申请页可复用当前表单处理器。
-2. 使用 Google 账号完成 Rank Math Analytics/Search Console OAuth，验证域名
+2. 完成 [Search Console 接入待办](xuqiu/SEARCH_CONSOLE_TODO.md)：使用
+   Google 账号完成 Rank Math Analytics OAuth，验证 `gzh.hzscf.site`
    属性并提交 `https://gzh.hzscf.site/sitemap_index.xml`。
 3. 建立应用页：Film & Packaging、Injection Molding、General Extrusion、
    Recycled PE/PP。
-4. 建立 `Masterbatch Guide` 或 `Buyer’s Guide` 长文，承接知识型搜索并
+4. 完成 [GA4 转化统计接入待办](xuqiu/GA4_SETUP_TODO.md)：配置
+   Measurement ID、API Secret，并将 RFQ/Documents 成功事件标记为 Key Event。
+5. 建立 `Masterbatch Guide` 或 `Buyer’s Guide` 长文，承接知识型搜索并
    内链到三类产品页。
-5. 完成公司事实、产能、生产线、市场覆盖和图片授权审核后，再决定是否
+6. 完成公司事实、产能、生产线、市场覆盖和图片授权审核后，再决定是否
    采用 Example 或同行首页中的公司实力表达。
 
 ## 事实与证据规则

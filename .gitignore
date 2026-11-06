@@ -1,5 +1,8 @@
 .DS_Store
+.gstack/
 **/.DS_Store
 **/node_modules/
 **/test-results/
 **/playwright-report/
+xuqiu/design-preview/**/output/design-board.html
+xuqiu/design-preview/**/output/feedback*.json

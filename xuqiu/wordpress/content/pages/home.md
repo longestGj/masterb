@@ -140,32 +140,44 @@ import:
 				<!-- wp:group {"className":"mtm-home-hero__copy","layout":{"type":"constrained"}} -->
 				<div class="wp-block-group mtm-home-hero__copy">
 					<!-- wp:paragraph {"className":"mtm-eyebrow mtm-home-hero__eyebrow"} -->
-					<p class="mtm-eyebrow mtm-home-hero__eyebrow">Black &middot; White &middot; Color Masterbatch</p>
+					<p class="mtm-eyebrow mtm-home-hero__eyebrow">Material systems / Issue 01</p>
 					<!-- /wp:paragraph -->
 
 					<!-- wp:heading {"level":1,"className":"mtm-home-hero__title"} -->
-					<h1 class="wp-block-heading mtm-home-hero__title">Masterbatch Products for Plastic Processing</h1>
+					<h1 class="wp-block-heading mtm-home-hero__title">Masterbatch, tuned to the line.</h1>
 					<!-- /wp:heading -->
 
 					<!-- wp:paragraph {"className":"mtm-home-hero__summary"} -->
-					<p class="mtm-home-hero__summary">We review black, white and color plastic masterbatch inquiries for film blowing, packaging, injection molding, extrusion and recycled PE and PP applications. Send the resin, processing method, end product, target and current grade. We&rsquo;ll check masterbatch product fit and document scope, then reply.</p>
+					<p class="mtm-home-hero__summary">Black, white and color systems for film, packaging, molding and extrusion, backed by a conversation about resin, process and the result you need.</p>
 					<!-- /wp:paragraph -->
 
 					<!-- wp:buttons {"className":"mtm-home-hero__actions"} -->
 					<div class="wp-block-buttons mtm-home-hero__actions">
 						<!-- wp:button {"backgroundColor":"brass","textColor":"ink","className":"is-style-fill"} -->
-						<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-ink-color has-brass-background-color has-text-color has-background wp-element-button" href="/request-a-quote/">Discuss Your Requirements</a></div>
+						<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-ink-color has-brass-background-color has-text-color has-background wp-element-button" href="/request-a-quote/">Build your RFQ</a></div>
 						<!-- /wp:button -->
 
 						<!-- wp:button {"className":"is-style-outline mtm-home-button-light"} -->
-						<div class="wp-block-button is-style-outline mtm-home-button-light"><a class="wp-block-button__link wp-element-button" href="/masterbatch-guides/">Explore Masterbatch Products</a></div>
+						<div class="wp-block-button is-style-outline mtm-home-button-light"><a class="wp-block-button__link wp-element-button" href="/masterbatch-guides/">See material routes</a></div>
 						<!-- /wp:button -->
 					</div>
 					<!-- /wp:buttons -->
 
-					<!-- wp:paragraph {"className":"mtm-home-hero__note"} -->
-					<p class="mtm-home-hero__note">For plastic processors, distributors and masterbatch buyers.</p>
-					<!-- /wp:paragraph -->
+					<!-- wp:group {"className":"mtm-home-hero__specs","layout":{"type":"flex","flexWrap":"wrap"}} -->
+					<div class="wp-block-group mtm-home-hero__specs">
+						<!-- wp:paragraph {"className":"mtm-home-hero__spec"} -->
+						<p class="mtm-home-hero__spec"><span>Materials</span><strong>Black / White / Color</strong></p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:paragraph {"className":"mtm-home-hero__spec"} -->
+						<p class="mtm-home-hero__spec"><span>Processes</span><strong>Film / Molding / Extrusion</strong></p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:paragraph {"className":"mtm-home-hero__spec"} -->
+						<p class="mtm-home-hero__spec"><span>Review basis</span><strong>Resin + application + grade</strong></p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
 				</div>
 				<!-- /wp:group -->
 			</div>
@@ -178,16 +190,30 @@ import:
 					<!-- wp:image {"sizeSlug":"full","className":"mtm-home-hero-photo"} -->
 					<figure class="wp-block-image size-full mtm-home-hero-photo">
 						<img src="/wp-content/themes/mtm-b2b-masterbatch/assets/images/home-factory-building.jpg" alt="Masterbatch factory building exterior" width="1600" height="1200" loading="eager" fetchpriority="high" decoding="async" />
-						<figcaption class="wp-element-caption">Masterbatch factory building exterior</figcaption>
+						<figcaption class="wp-element-caption">Factory context / review by exact grade and application</figcaption>
 					</figure>
 					<!-- /wp:image -->
 
 					<!-- wp:image {"sizeSlug":"full","className":"mtm-home-hero-photo-inset"} -->
 					<figure class="wp-block-image size-full mtm-home-hero-photo-inset">
-						<img src="/wp-content/themes/mtm-b2b-masterbatch/assets/images/home-masterbatch-product.jpg" alt="Masterbatch product granules" width="800" height="800" loading="eager" decoding="async" />
-						<figcaption class="wp-element-caption">Masterbatch product granules</figcaption>
+						<img src="/wp-content/themes/mtm-b2b-masterbatch/assets/images/guide-black-granules.jpg" alt="Black masterbatch granules" width="800" height="800" loading="eager" decoding="async" />
+						<figcaption class="wp-element-caption">BK / carbon system</figcaption>
 					</figure>
 					<!-- /wp:image -->
+
+						<!-- wp:group {"className":"mtm-home-hero-tech","layout":{"type":"constrained"}} -->
+						<div class="wp-block-group mtm-home-hero-tech">
+							<!-- wp:paragraph -->
+							<p>BK / CARBON SYSTEM</p>
+							<!-- /wp:paragraph -->
+							<!-- wp:paragraph -->
+							<p>Film · Molding · Extrusion</p>
+							<!-- /wp:paragraph -->
+							<!-- wp:paragraph -->
+							<p>Grade-led review</p>
+							<!-- /wp:paragraph -->
+						</div>
+						<!-- /wp:group -->
 				</div>
 				<!-- /wp:group -->
 			</div>
@@ -198,22 +224,39 @@ import:
 	</section>
 	<!-- /wp:group -->
 
+	<!-- wp:group {"className":"mtm-field-marquee","layout":{"type":"flex","flexWrap":"nowrap"}} -->
+	<div class="wp-block-group mtm-field-marquee">
+		<!-- wp:paragraph -->
+		<p>Black masterbatch</p>
+		<!-- /wp:paragraph -->
+		<!-- wp:paragraph -->
+		<p>White masterbatch</p>
+		<!-- /wp:paragraph -->
+		<!-- wp:paragraph -->
+		<p>Color masterbatch</p>
+		<!-- /wp:paragraph -->
+		<!-- wp:paragraph -->
+		<p>Application review</p>
+		<!-- /wp:paragraph -->
+	</div>
+	<!-- /wp:group -->
+
 	<!-- wp:group {"tagName":"section","anchor":"products","className":"mtm-home-section mtm-home-products","backgroundColor":"ink","textColor":"mist","layout":{"type":"default"}} -->
 	<section id="products" class="wp-block-group mtm-home-section mtm-home-products has-mist-color has-text-color has-ink-background-color has-background">
 		<!-- wp:group {"align":"wide","className":"mtm-home-shell","layout":{"type":"constrained","contentSize":"1120px"}} -->
 		<div class="wp-block-group alignwide mtm-home-shell">
-			<!-- wp:group {"className":"mtm-home-section-heading mtm-home-section-heading\u002d\u002dcenter","layout":{"type":"constrained","contentSize":"760px"}} -->
-			<div class="wp-block-group mtm-home-section-heading mtm-home-section-heading--center">
+			<!-- wp:group {"align":"wide","className":"mtm-home-section-heading mtm-home-section-heading\u002d\u002dcenter mtm-home-applications-transition","backgroundColor":"ink","textColor":"mist","layout":{"type":"constrained","contentSize":"760px"}} -->
+			<div class="wp-block-group alignwide mtm-home-section-heading mtm-home-section-heading--center mtm-home-applications-transition has-mist-color has-text-color has-ink-background-color has-background">
 				<!-- wp:paragraph {"className":"mtm-eyebrow"} -->
 				<p class="mtm-eyebrow">Product pathways</p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:heading {"level":2} -->
-				<h2 class="wp-block-heading">Start with a product family</h2>
+				<h2 class="wp-block-heading">Choose by what the material must do.</h2>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph -->
-				<p>Pick the closest family and check what to send before we discuss a grade or document.</p>
+				<p>Start with the job, then the color system. Each route shows the details that change the review.</p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:group -->
@@ -227,14 +270,30 @@ import:
 						<!-- wp:paragraph {"className":"mtm-eyebrow"} -->
 						<p class="mtm-eyebrow">Black Masterbatch</p>
 						<!-- /wp:paragraph -->
+						<!-- wp:image {"sizeSlug":"medium","linkDestination":"none","className":"mtm-home-product-thumb"} -->
+						<figure class="wp-block-image size-medium mtm-home-product-thumb"><img src="/wp-content/themes/mtm-b2b-masterbatch/assets/images/guide-black-granules.jpg" alt="Black masterbatch granules" loading="lazy" decoding="async" /></figure>
+						<!-- /wp:image -->
 						<!-- wp:heading {"level":3} -->
-						<h3 class="wp-block-heading">Blackness, dispersion and resin</h3>
+						<h3 class="wp-block-heading">Depth with control.</h3>
 						<!-- /wp:heading -->
 						<!-- wp:paragraph -->
 						<p>Tell us the resin and process. Add the blackness target, dispersion needs, current grade and any quality issue.</p>
 						<!-- /wp:paragraph -->
+						<!-- wp:group {"className":"mtm-home-spec-tags","layout":{"type":"flex","flexWrap":"wrap"}} -->
+						<div class="wp-block-group mtm-home-spec-tags">
+							<!-- wp:paragraph {"className":"mtm-home-spec-tag"} -->
+							<p class="mtm-home-spec-tag">Blackness</p>
+							<!-- /wp:paragraph -->
+							<!-- wp:paragraph {"className":"mtm-home-spec-tag"} -->
+							<p class="mtm-home-spec-tag">Dispersion</p>
+							<!-- /wp:paragraph -->
+							<!-- wp:paragraph {"className":"mtm-home-spec-tag"} -->
+							<p class="mtm-home-spec-tag">Carrier resin</p>
+							<!-- /wp:paragraph -->
+						</div>
+						<!-- /wp:group -->
 						<!-- wp:paragraph {"className":"mtm-home-card-link"} -->
-						<p class="mtm-home-card-link"><a href="/masterbatch-guides/black-masterbatch/">View black masterbatch</a></p>
+						<p class="mtm-home-card-link"><a href="/masterbatch-guides/black-masterbatch/">Open black route</a></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:group -->
@@ -248,14 +307,30 @@ import:
 						<!-- wp:paragraph {"className":"mtm-eyebrow"} -->
 						<p class="mtm-eyebrow">White Masterbatch</p>
 						<!-- /wp:paragraph -->
+						<!-- wp:image {"sizeSlug":"medium","linkDestination":"none","className":"mtm-home-product-thumb"} -->
+						<figure class="wp-block-image size-medium mtm-home-product-thumb"><img src="/wp-content/themes/mtm-b2b-masterbatch/assets/images/guide-white-granules.jpg" alt="White masterbatch granules" loading="lazy" decoding="async" /></figure>
+						<!-- /wp:image -->
 						<!-- wp:heading {"level":3} -->
-						<h3 class="wp-block-heading">White, opacity and TiO2</h3>
+						<h3 class="wp-block-heading">Opacity with context.</h3>
 						<!-- /wp:heading -->
 						<!-- wp:paragraph -->
 						<p>Send the resin and process, along with the opacity target, TiO2 context, end product and document requirements.</p>
 						<!-- /wp:paragraph -->
+						<!-- wp:group {"className":"mtm-home-spec-tags","layout":{"type":"flex","flexWrap":"wrap"}} -->
+						<div class="wp-block-group mtm-home-spec-tags">
+							<!-- wp:paragraph {"className":"mtm-home-spec-tag"} -->
+							<p class="mtm-home-spec-tag">Opacity</p>
+							<!-- /wp:paragraph -->
+							<!-- wp:paragraph {"className":"mtm-home-spec-tag"} -->
+							<p class="mtm-home-spec-tag">Whiteness</p>
+							<!-- /wp:paragraph -->
+							<!-- wp:paragraph {"className":"mtm-home-spec-tag"} -->
+							<p class="mtm-home-spec-tag">TiO2 context</p>
+							<!-- /wp:paragraph -->
+						</div>
+						<!-- /wp:group -->
 						<!-- wp:paragraph {"className":"mtm-home-card-link"} -->
-						<p class="mtm-home-card-link"><a href="/masterbatch-guides/white-masterbatch/">View white masterbatch</a></p>
+						<p class="mtm-home-card-link"><a href="/masterbatch-guides/white-masterbatch/">Open white route</a></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:group -->
@@ -269,19 +344,36 @@ import:
 						<!-- wp:paragraph {"className":"mtm-eyebrow"} -->
 						<p class="mtm-eyebrow">Color Masterbatch</p>
 						<!-- /wp:paragraph -->
+						<!-- wp:image {"sizeSlug":"medium","linkDestination":"none","className":"mtm-home-product-thumb"} -->
+						<figure class="wp-block-image size-medium mtm-home-product-thumb"><img src="/wp-content/themes/mtm-b2b-masterbatch/assets/images/guide-color-granules.jpg" alt="Mixed-color masterbatch granules" loading="lazy" decoding="async" /></figure>
+						<!-- /wp:image -->
 						<!-- wp:heading {"level":3} -->
-						<h3 class="wp-block-heading">Color reference and tolerance</h3>
+						<h3 class="wp-block-heading">Reference becomes direction.</h3>
 						<!-- /wp:heading -->
 						<!-- wp:paragraph -->
 						<p>Describe the resin and end product. Include the color reference and tolerance expectation, and say whether a sample discussion is needed.</p>
 						<!-- /wp:paragraph -->
+						<!-- wp:group {"className":"mtm-home-spec-tags","layout":{"type":"flex","flexWrap":"wrap"}} -->
+						<div class="wp-block-group mtm-home-spec-tags">
+							<!-- wp:paragraph {"className":"mtm-home-spec-tag"} -->
+							<p class="mtm-home-spec-tag">Reference</p>
+							<!-- /wp:paragraph -->
+							<!-- wp:paragraph {"className":"mtm-home-spec-tag"} -->
+							<p class="mtm-home-spec-tag">Tolerance</p>
+							<!-- /wp:paragraph -->
+							<!-- wp:paragraph {"className":"mtm-home-spec-tag"} -->
+							<p class="mtm-home-spec-tag">Sample review</p>
+							<!-- /wp:paragraph -->
+						</div>
+						<!-- /wp:group -->
 						<!-- wp:paragraph {"className":"mtm-home-card-link"} -->
-						<p class="mtm-home-card-link"><a href="/masterbatch-guides/color-masterbatch/">View color masterbatch</a></p>
+						<p class="mtm-home-card-link"><a href="/masterbatch-guides/color-masterbatch/">Open color route</a></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:group -->
 				</div>
 				<!-- /wp:column -->
+
 			</div>
 			<!-- /wp:columns -->
 
@@ -301,11 +393,11 @@ import:
 				<!-- /wp:paragraph -->
 
 				<!-- wp:heading {"level":2} -->
-				<h2 class="wp-block-heading">Where it will be used</h2>
+				<h2 class="wp-block-heading">The run changes the requirement.</h2>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph -->
-				<p>Masterbatch applications vary by end product. The film, molding, extrusion or recycled plastic you run changes what we ask. Pick the closest case.</p>
+				<p>Film, molding, extrusion and recycled feedstock each expose different questions. Start with the production context closest to yours.</p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:group -->
@@ -386,7 +478,7 @@ import:
 				<!-- /wp:paragraph -->
 
 				<!-- wp:heading {"level":2} -->
-				<h2 class="wp-block-heading">What happens next</h2>
+				<h2 class="wp-block-heading">From brief to a useful answer.</h2>
 				<!-- /wp:heading -->
 			</div>
 			<!-- /wp:group -->
@@ -464,6 +556,7 @@ import:
 					<!-- /wp:group -->
 				</div>
 				<!-- /wp:column -->
+
 			</div>
 			<!-- /wp:columns -->
 		</div>
@@ -482,11 +575,11 @@ import:
 				<!-- /wp:paragraph -->
 
 				<!-- wp:heading {"level":2} -->
-				<h2 class="wp-block-heading">Technical documents are checked by grade</h2>
+				<h2 class="wp-block-heading">Documents follow the grade.</h2>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph -->
-				<p>Availability depends on the product grade, application, country and intended use. Send a document request and we&rsquo;ll check whether suitable files exist for that grade. If they do, we reply by email.</p>
+				<p>A TDS, SDS/MSDS, COA or compliance-related file only means something when tied to the exact product, application, country and intended use. Request the review and the team will check the scope.</p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:buttons -->
@@ -503,29 +596,21 @@ import:
 			<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:42%">
 				<!-- wp:group {"className":"mtm-home-document-panel","layout":{"type":"constrained"}} -->
 				<div class="wp-block-group mtm-home-document-panel">
-					<!-- wp:paragraph {"className":"mtm-home-document-panel__label"} -->
-					<p class="mtm-home-document-panel__label">Typical document requests</p>
+					<!-- wp:paragraph {"className":"mtm-home-document-row"} -->
+					<p class="mtm-home-document-row"><span>TDS</span><strong>Technical data</strong><em>Typical and specification values by grade.</em></p>
 					<!-- /wp:paragraph -->
 
-					<!-- wp:group {"className":"mtm-home-document-types","layout":{"type":"flex","flexWrap":"wrap"}} -->
-					<div class="wp-block-group mtm-home-document-types is-layout-flex">
-						<!-- wp:paragraph {"className":"mtm-home-document-type"} -->
-						<p class="mtm-home-document-type">TDS</p>
-						<!-- /wp:paragraph -->
-						<!-- wp:paragraph {"className":"mtm-home-document-type"} -->
-						<p class="mtm-home-document-type">SDS / MSDS</p>
-						<!-- /wp:paragraph -->
-						<!-- wp:paragraph {"className":"mtm-home-document-type"} -->
-						<p class="mtm-home-document-type">COA</p>
-						<!-- /wp:paragraph -->
-						<!-- wp:paragraph {"className":"mtm-home-document-type"} -->
-						<p class="mtm-home-document-type">RoHS-related</p>
-						<!-- /wp:paragraph -->
-						<!-- wp:paragraph {"className":"mtm-home-document-type"} -->
-						<p class="mtm-home-document-type">FDA-related</p>
-						<!-- /wp:paragraph -->
-					</div>
-					<!-- /wp:group -->
+					<!-- wp:paragraph {"className":"mtm-home-document-row"} -->
+					<p class="mtm-home-document-row"><span>SDS / MSDS</span><strong>Safety information</strong><em>By supplied product where available.</em></p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph {"className":"mtm-home-document-row"} -->
+					<p class="mtm-home-document-row"><span>COA</span><strong>Batch record</strong><em>Batch-specific where available.</em></p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph {"className":"mtm-home-document-row"} -->
+					<p class="mtm-home-document-row"><span>COMPLIANCE</span><strong>Tested scope</strong><em>Only the tested grade or sample.</em></p>
+					<!-- /wp:paragraph -->
 
 					<!-- wp:paragraph {"className":"mtm-home-document-caption"} -->
 					<p class="mtm-home-document-caption">Not every product has every document. Compliance-related documents, if available, apply only to the specific tested grade or sample.</p>
@@ -542,107 +627,39 @@ import:
 
 	<!-- wp:group {"tagName":"section","anchor":"about","className":"mtm-home-section mtm-home-about","layout":{"type":"default"}} -->
 	<section id="about" class="wp-block-group mtm-home-section mtm-home-about">
-		<!-- wp:columns {"align":"wide","className":"mtm-home-shell mtm-home-about__grid","verticalAlignment":"center"} -->
-		<div class="wp-block-columns alignwide mtm-home-shell mtm-home-about__grid are-vertically-aligned-center">
-			<!-- wp:column {"verticalAlignment":"center","width":"52%"} -->
-			<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:52%">
-				<!-- wp:paragraph {"className":"mtm-eyebrow"} -->
-				<p class="mtm-eyebrow">About GE</p>
-				<!-- /wp:paragraph -->
+		<!-- wp:group {"align":"wide","className":"mtm-home-shell mtm-home-about__overlay","layout":{"type":"constrained","contentSize":"760px"}} -->
+		<div class="wp-block-group alignwide mtm-home-shell mtm-home-about__overlay">
+			<!-- wp:paragraph {"className":"mtm-eyebrow"} -->
+			<p class="mtm-eyebrow">Factory context</p>
+			<!-- /wp:paragraph -->
 
-				<!-- wp:heading {"level":2} -->
-				<h2 class="wp-block-heading">A masterbatch supplier focused on application fit</h2>
-				<!-- /wp:heading -->
+			<!-- wp:heading {"level":2} -->
+			<h2 class="wp-block-heading">The material has to work on the line.</h2>
+			<!-- /wp:heading -->
 
+			<!-- wp:paragraph -->
+			<p>Application fit starts with the real processing context. The factory and workshop imagery show where that context belongs, while product and document claims stay tied to the exact grade under review.</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:group {"className":"mtm-home-about-tags","layout":{"type":"flex","flexWrap":"wrap"}} -->
+			<div class="wp-block-group mtm-home-about-tags">
 				<!-- wp:paragraph -->
-				<p>GE CHEMICAL &amp; POLYMER GROUP CO., LTD is a masterbatch supplier for black, white and color inquiries. We begin with the buyer&rsquo;s base resin, processing method and end product, then review which grade and documents may fit.</p>
+				<p>Material context</p>
 				<!-- /wp:paragraph -->
-
-				<!-- wp:paragraph {"className":"mtm-home-about__link"} -->
-				<p class="mtm-home-about__link"><a href="/about-quality/">About GE and Quality</a></p>
+				<!-- wp:paragraph -->
+				<p>Processing review</p>
+				<!-- /wp:paragraph -->
+				<!-- wp:paragraph -->
+				<p>Packing &amp; shipment</p>
 				<!-- /wp:paragraph -->
 			</div>
-			<!-- /wp:column -->
+			<!-- /wp:group -->
 
-			<!-- wp:column {"verticalAlignment":"center","width":"48%"} -->
-			<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:48%">
-				<!-- wp:group {"className":"mtm-home-principles","layout":{"type":"default"}} -->
-				<div class="wp-block-group mtm-home-principles">
-					<!-- wp:group {"className":"mtm-home-principle","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
-					<div class="wp-block-group mtm-home-principle is-layout-flex">
-						<!-- wp:paragraph {"className":"mtm-home-principle__mark"} -->
-						<p class="mtm-home-principle__mark">01</p>
-						<!-- /wp:paragraph -->
-						<!-- wp:paragraph -->
-						<p>Black, white and color product families</p>
-						<!-- /wp:paragraph -->
-					</div>
-					<!-- /wp:group -->
-
-					<!-- wp:group {"className":"mtm-home-principle","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
-					<div class="wp-block-group mtm-home-principle is-layout-flex">
-						<!-- wp:paragraph {"className":"mtm-home-principle__mark"} -->
-						<p class="mtm-home-principle__mark">02</p>
-						<!-- /wp:paragraph -->
-						<!-- wp:paragraph -->
-						<p>Resin, process and end product before grade selection</p>
-						<!-- /wp:paragraph -->
-					</div>
-					<!-- /wp:group -->
-
-					<!-- wp:group {"className":"mtm-home-principle","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
-					<div class="wp-block-group mtm-home-principle is-layout-flex">
-						<!-- wp:paragraph {"className":"mtm-home-principle__mark"} -->
-						<p class="mtm-home-principle__mark">03</p>
-						<!-- /wp:paragraph -->
-						<!-- wp:paragraph -->
-						<p>Grade-specific document review</p>
-						<!-- /wp:paragraph -->
-					</div>
-					<!-- /wp:group -->
-				</div>
-				<!-- /wp:group -->
-			</div>
-			<!-- /wp:column -->
+			<!-- wp:paragraph {"className":"mtm-home-about__link"} -->
+			<p class="mtm-home-about__link"><a href="/about-quality/">About GE and Quality</a></p>
+			<!-- /wp:paragraph -->
 		</div>
-		<!-- /wp:columns -->
-
-		<!-- wp:columns {"align":"wide","className":"mtm-home-shell mtm-home-about-gallery"} -->
-		<div class="wp-block-columns alignwide mtm-home-shell mtm-home-about-gallery">
-			<!-- wp:column -->
-			<div class="wp-block-column">
-				<!-- wp:image {"sizeSlug":"full","className":"mtm-home-about-photo"} -->
-				<figure class="wp-block-image size-full mtm-home-about-photo">
-					<img src="/wp-content/themes/mtm-b2b-masterbatch/assets/images/home-workshop-equipment.jpg" alt="Masterbatch workshop equipment" width="1200" height="900" loading="lazy" decoding="async" />
-					<figcaption class="wp-element-caption">Workshop equipment</figcaption>
-				</figure>
-				<!-- /wp:image -->
-			</div>
-			<!-- /wp:column -->
-
-			<!-- wp:column -->
-			<div class="wp-block-column">
-				<!-- wp:image {"sizeSlug":"full","className":"mtm-home-about-photo"} -->
-				<figure class="wp-block-image size-full mtm-home-about-photo">
-					<img src="/wp-content/themes/mtm-b2b-masterbatch/assets/images/home-masterbatch-packaging.jpg" alt="Bagged masterbatch on a pallet" width="506" height="675" loading="lazy" decoding="async" />
-					<figcaption class="wp-element-caption">Bagged masterbatch on a pallet</figcaption>
-				</figure>
-				<!-- /wp:image -->
-			</div>
-			<!-- /wp:column -->
-
-			<!-- wp:column -->
-			<div class="wp-block-column">
-				<!-- wp:image {"sizeSlug":"full","className":"mtm-home-about-photo"} -->
-				<figure class="wp-block-image size-full mtm-home-about-photo">
-					<img src="/wp-content/themes/mtm-b2b-masterbatch/assets/images/masterbatch-palletized-shipment.jpg" alt="Wrapped masterbatch pallets ready for shipment" width="638" height="716" loading="lazy" decoding="async" />
-					<figcaption class="wp-element-caption">Wrapped pallets ready for shipment</figcaption>
-				</figure>
-				<!-- /wp:image -->
-			</div>
-			<!-- /wp:column -->
-		</div>
-		<!-- /wp:columns -->
+		<!-- /wp:group -->
 	</section>
 	<!-- /wp:group -->
 
@@ -661,7 +678,7 @@ import:
 						<!-- /wp:paragraph -->
 
 						<!-- wp:heading {"level":2} -->
-				<h2 class="wp-block-heading">Read before an RFQ</h2>
+				<h2 class="wp-block-heading">Read before the RFQ.</h2>
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph -->
@@ -736,6 +753,24 @@ import:
 						<!-- /wp:heading -->
 						<!-- wp:paragraph -->
 						<p>Inquiry preparation, document meanings and grade-specific review.</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
+				</div>
+				<!-- /wp:column -->
+
+				<!-- wp:column {"className":"mtm-home-card-column"} -->
+				<div class="wp-block-column mtm-home-card-column">
+					<!-- wp:group {"className":"mtm-home-resource-card","layout":{"type":"constrained"}} -->
+					<div class="wp-block-group mtm-home-resource-card">
+						<!-- wp:paragraph {"className":"mtm-home-resource-card__index"} -->
+						<p class="mtm-home-resource-card__index">04</p>
+						<!-- /wp:paragraph -->
+						<!-- wp:heading {"level":3} -->
+						<h3 class="wp-block-heading">TDS, SDS and COA</h3>
+						<!-- /wp:heading -->
+						<!-- wp:paragraph -->
+						<p>What each technical document covers and what it cannot prove.</p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:group -->
@@ -826,11 +861,28 @@ import:
 				<!-- /wp:paragraph -->
 
 				<!-- wp:heading {"level":2} -->
-				<h2 class="wp-block-heading">Send us the job details</h2>
+				<h2 class="wp-block-heading">Send us the run.</h2>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph -->
-				<p>Send the resin, process, end product, target, current grade and any masterbatch RFQ, quotation or document request. We will review the product and document scope.</p>
+				<p>Send the resin, process, end product, target and current grade. Add the documents you need. We will review the product and document scope before replying.</p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:group -->
+
+			<!-- wp:group {"className":"mtm-home-cta-specs","layout":{"type":"flex","flexWrap":"wrap"}} -->
+			<div class="wp-block-group mtm-home-cta-specs">
+				<!-- wp:paragraph {"className":"mtm-home-cta-spec"} -->
+				<p class="mtm-home-cta-spec"><span>01</span><strong>Resin</strong></p>
+				<!-- /wp:paragraph -->
+				<!-- wp:paragraph {"className":"mtm-home-cta-spec"} -->
+				<p class="mtm-home-cta-spec"><span>02</span><strong>Process</strong></p>
+				<!-- /wp:paragraph -->
+				<!-- wp:paragraph {"className":"mtm-home-cta-spec"} -->
+				<p class="mtm-home-cta-spec"><span>03</span><strong>Target</strong></p>
+				<!-- /wp:paragraph -->
+				<!-- wp:paragraph {"className":"mtm-home-cta-spec"} -->
+				<p class="mtm-home-cta-spec"><span>04</span><strong>Documents</strong></p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:group -->

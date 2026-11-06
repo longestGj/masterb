@@ -55,19 +55,19 @@ final class MB_RFQ_Submission {
 	 * Process a submitted form payload.
 	 *
 	 * @param array<string,mixed> $input Raw input.
-	 * @return array{status:string,id?:int,email_sent?:bool}
+	 * @return array{status:string,id?:int,email_sent?:bool,product_interest?:string,form_context?:string,source_page?:string}
 	 */
 	public static function process( $input ) {
 		$data = self::sanitize( $input );
 
 		foreach ( array( 'full_name', 'company', 'email', 'country', 'product_interest', 'application' ) as $field ) {
 			if ( '' === $data[ $field ] ) {
-				return array( 'status' => 'error' );
+				return self::failure_result( $data );
 			}
 		}
 
 		if ( ! is_email( $data['email'] ) ) {
-			return array( 'status' => 'error' );
+			return self::failure_result( $data );
 		}
 
 		$allowed_products = array(
@@ -77,25 +77,25 @@ final class MB_RFQ_Submission {
 			'Not sure',
 		);
 		if ( ! in_array( $data['product_interest'], $allowed_products, true ) ) {
-			return array( 'status' => 'error' );
+			return self::failure_result( $data );
 		}
 
 		if ( '1' !== $data['privacy_consent'] ) {
-			return array( 'status' => 'error' );
+			return self::failure_result( $data );
 		}
 
 		if (
 			'documents' === $data['form_context']
 			&& ( '' === $data['documents_requested'] || '' === $data['document_purpose'] )
 		) {
-			return array( 'status' => 'error' );
+			return self::failure_result( $data );
 		}
 
 		$rate_key = 'mb_rfq_rate_' . md5(
 			strtolower( $data['email'] ) . '|' . ( $_SERVER['REMOTE_ADDR'] ?? '' )
 		);
 		if ( get_transient( $rate_key ) ) {
-			return array( 'status' => 'error' );
+			return self::failure_result( $data );
 		}
 
 		$post_id = wp_insert_post(
@@ -135,7 +135,7 @@ final class MB_RFQ_Submission {
 		);
 
 		if ( is_wp_error( $post_id ) ) {
-			return array( 'status' => 'error' );
+			return self::failure_result( $data );
 		}
 
 		$recipient = getenv( 'MASTERBATCH_RFQ_RECIPIENT' );
@@ -160,12 +160,16 @@ final class MB_RFQ_Submission {
 
 		if ( ! $email_sent ) {
 			error_log( 'Masterbatch RFQ stored but email delivery failed for inquiry #' . $post_id );
+			self::send_ga4_email_failure_event( $data, (int) $post_id );
 		}
 
 		return array(
 			'status'     => 'success',
 			'id'         => (int) $post_id,
 			'email_sent' => $email_sent,
+			'product_interest' => $data['product_interest'],
+			'form_context'     => $data['form_context'],
+			'source_page'      => $data['source_page'],
 		);
 	}
 
@@ -191,6 +195,7 @@ final class MB_RFQ_Submission {
 			'destination_port',
 			'documents_requested',
 			'document_purpose',
+			'ga_client_id',
 			'form_context',
 			'source_page',
 		);
@@ -213,6 +218,87 @@ final class MB_RFQ_Submission {
 			: '';
 
 		return $output;
+	}
+
+	/**
+	 * Return safe analytics context for a rejected submission.
+	 *
+	 * @param array<string,string> $data Sanitized form data.
+	 * @return array{status:string,product_interest:string,form_context:string,source_page:string}
+	 */
+	private static function failure_result( $data ) {
+		return array(
+			'status'           => 'error',
+			'product_interest' => $data['product_interest'],
+			'form_context'     => $data['form_context'],
+			'source_page'      => $data['source_page'],
+		);
+	}
+
+	/**
+	 * Best-effort GA4 Measurement Protocol event for failed email delivery.
+	 *
+	 * The API secret is read from the environment and is never stored in the
+	 * database or repository.
+	 *
+	 * @param array<string,string> $data    Sanitized form data.
+	 * @param int                  $post_id Stored inquiry ID.
+	 * @return void
+	 */
+	private static function send_ga4_email_failure_event( $data, $post_id ) {
+		$measurement_id = getenv( 'MASTERBATCH_GA4_MEASUREMENT_ID' );
+		if ( ! $measurement_id ) {
+			$measurement_id = get_option( 'mb_ga4_measurement_id', '' );
+		}
+		$measurement_id = strtoupper( trim( (string) $measurement_id ) );
+		$api_secret     = trim( (string) getenv( 'MASTERBATCH_GA4_API_SECRET' ) );
+		if (
+			! preg_match( '/^G-[A-Z0-9]{4,}$/', $measurement_id )
+			|| '' === $api_secret
+		) {
+			return;
+		}
+
+		$client_id = trim( (string) $data['ga_client_id'] );
+		if ( '' === $client_id ) {
+			$client_id = 'server-' . substr( hash( 'sha256', $data['email'] ), 0, 24 );
+		}
+
+		$event_name = 'documents' === $data['form_context']
+			? 'documents_email_delivery_failed'
+			: 'rfq_email_delivery_failed';
+		$endpoint   = add_query_arg(
+			array(
+				'measurement_id' => $measurement_id,
+				'api_secret'     => $api_secret,
+			),
+			'https://www.google-analytics.com/mp/collect'
+		);
+
+		wp_remote_post(
+			$endpoint,
+			array(
+				'timeout'  => 2,
+				'blocking' => false,
+				'headers'  => array( 'Content-Type' => 'application/json' ),
+				'body'     => wp_json_encode(
+					array(
+						'client_id' => $client_id,
+						'events'    => array(
+							array(
+								'name'   => $event_name,
+								'params' => array(
+									'form_context'     => $data['form_context'],
+									'product_interest' => $data['product_interest'],
+									'source_page'      => $data['source_page'],
+									'inquiry_id'       => $post_id,
+								),
+							),
+						),
+					)
+				),
+			)
+		);
 	}
 
 	/**
@@ -276,16 +362,17 @@ final class MB_RFQ_Submission {
 		}
 
 		$result = self::process( $_POST );
-		self::redirect( $result['status'] );
+		self::redirect( $result['status'], $result );
 	}
 
 	/**
 	 * Redirect to the form with a bounded status value.
 	 *
-	 * @param string $status Submission status.
+	 * @param string              $status  Submission status.
+	 * @param array<string,mixed> $context Safe analytics context.
 	 * @return void
 	 */
-	private static function redirect( $status ) {
+	private static function redirect( $status, $context = array() ) {
 		$fallback = home_url( '/request-a-quote/' );
 		$referer  = wp_get_referer();
 		$target   = wp_validate_redirect( $referer, $fallback );
@@ -295,6 +382,19 @@ final class MB_RFQ_Submission {
 			'success' === $status ? 'success' : 'error',
 			$target
 		);
+		$source_page = wp_parse_url( (string) ( $context['source_page'] ?? '' ) );
+		$analytics_args = array_filter(
+			array(
+				'rfq_context' => sanitize_key( (string) ( $context['form_context'] ?? '' ) ),
+				'rfq_product' => sanitize_text_field( (string) ( $context['product_interest'] ?? '' ) ),
+				'rfq_source'  => isset( $source_page['path'] )
+					? sanitize_text_field( $source_page['path'] )
+					: '',
+			)
+		);
+		if ( $analytics_args ) {
+			$target = add_query_arg( $analytics_args, $target );
+		}
 
 		wp_safe_redirect( $target . '#request-form' );
 		exit;

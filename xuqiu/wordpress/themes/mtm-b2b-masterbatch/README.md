@@ -1,6 +1,7 @@
 # MTM B2B Masterbatch 子主题
 
-- 状态：首版首页、三类指南、Documents、Resources 与私有 RFQ 提交
+- 状态：Technical Field Manual 首页、三类指南、Documents、Resources
+  与私有 RFQ 提交
 - 父主题：`mtm-b2b`
 - 子主题 slug：`mtm-b2b-masterbatch`
 - 主要内容：替换 Header/Footer，并新增首页、产品指南、About、FAQ、
@@ -32,6 +33,15 @@
 
 首页不展示未确认的产能、生产线、市场数量、客户名称、固定参数或全系列合规声明。
 `masterbatch supplier` 定位已获业务确认；`manufacturer` 和规模数据仍需证据。
+
+当前首页视觉为 Technical Field Manual：
+
+- 暖纸色编辑式 Hero，衬线大标题，工厂建筑主图和黑色母粒样本叠图；
+- 黑、白、彩三块连续产品版面，使用颗粒大图和规格标签；
+- Applications 为暖色工艺索引，Process 为深墨审核序列；
+- Documents 为暖纸登记表，About 使用车间全幅背景；
+- 最终 CTA 使用黏土色和 Resin、Process、Target、Documents 四项提示；
+- 视觉样式隔离在 `assets/css/material-field-manual.css`，仅静态首页加载。
 
 ## 部署
 

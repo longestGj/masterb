@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Masterbatch Homepage Redesign Concepts</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 28px; color: #edf0eb; background: #0d171c; font-family: Arial, sans-serif; }
+    h1 { margin: 0 0 8px; font-size: 30px; }
+    p { margin: 0 0 26px; color: #aeb9b7; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+    article { padding: 16px; border: 1px solid #35464a; background: #142329; }
+    h2 { margin: 0 0 7px; font-size: 20px; }
+    .note { min-height: 54px; margin: 0 0 14px; color: #9fadaa; font-size: 13px; line-height: 1.5; }
+    .shots { display: grid; grid-template-columns: 1fr 120px; gap: 10px; align-items: start; }
+    a { display: block; color: #e7ad4b; font-size: 12px; }
+    img { display: block; width: 100%; margin-bottom: 8px; border: 1px solid #405257; background: #fff; }
+    .mobile { max-height: 520px; object-fit: cover; object-position: top; }
+    @media (max-width: 1000px) { body { padding: 16px; } .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <h1>首页重设计草图</h1>
+  <p>三个方向都重新安排了内容、主图、视觉重心和信息节奏，不是现有页面的样式微调。</p>
+  <div class="grid">
+    <article>
+      <h2>A / Material Lab</h2>
+      <p class="note">深色材料实验室。巨幅颗粒图、超大标题、连续产品带，并加入完整 Factory Context 工厂章节。最像材料品牌，也保留供应场景。</p>
+      <div class="shots">
+        <a href="./concept-lab-desktop.png"><img src="./concept-lab-desktop.png" alt="Material Lab desktop"><span>PC full page</span></a>
+        <a href="./concept-lab-mobile.png"><img class="mobile" src="./concept-lab-mobile.png" alt="Material Lab mobile"><span>Mobile</span></a>
+      </div>
+    </article>
+    <article>
+      <h2>B / Material Atlas</h2>
+      <p class="note">纸张样本册和编辑部风格。衬线大标题、拼贴图片、三色产品章。最有辨识度，适合内容与 SEO 长期扩展。</p>
+      <div class="shots">
+        <a href="./concept-atlas-desktop.png"><img src="./concept-atlas-desktop.png" alt="Material Atlas desktop"><span>PC full page</span></a>
+        <a href="./concept-atlas-mobile.png"><img class="mobile" src="./concept-atlas-mobile.png" alt="Material Atlas mobile"><span>Mobile</span></a>
+      </div>
+    </article>
+    <article>
+      <h2>C / Factory Floor</h2>
+      <p class="note">工业纪实片。工厂大图、分屏章节、流程线。最稳、最有供应能力联想，同时保留采购流程感。</p>
+      <div class="shots">
+        <a href="./concept-factory-desktop.png"><img src="./concept-factory-desktop.png" alt="Factory Floor desktop"><span>PC full page</span></a>
+        <a href="./concept-factory-mobile.png"><img class="mobile" src="./concept-factory-mobile.png" alt="Factory Floor mobile"><span>Mobile</span></a>
+      </div>
+    </article>
+    <article>
+      <h2>D / Technical Field Manual</h2>
+      <p class="note">完整新版。暖纸基底、编辑式大标题、工厂大图和黑白彩三块产品版面，包含应用、流程、文件、About、Resources、FAQ 和最终 CTA。</p>
+      <div class="shots">
+        <a href="./concept-field-manual-desktop.png"><img src="./concept-field-manual-desktop.png" alt="Technical Field Manual desktop"><span>PC full page</span></a>
+        <a href="./concept-field-manual-mobile.png"><img class="mobile" src="./concept-field-manual-mobile.png" alt="Technical Field Manual mobile"><span>Mobile</span></a>
+      </div>
+    </article>
+  </div>
+</body>
+</html>

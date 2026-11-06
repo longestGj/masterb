@@ -43,6 +43,12 @@ $result = MB_RFQ_Submission::process(
 if ( 'success' !== ( $result['status'] ?? '' ) ) {
 	WP_CLI::error( 'The RFQ processor did not return success.' );
 }
+if (
+	'Black masterbatch' !== ( $result['product_interest'] ?? '' )
+	|| 'rfq' !== ( $result['form_context'] ?? '' )
+) {
+	WP_CLI::error( 'The RFQ analytics context was not returned.' );
+}
 
 $post_id = (int) $result['id'];
 $post    = get_post( $post_id );
@@ -101,6 +107,12 @@ $document_result = MB_RFQ_Submission::process(
 if ( 'success' !== ( $document_result['status'] ?? '' ) ) {
 	WP_CLI::error( 'The valid document request was not accepted.' );
 }
+if (
+	'White masterbatch' !== ( $document_result['product_interest'] ?? '' )
+	|| 'documents' !== ( $document_result['form_context'] ?? '' )
+) {
+	WP_CLI::error( 'The document analytics context was not returned.' );
+}
 
 $document_post_id = (int) $document_result['id'];
 if ( 'Customer approval' !== get_post_meta( $document_post_id, '_mb_rfq_document_purpose', true ) ) {
@@ -108,6 +120,69 @@ if ( 'Customer approval' !== get_post_meta( $document_post_id, '_mb_rfq_document
 	WP_CLI::error( 'The document purpose was not stored.' );
 }
 wp_delete_post( $document_post_id, true );
+
+remove_filter( 'pre_wp_mail', '__return_true' );
+add_filter( 'pre_wp_mail', '__return_false' );
+putenv( 'MASTERBATCH_GA4_MEASUREMENT_ID=G-TEST1234' );
+putenv( 'MASTERBATCH_GA4_API_SECRET=test-secret' );
+
+$ga_request = null;
+$capture_ga = static function ( $pre, $args, $url ) use ( &$ga_request ) {
+	if ( false === strpos( $url, 'google-analytics.com/mp/collect' ) ) {
+		return $pre;
+	}
+
+	$ga_request = array(
+		'url'  => $url,
+		'body' => json_decode( $args['body'] ?? '', true ),
+	);
+
+	return array(
+		'headers'  => array(),
+		'body'     => '',
+		'response' => array(
+			'code'    => 204,
+			'message' => 'No Content',
+		),
+		'cookies'  => array(),
+		'filename' => null,
+	);
+};
+add_filter( 'pre_http_request', $capture_ga, 10, 3 );
+
+$ga_result = MB_RFQ_Submission::process(
+	array(
+		'full_name'             => 'GA4 Email Failure Test',
+		'company'               => 'Test Company',
+		'email'                 => 'rfq-ga4-failure@example.com',
+		'country'               => 'Test Country',
+		'product_interest'      => 'Color masterbatch',
+		'application'           => 'Email failure integration test',
+		'privacy_consent'       => '1',
+		'form_context'          => 'rfq',
+		'ga_client_id'          => 'ga4-test-client.123',
+		'source_page'           => home_url( '/request-a-quote/' ),
+	)
+);
+
+if ( 'success' !== ( $ga_result['status'] ?? '' ) || true === ( $ga_result['email_sent'] ?? null ) ) {
+	wp_delete_post( (int) ( $ga_result['id'] ?? 0 ), true );
+	WP_CLI::error( 'The email failure test did not produce the expected stored-only result.' );
+}
+
+$ga_event = $ga_request['body']['events'][0] ?? array();
+if (
+	'rfq_email_delivery_failed' !== ( $ga_event['name'] ?? '' )
+	|| 'Color masterbatch' !== ( $ga_event['params']['product_interest'] ?? '' )
+) {
+	wp_delete_post( (int) $ga_result['id'], true );
+	WP_CLI::error( 'The GA4 email delivery failure event was not generated correctly.' );
+}
+
+remove_filter( 'pre_http_request', $capture_ga, 10 );
+wp_delete_post( (int) $ga_result['id'], true );
+putenv( 'MASTERBATCH_GA4_MEASUREMENT_ID' );
+putenv( 'MASTERBATCH_GA4_API_SECRET' );
 
 WP_CLI::success(
 	wp_json_encode(
@@ -117,8 +192,10 @@ WP_CLI::success(
 			'email_intercept'          => true,
 			'document_validation'      => true,
 			'document_purpose_saved'   => true,
+			'ga_email_failure_event'   => true,
 			'test_records_gone'        => null === get_post( $post_id )
-				&& null === get_post( $document_post_id ),
+				&& null === get_post( $document_post_id )
+				&& null === get_post( (int) $ga_result['id'] ),
 		)
 	)
 );

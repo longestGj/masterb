@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>助攻页面设计草图</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #102027; background: #f1ede4; font-family: "Helvetica Neue", Arial, sans-serif; }
+    header { padding: 4rem clamp(1.25rem, 5vw, 5rem) 2.5rem; border-bottom: 1px solid #c9c1b3; }
+    header p { margin: 0 0 .8rem; color: #c76042; font: 700 .68rem/1.4 Consolas, monospace; letter-spacing: .12em; text-transform: uppercase; }
+    header h1 { max-width: 900px; margin: 0; font: 400 clamp(3rem, 7vw, 7rem)/.9 Georgia, serif; letter-spacing: -.06em; }
+    header span { display: block; max-width: 700px; margin-top: 1.4rem; line-height: 1.7; }
+    main { display: grid; gap: 2rem; padding: 2rem clamp(1.25rem, 5vw, 5rem) 5rem; }
+    .option { display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 1.5rem; padding-top: 1rem; border-top: 3px solid #102027; }
+    .option img { display: block; width: 100%; border: 1px solid #c9c1b3; }
+    .option h2 { margin: 0 0 .7rem; font: 400 2rem/1 Georgia, serif; }
+    .option p { color: #5e6868; line-height: 1.65; }
+    .option a { display: inline-flex; padding: .75rem 1rem; color: #f1ede4; background: #102027; font: 700 .66rem/1 Consolas, monospace; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
+    @media (max-width: 760px) { .option { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <p>Support page system / Three directions</p>
+    <h1>助攻页面设计草图</h1>
+    <span>同一篇 What is masterbatch?，三种文章体验。所有版本沿用首页的暖纸色、深墨色、黄铜线和 Technical Field Manual 排版语言。</span>
+  </header>
+  <main>
+    <section class="option">
+      <a href="./article-field-note.html"><img src="./output/field-note-desktop.png" alt="A Editorial Field Note desktop preview"></a>
+      <div>
+        <h2>A. Editorial Field Note</h2>
+        <p>最接近首页的编辑手册感。大幅标题、左侧目录、首字下沉、图文带和杂志式正文，适合作为品牌主力文章模板。</p>
+        <a href="./article-field-note.html">打开 A</a>
+      </div>
+    </section>
+    <section class="option">
+      <a href="./article-technical-dossier.html"><img src="./output/technical-dossier-desktop.png" alt="B Technical Dossier desktop preview"></a>
+      <div>
+        <h2>B. Technical Dossier</h2>
+        <p>更像一份采购技术档案。深色刊头、编号、右侧摘录卡和文档登记表更突出，适合 TDS、SDS、质量问题和选型文章。</p>
+        <a href="./article-technical-dossier.html">打开 B</a>
+      </div>
+    </section>
+    <section class="option">
+      <a href="./article-material-map.html"><img src="./output/material-map-desktop.png" alt="C Material Map desktop preview"></a>
+      <div>
+        <h2>C. Material Map</h2>
+        <p>最强调视觉解释。四宫格材料样本、工艺流程和编号卡片让知识页更容易扫读，适合什么是色母粒、应用和选型主题。</p>
+        <a href="./article-material-map.html">打开 C</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

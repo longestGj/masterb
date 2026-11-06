@@ -73,6 +73,7 @@ function renderHomepagePreview() {
   const header = readThemeFile("parts/header.html");
   const footer = readThemeFile("parts/footer.html");
   const style = readThemeFile("style.css");
+  const fieldManualStyle = readThemeFile("assets/css/material-field-manual.css");
   const homePackage = parseContentPackage(
     readWordPressFile("content/pages/home.md"),
   );
@@ -162,9 +163,10 @@ function renderHomepagePreview() {
       flex-wrap: wrap;
     }
     ${style}
+    ${fieldManualStyle}
   </style>
 </head>
-<body>${template}</body>
+<body class="home">${template}</body>
 </html>`;
 }
 
@@ -179,14 +181,14 @@ test("renders the eight homepage sections and conversion paths", async ({
 }, testInfo) => {
   await expect(page.locator("h1")).toHaveCount(1);
   await expect(page.locator("h1")).toHaveText(
-    "Masterbatch Products for Plastic Processing",
+    "Masterbatch, tuned to the line.",
   );
+  await expect(page.locator(".mtm-home-hero__spec")).toHaveCount(3);
   await expect(page.locator(".mtm-home-section")).toHaveCount(8);
   const headerSource = readThemeFile("parts/header.html");
   for (const label of [
-    "Home",
-    "Products",
-    "Resources",
+    "Materials",
+    "Applications",
     "Documents",
     "About",
   ]) {
@@ -194,7 +196,7 @@ test("renders the eight homepage sections and conversion paths", async ({
   }
   await expect(
     page.locator('header .wp-block-button__link[href="/request-a-quote/"]'),
-  ).toHaveText("Contact");
+  ).toHaveText("Build RFQ");
 
   const sectionIds = [
     "hero",
@@ -220,10 +222,11 @@ test("renders the eight homepage sections and conversion paths", async ({
     page.locator('a[href="/masterbatch-guides/color-masterbatch/"]').first(),
   ).toBeVisible();
   await expect(page.locator(".mtm-home-hero-photo img")).toHaveCount(1);
-  await expect(page.locator(".mtm-home-about-gallery img")).toHaveCount(3);
+  await expect(page.locator(".mtm-home-product-thumb img")).toHaveCount(3);
+  await expect(page.locator(".mtm-home-about-gallery img")).toHaveCount(0);
   await expect(page.locator(".mtm-home-product-table")).toHaveCount(0);
   await expect(
-    page.getByText(/is a masterbatch supplier/i),
+    page.getByText(/the material has to work on the line/i),
   ).toBeVisible();
   await expect(
     page.locator('footer a[href="/privacy-policy/"]'),
@@ -269,7 +272,7 @@ test("keeps public claims within the approved evidence boundary", async ({
   }
 
   await expect(
-    page.getByText(/technical documents are checked by grade/i),
+    page.getByText(/documents follow the grade/i),
   ).toBeVisible();
   await expect(
     page.getByText(/apply only to the specific tested grade or sample/i),
@@ -337,7 +340,13 @@ test("wires the RFQ form for secure server-side submission", async () => {
     "mb_rfq_nonce",
     "website_url",
     "privacy_consent",
+    "ga_client_id",
     "intent_map",
+    "mb_ga4_measurement_id",
+    "rfq_submit_success",
+    "documents_submit_success",
+    "rfq_submit_error",
+    "documents_submit_error",
   ]) {
     expect(themeFunctions).toContain(token);
   }
@@ -349,6 +358,9 @@ test("wires the RFQ form for secure server-side submission", async () => {
     "_mb_rfq_email_sent",
     "document_purpose",
     "'documents' === $data['form_context']",
+    "MASTERBATCH_GA4_API_SECRET",
+    "rfq_email_delivery_failed",
+    "documents_email_delivery_failed",
     "wp_safe_redirect",
   ]) {
     expect(rfqPlugin).toContain(token);
