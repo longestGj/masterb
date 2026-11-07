@@ -1,0 +1,674 @@
+/*
+ * About / Quality page in the Technical Field Manual system.
+ * Loaded only on the About / Quality page template. The homepage keeps its own
+ * body.home scope in material-field-manual.css, so the two stylesheets never
+ * overlap and inner pages keep the base layout.
+ */
+body.mtm-about-field {
+	--field-ink: #102027;
+	--field-paper: #f1ede4;
+	--field-light: #f8f5ee;
+	--field-warm: #efebe3;
+	--field-brass: #d99d38;
+	--field-clay: #c76042;
+	--field-line: #c9c1b3;
+	--field-rule: #aaa092;
+	--field-mono: "SFMono-Regular", "Roboto Mono", Consolas, "Liberation Mono", monospace;
+	color: var(--field-ink);
+	background: var(--field-paper);
+}
+
+/* Header: same warm bar the front page uses, scoped to this page only. */
+body.mtm-about-field header.wp-block-template-part,
+body.mtm-about-field .mtm-header-sticky {
+	color: var(--field-ink);
+	background-color: rgba(241, 237, 228, 0.96) !important;
+	border-bottom: 1px solid var(--field-line);
+	box-shadow: none;
+	backdrop-filter: blur(14px);
+}
+
+body.mtm-about-field .mtm-header-main .wp-block-site-title,
+body.mtm-about-field .mtm-header-main .wp-block-site-title a {
+	color: var(--field-ink) !important;
+}
+
+body.mtm-about-field .mtm-header-main .wp-block-site-logo img {
+	width: 34px;
+	height: 34px;
+	padding: 0;
+	background: transparent;
+}
+
+body.mtm-about-field .mtm-header-main > .wp-block-group:first-child::before {
+	display: grid;
+	width: 2.15rem;
+	height: 2.15rem;
+	flex: 0 0 2.15rem;
+	color: var(--field-paper);
+	font-family: var(--field-mono);
+	font-size: 0.72rem;
+	font-weight: 800;
+	letter-spacing: 0.04em;
+	content: "GE";
+	background: var(--field-ink);
+	place-items: center;
+}
+
+body.mtm-about-field .mtm-header-main .wp-block-site-logo {
+	display: none;
+}
+
+body.mtm-about-field .mtm-header-main .wp-block-site-title {
+	font-size: 0 !important;
+}
+
+body.mtm-about-field .mtm-header-main .wp-block-site-title a::after {
+	display: block;
+	font-size: 0.7rem;
+	line-height: 1.2;
+	letter-spacing: 0.08em;
+	content: "Chemical & Polymer Group";
+	text-transform: uppercase;
+}
+
+body.mtm-about-field .mtm-header-main .mtm-header-kicker {
+	color: var(--field-clay);
+	border-color: rgba(199, 96, 66, 0.34);
+}
+
+body.mtm-about-field .mtm-header-main .wp-block-navigation a {
+	padding: 0.42rem 0.12rem;
+	color: #000 !important;
+	font-size: 0.92rem;
+	font-weight: 800;
+	line-height: 1.3;
+	letter-spacing: 0.025em;
+	text-decoration: none;
+	border-bottom: 1px solid transparent;
+}
+
+body.mtm-about-field .mtm-header-main .wp-block-navigation {
+	padding: 0.34rem 0.62rem;
+	gap: 1.15rem;
+	background: #fffaf1;
+	border: 1px solid #b8ad9c;
+	box-shadow: 0 2px 10px rgba(16, 32, 39, 0.08);
+}
+
+body.mtm-about-field .mtm-header-main .wp-block-navigation a:hover,
+body.mtm-about-field .mtm-header-main .wp-block-navigation a:focus-visible {
+	color: var(--field-clay) !important;
+	border-bottom-color: var(--field-clay);
+}
+
+body.mtm-about-field .mtm-header-main .wp-block-navigation__responsive-container-open,
+body.mtm-about-field .mtm-header-main .wp-block-navigation__responsive-container-close {
+	color: var(--field-ink);
+}
+
+body.mtm-about-field .mtm-header-main .wp-block-navigation__responsive-container.is-menu-open,
+body.mtm-about-field .mtm-header-main .wp-block-navigation__responsive-dialog {
+	color: var(--field-paper);
+	background-color: var(--field-ink) !important;
+}
+
+body.mtm-about-field .mtm-header-main .wp-block-navigation__responsive-container.is-menu-open a {
+	color: var(--field-paper) !important;
+	border-bottom-color: transparent;
+}
+
+body.mtm-about-field .mtm-header-main .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-close {
+	color: var(--field-paper) !important;
+}
+
+body.mtm-about-field .mtm-header-main .wp-block-button__link {
+	color: var(--field-paper) !important;
+	background: var(--field-ink) !important;
+	border-color: var(--field-ink) !important;
+}
+
+body.mtm-about-field .mtm-header-sticky .wp-block-separator {
+	background: var(--field-line);
+	border-color: var(--field-line);
+}
+
+/* Page shell: drop the root layout gaps so full-bleed sections touch. */
+body.mtm-about-field .mtm-afm,
+body.mtm-about-field .mtm-afm > .wp-block-group,
+body.mtm-about-field .mtm-afm .mtm-afm-section {
+	margin-top: 0 !important;
+}
+
+body.mtm-about-field .mtm-afm {
+	overflow: hidden;
+	color: var(--field-ink);
+	font-size: 1rem;
+	background: var(--field-paper);
+}
+
+/*
+ * Gutenberg gives constrained groups the theme content width and block gap.
+ * This page sets its own measure through .mtm-afm-shell and the section grids,
+ * so only the vertical rhythm is kept and the width limit is released.
+ */
+body.mtm-about-field .mtm-afm {
+	--wp--style--block-gap: 1.05rem;
+}
+
+body.mtm-about-field .mtm-afm .is-layout-constrained > * {
+	max-width: none;
+}
+
+body.mtm-about-field .mtm-afm-hero__copy,
+body.mtm-about-field .mtm-afm-hero__media,
+body.mtm-about-field .mtm-afm-focus__cell {
+	min-width: 0;
+}
+
+body.mtm-about-field .mtm-afm-shell {
+	max-width: 1120px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: clamp(1.25rem, 4vw, 3rem);
+	padding-left: clamp(1.25rem, 4vw, 3rem);
+}
+
+body.mtm-about-field .mtm-afm-section {
+	padding-top: clamp(4rem, 8vw, 7.5rem);
+	padding-bottom: clamp(4rem, 8vw, 7.5rem);
+	scroll-margin-top: 7.5rem;
+}
+
+body.mtm-about-field .mtm-afm-section--warm {
+	background: var(--field-warm);
+}
+
+body.mtm-about-field .mtm-afm-section--ink {
+	color: var(--field-paper);
+	background: var(--field-ink);
+}
+
+body.mtm-about-field .mtm-eyebrow {
+	color: var(--field-clay);
+	font-family: var(--field-mono);
+	font-size: 0.68rem;
+	font-weight: 800;
+	letter-spacing: 0.13em;
+	text-transform: uppercase;
+}
+
+body.mtm-about-field .mtm-afm h2 {
+	margin-top: 0.8rem;
+	margin-bottom: 1rem;
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: clamp(2.4rem, 4.2vw, 4.4rem);
+	font-weight: 400;
+	line-height: 0.94;
+	letter-spacing: -0.055em;
+}
+
+body.mtm-about-field .mtm-afm h3 {
+	font-size: 1rem;
+	font-weight: 700;
+	letter-spacing: 0;
+}
+
+body.mtm-about-field .mtm-afm p {
+	line-height: 1.7;
+}
+
+/* Hero */
+body.mtm-about-field .mtm-afm-hero {
+	padding-top: clamp(3rem, 7vw, 6rem);
+	padding-bottom: 0;
+	background: var(--field-paper);
+}
+
+/*
+ * The hero keeps the wider editorial measure from the approved concept; only
+ * the following chapters are capped by .mtm-afm-shell.
+ */
+body.mtm-about-field .mtm-afm-hero__grid {
+	display: grid;
+	max-width: 1440px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: clamp(1.25rem, 4vw, 4rem);
+	padding-left: clamp(1.25rem, 4vw, 4rem);
+	grid-template-columns: 1.05fr 0.95fr;
+	gap: clamp(2rem, 5vw, 4rem);
+	align-items: end;
+}
+
+body.mtm-about-field .mtm-afm-hero__title {
+	max-width: 760px;
+	margin-top: 1rem;
+	margin-bottom: 1.4rem;
+	color: var(--field-ink);
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: clamp(3.4rem, 6.4vw, 6.6rem);
+	font-weight: 400;
+	line-height: 0.88;
+	letter-spacing: -0.065em;
+}
+
+body.mtm-about-field .mtm-afm-hero__summary {
+	max-width: 560px;
+	margin-bottom: 1.8rem;
+	color: var(--field-ink);
+	font-size: 1.02rem;
+}
+
+body.mtm-about-field .mtm-afm-hero__actions .wp-block-button:first-child .wp-block-button__link {
+	color: var(--field-paper) !important;
+	background: var(--field-ink) !important;
+	border-color: var(--field-ink) !important;
+}
+
+body.mtm-about-field .mtm-afm-hero__actions .is-style-outline .wp-block-button__link {
+	color: var(--field-ink) !important;
+	background: transparent !important;
+	border-color: var(--field-ink) !important;
+}
+
+body.mtm-about-field .mtm-afm-specs {
+	display: grid;
+	margin-top: 2rem;
+	grid-template-columns: repeat(3, 1fr);
+	border-top: 1px solid var(--field-line);
+	border-bottom: 1px solid var(--field-line);
+}
+
+body.mtm-about-field .mtm-afm-spec {
+	padding: 0.9rem 0.8rem 0.9rem 0;
+	margin: 0;
+	border-right: 1px solid var(--field-line);
+}
+
+body.mtm-about-field .mtm-afm-spec:last-child {
+	padding-right: 0;
+	padding-left: 0.8rem;
+	border-right: 0;
+}
+
+body.mtm-about-field .mtm-afm-spec + .mtm-afm-spec {
+	padding-left: 0.8rem;
+}
+
+body.mtm-about-field .mtm-afm-spec span,
+body.mtm-about-field .mtm-afm-spec strong {
+	display: block;
+}
+
+body.mtm-about-field .mtm-afm-spec span {
+	margin-bottom: 0.25rem;
+	color: var(--field-clay);
+	font-family: var(--field-mono);
+	font-size: 0.58rem;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+body.mtm-about-field .mtm-afm-spec strong {
+	font-size: 0.76rem;
+}
+
+body.mtm-about-field .mtm-afm-hero-photo {
+	position: relative;
+	margin: 0;
+}
+
+body.mtm-about-field .mtm-afm-hero-photo img {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+}
+
+body.mtm-about-field .mtm-afm-hero-photo figcaption {
+	position: absolute;
+	right: 1rem;
+	bottom: 1rem;
+	padding: 0.5rem 0.7rem;
+	color: var(--field-ink);
+	background: var(--field-paper);
+	font-family: var(--field-mono);
+	font-size: 0.56rem;
+	font-weight: 800;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+/* Dark material strip under the hero */
+body.mtm-about-field .mtm-afm-marquee {
+	display: flex;
+	padding: 1rem clamp(1.25rem, 4vw, 3rem);
+	margin-top: clamp(2.5rem, 5vw, 4rem);
+	color: var(--field-paper);
+	background: var(--field-ink);
+	font-family: var(--field-mono);
+	font-size: 0.64rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	white-space: nowrap;
+	gap: 2rem;
+	overflow: hidden;
+}
+
+body.mtm-about-field .mtm-afm-marquee p {
+	margin: 0;
+}
+
+/* Numbered split rows */
+body.mtm-about-field .mtm-afm-split {
+	display: grid;
+	grid-template-columns: 0.9fr 1.1fr;
+	gap: clamp(2rem, 5vw, 4.5rem);
+	align-items: start;
+}
+
+body.mtm-about-field .mtm-afm-split--reverse {
+	grid-template-columns: 1.1fr 0.9fr;
+}
+
+body.mtm-about-field .mtm-afm-split__media {
+	margin: 0;
+}
+
+body.mtm-about-field .mtm-afm-split__media img {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+}
+
+body.mtm-about-field .mtm-afm-split__media figcaption {
+	margin-top: 0.6rem;
+	color: rgba(16, 32, 39, 0.62);
+	font-family: var(--field-mono);
+	font-size: 0.6rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+body.mtm-about-field .mtm-afm-split p:last-of-type {
+	max-width: 52ch;
+}
+
+/* Three-column focus grid */
+body.mtm-about-field .mtm-afm-focus {
+	display: grid;
+	margin-top: 2.5rem;
+	grid-template-columns: repeat(3, 1fr);
+	border-top: 1px solid var(--field-line);
+	border-left: 1px solid var(--field-line);
+}
+
+body.mtm-about-field .mtm-afm-focus__cell {
+	padding: 1.2rem;
+	border-right: 1px solid var(--field-line);
+	border-bottom: 1px solid var(--field-line);
+}
+
+body.mtm-about-field .mtm-afm-focus__label,
+body.mtm-about-field .mtm-afm-focus__title {
+	display: block;
+}
+
+body.mtm-about-field .mtm-afm-focus__label {
+	color: var(--field-clay);
+	font-family: var(--field-mono);
+	font-size: 0.62rem;
+	font-weight: 800;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+body.mtm-about-field .mtm-afm-focus__title {
+	margin-top: 1.6rem;
+	font-size: 0.95rem;
+	font-weight: 700;
+}
+
+body.mtm-about-field .mtm-afm-focus__cell p {
+	margin: 0.5rem 0 0;
+	font-size: 0.84rem;
+	line-height: 1.6;
+}
+
+/* Tag chips */
+body.mtm-about-field .mtm-afm-tags {
+	display: flex;
+	margin-top: 1.2rem;
+	gap: 0.35rem;
+}
+
+body.mtm-about-field .mtm-afm-tag {
+	margin: 0;
+	padding: 0.34rem 0.48rem;
+	font-family: var(--field-mono);
+	font-size: 0.55rem;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	border: 1px solid currentColor;
+}
+
+/* Register tables (claim boundary and next-step index) */
+body.mtm-about-field .mtm-afm-boundaries {
+	display: grid;
+	grid-template-columns: 0.75fr 1.25fr;
+	gap: clamp(2rem, 5vw, 5rem);
+}
+
+body.mtm-about-field .mtm-afm-boundaries__note {
+	max-width: 420px;
+}
+
+body.mtm-about-field .mtm-afm-register {
+	border-top: 1px solid var(--field-rule);
+}
+
+body.mtm-about-field .mtm-afm-register__row {
+	display: grid;
+	padding: 1rem 0;
+	margin: 0;
+	grid-template-columns: 5rem minmax(150px, 0.6fr) minmax(0, 1fr);
+	gap: 1rem;
+	border-bottom: 1px solid var(--field-rule);
+}
+
+body.mtm-about-field .mtm-afm-register__row span {
+	color: var(--field-clay);
+	font-family: var(--field-mono);
+	font-size: 0.62rem;
+	font-weight: 800;
+	letter-spacing: 0.06em;
+}
+
+body.mtm-about-field .mtm-afm-register__row strong {
+	font-size: 0.92rem;
+}
+
+body.mtm-about-field .mtm-afm-register__row em {
+	font-size: 0.84rem;
+	line-height: 1.55;
+	font-style: normal;
+}
+
+body.mtm-about-field .mtm-afm-link {
+	display: inline-flex;
+	margin-top: 1.4rem;
+	font-size: 0.78rem;
+	font-weight: 800;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+	border-bottom: 1px solid currentColor;
+}
+
+/* Buttons used across the page */
+body.mtm-about-field .mtm-afm .wp-block-button__link {
+	min-height: 2.9rem;
+	padding: 0.75rem 1rem;
+	font-size: 0.7rem;
+	font-weight: 800;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	border-radius: 0;
+}
+
+body.mtm-about-field .mtm-afm-next .wp-block-button__link {
+	color: var(--field-paper) !important;
+	background: var(--field-ink) !important;
+	border-color: var(--field-ink) !important;
+}
+
+/* Final CTA band */
+body.mtm-about-field .mtm-afm-cta {
+	padding-top: clamp(3.5rem, 7vw, 6rem);
+	padding-bottom: clamp(3.5rem, 7vw, 6rem);
+	background: var(--field-clay);
+}
+
+body.mtm-about-field .mtm-afm-cta__grid {
+	display: grid;
+	grid-template-columns: 1.15fr 0.85fr;
+	gap: clamp(2rem, 4vw, 4rem);
+	align-items: end;
+}
+
+body.mtm-about-field .mtm-afm-cta .mtm-eyebrow {
+	color: #ffe0c5;
+}
+
+body.mtm-about-field .mtm-afm-cta__title {
+	margin-top: 0.8rem;
+	margin-bottom: 1rem;
+	color: #fff9ef;
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: clamp(3rem, 6vw, 6.4rem);
+	font-weight: 400;
+	line-height: 0.86;
+	letter-spacing: -0.06em;
+}
+
+body.mtm-about-field .mtm-afm-cta__copy p:not(.mtm-eyebrow) {
+	max-width: 520px;
+	color: #f6d9ca;
+}
+
+body.mtm-about-field .mtm-afm-cta__fields {
+	display: grid;
+	margin-bottom: 1.2rem;
+	grid-template-columns: 1fr 1fr;
+	border-top: 1px solid rgba(255, 255, 255, 0.32);
+	border-left: 1px solid rgba(255, 255, 255, 0.32);
+}
+
+body.mtm-about-field .mtm-afm-cta__field {
+	display: flex;
+	padding: 0.85rem;
+	margin: 0;
+	color: #fff9ef;
+	font-family: var(--field-mono);
+	font-size: 0.66rem;
+	gap: 0.6rem;
+	border-right: 1px solid rgba(255, 255, 255, 0.32);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.32);
+}
+
+body.mtm-about-field .mtm-afm-cta__field b {
+	color: #ffe0c5;
+}
+
+body.mtm-about-field .mtm-afm-cta__actions .wp-block-button:first-child .wp-block-button__link {
+	color: var(--field-ink) !important;
+	background: #fff9ef !important;
+	border-color: #fff9ef !important;
+}
+
+body.mtm-about-field .mtm-afm-cta__actions .is-style-outline .wp-block-button__link {
+	color: #fff9ef !important;
+	border-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+@media (max-width: 900px) {
+	body.mtm-about-field .mtm-header-main .mtm-header-kicker {
+		display: none;
+	}
+
+	body.mtm-about-field .mtm-afm-section,
+	body.mtm-about-field .mtm-afm-cta {
+		padding-top: 3.25rem;
+		padding-bottom: 3.25rem;
+	}
+
+	body.mtm-about-field .mtm-afm-hero {
+		padding-top: 2.25rem;
+	}
+
+	body.mtm-about-field .mtm-afm-hero__grid,
+	body.mtm-about-field .mtm-afm-split,
+	body.mtm-about-field .mtm-afm-split--reverse,
+	body.mtm-about-field .mtm-afm-boundaries,
+	body.mtm-about-field .mtm-afm-cta__grid {
+		grid-template-columns: 1fr;
+		gap: 1.75rem;
+	}
+
+	body.mtm-about-field .mtm-afm-hero__grid {
+		padding-right: 1.25rem;
+		padding-left: 1.25rem;
+	}
+
+	body.mtm-about-field .mtm-afm-hero__title {
+		font-size: clamp(2.9rem, 13vw, 4.4rem);
+	}
+
+	body.mtm-about-field .mtm-afm h2 {
+		font-size: clamp(2.3rem, 11vw, 3.4rem);
+	}
+
+	body.mtm-about-field .mtm-afm-specs {
+		grid-template-columns: 1fr;
+	}
+
+	body.mtm-about-field .mtm-afm-spec,
+	body.mtm-about-field .mtm-afm-spec + .mtm-afm-spec {
+		padding: 0.7rem 0;
+		border-right: 0;
+		border-bottom: 1px solid var(--field-line);
+	}
+
+	body.mtm-about-field .mtm-afm-spec:last-child {
+		padding-left: 0;
+		border-bottom: 0;
+	}
+
+	body.mtm-about-field .mtm-afm-marquee {
+		gap: 1rem;
+		overflow-x: auto;
+	}
+
+	body.mtm-about-field .mtm-afm-focus {
+		margin-top: 1.75rem;
+		grid-template-columns: 1fr;
+	}
+
+	body.mtm-about-field .mtm-afm-split--reverse .mtm-afm-split__media {
+		order: 2;
+	}
+
+	body.mtm-about-field .mtm-afm-register__row {
+		grid-template-columns: 4rem 1fr;
+	}
+
+	body.mtm-about-field .mtm-afm-register__row em {
+		grid-column: 1 / -1;
+	}
+
+	body.mtm-about-field .mtm-afm-cta__title {
+		font-size: clamp(2.9rem, 14vw, 4.6rem);
+	}
+}

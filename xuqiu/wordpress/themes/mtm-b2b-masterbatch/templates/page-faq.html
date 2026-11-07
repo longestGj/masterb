@@ -1,37 +1,352 @@
 <!-- wp:template-part {"slug":"header","area":"header","tagName":"header"} /-->
 
-<!-- wp:group {"tagName":"main","layout":{"type":"constrained","contentSize":"1120px"},"style":{"spacing":{"padding":{"top":"var(--wp--preset--spacing--l)","bottom":"var(--wp--preset--spacing--xl)","left":"1.5rem","right":"1.5rem"}}}} -->
-<main class="wp-block-group" style="padding-top:var(--wp--preset--spacing--l);padding-right:1.5rem;padding-bottom:var(--wp--preset--spacing--xl);padding-left:1.5rem">
+<!-- wp:group {"tagName":"main","className":"mtm-faqfm","layout":{"type":"default"}} -->
+<main class="wp-block-group mtm-faqfm">
 
-	<!-- wp:group {"align":"wide","className":"mtm-faq-hero","backgroundColor":"paper","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"var(--wp--preset--spacing--m)","bottom":"var(--wp--preset--spacing--m)","left":"var(--wp--preset--spacing--m)","right":"var(--wp--preset--spacing--m)"}}}} -->
-	<div class="wp-block-group alignwide mtm-faq-hero has-paper-background-color has-background" style="padding-top:var(--wp--preset--spacing--m);padding-right:var(--wp--preset--spacing--m);padding-bottom:var(--wp--preset--spacing--m);padding-left:var(--wp--preset--spacing--m)">
-		<!-- wp:paragraph {"className":"mtm-eyebrow"} -->
-		<p class="mtm-eyebrow">Buyer FAQ</p>
-		<!-- /wp:paragraph -->
+	<!--
+		Hero = the lookup index itself. No image on this page: a FAQ earns trust
+		by showing the full scope of what it answers, not by showing a factory.
+	-->
+	<!-- wp:group {"tagName":"section","className":"faq-open","layout":{"type":"default"}} -->
+	<section class="wp-block-group faq-open">
+		<!-- wp:group {"className":"faq-open__title","layout":{"type":"default"}} -->
+		<div class="wp-block-group faq-open__title">
+			<!-- wp:paragraph {"className":"field-kicker"} -->
+			<p class="field-kicker">Masterbatch Buyer FAQ</p>
+			<!-- /wp:paragraph -->
 
-		<!-- wp:post-title {"level":1} /-->
+			<!-- wp:heading {"level":1} -->
+			<h1 class="wp-block-heading">Questions before the inquiry.</h1>
+			<!-- /wp:heading -->
 
-		<!-- wp:post-excerpt {"className":"mtm-faq-summary","moreText":"","showMoreOnNewLine":false,"excerptLength":1000} /-->
+			<!-- wp:paragraph {"className":"faq-open__summary"} -->
+			<p class="faq-open__summary">Short answers for plastic processors, distributors and buyers. Every reply states what it covers and what still needs a grade review.</p>
+			<!-- /wp:paragraph -->
 
-		<!-- wp:buttons -->
-		<div class="wp-block-buttons">
-			<!-- wp:button {"backgroundColor":"brass"} -->
-			<div class="wp-block-button"><a class="wp-block-button__link has-brass-background-color has-background wp-element-button" href="/request-a-quote/">Discuss Your Requirements</a></div>
-			<!-- /wp:button -->
+			<!-- wp:paragraph {"className":"faq-open__boundary"} -->
+			<p class="faq-open__boundary">GE CHEMICAL &amp; POLYMER GROUP CO., LTD reviews each inquiry by product grade, application and document scope before confirming technical data or document availability. The answers below are general buyer guidance, not grade-specific promises.</p>
+			<!-- /wp:paragraph -->
 
-			<!-- wp:button {"className":"is-style-outline"} -->
-			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/technical-documents/">Request Technical Documents</a></div>
-			<!-- /wp:button -->
+			<!-- wp:paragraph {"className":"faq-open__usage"} -->
+			<p class="faq-open__usage">Jump from the index to any question. The mark on each row tells you how far the answer goes: a filled square is settled on this page, an outline needs your grade or resin, and a diamond means the figure is not published at all.</p>
+			<!-- /wp:paragraph -->
 		</div>
-		<!-- /wp:buttons -->
-	</div>
+		<!-- /wp:group -->
+
+		<!-- wp:html -->
+		<div class="faq-index">
+			<div class="faq-index__head"><span>Question index</span><span>20 questions</span></div>
+			<a href="#q-01"><span class="faq-index__code">P-01</span><span class="faq-index__group">Product range</span><span class="faq-qtext">What masterbatch products do you review?</span><span class="faq-mark faq-mark--here" aria-hidden="true"></span><span class="faq-vh">Answered on this page</span></a>
+			<a href="#q-02"><span class="faq-index__code">P-02</span><span class="faq-index__group">Product range</span><span class="faq-qtext">Do you publish a full product catalogue?</span><span class="faq-mark faq-mark--none" aria-hidden="true"></span><span class="faq-vh">Not published here</span></a>
+			<a href="#q-03"><span class="faq-index__code">P-03</span><span class="faq-index__group">Colour and formulation</span><span class="faq-qtext">Can you match a specific colour or custom formulation?</span><span class="faq-mark faq-mark--review" aria-hidden="true"></span><span class="faq-vh">Reviewed by grade</span></a>
+			<a href="#q-04"><span class="faq-index__code">R-01</span><span class="faq-index__group">Preparing an RFQ</span><span class="faq-qtext">What information should an RFQ include?</span><span class="faq-mark faq-mark--here" aria-hidden="true"></span><span class="faq-vh">Answered on this page</span></a>
+			<a href="#q-05"><span class="faq-index__code">R-02</span><span class="faq-index__group">Preparing an RFQ</span><span class="faq-qtext">Do I need to choose a grade before contacting you?</span><span class="faq-mark faq-mark--here" aria-hidden="true"></span><span class="faq-vh">Answered on this page</span></a>
+			<a href="#q-06"><span class="faq-index__code">R-03</span><span class="faq-index__group">Preparing an RFQ</span><span class="faq-qtext">How do you handle price, MOQ and lead time?</span><span class="faq-mark faq-mark--none" aria-hidden="true"></span><span class="faq-vh">Not published here</span></a>
+			<a href="#q-07"><span class="faq-index__code">S-01</span><span class="faq-index__group">Samples</span><span class="faq-qtext">Can I request a sample?</span><span class="faq-mark faq-mark--review" aria-hidden="true"></span><span class="faq-vh">Reviewed by grade</span></a>
+			<a href="#q-08"><span class="faq-index__code">S-02</span><span class="faq-index__group">Samples</span><span class="faq-qtext">What does a sample trial need to prove?</span><span class="faq-mark faq-mark--review" aria-hidden="true"></span><span class="faq-vh">Reviewed by grade</span></a>
+			<a href="#q-09"><span class="faq-index__code">D-01</span><span class="faq-index__group">Technical documents</span><span class="faq-qtext">Can I request TDS, SDS/MSDS or COA?</span><span class="faq-mark faq-mark--review" aria-hidden="true"></span><span class="faq-vh">Reviewed by grade</span></a>
+			<a href="#q-10"><span class="faq-index__code">D-02</span><span class="faq-index__group">Technical documents</span><span class="faq-qtext">Why are documents reviewed by grade?</span><span class="faq-mark faq-mark--here" aria-hidden="true"></span><span class="faq-vh">Answered on this page</span></a>
+			<a href="#q-11"><span class="faq-index__code">D-03</span><span class="faq-index__group">Technical documents</span><span class="faq-qtext">Are your products RoHS, FDA or food-contact compliant?</span><span class="faq-mark faq-mark--none" aria-hidden="true"></span><span class="faq-vh">Not published here</span></a>
+			<a href="#q-16"><span class="faq-index__code">T-01</span><span class="faq-index__group">Reading a data sheet</span><span class="faq-qtext">What is pigment loading, and how does it differ from the addition ratio?</span><span class="faq-mark faq-mark--review" aria-hidden="true"></span><span class="faq-vh">Reviewed by grade</span></a>
+			<a href="#q-17"><span class="faq-index__code">T-02</span><span class="faq-index__group">Reading a data sheet</span><span class="faq-qtext">What do MFI or MFR tell me on a masterbatch sheet?</span><span class="faq-mark faq-mark--here" aria-hidden="true"></span><span class="faq-vh">Answered on this page</span></a>
+			<a href="#q-18"><span class="faq-index__code">T-03</span><span class="faq-index__group">Reading a data sheet</span><span class="faq-qtext">Is a typical value the same as a specification value?</span><span class="faq-mark faq-mark--here" aria-hidden="true"></span><span class="faq-vh">Answered on this page</span></a>
+			<a href="#q-19"><span class="faq-index__code">T-04</span><span class="faq-index__group">Reading a data sheet</span><span class="faq-qtext">What is a control sample?</span><span class="faq-mark faq-mark--here" aria-hidden="true"></span><span class="faq-vh">Answered on this page</span></a>
+			<a href="#q-20"><span class="faq-index__code">T-05</span><span class="faq-index__group">Reading a data sheet</span><span class="faq-qtext">What are screen pack blockage and a filtration test?</span><span class="faq-mark faq-mark--review" aria-hidden="true"></span><span class="faq-vh">Reviewed by grade</span></a>
+			<a href="#q-12"><span class="faq-index__code">A-01</span><span class="faq-index__group">Applications and resin</span><span class="faq-qtext">Which applications can masterbatch be reviewed for?</span><span class="faq-mark faq-mark--review" aria-hidden="true"></span><span class="faq-vh">Reviewed by grade</span></a>
+			<a href="#q-13"><span class="faq-index__code">A-02</span><span class="faq-index__group">Applications and resin</span><span class="faq-qtext">Does the base resin matter?</span><span class="faq-mark faq-mark--here" aria-hidden="true"></span><span class="faq-vh">Answered on this page</span></a>
+			<a href="#q-14"><span class="faq-index__code">A-03</span><span class="faq-index__group">Applications and resin</span><span class="faq-qtext">Can one grade cover several products?</span><span class="faq-mark faq-mark--review" aria-hidden="true"></span><span class="faq-vh">Reviewed by grade</span></a>
+			<a href="#q-15"><span class="faq-index__code">A-04</span><span class="faq-index__group">After you submit</span><span class="faq-qtext">What happens after I submit an RFQ?</span><span class="faq-mark faq-mark--here" aria-hidden="true"></span><span class="faq-vh">Answered on this page</span></a>
+			<p class="faq-legend"><span><i class="faq-mark faq-mark--here"></i>Answered on this page</span><span><i class="faq-mark faq-mark--review"></i>Reviewed by grade</span><span><i class="faq-mark faq-mark--none"></i>Not published here</span></p>
+		</div>
+		<!-- /wp:html -->
+	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"wide","className":"mtm-faq-content","layout":{"type":"constrained","contentSize":"860px"},"style":{"spacing":{"margin":{"top":"var(--wp--preset--spacing--m)"}}}} -->
-	<div class="wp-block-group alignwide mtm-faq-content" style="margin-top:var(--wp--preset--spacing--m)">
-		<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+	<!-- wp:html -->
+	<section class="faq-register">
+		<div class="faq-register__intro">
+			<p class="field-kicker">Evidence boundary</p>
+			<h2>What this page will not answer.</h2>
+			<p>Four things a buyer usually asks first cannot be answered from a general page. They are listed here so nobody has to hunt for them.</p>
+		</div>
+		<dl class="faq-register__list">
+			<div><dt>Price, MOQ, lead time</dt><dd>Set after the team reviews the exact grade, application and quantity. Nothing is published in advance.</dd></div>
+			<div><dt>Full-series compliance</dt><dd>Compliance documents, where available, apply only to specific tested grades or samples.</dd></div>
+			<div><dt>Document downloads</dt><dd>TDS, SDS/MSDS, COA and compliance requests go through the document form and a manual review.</dd></div>
+			<div><dt>Guaranteed colour match</dt><dd>Colour targets are reviewed against your reference, resin and process, not promised from a page.</dd></div>
+		</dl>
+	</section>
+	<!-- /wp:html -->
+
+	<!-- wp:html -->
+	<div class="faq-bodies">
+		<section class="faq-group">
+			<div class="faq-group__head"><h2>Product range</h2><span class="faq-group__tally">2 answered here</span></div>
+
+			<article class="faq-qa" id="q-01">
+				<details class="faq-qa__q" open>
+					<summary><span class="faq-qa__code">P-01</span><h3>What masterbatch products do you review?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
+					<div class="faq-qa__a">
+						<p>We review black, white and color masterbatch inquiries for plastic processing applications such as film, packaging, injection molding, extrusion and recycled PE and PP.</p>
+						<p>Other product directions are assessed case by case through an inquiry, and we do not publish fixed parameters for them.</p>
+						<span class="faq-qa__scope">Answered in full on this page</span>
+					</div>
+				</details>
+			</article>
+
+			<article class="faq-qa" id="q-02">
+				<details class="faq-qa__q" open>
+					<summary><span class="faq-qa__code">P-02</span><h3>Do you publish a full product catalogue?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
+					<div class="faq-qa__a">
+						<p>No. Grade lists, parameters and pricing sheets are not published as a catalogue, because a grade is only meaningful against a resin, a process and an end product.</p>
+						<p>The three product guides describe what a buyer should clarify for each direction: <a href="/masterbatch-guides/black-masterbatch/">black</a>, <a href="/masterbatch-guides/white-masterbatch/">white</a> and <a href="/masterbatch-guides/color-masterbatch/">color</a>.</p>
+						<span class="faq-qa__scope">Not published &mdash; see the product guides</span>
+					</div>
+				</details>
+			</article>
+		</section>
+
+		<section class="faq-group">
+			<div class="faq-group__head"><h2>Colour and formulation</h2><span class="faq-group__tally">1 reviewed by grade</span></div>
+
+			<article class="faq-qa" id="q-03">
+				<details class="faq-qa__q" open>
+					<summary><span class="faq-qa__code">P-03</span><h3>Can you match a specific colour or provide a custom formulation?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
+					<div class="faq-qa__a">
+						<p>Colour matching and custom requirements are discussed through an RFQ. Suitability is reviewed by base resin, application and the colour reference you provide &mdash; a physical sample, a Pantone or RAL number, a photograph, an existing product or a previous grade.</p>
+						<p>Where a spectrophotometer reading is available, share it with the reference. We do not promise an exact Delta E value or a guaranteed Pantone or RAL match from this page.</p>
+						<span class="faq-qa__scope">Reviewed by reference, resin and process</span>
+					</div>
+				</details>
+			</article>
+		</section>
+
+		<section class="faq-group">
+			<div class="faq-group__head"><h2>Preparing an RFQ</h2><span class="faq-group__tally">2 answered here</span></div>
+
+			<article class="faq-qa" id="q-04">
+				<details class="faq-qa__q" open>
+					<summary><span class="faq-qa__code">R-01</span><h3>What information should a masterbatch RFQ include?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
+					<div class="faq-qa__a">
+						<p>A complete inquiry usually covers the base resin, processing method, final product, target requirement, current grade or current issue, trial and monthly quantity, destination and any document needs.</p>
+						<p>The <a href="/resources/masterbatch-rfq-checklist/">RFQ checklist</a> works as a supplier checklist for masterbatch: product, resin, process, target, quantity and documents, field by field. Each product guide repeats the subset that matters for that direction.</p>
+						<span class="faq-qa__scope">Answered in full on this page</span>
+					</div>
+				</details>
+			</article>
+
+			<article class="faq-qa" id="q-05">
+				<details class="faq-qa__q" open>
+					<summary><span class="faq-qa__code">R-02</span><h3>Do I need to choose a grade before contacting you?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
+					<div class="faq-qa__a">
+						<p>No. Share your resin, application and requirement. A known grade or a replacement target helps the review move faster, but it is not required to start it.</p>
+						<span class="faq-qa__scope">Answered in full on this page</span>
+					</div>
+				</details>
+			</article>
+
+			<article class="faq-qa" id="q-06">
+				<details class="faq-qa__q" open>
+					<summary><span class="faq-qa__code">R-03</span><h3>How do you handle price, MOQ and lead time?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
+					<div class="faq-qa__a">
+						<p>We do not publish fixed price, MOQ or lead time, including for bulk or wholesale quantities. These depend on the exact grade, application and quantity, and are confirmed after the team reviews your RFQ.</p>
+						<p>Trial quantity and estimated monthly quantity are two of the fields the review actually uses, so including them in the first message shortens the exchange.</p>
+						<span class="faq-qa__scope">Not published &mdash; set after review</span>
+					</div>
+				</details>
+			</article>
+		</section>
+
+		<section class="faq-group">
+			<div class="faq-group__head"><h2>Samples</h2><span class="faq-group__tally">2 reviewed by grade</span></div>
+
+			<article class="faq-qa" id="q-07">
+				<details class="faq-qa__q" open>
+					<summary><span class="faq-qa__code">S-01</span><h3>Can I request a sample?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
+					<div class="faq-qa__a">
+						<p>Sample discussion is part of the RFQ review. The sample type and scope are confirmed against your resin, application and target requirement.</p>
+						<p>The same review covers sample policy: what is supplied, in what quantity and against what conditions the machine trial on your line will be judged. We do not promise a fixed sample delivery time on this page.</p>
+						<span class="faq-qa__scope">Confirmed inside the RFQ review</span>
+					</div>
+				</details>
+			</article>
+
+			<article class="faq-qa" id="q-08">
+				<details class="faq-qa__q" open>
+					<summary><span class="faq-qa__code">S-02</span><h3>What does a sample trial need to prove?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
+					<div class="faq-qa__a">
+						<p>A trial is usually judged on four things: colour or function target against your control sample, dispersion and appearance in your own process, stability across the shots or metres you run, and whether anything changed in the downstream product.</p>
+						<p>Agreeing the target before the trial starts is what makes the result usable.</p>
+						<span class="faq-qa__scope">Targets set with your resin and process</span>
+					</div>
+				</details>
+			</article>
+		</section>
+
+		<section class="faq-group">
+			<div class="faq-group__head"><h2>Technical documents and compliance</h2><span class="faq-group__tally">1 answered here</span></div>
+
+			<article class="faq-qa" id="q-09">
+				<details class="faq-qa__q" open>
+					<summary><span class="faq-qa__code">D-01</span><h3>Can I request TDS, SDS/MSDS or COA?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
+					<div class="faq-qa__a">
+						<p>Yes. Request documents through the <a href="/technical-documents/">technical document form</a>. The team reviews the product grade, application and document scope, then replies by email.</p>
+						<p>Documents are not provided as direct files on this page.</p>
+						<span class="faq-qa__scope">Reviewed by grade, country and use</span>
+					</div>
+				</details>
+			</article>
+
+			<article class="faq-qa" id="q-10">
+				<details class="faq-qa__q" open>
+					<summary><span class="faq-qa__code">D-02</span><h3>Why are documents reviewed by grade rather than sent on request?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
+					<div class="faq-qa__a">
+						<p>A document describes one tested grade or sample under defined conditions. Sending it against a different grade, application or destination can create a claim the file does not actually support.</p>
+						<p>The review matches the file to the grade, the use and the country you are shipping to before anything is sent.</p>
+						<span class="faq-qa__scope">Answered in full on this page</span>
+					</div>
+				</details>
+			</article>
+
+			<article class="faq-qa" id="q-11">
+				<details class="faq-qa__q" open>
+					<summary><span class="faq-qa__code">D-03</span><h3>Are your products RoHS, FDA or food-contact compliant?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
+					<div class="faq-qa__a">
+						<p>We do not make a full-series compliance claim for RoHS, FDA, REACH or any other framework. Compliance-related documents, where available, apply only to specific tested grades or samples.</p>
+						<p>Food-contact suitability in particular is reviewed by exact grade, application and destination rather than asserted here. Send the grade and the intended use through the <a href="/technical-documents/">document request</a> to have that scope checked.</p>
+						<span class="faq-qa__scope">Not published &mdash; reviewed per grade</span>
+					</div>
+				</details>
+			</article>
+		</section>
+
+		<section class="faq-group">
+			<div class="faq-group__head"><h2>Reading a data sheet</h2><span class="faq-group__tally">3 answered here</span></div>
+
+			<article class="faq-qa" id="q-16">
+				<details class="faq-qa__q" open>
+					<summary><span class="faq-qa__code">T-01</span><h3>What is pigment loading, and how does it differ from the addition ratio?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
+					<div class="faq-qa__a">
+						<p>Loading is how much pigment or carbon black sits inside the masterbatch itself. The addition ratio is how much of that masterbatch you feed into your process. They are related but not the same thing: a higher-loading grade is usually dosed at a lower ratio.</p>
+						<p>Neither figure can be assumed from a colour name. Both are confirmed against the specific grade.</p>
+						<span class="faq-qa__scope">Confirmed against the exact grade</span>
+					</div>
+				</details>
+			</article>
+
+			<article class="faq-qa" id="q-17">
+				<details class="faq-qa__q" open>
+					<summary><span class="faq-qa__code">T-02</span><h3>What do MFI or MFR tell me on a masterbatch sheet?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
+					<div class="faq-qa__a">
+						<p>MFR (melt flow rate) and MFI (melt flow index) describe how much resin flows in ten minutes under a set temperature and load. On a masterbatch sheet the number refers to the carrier resin, not to the pigment.</p>
+						<p>Flow affects how the grade melts and disperses in your process. A figure is only meaningful next to the test conditions printed with it, so compare sheets on conditions before comparing numbers.</p>
+						<span class="faq-qa__scope">Answered in full on this page</span>
+					</div>
+				</details>
+			</article>
+
+			<article class="faq-qa" id="q-18">
+				<details class="faq-qa__q" open>
+					<summary><span class="faq-qa__code">T-03</span><h3>Is a typical value the same as a specification value?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
+					<div class="faq-qa__a">
+						<p>No. A typical value is what the grade has generally shown; it is not a committed limit. A specification value is a range the grade is expected to hold, and it is what acceptance should be measured against.</p>
+						<p>Both depend on the test conditions stated in the file. If a sheet only lists typical values, there is no published limit to accept or reject against.</p>
+						<span class="faq-qa__scope">Answered in full on this page</span>
+					</div>
+				</details>
+			</article>
+
+			<article class="faq-qa" id="q-19">
+				<details class="faq-qa__q" open>
+					<summary><span class="faq-qa__code">T-04</span><h3>What is a control sample, and why does it matter?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
+					<div class="faq-qa__a">
+						<p>A control sample is material that produced a result you already accepted. You keep it and run a new batch side by side with it, on the same resin, the same machine and the same settings.</p>
+						<p>That turns &ldquo;is this the right colour?&rdquo; into &ldquo;does this match the control?&rdquo;, which is a question a line can actually answer. It is also how batch-to-batch variation gets judged.</p>
+						<span class="faq-qa__scope">Answered in full on this page</span>
+					</div>
+				</details>
+			</article>
+
+			<article class="faq-qa" id="q-20">
+				<details class="faq-qa__q" open>
+					<summary><span class="faq-qa__code">T-05</span><h3>What are screen pack blockage and a filtration test?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
+					<div class="faq-qa__a">
+						<p>Screen pack blockage is when the filter screens in the melt path clog faster than expected, so pressure rises or screens have to be changed sooner. A filtration test passes a set volume of melt through a screen and measures what it takes to reach a defined pressure.</p>
+						<p>Both are used as an indication of undispersed material or gel content in a grade. What they show depends on your screen size, throughput and the grade being tested, so results are read per setup rather than as a fixed pass mark.</p>
+						<span class="faq-qa__scope">Read against your screen size and setup</span>
+					</div>
+				</details>
+			</article>
+		</section>
+
+		<section class="faq-group">
+			<div class="faq-group__head"><h2>Applications and resin</h2><span class="faq-group__tally">1 answered here</span></div>
+
+			<article class="faq-qa" id="q-12">
+				<details class="faq-qa__q" open>
+					<summary><span class="faq-qa__code">A-01</span><h3>Which applications can masterbatch be reviewed for?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
+					<div class="faq-qa__a">
+						<p>Inquiries may involve film and blown film, packaging, injection molding, extrusion and recycled PE or PP contexts.</p>
+						<p>Application suitability depends on the exact grade, resin and processing conditions and is reviewed for each inquiry.</p>
+						<span class="faq-qa__scope">Reviewed per grade and process</span>
+					</div>
+				</details>
+			</article>
+
+			<article class="faq-qa" id="q-13">
+				<details class="faq-qa__q" open>
+					<summary><span class="faq-qa__code">A-02</span><h3>Does the base resin matter?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
+					<div class="faq-qa__a">
+						<p>Yes. Carrier and base resin compatibility affects selection, dispersion and the properties of the final part. Please share the resin you process, such as PE, PP, LDPE, LLDPE or HDPE.</p>
+						<span class="faq-qa__scope">Answered in full on this page</span>
+					</div>
+				</details>
+			</article>
+
+			<article class="faq-qa" id="q-14">
+				<details class="faq-qa__q" open>
+					<summary><span class="faq-qa__code">A-03</span><h3>Can one grade cover several products?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
+					<div class="faq-qa__a">
+						<p>It can, but it is not something to assume. A grade that runs well in blown film may behave differently in injection molding because of residence time, shear and cooling, even on the same resin.</p>
+						<p>If you want one grade across several lines, send the resin and the process for each product so the review can look at them together.</p>
+						<span class="faq-qa__scope">Reviewed across each process you run</span>
+					</div>
+				</details>
+			</article>
+		</section>
+
+		<section class="faq-group">
+			<div class="faq-group__head"><h2>After you submit</h2><span class="faq-group__tally">1 answered here</span></div>
+
+			<article class="faq-qa" id="q-15">
+				<details class="faq-qa__q" open>
+					<summary><span class="faq-qa__code">A-04</span><h3>What happens after I submit an RFQ?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
+					<div class="faq-qa__a">
+						<p>The team reviews product fit and document scope by grade, application and destination, then replies by email with a clear next step.</p>
+						<p>That next step is usually one of three things: a grade recommendation, a question about a detail that is missing, or a note that the direction is outside what we currently review.</p>
+						<span class="faq-qa__scope">Answered in full on this page</span>
+					</div>
+				</details>
+			</article>
+		</section>
 	</div>
-	<!-- /wp:group -->
+	<!-- /wp:html -->
+
+	<!-- wp:html -->
+	<section class="faq-cta">
+		<div>
+			<p class="field-kicker">Next step</p>
+			<h2>Send us the run.</h2>
+			<p>Your resin, processing method, end product, target requirement and document needs are enough for the team to review the right product direction.</p>
+		</div>
+		<div class="faq-cta__routes">
+			<a href="/request-a-quote/"><strong>Request a Quote</strong><span>Product review</span></a>
+			<a href="/technical-documents/"><strong>Request Technical Documents</strong><span>Document review</span></a>
+			<a href="/resources/masterbatch-rfq-checklist/"><strong>Masterbatch RFQ Checklist</strong><span>Before you write</span></a>
+			<a href="/masterbatch-guides/"><strong>Masterbatch Guides</strong><span>Black, white, colour</span></a>
+		</div>
+	</section>
+	<!-- /wp:html -->
 
 </main>
 <!-- /wp:group -->

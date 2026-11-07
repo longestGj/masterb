@@ -1,0 +1,507 @@
+/*
+ * Masterbatch Buyer FAQ page in the Technical Field Manual system.
+ * Loaded only on pages assigned the page-faq block template. Every rule is
+ * scoped to body.mtm-faq-field, so the homepage and the About / Quality page
+ * keep their own stylesheets untouched.
+ *
+ * Two deliberate departures from the other field pages, carried over from the
+ * approved concept:
+ * 1. Questions are set in the serif display face, not as mono uppercase labels.
+ * 2. There is no sequence numbering. The leading marker encodes where an answer
+ *    lands instead: on this page, after a grade review, or not published.
+ */
+body.mtm-faq-field {
+	--field-ink: #102027;
+	--field-paper: #f1ede4;
+	--field-light: #f8f5ee;
+	--field-warm: #efebe3;
+	--field-desk: #e8e2d8;
+	--field-brass: #d99d38;
+	--field-clay: #c76042;
+	--field-line: #c9c1b3;
+	--field-rule: #aaa092;
+	--field-mono: "SFMono-Regular", "Roboto Mono", Consolas, "Liberation Mono", monospace;
+	color: var(--field-ink);
+	background: var(--field-paper);
+}
+
+/* Header: the same warm bar the About field page uses, scoped to this page. */
+body.mtm-faq-field header.wp-block-template-part,
+body.mtm-faq-field .mtm-header-sticky {
+	color: var(--field-ink);
+	background-color: rgba(241, 237, 228, 0.96) !important;
+	border-bottom: 1px solid var(--field-line);
+	box-shadow: none;
+	backdrop-filter: blur(14px);
+}
+
+body.mtm-faq-field .mtm-header-main .wp-block-site-title,
+body.mtm-faq-field .mtm-header-main .wp-block-site-title a {
+	color: var(--field-ink) !important;
+}
+
+body.mtm-faq-field .mtm-header-main .wp-block-site-logo img {
+	width: 34px;
+	height: 34px;
+	padding: 0;
+	background: transparent;
+}
+
+body.mtm-faq-field .mtm-header-main > .wp-block-group:first-child::before {
+	display: grid;
+	width: 2.15rem;
+	height: 2.15rem;
+	flex: 0 0 2.15rem;
+	color: var(--field-paper);
+	font-family: var(--field-mono);
+	font-size: 0.72rem;
+	font-weight: 800;
+	letter-spacing: 0.04em;
+	content: "GE";
+	background: var(--field-ink);
+	place-items: center;
+}
+
+body.mtm-faq-field .mtm-header-main .wp-block-site-logo {
+	display: none;
+}
+
+body.mtm-faq-field .mtm-header-main .wp-block-site-title {
+	font-size: 0 !important;
+}
+
+body.mtm-faq-field .mtm-header-main .wp-block-site-title a::after {
+	display: block;
+	font-size: 0.7rem;
+	line-height: 1.2;
+	letter-spacing: 0.08em;
+	content: "Chemical & Polymer Group";
+	text-transform: uppercase;
+}
+
+body.mtm-faq-field .mtm-header-main .mtm-header-kicker {
+	color: var(--field-clay);
+	border-color: rgba(199, 96, 66, 0.34);
+}
+
+body.mtm-faq-field .mtm-header-main .wp-block-navigation a {
+	padding: 0.42rem 0.12rem;
+	color: #000 !important;
+	font-size: 0.92rem;
+	font-weight: 800;
+	line-height: 1.3;
+	letter-spacing: 0.025em;
+	text-decoration: none;
+	border-bottom: 1px solid transparent;
+}
+
+body.mtm-faq-field .mtm-header-main .wp-block-navigation {
+	padding: 0.34rem 0.62rem;
+	gap: 1.15rem;
+	background: #fffaf1;
+	border: 1px solid #b8ad9c;
+	box-shadow: 0 2px 10px rgba(16, 32, 39, 0.08);
+}
+
+body.mtm-faq-field .mtm-header-main .wp-block-navigation a:hover,
+body.mtm-faq-field .mtm-header-main .wp-block-navigation a:focus-visible {
+	color: var(--field-clay) !important;
+	border-bottom-color: var(--field-clay);
+}
+
+body.mtm-faq-field .mtm-header-main .wp-block-navigation__responsive-container-open,
+body.mtm-faq-field .mtm-header-main .wp-block-navigation__responsive-container-close {
+	color: var(--field-ink);
+}
+
+body.mtm-faq-field .mtm-header-main .wp-block-navigation__responsive-container.is-menu-open,
+body.mtm-faq-field .mtm-header-main .wp-block-navigation__responsive-dialog {
+	color: var(--field-paper);
+	background-color: var(--field-ink) !important;
+}
+
+body.mtm-faq-field .mtm-header-main .wp-block-navigation__responsive-container.is-menu-open a {
+	color: var(--field-paper) !important;
+	border-bottom-color: transparent;
+}
+
+body.mtm-faq-field .mtm-header-main .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-close {
+	color: var(--field-paper) !important;
+}
+
+body.mtm-faq-field .mtm-header-main .wp-block-button__link {
+	color: var(--field-paper) !important;
+	background: var(--field-ink) !important;
+	border-color: var(--field-ink) !important;
+}
+
+body.mtm-faq-field .mtm-header-sticky .wp-block-separator {
+	background: var(--field-line);
+	border-color: var(--field-line);
+}
+
+/* Page shell: the root layout gaps are dropped so full-bleed sections touch. */
+body.mtm-faq-field main.mtm-faqfm,
+body.mtm-faq-field main.mtm-faqfm > .wp-block-group {
+	margin-top: 0 !important;
+}
+
+body.mtm-faq-field main.mtm-faqfm {
+	overflow: hidden;
+	color: var(--field-ink);
+	font-size: 1rem;
+	background: var(--field-paper);
+	--wp--style--block-gap: 0;
+}
+
+body.mtm-faq-field main.mtm-faqfm .is-layout-constrained > * {
+	max-width: none;
+}
+
+/* Small mono section label used above headings. */
+body.mtm-faq-field .field-kicker {
+	margin: 0;
+	color: var(--field-clay);
+	font-family: var(--field-mono);
+	font-size: 0.68rem;
+	font-weight: 800;
+	letter-spacing: 0.13em;
+	text-transform: uppercase;
+}
+
+/* Slim editorial title block paired with the lookup index. */
+body.mtm-faq-field .faq-open {
+	display: grid;
+	padding: clamp(3rem, 7vw, 5.5rem) clamp(1.25rem, 4vw, 4rem) clamp(2.5rem, 5vw, 4rem);
+	grid-template-columns: 0.82fr 1.18fr;
+	gap: clamp(2rem, 5vw, 4.5rem);
+	align-items: start;
+	background: var(--field-paper);
+	border-bottom: 3px solid var(--field-brass);
+}
+body.mtm-faq-field .faq-open__title { position: sticky; top: 5.5rem; align-self: start; }
+body.mtm-faq-field .faq-open h1 {
+	max-width: 11ch;
+	margin: 0.9rem 0 1.2rem;
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: clamp(2.9rem, 4.6vw, 4.9rem);
+	font-weight: 400;
+	line-height: 0.9;
+	letter-spacing: -0.05em;
+}
+body.mtm-faq-field .faq-open__summary { max-width: 40ch; margin: 0 0 1.6rem; font-size: 1rem; line-height: 1.75; }
+body.mtm-faq-field .faq-open__boundary {
+	max-width: 40ch;
+	margin: 0;
+	padding-top: 1.1rem;
+	font-size: 0.84rem;
+	line-height: 1.65;
+	color: rgba(16, 32, 39, 0.72);
+	border-top: 1px solid var(--field-line);
+}
+/* With twenty rows the index runs taller than the title block, so the left
+   column carries one more real paragraph instead of filler. */
+body.mtm-faq-field .faq-open__usage {
+	max-width: 40ch;
+	margin: 1rem 0 0;
+	padding-top: 1rem;
+	font-size: 0.84rem;
+	line-height: 1.65;
+	color: rgba(16, 32, 39, 0.72);
+	border-top: 1px dotted var(--field-rule);
+}
+
+/* The memorable element: the whole question set as a lookup table. */
+body.mtm-faq-field .faq-index { border-top: 1px solid var(--field-rule); }
+body.mtm-faq-field .faq-index__head {
+	display: flex;
+	padding: 0.7rem 0;
+	justify-content: space-between;
+	gap: 1rem;
+	font-family: var(--field-mono);
+	font-size: 0.56rem;
+	font-weight: 800;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: rgba(16, 32, 39, 0.6);
+	border-bottom: 1px solid var(--field-rule);
+}
+body.mtm-faq-field .faq-index a {
+	display: grid;
+	padding: 0.58rem 0;
+	grid-template-columns: 1.4rem 11rem minmax(0, 1fr) auto;
+	gap: 0.9rem;
+	align-items: baseline;
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 1px solid var(--field-line);
+}
+body.mtm-faq-field .faq-index a:hover,
+body.mtm-faq-field .faq-index a:focus-visible { background: #e9e3d8; outline: none; }
+body.mtm-faq-field .faq-index a:hover .faq-qtext,
+body.mtm-faq-field .faq-index a:focus-visible .faq-qtext { border-bottom-color: var(--field-ink); }
+body.mtm-faq-field .faq-index__code {
+	font-family: var(--field-mono);
+	font-size: 0.58rem;
+	font-weight: 800;
+	color: rgba(16, 32, 39, 0.55);
+}
+body.mtm-faq-field .faq-index__group { font-size: 0.74rem; letter-spacing: 0.02em; color: rgba(16, 32, 39, 0.7); }
+body.mtm-faq-field .faq-qtext {
+	font-family: Georgia, serif;
+	font-size: 0.95rem;
+	line-height: 1.35;
+	border-bottom: 1px solid transparent;
+}
+
+/* Routing marks. Solid = answered here, hollow = needs a review, diamond = not published. */
+body.mtm-faq-field .faq-mark {
+	display: inline-block;
+	width: 0.5rem;
+	height: 0.5rem;
+	vertical-align: 1px;
+	border: 1px solid var(--field-ink);
+}
+body.mtm-faq-field .faq-mark--here { background: var(--field-ink); }
+body.mtm-faq-field .faq-mark--review { background: transparent; }
+body.mtm-faq-field .faq-mark--none { border-color: var(--field-clay); background: var(--field-clay); transform: rotate(45deg); }
+/* The mark is colour only, so the same fact is carried in text for anyone
+   who cannot see the difference between a square and a diamond. */
+body.mtm-faq-field .faq-vh {
+	position: absolute;
+	overflow: hidden;
+	width: 1px;
+	height: 1px;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+body.mtm-faq-field .faq-legend {
+	display: flex;
+	margin: 0.9rem 0 0;
+	gap: 1.4rem;
+	flex-wrap: wrap;
+	font-family: var(--field-mono);
+	font-size: 0.56rem;
+	font-weight: 800;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: rgba(16, 32, 39, 0.6);
+}
+body.mtm-faq-field .faq-legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
+
+/* Negative space: what the page refuses to state. */
+body.mtm-faq-field .faq-register {
+	display: grid;
+	padding: clamp(2.2rem, 4vw, 3.4rem) clamp(1.25rem, 4vw, 4rem);
+	grid-template-columns: 0.82fr 1.18fr;
+	gap: clamp(2rem, 5vw, 4.5rem);
+	color: var(--field-paper);
+	background: var(--field-ink);
+}
+body.mtm-faq-field .faq-register h2 {
+	margin: 0.7rem 0 0;
+	font-family: Georgia, serif;
+	font-size: clamp(1.9rem, 3vw, 3rem);
+	font-weight: 400;
+	line-height: 0.98;
+	letter-spacing: -0.04em;
+	color: #fff;
+}
+body.mtm-faq-field .faq-register .field-kicker { color: var(--field-brass); }
+body.mtm-faq-field .faq-register__intro p { max-width: 38ch; margin: 1rem 0 0; color: #b7c0be; font-size: 0.86rem; line-height: 1.7; }
+body.mtm-faq-field .faq-register__list { margin: 0; border-top: 1px solid rgba(255, 255, 255, 0.28); }
+body.mtm-faq-field .faq-register__list > div {
+	display: grid;
+	padding: 0.9rem 0;
+	grid-template-columns: 9.5rem minmax(0, 1fr);
+	gap: 0.9rem;
+	align-items: baseline;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+body.mtm-faq-field .faq-register__list dt { font-size: 0.82rem; font-weight: 700; color: var(--field-brass); }
+body.mtm-faq-field .faq-register__list dd { margin: 0; font-size: 0.84rem; line-height: 1.6; color: #dfe4e2; }
+
+/* Answers */
+body.mtm-faq-field .faq-bodies { padding: clamp(3rem, 6vw, 5rem) clamp(1.25rem, 4vw, 4rem) clamp(4rem, 7vw, 6rem); }
+body.mtm-faq-field .faq-group + .faq-group { margin-top: clamp(2.5rem, 5vw, 4rem); }
+body.mtm-faq-field .faq-group__head {
+	display: flex;
+	max-width: 1120px;
+	margin: 0 auto 0.5rem;
+	padding-bottom: 0.7rem;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 1rem;
+	border-bottom: 3px solid var(--field-ink);
+}
+body.mtm-faq-field .faq-group__head h2 {
+	margin: 0;
+	font-family: Georgia, serif;
+	font-size: clamp(1.5rem, 2.4vw, 2.2rem);
+	font-weight: 400;
+	line-height: 1;
+	letter-spacing: -0.03em;
+}
+body.mtm-faq-field .faq-group__tally {
+	flex: 0 0 auto;
+	font-family: var(--field-mono);
+	font-size: 0.58rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--field-clay);
+}
+body.mtm-faq-field .faq-qa {
+	max-width: 1120px;
+	margin: 0 auto;
+	padding: 1.15rem 0;
+	border-bottom: 1px solid var(--field-line);
+	scroll-margin-top: 5.5rem;
+}
+body.mtm-faq-field .faq-qa:last-child { border-bottom: 0; }
+/*
+ * The two-column row lives on the details element itself, not on the article:
+ * the answer sits inside details so the accordion actually works, and summary
+ * plus answer are the two grid items that keep the lookup-table rhythm.
+ */
+body.mtm-faq-field .faq-qa__q {
+	display: grid;
+	grid-template-columns: minmax(240px, 0.62fr) minmax(0, 1fr);
+	gap: 0 clamp(2rem, 4vw, 3.5rem);
+	font-style: normal;
+}
+body.mtm-faq-field .faq-qa__q > summary {
+	display: grid;
+	padding-right: 1.6rem;
+	grid-template-columns: 1.3rem minmax(0, 1fr) 0.8rem;
+	gap: 0.55rem;
+	align-items: baseline;
+	cursor: pointer;
+	list-style: none;
+	border-radius: 0;
+}
+body.mtm-faq-field .faq-qa__q > summary::-webkit-details-marker { display: none; }
+body.mtm-faq-field .faq-qa__q > summary::before { display: none; }
+body.mtm-faq-field .faq-qa__q[open] > summary { color: var(--field-ink); }
+body.mtm-faq-field .faq-qa__q > summary:focus-visible { outline: 2px solid var(--field-brass); outline-offset: 3px; }
+body.mtm-faq-field .faq-qa__code {
+	font-family: var(--field-mono);
+	font-size: 0.58rem;
+	font-weight: 800;
+	color: rgba(16, 32, 39, 0.5);
+}
+body.mtm-faq-field .faq-qa__q h3 {
+	display: inline;
+	margin: 0;
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 1.18rem;
+	font-weight: 400;
+	line-height: 1.32;
+	letter-spacing: -0.015em;
+}
+/*
+ * One plus glyph is the whole affordance. It turns into a cross on open, so
+ * the state is visible without a text label repeated twenty times.
+ */
+body.mtm-faq-field .faq-qa__toggle {
+	grid-column: 3;
+	justify-self: end;
+	align-self: start;
+	color: var(--field-clay);
+}
+body.mtm-faq-field .faq-qa__toggle::before {
+	display: inline-block;
+	font-family: Georgia, serif;
+	font-size: 1.15rem;
+	line-height: 1;
+	content: "+";
+	transition: transform 140ms ease;
+}
+body.mtm-faq-field .faq-qa__q[open] .faq-qa__toggle::before { transform: rotate(45deg); }
+body.mtm-faq-field .faq-qa__a {
+	padding-right: clamp(0rem, 2vw, 1.5rem);
+	max-width: 66ch;
+	font-size: 0.92rem;
+	line-height: 1.78;
+	color: rgba(16, 32, 32, 0.86);
+}
+body.mtm-faq-field .faq-qa__a p { margin: 0 0 0.85rem; }
+body.mtm-faq-field .faq-qa__a p:last-child { margin-bottom: 0; }
+body.mtm-faq-field .faq-qa__a ul, body.mtm-faq-field .faq-qa__a ol { margin: 0 0 0.85rem; padding-left: 1.1rem; }
+body.mtm-faq-field .faq-qa__a li { margin-bottom: 0.3rem; }
+body.mtm-faq-field .faq-qa__a a { color: var(--field-ink); border-bottom: 1px solid var(--field-brass); text-decoration: none; }
+body.mtm-faq-field .faq-qa__a strong { font-weight: 700; }
+body.mtm-faq-field .faq-qa__scope {
+	display: block;
+	margin-top: 0.9rem;
+	padding-top: 0.6rem;
+	font-family: var(--field-mono);
+	font-size: 0.56rem;
+	font-weight: 800;
+	letter-spacing: 0.09em;
+	text-transform: uppercase;
+	color: rgba(16, 32, 39, 0.55);
+	border-top: 1px dotted var(--field-rule);
+}
+
+/* Exit routes. */
+body.mtm-faq-field .faq-cta {
+	display: grid;
+	padding: clamp(3.5rem, 7vw, 6rem) clamp(1.25rem, 4vw, 4rem);
+	grid-template-columns: 1.05fr 0.95fr;
+	gap: clamp(2rem, 5vw, 4rem);
+	align-items: end;
+	background: var(--field-desk);
+	border-top: 3px solid var(--field-brass);
+}
+body.mtm-faq-field .faq-cta h2 {
+	margin: 0.7rem 0 1rem;
+	font-family: Georgia, serif;
+	font-size: clamp(2.2rem, 4vw, 3.9rem);
+	font-weight: 400;
+	line-height: 0.94;
+	letter-spacing: -0.05em;
+}
+body.mtm-faq-field .faq-cta p { max-width: 46ch; margin: 0; line-height: 1.75; }
+body.mtm-faq-field .faq-cta__routes { border-top: 1px solid var(--field-rule); }
+body.mtm-faq-field .faq-cta__routes a {
+	display: grid;
+	padding: 0.95rem 0;
+	grid-template-columns: minmax(0, 1fr) auto;
+	gap: 1rem;
+	align-items: baseline;
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 1px solid var(--field-rule);
+}
+body.mtm-faq-field .faq-cta__routes a:hover strong,
+body.mtm-faq-field .faq-cta__routes a:focus-visible strong { border-bottom-color: var(--field-ink); }
+body.mtm-faq-field .faq-cta__routes strong {
+	font-family: Georgia, serif;
+	font-size: 1.05rem;
+	font-weight: 400;
+	border-bottom: 1px solid transparent;
+}
+body.mtm-faq-field .faq-cta__routes span {
+	font-family: var(--field-mono);
+	font-size: 0.56rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--field-clay);
+}
+
+@media (max-width: 900px) {
+	body.mtm-faq-field .faq-open, body.mtm-faq-field .faq-register, body.mtm-faq-field .faq-cta { grid-template-columns: 1fr; }
+	body.mtm-faq-field .faq-open__title { position: static; }
+	body.mtm-faq-field .faq-index a { grid-template-columns: 1.3rem minmax(0, 1fr) auto; }
+	/* Group is already the heading above each answer block on a narrow page. */
+	body.mtm-faq-field .faq-index__group { display: none; }
+	body.mtm-faq-field .faq-qa__q { grid-template-columns: 1fr; gap: 0.5rem; }
+	body.mtm-faq-field .faq-qa__a { padding-right: 0; }
+	body.mtm-faq-field .faq-qa__q > summary { grid-template-columns: 1.3rem minmax(0, 1fr) 0.8rem; padding-right: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+	body.mtm-faq-field .faq-index a, body.mtm-faq-field .faq-qa__q h3, body.mtm-faq-field .faq-cta__routes strong { transition: none; }
+	body.mtm-faq-field .faq-qa__toggle::before { transition: none; }
+}

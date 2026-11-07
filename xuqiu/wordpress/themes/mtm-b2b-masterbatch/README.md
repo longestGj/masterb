@@ -1,7 +1,7 @@
 # MTM B2B Masterbatch 子主题
 
-- 状态：Technical Field Manual 首页、三类指南、Documents、Resources
-  与私有 RFQ 提交
+- 状态：Technical Field Manual 首页、About、Buyer FAQ、三类指南、
+  Documents、Resources 与私有 RFQ 提交
 - 父主题：`mtm-b2b`
 - 子主题 slug：`mtm-b2b-masterbatch`
 - 主要内容：替换 Header/Footer，并新增首页、产品指南、About、FAQ、
@@ -42,6 +42,29 @@
 - Documents 为暖纸登记表，About 使用车间全幅背景；
 - 最终 CTA 使用黏土色和 Resin、Process、Target、Documents 四项提示；
 - 视觉样式隔离在 `assets/css/material-field-manual.css`，仅静态首页加载。
+
+## About / Buyer FAQ
+
+About / Quality 和 Buyer FAQ 使用各自的页面模板和样式文件，不再共享旧的
+通用 About / FAQ 版式。
+
+| 页面 | Page ID | 模板 | 专属样式 |
+|---|---:|---|---|
+| About / Quality | 66 | `templates/page-about-quality.html` | `assets/css/about-field-manual.css` |
+| Masterbatch Buyer FAQ | 58 | `templates/page-faq.html` | `assets/css/faq-field-manual.css` |
+
+`functions.php` 通过页面绑定的模板判断当前页面，而不是依赖 slug 或 Page ID：
+
+- `mb_is_about_field_page()` 匹配 `page-about-quality`；
+- `mb_is_faq_field_page()` 匹配 `page-faq`；
+- 两个判断分别加载对应 CSS，并添加 `mtm-about-field` 或
+  `mtm-faq-field` body class。
+
+About 页面围绕询盘审核、按实际运行条件判断、文档处理、声明边界和最终 RFQ
+组织。FAQ 页面覆盖产品范围、彩色定制、RFQ、样品、TDS/SDS/COA、
+RoHS/FDA 边界、数据表阅读、应用与树脂，以及提交后的审核流程。
+
+主题版本 `0.9.9` 已从线上服务器同步回仓库，并将 CRLF 统一为 LF。
 
 ## 部署
 
@@ -86,6 +109,10 @@ wpcli theme list --fields=name,status,version
     均已发布并返回 200。
 17. Documents 表单要求 Document type 和 Document purpose，服务端重复校验。
 18. Footer 的 Applications 指向首页 `/#applications`，不创建空页面。
+19. `/about-quality/` 使用 `page-about-quality` 模板并加载
+    `about-field-manual.css`。
+20. `/faq/` 使用 `page-faq` 模板并加载 `faq-field-manual.css`。
+21. About / FAQ 页面各自只有一个 H1，PC 和手机均无横向溢出。
 
 ## 尚未处理
 

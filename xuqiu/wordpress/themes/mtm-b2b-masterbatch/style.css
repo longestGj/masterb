@@ -2,7 +2,7 @@
 Theme Name: MTM B2B Masterbatch
 Template: mtm-b2b
 Description: Masterbatch-focused child theme for the MTM B2B block theme.
-Version: 0.9.7
+Version: 0.9.9
 Requires at least: 6.5
 Requires PHP: 7.4
 Text Domain: mtm-b2b-masterbatch
@@ -107,19 +107,7 @@ header.wp-block-template-part {
 	overflow-x: auto;
 }
 
-/* About / Quality page: framed hero and single-column body */
-.mtm-about-hero {
-	border: 1px solid var(--wp--preset--color--line);
-}
-
-.mtm-about-hero .wp-block-post-title {
-	max-width: 900px;
-}
-
-.mtm-about-summary {
-	max-width: 820px;
-}
-
+/* About / Quality page styles live in assets/css/about-field-manual.css. */
 .mtm-quote-media .wp-block-image {
 	margin: 0;
 }
@@ -135,34 +123,6 @@ header.wp-block-template-part {
 	margin-top: 0.5rem;
 	font-size: var(--wp--preset--font-size--small);
 	opacity: 0.7;
-}
-
-/* About / Quality alternating image/text rows (template-level; alt text describes the picture) */
-.mtm-about-row {
-	align-items: center;
-	gap: 2rem;
-}
-
-.mtm-about-row .wp-block-image {
-	margin: 0;
-}
-
-.mtm-about-row .wp-block-image img {
-	width: 100%;
-	height: clamp(12rem, 22vw, 18rem);
-	object-fit: cover;
-	border-radius: 0.5rem;
-}
-
-.mtm-about-boundaries {
-	border: 1px solid var(--wp--preset--color--line);
-	border-radius: 0.5rem;
-}
-
-@media (max-width: 782px) {
-	.mtm-about-row {
-		flex-direction: column;
-	}
 }
 
 /* RFQ intake form (rendered by [mb_rfq_form], processed by the RFQ MU Plugin). */

@@ -93,7 +93,7 @@ packaging、export-loading、customer-visit、exhibition 和 videos。用户已�
 - GA4 转化跟踪代码已接入，但在配置 `mb_ga4_measurement_id` 或
   `MASTERBATCH_GA4_MEASUREMENT_ID` 前保持停用；邮件失败事件还需要仅在
   环境变量中提供 `MASTERBATCH_GA4_API_SECRET`。
-- 子主题版本为 `0.9.7`，Header 品牌为 `GE Chemical & Polymer Group`，
+- 子主题版本为 `0.9.9`，Header 品牌为 `GE Chemical & Polymer Group`，
   完整公开主体名称仍保留在 Footer 和公司内容中。
 - 首页、Masterbatch Guides、Black/White/Color 指南、Request a Quote、
   Technical Documents、Resources、RFQ Checklist、Buyer FAQ、
@@ -339,6 +339,29 @@ curl -sS -o /dev/null -w '%{http_code}\n' https://gzh.hzscf.site/
   `#b8ad9c` 描边、14.72px 字号、800 字重和纯黑文字。
 - Documents 改为四行登记表；About 改为车间全幅图片与工厂语境叠层；
   Resources 为四项索引；FAQ 为双栏；最终 CTA 为左右分栏黏土色区域。
+
+### 2026-11-06 About / Buyer FAQ Field Manuals
+
+- 子主题版本从 `0.9.7` 升到 `0.9.9`；About / Quality 与 Buyer FAQ
+  从通用区块模板升级为各自的完整 Technical Field Manual 页面。
+- Page 66 `About / Quality` 绑定 `page-about-quality`，新增
+  `templates/page-about-quality.html` 与 `assets/css/about-field-manual.css`。
+  About 页面围绕 inquiry reviewer、run-based review、document handling、
+  evidence boundary 和最终 RFQ 组织，不使用未确认的产能、生产线或客户背书。
+- Page 58 `Masterbatch Buyer FAQ` 绑定 `page-faq`，新增
+  `templates/page-faq.html` 与 `assets/css/faq-field-manual.css`。FAQ 覆盖
+  产品范围、彩色定制、RFQ 输入、样品、TDS/SDS/COA、RoHS/FDA 边界、
+  数据表阅读、应用与树脂，以及提交后的审核流程。
+- `functions.php` 增加 `mb_is_about_field_page()` 和
+  `mb_is_faq_field_page()`，按页面绑定的模板而不是 slug 或 ID 判断页面，
+  分别加载对应 CSS，并添加 `mtm-about-field`、`mtm-faq-field` body class。
+- `style.css` 不再保留旧 About / FAQ 通用样式；两个页面的视觉规则各自隔离，
+  避免影响其他 Page。
+- 2026-11-06 的线上变化只涉及主题模板、CSS、`functions.php` 和
+  `style.css`；Page 66 与 Page 58 的数据库正文及修改时间没有在这一天变化。
+- 服务器文件已同步回本地，并将 CRLF 统一为仓库使用的 LF。同步后的
+  `style.css`、`functions.php`、两个模板和两个独立 CSS 与线上内容的
+  标准化 SHA-256 完全一致。
 
 ### 下一步
 

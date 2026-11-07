@@ -1,9 +1,10 @@
 # WordPress 内容导入器
 
 - 状态：测试版
-- 日期：2026-11-05
+- 日期：2026-11-06
 - 适用范围：导入首页、三类产品指南、Documents、Resources 和 Privacy Policy
-  内容包，并接收私有 RFQ/Documents 请求
+  内容包，接收私有 RFQ/Documents 请求，并维护 Technical Field Manual
+  首页、About / Quality 与 Buyer FAQ 页面模板
 
 ## 文件
 
@@ -54,6 +55,10 @@ MB_LIVE_BASE_URL=https://gzh.hzscf.site \
 首页测试使用项目本地 Playwright Chromium，直接渲染子主题的
 `page-home.html`、导入包正文、Header 和 Footer。测试检查 8 个区块、唯一 H1、
 产品与转化入口、公开声明边界，以及桌面和移动端横向溢出。
+
+主题 `0.9.9` 的 About / Quality 与 Buyer FAQ 模板、专属 CSS 和
+`functions.php` 条件加载逻辑已从线上同步回仓库。线上 CRLF 已统一为 LF；
+同步后的文件内容哈希与服务器标准化内容一致。
 
 ## 安装持久命令
 

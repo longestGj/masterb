@@ -37,8 +37,74 @@ add_action(
 				$theme->get( 'Version' )
 			);
 		}
+		if ( mb_is_about_field_page() ) {
+			wp_enqueue_style(
+				'mtm-b2b-about-field-manual',
+				get_stylesheet_directory_uri() . '/assets/css/about-field-manual.css',
+				array( 'mtm-b2b-masterbatch' ),
+				$theme->get( 'Version' )
+			);
+		}
+		if ( mb_is_faq_field_page() ) {
+			wp_enqueue_style(
+				'mtm-b2b-faq-field-manual',
+				get_stylesheet_directory_uri() . '/assets/css/faq-field-manual.css',
+				array( 'mtm-b2b-masterbatch' ),
+				$theme->get( 'Version' )
+			);
+		}
 	},
 	20
+);
+
+/**
+ * Whether the current page is rendered by the About / Quality field template.
+ *
+ * The check is keyed on the assigned block template instead of a page slug or
+ * ID, so the styling keeps working if the page is moved or renamed.
+ *
+ * @return bool
+ */
+function mb_is_about_field_page() {
+	if ( ! is_page() ) {
+		return false;
+	}
+
+	$template = (string) get_page_template_slug( get_the_ID() );
+
+	return '' !== $template && false !== strpos( $template, 'page-about-quality' );
+}
+
+/**
+ * Whether the current page is rendered by the Buyer FAQ field template.
+ *
+ * Same rule as the About page: keyed on the assigned block template, not on a
+ * page slug or ID, so the styling survives a move or rename.
+ *
+ * @return bool
+ */
+function mb_is_faq_field_page() {
+	if ( ! is_page() ) {
+		return false;
+	}
+
+	$template = (string) get_page_template_slug( get_the_ID() );
+
+	return '' !== $template && false !== strpos( $template, 'page-faq' );
+}
+
+add_filter(
+	'body_class',
+	static function ( $classes ) {
+		if ( mb_is_about_field_page() ) {
+			$classes[] = 'mtm-about-field';
+		}
+		if ( mb_is_faq_field_page() ) {
+			$classes[] = 'mtm-faq-field';
+		}
+
+		return $classes;
+	}
 );
 
 /**
