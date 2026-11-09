@@ -68,6 +68,24 @@ foreach ( $checks as $check => $passed ) {
 
 wp_delete_post( $post_id, true );
 
+$invalid_rfq = MB_RFQ_Submission::process(
+	array(
+		'full_name'        => 'RFQ Validation Test',
+		'company'          => 'Test Company',
+		'email'            => 'rfq-missing-target@example.com',
+		'country'          => 'Test Country',
+		'product_interest' => 'Black masterbatch',
+		'application'      => 'Integration test only',
+		'privacy_consent'  => '1',
+		'form_context'     => 'rfq',
+		'source_page'      => home_url( '/request-a-quote/' ),
+	)
+);
+
+if ( 'error' !== ( $invalid_rfq['status'] ?? '' ) ) {
+	WP_CLI::error( 'RFQs without a target or current issue must be rejected.' );
+}
+
 $invalid_document_request = MB_RFQ_Submission::process(
 	array(
 		'full_name'             => 'Document Validation Test',
@@ -158,6 +176,7 @@ $ga_result = MB_RFQ_Submission::process(
 		'country'               => 'Test Country',
 		'product_interest'      => 'Color masterbatch',
 		'application'           => 'Email failure integration test',
+		'target_color_function' => 'Test target',
 		'privacy_consent'       => '1',
 		'form_context'          => 'rfq',
 		'ga_client_id'          => 'ga4-test-client.123',
@@ -191,6 +210,7 @@ WP_CLI::success(
 			'private_record'           => true,
 			'email_intercept'          => true,
 			'document_validation'      => true,
+			'rfq_validation'           => true,
 			'document_purpose_saved'   => true,
 			'ga_email_failure_event'   => true,
 			'test_records_gone'        => null === get_post( $post_id )

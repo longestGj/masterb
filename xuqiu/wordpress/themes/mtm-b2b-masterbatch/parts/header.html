@@ -1,40 +1,147 @@
-<!-- wp:group {"tagName":"header","className":"mtm-header-sticky","backgroundColor":"white","layout":{"type":"constrained","contentSize":"1360px"}} -->
-<header class="wp-block-group mtm-header-sticky has-white-background-color has-background">
+<!-- wp:html -->
+<div class="site-chrome-header" data-site-chrome-header>
+	<div class="site-chrome-container site-chrome-header__inner">
+		<a class="site-chrome-logo" href="/" aria-label="GE Chemical and Polymer Group home">
+			<img
+				src="/wp-content/themes/mtm-b2b-masterbatch/assets/images/ge-logo-horizontal.png"
+				alt="GE Chemical &amp; Polymer Group"
+				width="540"
+				height="151"
+			>
+		</a>
 
-	<!-- wp:group {"className":"mtm-header-main","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"},"style":{"spacing":{"padding":{"top":"1.1rem","bottom":"1.1rem","left":"1.5rem","right":"1.5rem"}}}} -->
-	<div class="wp-block-group mtm-header-main" style="padding-top:1.1rem;padding-right:1.5rem;padding-bottom:1.1rem;padding-left:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem">
-
-		<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
-		<div class="wp-block-group" style="display:flex;align-items:center;flex-wrap:nowrap;gap:0.75rem">
-			<!-- wp:site-logo {"width":40} /-->
-			<!-- wp:site-title {"level":0,"isLink":true,"fontSize":"large","textColor":"ink"} /-->
-		</div>
-		<!-- /wp:group -->
-
-		<!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"2rem"}}} -->
-		<div class="wp-block-group" style="display:flex;align-items:center;flex-wrap:wrap;gap:2rem">
-			<!-- wp:navigation {"overlayMenu":"mobile","layout":{"type":"flex","justifyContent":"right","gap":"1.75rem"},"style":{"typography":{"fontSize":"var(--wp--preset--font-size--small)","fontWeight":"600","letterSpacing":"0.02em"}}} -->
-				<!-- wp:navigation-link {"label":"Materials","url":"/masterbatch-guides/","kind":"custom","isTopLevelLink":true} /-->
-				<!-- wp:navigation-link {"label":"Applications","url":"/#applications","kind":"custom","isTopLevelLink":true} /-->
-				<!-- wp:navigation-link {"label":"Documents","url":"/technical-documents/","kind":"custom","isTopLevelLink":true} /-->
-				<!-- wp:navigation-link {"label":"About","url":"/about-quality/","kind":"custom","isTopLevelLink":true} /-->
-			<!-- /wp:navigation -->
-
-			<!-- wp:buttons -->
-			<div class="wp-block-buttons">
-				<!-- wp:button {"backgroundColor":"brass","className":"is-style-fill"} -->
-				<div class="wp-block-button"><a class="wp-block-button__link has-brass-background-color has-background wp-element-button" href="/request-a-quote/">Build RFQ</a></div>
-				<!-- /wp:button -->
+		<nav class="site-chrome-nav" aria-label="Primary navigation">
+			<a href="/" data-chrome-nav="home">Home</a>
+			<div class="site-chrome-nav-product" data-chrome-product-nav>
+				<button
+					class="site-chrome-nav-button"
+					type="button"
+					aria-expanded="false"
+					aria-controls="site-chrome-products-menu"
+					data-chrome-products-toggle
+				>
+					Products
+					<span class="site-chrome-chevron" aria-hidden="true"></span>
+				</button>
+				<div class="site-chrome-products-menu" id="site-chrome-products-menu" data-chrome-products-menu>
+					<p>Masterbatch products</p>
+					<a href="/products/black-masterbatch/">
+						<span>Black masterbatch</span>
+						<small>BK series</small>
+					</a>
+					<a href="/products/white-masterbatch/">
+						<span>White masterbatch</span>
+						<small>TiO<sub>2</sub> context</small>
+					</a>
+					<a href="/products/color-masterbatch/">
+						<span>Color masterbatch</span>
+						<small>Reference-led</small>
+					</a>
+				</div>
 			</div>
-			<!-- /wp:buttons -->
+			<a href="/#applications">Applications</a>
+			<div class="site-chrome-nav-resource" data-chrome-resource-nav>
+				<button
+					class="site-chrome-nav-button"
+					type="button"
+					aria-expanded="false"
+					aria-controls="site-chrome-resources-menu"
+					data-chrome-resources-toggle
+					data-chrome-nav="resources"
+				>
+					Resources
+					<span class="site-chrome-chevron" aria-hidden="true"></span>
+				</button>
+				<div class="site-chrome-products-menu site-chrome-resources-menu" id="site-chrome-resources-menu" data-chrome-resources-menu>
+					<p>Buyer resources</p>
+					<a href="/masterbatch-guides/">
+						<span>Buyer Guides</span>
+						<small>Product and RFQ guides</small>
+					</a>
+					<a href="/blog/" data-chrome-nav="blog">
+						<span>Blog</span>
+						<small>Buyer education</small>
+					</a>
+					<a href="/faq/" data-chrome-nav="faq">
+						<span>Buyer FAQ</span>
+						<small>Selection and documents</small>
+					</a>
+					<a href="/technical-documents/" data-chrome-nav="documents">
+						<span>Technical Documents</span>
+						<small>TDS, SDS/MSDS, COA</small>
+					</a>
+				</div>
+			</div>
+			<a href="/about-quality/" data-chrome-nav="about">About Us</a>
+			<a href="/request-a-quote/" data-chrome-nav="contact">Contact</a>
+		</nav>
+
+		<div class="site-chrome-header-actions">
+			<a class="site-chrome-quote" href="/request-a-quote/">
+				Get a quote
+				<img src="/wp-content/themes/mtm-b2b-masterbatch/assets/icons/arrow-up-right.svg" alt="" width="24" height="24">
+			</a>
+			<button
+				class="site-chrome-menu-button"
+				type="button"
+				aria-label="Open menu"
+				aria-expanded="false"
+				aria-controls="site-chrome-mobile-menu"
+				data-site-chrome-menu-button
+			>
+				<img
+					src="/wp-content/themes/mtm-b2b-masterbatch/assets/icons/menu.svg"
+					alt=""
+					width="24"
+					height="24"
+					data-open-src="/wp-content/themes/mtm-b2b-masterbatch/assets/icons/menu.svg"
+					data-close-src="/wp-content/themes/mtm-b2b-masterbatch/assets/icons/close.svg"
+				>
+			</button>
 		</div>
-		<!-- /wp:group -->
 	</div>
-	<!-- /wp:group -->
 
-	<!-- wp:separator {"className":"is-style-wide","backgroundColor":"line"} -->
-	<hr class="wp-block-separator has-text-color has-line-color has-alpha-channel-opacity has-line-background-color has-background is-style-wide" />
-	<!-- /wp:separator -->
-
-</header>
-<!-- /wp:group -->
+	<div class="site-chrome-mobile-menu" id="site-chrome-mobile-menu" aria-hidden="true" data-site-chrome-menu>
+		<nav aria-label="Mobile navigation">
+			<a href="/" data-chrome-nav="home">Home</a>
+			<button
+				type="button"
+				aria-expanded="false"
+				aria-controls="site-chrome-mobile-products-menu"
+				data-site-chrome-mobile-products-toggle
+			>
+				Products
+				<span class="site-chrome-chevron" aria-hidden="true"></span>
+			</button>
+			<div class="site-chrome-mobile-submenu" id="site-chrome-mobile-products-menu">
+				<a href="/products/black-masterbatch/">Black masterbatch</a>
+				<a href="/products/white-masterbatch/">White masterbatch</a>
+				<a href="/products/color-masterbatch/">Color masterbatch</a>
+			</div>
+			<a href="/#applications">Applications</a>
+			<button
+				type="button"
+				aria-expanded="false"
+				aria-controls="site-chrome-mobile-resources-menu"
+				data-site-chrome-mobile-resources-toggle
+				data-chrome-nav="resources"
+			>
+				Resources
+				<span class="site-chrome-chevron" aria-hidden="true"></span>
+			</button>
+			<div class="site-chrome-mobile-submenu" id="site-chrome-mobile-resources-menu">
+				<a href="/masterbatch-guides/">Buyer Guides</a>
+				<a href="/blog/" data-chrome-nav="blog">Blog</a>
+				<a href="/faq/" data-chrome-nav="faq">Buyer FAQ</a>
+				<a href="/technical-documents/" data-chrome-nav="documents">Technical Documents</a>
+			</div>
+			<a href="/about-quality/" data-chrome-nav="about">About Us</a>
+			<a href="/request-a-quote/" data-chrome-nav="contact">Contact</a>
+		</nav>
+		<a class="site-chrome-mobile-quote" href="/request-a-quote/">
+			Get a quote
+			<img src="/wp-content/themes/mtm-b2b-masterbatch/assets/icons/arrow-up-right.svg" alt="" width="24" height="24">
+		</a>
+	</div>
+</div>
+<!-- /wp:html -->

@@ -83,9 +83,13 @@ These resources help buyers describe a masterbatch requirement in enough detail 
 
 ## Choose a product direction
 
-- [Black masterbatch RFQ guide](/masterbatch-guides/black-masterbatch/) for blackness, dispersion, carrier resin and current processing issues.
-- [White masterbatch RFQ guide](/masterbatch-guides/white-masterbatch/) for whiteness, opacity, TiO2 context and document needs.
-- [Color masterbatch RFQ guide](/masterbatch-guides/color-masterbatch/) for color references, tolerance expectations and sample discussion.
+- [Black masterbatch RFQ guide](/products/black-masterbatch/) for blackness, dispersion, carrier resin and current processing issues.
+- [White masterbatch RFQ guide](/products/white-masterbatch/) for whiteness, opacity, TiO2 context and document needs.
+- [Color masterbatch RFQ guide](/products/color-masterbatch/) for color references, tolerance expectations and sample discussion.
+
+## Buyer articles
+
+Visit the [Masterbatch buyer guides](/blog/) to read selection, troubleshooting and supplier-review articles.
 
 ## Prepare an inquiry
 

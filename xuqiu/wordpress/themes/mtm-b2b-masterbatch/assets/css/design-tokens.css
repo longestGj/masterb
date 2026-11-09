@@ -1,0 +1,93 @@
+/*
+ * GE Chemical website design tokens.
+ * Global source of truth for colors, type, spacing, layout and component sizes.
+ */
+
+:root {
+	/* Brand and semantic colors */
+	--ge-color-primary: #305030;
+	--ge-color-primary-dark: #26372b;
+	--ge-color-primary-mid: #3d5a43;
+	--ge-color-on-primary: #ffffff;
+	--ge-color-white: #ffffff;
+	--ge-color-accent: #d0f090;
+	--ge-color-accent-hover: #e0ffad;
+	--ge-color-surface: #ffffff;
+	--ge-color-surface-soft: #f6f8f4;
+	--ge-color-surface-hover: #f2f6ef;
+	--ge-color-product-color: #eef4e9;
+	--ge-color-surface-inverse: #26372b;
+	--ge-color-mark-surface: #f2f0e9;
+	--ge-color-text: #17201c;
+	--ge-color-text-muted: #68736e;
+	--ge-color-text-subtle: #8a938e;
+	--ge-color-border: #d8ded9;
+	--ge-color-border-strong: #c9d2cb;
+	--ge-color-success: #2f6f4e;
+	--ge-color-warning: #c99547;
+	--ge-color-error: #a33a32;
+	--ge-color-focus: #d0f090;
+
+	/* Typography */
+	--ge-font-display: Georgia, "Times New Roman", serif;
+	--ge-font-sans: "Avenir Next", Inter, "Helvetica Neue", Arial, sans-serif;
+	--ge-font-mono: "SFMono-Regular", "Roboto Mono", Consolas, monospace;
+	--ge-font-cjk-sans: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+	--ge-font-cjk-serif: "Songti SC", STSong, "Noto Serif CJK SC", serif;
+
+	/* Type scale */
+	--ge-font-size-body: 1rem;
+	--ge-font-size-small: 0.875rem;
+	--ge-font-size-caption: 0.75rem;
+	--ge-font-size-label: 0.6875rem;
+	--ge-font-size-button: 0.78rem;
+	--ge-font-size-nav: 0.94rem;
+	--ge-line-height-body: 1.6;
+	--ge-line-height-display: 0.96;
+
+	/* Layout */
+	--ge-container: 1240px;
+	--ge-gutter: 20px;
+	--ge-gutter-mobile: 16px;
+	--ge-header-height: 80px;
+	--ge-header-height-compact: 70px;
+	--ge-header-height-mobile: 64px;
+
+	/* Spacing */
+	--ge-space-2xs: 4px;
+	--ge-space-xs: 8px;
+	--ge-space-sm: 12px;
+	--ge-space-md: 16px;
+	--ge-space-lg: 24px;
+	--ge-space-xl: 32px;
+	--ge-space-2xl: 48px;
+	--ge-space-3xl: 64px;
+	--ge-space-4xl: 80px;
+	--ge-section-space: clamp(52px, 5vw, 68px);
+	--ge-section-space-mobile: 44px;
+
+	/* Shape and elevation */
+	--ge-radius-sm: 4px;
+	--ge-radius-md: 6px;
+	--ge-radius-lg: 8px;
+	--ge-radius-full: 9999px;
+	--ge-shadow-header: 0 2px 10px rgba(24, 32, 29, 0.07);
+	--ge-shadow-menu: 0 16px 34px rgba(24, 32, 29, 0.14);
+	--ge-shadow-card: 0 14px 30px rgba(24, 32, 29, 0.08);
+
+	/* Component dimensions */
+	--ge-control-height: 44px;
+	--ge-button-height: 46px;
+	--ge-logo-height: 50px;
+	--ge-card-padding: 20px;
+	--ge-card-gap: 16px;
+
+	/* Motion */
+	--ge-duration-micro: 80ms;
+	--ge-duration-short: 180ms;
+	--ge-duration-medium: 240ms;
+	--ge-duration-image: 420ms;
+	--ge-ease-enter: ease-out;
+	--ge-ease-exit: ease-in;
+	--ge-ease-move: ease-in-out;
+}

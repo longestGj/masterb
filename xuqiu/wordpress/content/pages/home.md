@@ -293,7 +293,7 @@ import:
 						</div>
 						<!-- /wp:group -->
 						<!-- wp:paragraph {"className":"mtm-home-card-link"} -->
-						<p class="mtm-home-card-link"><a href="/masterbatch-guides/black-masterbatch/">Open black route</a></p>
+						<p class="mtm-home-card-link"><a href="/products/black-masterbatch/">Open black route</a></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:group -->
@@ -330,7 +330,7 @@ import:
 						</div>
 						<!-- /wp:group -->
 						<!-- wp:paragraph {"className":"mtm-home-card-link"} -->
-						<p class="mtm-home-card-link"><a href="/masterbatch-guides/white-masterbatch/">Open white route</a></p>
+						<p class="mtm-home-card-link"><a href="/products/white-masterbatch/">Open white route</a></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:group -->
@@ -367,7 +367,7 @@ import:
 						</div>
 						<!-- /wp:group -->
 						<!-- wp:paragraph {"className":"mtm-home-card-link"} -->
-						<p class="mtm-home-card-link"><a href="/masterbatch-guides/color-masterbatch/">Open color route</a></p>
+						<p class="mtm-home-card-link"><a href="/products/color-masterbatch/">Open color route</a></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:group -->

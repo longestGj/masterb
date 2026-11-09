@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resources redesign comparison</title>
+  <style>
+    :root {
+      color: #17201c;
+      background: #eef1ed;
+      font-family: Avenir Next, Helvetica Neue, Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 32px; }
+    h1 { margin: 0 0 8px; font: 400 42px Georgia, serif; }
+    p { margin: 0 0 28px; color: #68736e; }
+    section { margin-top: 32px; }
+    h2 { margin: 0 0 12px; font-size: 18px; }
+    .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+    figure { margin: 0; }
+    figcaption { margin-bottom: 8px; font-weight: 700; }
+    img { width: 100%; border: 1px solid #c9d2cb; background: #fff; }
+    @media (max-width: 900px) { body { padding: 16px; } .pair { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <h1>Masterbatch Buyer Resources</h1>
+  <p>Current live page compared with the proposed editorial resource desk.</p>
+  <section>
+    <h2>Desktop 1440</h2>
+    <div class="pair">
+      <figure><figcaption>Current</figcaption><img src="./output/current-desktop-1440.png" alt="Current Resources page at desktop width"></figure>
+      <figure><figcaption>Proposal</figcaption><img src="./output/proposal-desktop-1440.png" alt="Proposed Resources page at desktop width"></figure>
+    </div>
+  </section>
+  <section>
+    <h2>Tablet 768</h2>
+    <div class="pair">
+      <figure><figcaption>Current</figcaption><img src="./output/current-tablet-768.png" alt="Current Resources page at tablet width"></figure>
+      <figure><figcaption>Proposal</figcaption><img src="./output/proposal-tablet-768.png" alt="Proposed Resources page at tablet width"></figure>
+    </div>
+  </section>
+  <section>
+    <h2>Mobile 390</h2>
+    <div class="pair">
+      <figure><figcaption>Current</figcaption><img src="./output/current-mobile-390.png" alt="Current Resources page at mobile width"></figure>
+      <figure><figcaption>Proposal</figcaption><img src="./output/proposal-mobile-390.png" alt="Proposed Resources page at mobile width"></figure>
+    </div>
+  </section>
+</body>
+</html>

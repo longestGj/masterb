@@ -1,0 +1,108 @@
+[
+  {
+    "width": 390,
+    "viewport": 390,
+    "documentWidth": 390,
+    "documentHeight": 12854,
+    "crumb": {
+      "left": 16,
+      "right": 374,
+      "width": 358,
+      "height": 48,
+      "font": "11px"
+    },
+    "hero": {
+      "left": 0,
+      "right": 390,
+      "width": 390,
+      "height": 436,
+      "font": "14.4039px"
+    },
+    "main": {
+      "left": 16,
+      "right": 374,
+      "width": 358,
+      "height": 10796,
+      "font": "14.4039px"
+    },
+    "firstParagraph": {
+      "left": 16,
+      "right": 374,
+      "width": 358,
+      "height": 238,
+      "font": "19.84px"
+    },
+    "bodyFont": "16px",
+    "table": {
+      "left": 16,
+      "right": 374,
+      "width": 358,
+      "height": 850,
+      "font": "16px"
+    },
+    "tableClientWidth": 358,
+    "tableScrollWidth": 358,
+    "tableRows": 5,
+    "labelledCells": 20,
+    "related": {
+      "left": 16,
+      "right": 374,
+      "width": 358,
+      "height": 388,
+      "font": "14.4039px"
+    }
+  },
+  {
+    "width": 320,
+    "viewport": 320,
+    "documentWidth": 320,
+    "documentHeight": 14594,
+    "crumb": {
+      "left": 16,
+      "right": 304,
+      "width": 288,
+      "height": 48,
+      "font": "11px"
+    },
+    "hero": {
+      "left": 0,
+      "right": 320,
+      "width": 320,
+      "height": 432,
+      "font": "14px"
+    },
+    "main": {
+      "left": 16,
+      "right": 304,
+      "width": 288,
+      "height": 12536,
+      "font": "14px"
+    },
+    "firstParagraph": {
+      "left": 16,
+      "right": 304,
+      "width": 288,
+      "height": 298,
+      "font": "19.84px"
+    },
+    "bodyFont": "16px",
+    "table": {
+      "left": 16,
+      "right": 304,
+      "width": 288,
+      "height": 850,
+      "font": "16px"
+    },
+    "tableClientWidth": 288,
+    "tableScrollWidth": 288,
+    "tableRows": 5,
+    "labelledCells": 20,
+    "related": {
+      "left": 16,
+      "right": 304,
+      "width": 288,
+      "height": 388,
+      "font": "14px"
+    }
+  }
+]

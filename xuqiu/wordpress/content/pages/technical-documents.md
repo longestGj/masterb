@@ -136,8 +136,7 @@ The form below asks for the required document type and purpose. Submitting a req
 
 ## Related pages
 
-- [Masterbatch guides](/masterbatch-guides/)
-- [Black masterbatch guide](/masterbatch-guides/black-masterbatch/)
-- [White masterbatch guide](/masterbatch-guides/white-masterbatch/)
-- [Color masterbatch guide](/masterbatch-guides/color-masterbatch/)
+- [Black masterbatch guide](/products/black-masterbatch/)
+- [White masterbatch guide](/products/white-masterbatch/)
+- [Color masterbatch guide](/products/color-masterbatch/)
 - [Privacy Policy](/privacy-policy/)

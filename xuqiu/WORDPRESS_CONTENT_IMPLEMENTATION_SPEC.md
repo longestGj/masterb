@@ -411,9 +411,9 @@ secondary_cta_id: cta.black.documents
 
 ```yaml
 home: /
-guides.black: /masterbatch-guides/black-masterbatch/
-guides.white: /masterbatch-guides/white-masterbatch/
-guides.color: /masterbatch-guides/color-masterbatch/
+guides.black: /products/black-masterbatch/
+guides.white: /products/white-masterbatch/
+guides.color: /products/color-masterbatch/
 documents.request: /technical-documents/
 quote.request: /request-a-quote/
 resources.index: /resources/

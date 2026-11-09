@@ -1,0 +1,274 @@
+[
+  {
+    "variant": "current",
+    "name": "desktop-1440",
+    "title": "Masterbatch Buyer Resources | GE CHEMICAL",
+    "viewportWidth": 1440,
+    "documentWidth": 1440,
+    "documentHeight": 2099,
+    "h1Count": 1,
+    "h1": "Masterbatch Buyer Resources",
+    "headings": [],
+    "sections": [],
+    "articleCards": 0,
+    "shortLinks": [],
+    "brokenImages": []
+  },
+  {
+    "variant": "proposal",
+    "name": "desktop-1440",
+    "title": "Masterbatch Guides and Buyer Articles | GE CHEMICAL",
+    "viewportWidth": 1440,
+    "documentWidth": 1440,
+    "documentHeight": 2884,
+    "h1Count": 1,
+    "h1": "Masterbatch guides for better buying decisions.",
+    "headings": [
+      {
+        "level": 1,
+        "text": "Masterbatch guides for better buying decisions.",
+        "lines": 3
+      },
+      {
+        "level": 2,
+        "text": "Latest buyer guides",
+        "lines": 1
+      },
+      {
+        "level": 2,
+        "text": "Reading done. What comes next?",
+        "lines": 2
+      },
+      {
+        "level": 2,
+        "text": "Have a live material question?",
+        "lines": 1
+      }
+    ],
+    "sections": [
+      {
+        "className": "blog-hero",
+        "height": 708
+      },
+      {
+        "className": "blog-section blog-articles",
+        "height": 961
+      },
+      {
+        "className": "blog-tools",
+        "height": 435
+      },
+      {
+        "className": "blog-final",
+        "height": 226
+      }
+    ],
+    "articleCards": 3,
+    "shortLinks": [],
+    "brokenImages": []
+  },
+  {
+    "variant": "current",
+    "name": "tablet-768",
+    "title": "Masterbatch Buyer Resources | GE CHEMICAL",
+    "viewportWidth": 768,
+    "documentWidth": 768,
+    "documentHeight": 2565,
+    "h1Count": 1,
+    "h1": "Masterbatch Buyer Resources",
+    "headings": [],
+    "sections": [],
+    "articleCards": 0,
+    "shortLinks": [],
+    "brokenImages": []
+  },
+  {
+    "variant": "proposal",
+    "name": "tablet-768",
+    "title": "Masterbatch Guides and Buyer Articles | GE CHEMICAL",
+    "viewportWidth": 768,
+    "documentWidth": 768,
+    "documentHeight": 4687,
+    "h1Count": 1,
+    "h1": "Masterbatch guides for better buying decisions.",
+    "headings": [
+      {
+        "level": 1,
+        "text": "Masterbatch guides for better buying decisions.",
+        "lines": 2
+      },
+      {
+        "level": 2,
+        "text": "Latest buyer guides",
+        "lines": 2
+      },
+      {
+        "level": 2,
+        "text": "Reading done. What comes next?",
+        "lines": 1
+      },
+      {
+        "level": 2,
+        "text": "Have a live material question?",
+        "lines": 1
+      }
+    ],
+    "sections": [
+      {
+        "className": "blog-hero",
+        "height": 965
+      },
+      {
+        "className": "blog-section blog-articles",
+        "height": 1716
+      },
+      {
+        "className": "blog-tools",
+        "height": 551
+      },
+      {
+        "className": "blog-final",
+        "height": 274
+      }
+    ],
+    "articleCards": 3,
+    "shortLinks": [],
+    "brokenImages": []
+  },
+  {
+    "variant": "current",
+    "name": "mobile-390",
+    "title": "Masterbatch Buyer Resources | GE CHEMICAL",
+    "viewportWidth": 390,
+    "documentWidth": 390,
+    "documentHeight": 2857,
+    "h1Count": 1,
+    "h1": "Masterbatch Buyer Resources",
+    "headings": [],
+    "sections": [],
+    "articleCards": 0,
+    "shortLinks": [],
+    "brokenImages": []
+  },
+  {
+    "variant": "proposal",
+    "name": "mobile-390",
+    "title": "Masterbatch Guides and Buyer Articles | GE CHEMICAL",
+    "viewportWidth": 390,
+    "documentWidth": 390,
+    "documentHeight": 4784,
+    "h1Count": 1,
+    "h1": "Masterbatch guides for better buying decisions.",
+    "headings": [
+      {
+        "level": 1,
+        "text": "Masterbatch guides for better buying decisions.",
+        "lines": 3
+      },
+      {
+        "level": 2,
+        "text": "Latest buyer guides",
+        "lines": 1
+      },
+      {
+        "level": 2,
+        "text": "Reading done. What comes next?",
+        "lines": 2
+      },
+      {
+        "level": 2,
+        "text": "Have a live material question?",
+        "lines": 2
+      }
+    ],
+    "sections": [
+      {
+        "className": "blog-hero",
+        "height": 1014
+      },
+      {
+        "className": "blog-section blog-articles",
+        "height": 1673
+      },
+      {
+        "className": "blog-tools",
+        "height": 589
+      },
+      {
+        "className": "blog-final",
+        "height": 327
+      }
+    ],
+    "articleCards": 3,
+    "shortLinks": [],
+    "brokenImages": []
+  },
+  {
+    "variant": "current",
+    "name": "mobile-320",
+    "title": "Masterbatch Buyer Resources | GE CHEMICAL",
+    "viewportWidth": 320,
+    "documentWidth": 320,
+    "documentHeight": 3101,
+    "h1Count": 1,
+    "h1": "Masterbatch Buyer Resources",
+    "headings": [],
+    "sections": [],
+    "articleCards": 0,
+    "shortLinks": [],
+    "brokenImages": []
+  },
+  {
+    "variant": "proposal",
+    "name": "mobile-320",
+    "title": "Masterbatch Guides and Buyer Articles | GE CHEMICAL",
+    "viewportWidth": 320,
+    "documentWidth": 320,
+    "documentHeight": 4855,
+    "h1Count": 1,
+    "h1": "Masterbatch guides for better buying decisions.",
+    "headings": [
+      {
+        "level": 1,
+        "text": "Masterbatch guides for better buying decisions.",
+        "lines": 4
+      },
+      {
+        "level": 2,
+        "text": "Latest buyer guides",
+        "lines": 1
+      },
+      {
+        "level": 2,
+        "text": "Reading done. What comes next?",
+        "lines": 2
+      },
+      {
+        "level": 2,
+        "text": "Have a live material question?",
+        "lines": 2
+      }
+    ],
+    "sections": [
+      {
+        "className": "blog-hero",
+        "height": 1077
+      },
+      {
+        "className": "blog-section blog-articles",
+        "height": 1670
+      },
+      {
+        "className": "blog-tools",
+        "height": 583
+      },
+      {
+        "className": "blog-final",
+        "height": 344
+      }
+    ],
+    "articleCards": 3,
+    "shortLinks": [],
+    "brokenImages": []
+  }
+]

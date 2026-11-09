@@ -14,7 +14,7 @@ from playwright.sync_api import sync_playwright
 TARGET_URL = (
     sys.argv[1]
     if len(sys.argv) > 1
-    else "http://localhost:8889/masterbatch-guides/black-masterbatch/"
+    else "http://localhost:8889/products/black-masterbatch/"
 )
 CHROME_PATH = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 OUTPUT_JSON = Path("/tmp/masterbatch-page-audit.json")

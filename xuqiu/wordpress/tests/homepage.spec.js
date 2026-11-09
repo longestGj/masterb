@@ -72,15 +72,15 @@ function pairedBlockNames(content) {
 function renderHomepagePreview() {
   const header = readThemeFile("parts/header.html");
   const footer = readThemeFile("parts/footer.html");
+  const homeContent = readThemeFile("parts/home-refresh-content.html");
   const style = readThemeFile("style.css");
-  const fieldManualStyle = readThemeFile("assets/css/material-field-manual.css");
-  const homePackage = parseContentPackage(
-    readWordPressFile("content/pages/home.md"),
-  );
+  const homeRefreshStyle = readThemeFile("assets/css/home-refresh-v2.css");
+  const siteChromeStyle = readThemeFile("assets/css/site-chrome.css");
+  const siteChromeScript = readThemeFile("assets/js/site-chrome.js");
   const template = readThemeFile("templates/page-home.html")
     .replace(
-      /<!-- wp:shortcode -->\s*\[mb_page_content\]\s*<!-- \/wp:shortcode -->/,
-      homePackage.body,
+      /<!-- wp:template-part \{"slug":"home-refresh-content"\} \/-->/,
+      homeContent,
     )
     .replace(
       /<!-- wp:template-part \{"slug":"header"[^>]*\/-->/,
@@ -163,10 +163,11 @@ function renderHomepagePreview() {
       flex-wrap: wrap;
     }
     ${style}
-    ${fieldManualStyle}
+    ${homeRefreshStyle}
+    ${siteChromeStyle}
   </style>
 </head>
-<body class="home">${template}</body>
+<body class="home">${template}<script>${siteChromeScript}</script></body>
 </html>`;
 }
 
@@ -183,26 +184,62 @@ test("renders the eight homepage sections and conversion paths", async ({
   await expect(page.locator("h1")).toHaveText(
     "Masterbatch, tuned to the line.",
   );
-  await expect(page.locator(".mtm-home-hero__spec")).toHaveCount(3);
-  await expect(page.locator(".mtm-home-section")).toHaveCount(8);
+  await expect(page.locator(".sketch-basis > div")).toHaveCount(4);
+  await expect(page.locator("main > section")).toHaveCount(7);
   const headerSource = readThemeFile("parts/header.html");
   for (const label of [
-    "Materials",
+    "Home",
     "Applications",
-    "Documents",
-    "About",
+    "About Us",
+    "Contact",
   ]) {
-    expect(headerSource).toContain(`"label":"${label}"`);
+    expect(headerSource).toContain(`>${label}</a>`);
   }
-  await expect(
-    page.locator('header .wp-block-button__link[href="/request-a-quote/"]'),
-  ).toHaveText("Build RFQ");
+  expect(headerSource).toContain("Products");
+  expect(headerSource).toContain("Resources");
+  expect(headerSource).toContain("Buyer Guides");
+  expect(headerSource).toContain("Blog");
+  expect(headerSource).toContain("Buyer FAQ");
+  expect(headerSource).toContain("Technical Documents");
+  await expect(page.locator(".site-chrome-header")).toBeVisible();
+  await expect(page.locator(".site-chrome-nav > a")).toHaveCount(4);
+  await expect(page.locator(".site-chrome-nav-button")).toHaveCount(2);
+  await expect(page.locator(".site-chrome-quote")).toContainText("Get a quote");
+  await expect(page.locator(".site-chrome-footer")).toBeVisible();
+  await expect(page.locator(".site-chrome-footer")).toContainText(
+    "GE CHEMICAL & POLYMER GROUP CO., LTD",
+  );
+  await expect(page.locator(".site-chrome-footer")).toContainText(
+    "Binzhou, Shandong, China",
+  );
+  await expect(page.locator(".site-chrome-footer")).toContainText(
+    "Scan to request a quote",
+  );
+  await expect(page.locator(".site-chrome-footer")).toContainText(
+    "Request a Quote",
+  );
+  if (testInfo.project.name === "desktop") {
+    await page.locator("[data-chrome-products-toggle]").click();
+    await expect(page.locator("[data-chrome-products-menu]")).toBeVisible();
+    await expect(
+      page.locator("[data-chrome-products-menu] > a"),
+    ).toHaveCount(3);
+    await page.keyboard.press("Escape");
+    await expect(page.locator("[data-chrome-products-menu]")).toBeHidden();
+
+    await page.locator("[data-chrome-resources-toggle]").click();
+    await expect(page.locator("[data-chrome-resources-menu]")).toBeVisible();
+    await expect(
+      page.locator("[data-chrome-resources-menu] > a"),
+    ).toHaveCount(4);
+    await page.keyboard.press("Escape");
+    await expect(page.locator("[data-chrome-resources-menu]")).toBeHidden();
+  }
 
   const sectionIds = [
-    "hero",
+    "home",
     "products",
     "applications",
-    "review-process",
     "documents",
     "about",
     "resources",
@@ -213,28 +250,32 @@ test("renders the eight homepage sections and conversion paths", async ({
   }
 
   await expect(
-    page.locator('a[href="/masterbatch-guides/black-masterbatch/"]').first(),
+    page.locator('main a[href="/products/black-masterbatch/"]').first(),
   ).toBeVisible();
   await expect(
-    page.locator('a[href="/masterbatch-guides/white-masterbatch/"]').first(),
+    page.locator('main a[href="/products/white-masterbatch/"]').first(),
   ).toBeVisible();
   await expect(
-    page.locator('a[href="/masterbatch-guides/color-masterbatch/"]').first(),
+    page.locator('main a[href="/products/color-masterbatch/"]').first(),
   ).toBeVisible();
-  await expect(page.locator(".mtm-home-hero-photo img")).toHaveCount(1);
-  await expect(page.locator(".mtm-home-product-thumb img")).toHaveCount(3);
-  await expect(page.locator(".mtm-home-about-gallery img")).toHaveCount(0);
-  await expect(page.locator(".mtm-home-product-table")).toHaveCount(0);
+  await expect(page.locator(".sketch-hero__media img")).toHaveCount(2);
+  await expect(page.locator(".sketch-product-card")).toHaveCount(3);
+  await expect(page.locator(".sketch-application-grid article")).toHaveCount(4);
+  await expect(page.locator(".sketch-factory__photos img")).toHaveCount(3);
+  await expect(page.locator(".sketch-product-table")).toHaveCount(0);
   await expect(
     page.getByText(/the material has to work on the line/i),
   ).toBeVisible();
   await expect(
-    page.locator('footer a[href="/privacy-policy/"]'),
-  ).toHaveCount(1);
-  await expect(page.locator(".mtm-home-faq__item")).toHaveCount(5);
-  await expect(page.locator(".mtm-home-faq h3")).toHaveCount(5);
+    page.locator('.site-chrome-footer a[href="/privacy-policy/"]'),
+  ).toHaveCount(2);
+  await expect(page.locator(".sketch-faq details")).toHaveCount(6);
   for (const image of await page.locator("main img").all()) {
-    await expect(image).toHaveAttribute("alt", /\S+/);
+    const source = await image.getAttribute("src");
+    const alt = await image.getAttribute("alt");
+    if (!source.endsWith(".svg")) {
+      expect(alt).toMatch(/\S+/);
+    }
   }
   expect(
     await page.locator('a[href="/request-a-quote/"]').count(),
@@ -247,6 +288,48 @@ test("renders the eight homepage sections and conversion paths", async ({
     path: testInfo.outputPath(`homepage-${testInfo.project.name}.png`),
     fullPage: true,
   });
+});
+
+test("mobile header opens the compact navigation", async ({
+  page,
+}, testInfo) => {
+  test.skip(testInfo.project.name !== "mobile", "Mobile navigation only.");
+
+  const menuButton = page.locator("[data-site-chrome-menu-button]");
+  const mobileMenu = page.locator("[data-site-chrome-menu]");
+
+  await expect(menuButton).toBeVisible();
+  await expect(menuButton).toHaveAttribute("aria-expanded", "false");
+  await expect(mobileMenu).toHaveAttribute("aria-hidden", "true");
+
+  await menuButton.click();
+
+  await expect(menuButton).toHaveAttribute("aria-expanded", "true");
+  await expect(menuButton).toHaveAttribute("aria-label", "Close menu");
+  await expect(mobileMenu).toHaveAttribute("aria-hidden", "false");
+  await expect(mobileMenu).toBeVisible();
+  await expect(page.locator(".site-chrome-mobile-menu nav > a")).toHaveCount(4);
+  await expect(
+    page.locator(".site-chrome-mobile-menu nav > button"),
+  ).toHaveCount(2);
+  await page.locator("[data-site-chrome-mobile-products-toggle]").click();
+  await expect(page.locator("#site-chrome-mobile-products-menu")).toBeVisible();
+  await expect(
+    page.locator("#site-chrome-mobile-products-menu a"),
+  ).toHaveCount(3);
+  await page.locator("[data-site-chrome-mobile-resources-toggle]").click();
+  await expect(
+    page.locator("#site-chrome-mobile-resources-menu"),
+  ).toBeVisible();
+  await expect(
+    page.locator("#site-chrome-mobile-resources-menu a"),
+  ).toHaveCount(4);
+
+  await page.keyboard.press("Escape");
+
+  await expect(menuButton).toHaveAttribute("aria-expanded", "false");
+  await expect(menuButton).toHaveAttribute("aria-label", "Open menu");
+  await expect(mobileMenu).toHaveAttribute("aria-hidden", "true");
 });
 
 test("keeps public claims within the approved evidence boundary", async ({
@@ -275,7 +358,7 @@ test("keeps public claims within the approved evidence boundary", async ({
     page.getByText(/documents follow the grade/i),
   ).toBeVisible();
   await expect(
-    page.getByText(/apply only to the specific tested grade or sample/i),
+    page.getByText(/tested grade or sample scope only/i),
   ).toBeVisible();
 });
 
@@ -288,6 +371,35 @@ test("does not overflow horizontally", async ({ page }) => {
   expect(dimensions.documentWidth).toBeLessThanOrEqual(
     dimensions.viewportWidth + 1,
   );
+});
+
+test("desktop navigation fits before the mobile breakpoint", async ({
+  page,
+}, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop", "Desktop breakpoint check.");
+
+  for (const width of [1024, 981]) {
+    await page.setViewportSize({ width, height: 900 });
+    const dimensions = await page.evaluate(() => ({
+      viewportWidth: document.documentElement.clientWidth,
+      documentWidth: document.documentElement.scrollWidth,
+      navWidth: Math.round(
+        document.querySelector(".site-chrome-nav").getBoundingClientRect().width,
+      ),
+      headerWidth: Math.round(
+        document
+          .querySelector(".site-chrome-header__inner")
+          .getBoundingClientRect().width,
+      ),
+    }));
+
+    expect(dimensions.documentWidth, `${width}px`).toBeLessThanOrEqual(
+      dimensions.viewportWidth + 1,
+    );
+    expect(dimensions.navWidth, `${width}px`).toBeLessThan(
+      dimensions.headerWidth,
+    );
+  }
 });
 
 test("ships a WordPress-importable homepage package", async ({ page }) => {
@@ -306,17 +418,22 @@ test("ships a WordPress-importable homepage package", async ({ page }) => {
   expect(homePackage.body.match(/<h1\b/g)).toHaveLength(1);
   expect(pairedBlockNames(homePackage.body).length).toBeGreaterThan(100);
 
-  await expect(page.locator("main.mtm-home")).toBeVisible();
-  await expect(page.locator(".mtm-home-render")).toHaveCount(1);
+  await expect(page.locator("main#main")).toBeVisible();
+  await expect(page.locator(".sketch-products")).toBeVisible();
 
   for (const templateName of [
     "templates/front-page.html",
     "templates/page-home.html",
   ]) {
     const template = readThemeFile(templateName);
-    expect(template).toContain("[mb_page_content]");
-    expect(template).not.toContain('id="hero"');
+    expect(template).toContain('"slug":"home-refresh-content"');
+    expect(template).not.toContain("[mb_page_content]");
   }
+
+  expect(readThemeFile("parts/home-refresh-content.html")).toContain(
+    '<main id="main">',
+  );
+  expect(readThemeFile("functions.php")).toContain("home-refresh-v2.css");
 });
 
 test("ships an implementation-aligned privacy policy package", async () => {

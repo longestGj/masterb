@@ -5,6 +5,35 @@
 
 defined( 'ABSPATH' ) || exit;
 
+/**
+ * Keep the legacy product post type away from the public /products/ page tree.
+ *
+ * The parent theme registers a product content type at products/... even
+ * though this site uses the page hierarchy for its public product routes.
+ *
+ * @param array  $args      Post type registration arguments.
+ * @param string $post_type Post type name.
+ * @return array
+ */
+add_filter(
+	'register_post_type_args',
+	static function ( $args, $post_type ) {
+		if ( 'product' !== $post_type ) {
+			return $args;
+		}
+
+		$args['rewrite']     = array(
+			'slug'       => 'product-catalog',
+			'with_front' => false,
+		);
+		$args['has_archive'] = 'product-catalog';
+
+		return $args;
+	},
+	10,
+	2
+);
+
 if ( defined( 'RANK_MATH_VERSION' ) ) {
 	// Rank Math also moves the core title renderer into rank_math/head.
 	// Keep WordPress's normal title output only, while Rank Math still
@@ -24,15 +53,21 @@ add_action(
 	static function () {
 		$theme = wp_get_theme();
 		wp_enqueue_style(
+			'mtm-b2b-design-tokens',
+			get_stylesheet_directory_uri() . '/assets/css/design-tokens.css',
+			array(),
+			$theme->get( 'Version' )
+		);
+		wp_enqueue_style(
 			'mtm-b2b-masterbatch',
 			get_stylesheet_uri(),
-			array( 'mtm-b2b-theme' ),
+			array( 'mtm-b2b-theme', 'mtm-b2b-design-tokens' ),
 			$theme->get( 'Version' )
 		);
 		if ( is_front_page() ) {
 			wp_enqueue_style(
-				'mtm-b2b-material-field-manual',
-				get_stylesheet_directory_uri() . '/assets/css/material-field-manual.css',
+				'mtm-b2b-home-refresh-v2',
+				get_stylesheet_directory_uri() . '/assets/css/home-refresh-v2.css',
 				array( 'mtm-b2b-masterbatch' ),
 				$theme->get( 'Version' )
 			);
@@ -53,8 +88,69 @@ add_action(
 				$theme->get( 'Version' )
 			);
 		}
+		if ( mb_is_contact_page() ) {
+			wp_enqueue_style(
+				'mtm-b2b-contact-v1',
+				get_stylesheet_directory_uri() . '/assets/css/contact-v1.css',
+				array( 'mtm-b2b-masterbatch' ),
+				$theme->get( 'Version' )
+			);
+		}
+		if ( mb_is_black_masterbatch_guide_page() ) {
+			wp_enqueue_style(
+				'mtm-b2b-black-masterbatch-guide',
+				get_stylesheet_directory_uri() . '/assets/css/black-masterbatch-guide.css',
+				array( 'mtm-b2b-masterbatch' ),
+				$theme->get( 'Version' )
+			);
+		}
+		if ( mb_is_bk040_page() ) {
+			wp_enqueue_style(
+				'mtm-b2b-bk040-product',
+				get_stylesheet_directory_uri() . '/assets/css/bk040-product.css',
+				array( 'mtm-b2b-masterbatch' ),
+				$theme->get( 'Version' )
+			);
+		}
+		if ( is_singular( 'post' ) ) {
+			wp_enqueue_style(
+				'mtm-b2b-article',
+				get_stylesheet_directory_uri() . '/assets/css/article.css',
+				array( 'mtm-b2b-masterbatch' ),
+				$theme->get( 'Version' )
+			);
+		}
+		if ( is_home() ) {
+			wp_enqueue_style(
+				'mtm-b2b-blog-archive',
+				get_stylesheet_directory_uri() . '/assets/css/blog-archive.css',
+				array( 'mtm-b2b-masterbatch' ),
+				$theme->get( 'Version' )
+			);
+		}
 	},
 	20
+);
+
+add_action(
+	'wp_enqueue_scripts',
+	static function () {
+		$theme = wp_get_theme();
+		wp_enqueue_style(
+			'mtm-b2b-site-chrome',
+			get_stylesheet_directory_uri() . '/assets/css/site-chrome.css',
+			array( 'mtm-b2b-masterbatch' ),
+			$theme->get( 'Version' )
+		);
+		wp_enqueue_script(
+			'mtm-b2b-site-chrome',
+			get_stylesheet_directory_uri() . '/assets/js/site-chrome.js',
+			array(),
+			$theme->get( 'Version' ),
+			true
+		);
+	},
+	30
 );
 
 /**
@@ -93,6 +189,51 @@ function mb_is_faq_field_page() {
 	return '' !== $template && false !== strpos( $template, 'page-faq' );
 }
 
+/**
+ * Whether the current page is rendered by the Contact / Request a Quote template.
+ *
+ * @return bool
+ */
+function mb_is_contact_page() {
+	if ( ! is_page() ) {
+		return false;
+	}
+
+	$template = (string) get_page_template_slug( get_the_ID() );
+
+	return '' !== $template && false !== strpos( $template, 'page-request-a-quote' );
+}
+
+/**
+ * Whether the current page uses the Black Masterbatch guide template.
+ *
+ * @return bool
+ */
+function mb_is_black_masterbatch_guide_page() {
+	if ( ! is_page() ) {
+		return false;
+	}
+
+	$template = (string) get_page_template_slug( get_the_ID() );
+
+	return '' !== $template && false !== strpos( $template, 'page-black-masterbatch' );
+}
+
+/**
+ * Whether the current page uses the BK040 product detail template.
+ *
+ * @return bool
+ */
+function mb_is_bk040_page() {
+	if ( ! is_page() ) {
+		return false;
+	}
+
+	$template = (string) get_page_template_slug( get_the_ID() );
+
+	return '' !== $template && false !== strpos( $template, 'page-bk040-product' );
+}
+
 add_filter(
 	'body_class',
 	static function ( $classes ) {
@@ -102,8 +243,345 @@ add_filter(
 		if ( mb_is_faq_field_page() ) {
 			$classes[] = 'mtm-faq-field';
 		}
+		if ( mb_is_contact_page() ) {
+			$classes[] = 'mtm-contact-v1';
+		}
+		if ( mb_is_black_masterbatch_guide_page() ) {
+			$classes[] = 'mtm-black-guide-page';
+		}
+		if ( mb_is_bk040_page() ) {
+			$classes[] = 'mtm-bk040-page';
+		}
+		if ( is_home() ) {
+			$classes[] = 'mtm-blog-archive';
+		}
+		if ( is_singular( 'post' ) ) {
+			$classes[] = 'mtm-article-page';
+		}
 
 		return $classes;
+	}
+);
+
+/**
+ * Return a short category label for a blog card.
+ *
+ * @param int $post_id Post ID.
+ * @return string
+ */
+function mb_blog_category_label( $post_id ) {
+	$categories = get_the_category( $post_id );
+	if ( empty( $categories ) ) {
+		return 'Buyer guide';
+	}
+
+	return $categories[0]->name;
+}
+
+/**
+ * Render the Blog posts page from published WordPress posts.
+ *
+ * @return string
+ */
+add_shortcode(
+	'mb_blog_archive',
+	static function () {
+		$posts = get_posts(
+			array(
+				'post_type'           => 'post',
+				'post_status'         => 'publish',
+				'posts_per_page'      => 3,
+				'ignore_sticky_posts' => true,
+			)
+		);
+
+		if ( empty( $posts ) ) {
+			return '<main id="main" class="blog-page"><div class="blog-container blog-section"><h1>Masterbatch guides and buyer articles.</h1><p>No buyer guides have been published yet.</p></div></main>';
+		}
+
+		$featured  = $posts[0];
+		$secondary = array_slice( $posts, 1, 2 );
+		$fallback  = get_stylesheet_directory_uri() . '/assets/images/home-masterbatch-product.jpg';
+
+		ob_start();
+		?>
+		<main id="main" class="blog-page">
+			<div class="blog-crumb-bar">
+				<div class="blog-container">
+					<nav class="blog-crumb" aria-label="Breadcrumb">
+						<a href="/">Home</a>
+						<span aria-hidden="true">/</span>
+						<span aria-current="page">Blog</span>
+					</nav>
+				</div>
+			</div>
+
+			<section class="blog-hero">
+				<div class="blog-container blog-hero__grid">
+					<div class="blog-hero__copy">
+						<h1>Masterbatch guides for better buying decisions.</h1>
+						<p>Read practical notes on material selection, supplier review and production troubleshooting before the next quote or trial.</p>
+						<div class="blog-hero__actions">
+							<a class="blog-button" href="#articles">Browse the guides</a>
+							<a class="blog-button blog-button--outline" href="/resources/">Open buyer tools</a>
+						</div>
+					</div>
+
+					<nav class="blog-reading-index" aria-label="Browse current guides">
+						<p>Browse the current guides</p>
+						<?php foreach ( $posts as $index => $post ) : ?>
+							<a href="<?php echo esc_url( get_permalink( $post ) ); ?>">
+								<span><?php echo esc_html( mb_blog_category_label( $post->ID ) ); ?></span>
+								<strong><?php echo esc_html( get_the_title( $post ) ); ?></strong>
+							</a>
+						<?php endforeach; ?>
+					</nav>
+				</div>
+			</section>
+
+			<section class="blog-section blog-articles" id="articles">
+				<div class="blog-container">
+					<header class="blog-section-head">
+						<h2>Latest buyer guides</h2>
+						<p>Start with the decision in front of you, then move into the product and document detail.</p>
+					</header>
+
+					<div class="blog-article-grid">
+						<article class="blog-feature">
+							<a class="blog-feature__media" href="<?php echo esc_url( get_permalink( $featured ) ); ?>">
+								<?php
+								$featured_image = get_the_post_thumbnail(
+									$featured->ID,
+									'large',
+									array(
+										'loading'       => 'eager',
+										'fetchpriority' => 'high',
+									)
+								);
+								echo $featured_image ? $featured_image : '<img src="' . esc_url( $fallback ) . '" alt="">';
+								?>
+							</a>
+							<div class="blog-feature__body">
+								<p class="blog-type"><?php echo esc_html( mb_blog_category_label( $featured->ID ) ); ?></p>
+								<h3><a href="<?php echo esc_url( get_permalink( $featured ) ); ?>"><?php echo esc_html( get_the_title( $featured ) ); ?></a></h3>
+								<p><?php echo esc_html( wp_trim_words( get_the_excerpt( $featured ), 34 ) ); ?></p>
+								<a class="blog-read-link" href="<?php echo esc_url( get_permalink( $featured ) ); ?>">Read the guide</a>
+							</div>
+						</article>
+
+						<div class="blog-secondary">
+							<?php foreach ( $secondary as $index => $post ) : ?>
+								<article class="blog-secondary-card <?php echo 0 === $index ? 'blog-secondary-card--dark' : 'blog-secondary-card--soft'; ?>">
+									<a class="blog-secondary-card__media" href="<?php echo esc_url( get_permalink( $post ) ); ?>">
+										<?php
+										$image = get_the_post_thumbnail(
+											$post->ID,
+											'large',
+											array(
+												'loading'  => 'lazy',
+												'decoding' => 'async',
+											)
+										);
+										echo $image ? $image : '<img src="' . esc_url( $fallback ) . '" alt="" loading="lazy" decoding="async">';
+										?>
+									</a>
+									<div class="blog-secondary-card__body">
+										<p class="blog-type"><?php echo esc_html( mb_blog_category_label( $post->ID ) ); ?></p>
+										<h3><a href="<?php echo esc_url( get_permalink( $post ) ); ?>"><?php echo esc_html( get_the_title( $post ) ); ?></a></h3>
+										<p><?php echo esc_html( wp_trim_words( get_the_excerpt( $post ), 24 ) ); ?></p>
+										<a class="blog-read-link" href="<?php echo esc_url( get_permalink( $post ) ); ?>">Read the guide</a>
+									</div>
+								</article>
+							<?php endforeach; ?>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="blog-tools">
+				<div class="blog-container blog-tools__grid">
+					<div>
+						<h2>Reading done. What comes next?</h2>
+						<p>Use Resources for the RFQ checklist, buyer questions and technical document requests that support a real material decision.</p>
+					</div>
+					<nav aria-label="Buyer resources">
+						<a href="/resources/">
+							<span>Buyer resources</span>
+							<strong>RFQ checklist, Buyer FAQ and document guidance</strong>
+						</a>
+						<a href="/technical-documents/">
+							<span>Technical files</span>
+							<strong>Request TDS, SDS/MSDS or COA review</strong>
+						</a>
+					</nav>
+				</div>
+			</section>
+
+			<section class="blog-final">
+				<div class="blog-container blog-final__grid">
+					<div>
+						<h2>Have a live material question?</h2>
+						<p>Send the base resin, process, final product and target so the team can review the right product direction.</p>
+					</div>
+					<a class="blog-button" href="/request-a-quote/">Submit an inquiry</a>
+				</div>
+			</section>
+		</main>
+		<?php
+
+		return (string) ob_get_clean();
+	}
+);
+
+/**
+ * Render a single technical article.
+ *
+ * @return string
+ */
+add_shortcode(
+	'mb_article_page',
+	static function () {
+		$post = get_queried_object();
+		if ( ! $post instanceof WP_Post || 'post' !== $post->post_type ) {
+			return '';
+		}
+
+		$content = do_shortcode( do_blocks( $post->post_content ) );
+		$toc     = array();
+		$content = preg_replace_callback(
+			'/<h2([^>]*)>(.*?)<\/h2>/is',
+			static function ( $matches ) use ( &$toc ) {
+				$title = trim( wp_strip_all_tags( $matches[2] ) );
+				$id    = '';
+
+				if ( preg_match( '/\sid=("|\')(.*?)\1/', $matches[1], $id_match ) ) {
+					$id = $id_match[2];
+				} else {
+					$id = sanitize_title( $title );
+				}
+
+				$attributes = $matches[1];
+				if ( false === strpos( $attributes, 'id=' ) ) {
+					$attributes .= ' id="' . esc_attr( $id ) . '"';
+				}
+
+				$toc[] = array(
+					'id'    => $id,
+					'title' => $title,
+				);
+
+				return '<h2' . $attributes . '>' . $matches[2] . '</h2>';
+			},
+			$content
+		);
+
+		$hero_title = trim( (string) get_post_meta( $post->ID, '_mb_article_hero_title', true ) );
+		if ( '' === $hero_title ) {
+			$hero_title = get_the_title( $post );
+		}
+
+		$excerpt    = wp_trim_words( get_the_excerpt( $post ), 42 );
+		$category   = mb_blog_category_label( $post->ID );
+		$hero_image = get_the_post_thumbnail_url( $post, 'full' );
+		$hero_style = $hero_image
+			? ' style="background-image:url(' . esc_url( $hero_image ) . ')"'
+			: '';
+		$first_id   = ! empty( $toc ) ? $toc[0]['id'] : '';
+
+		$related = get_posts(
+			array(
+				'post_type'           => 'post',
+				'post_status'         => 'publish',
+				'posts_per_page'      => 2,
+				'post__not_in'        => array( $post->ID ),
+				'ignore_sticky_posts' => true,
+			)
+		);
+
+		$toc_markup = '';
+		foreach ( $toc as $index => $item ) {
+			$toc_markup .= '<li><a href="#' . esc_attr( $item['id'] ) . '"><span>' .
+				esc_html( str_pad( (string) ( $index + 1 ), 2, '0', STR_PAD_LEFT ) ) . '</span>' .
+				esc_html( $item['title'] ) . '</a></li>';
+		}
+
+		ob_start();
+		?>
+		<main id="main" class="article-page">
+			<div class="article-crumb-bar">
+				<div class="article-container">
+					<nav class="article-crumb" aria-label="Breadcrumb">
+						<a href="/">Home</a>
+						<span aria-hidden="true">/</span>
+						<a href="/blog/">Blog</a>
+						<span aria-hidden="true">/</span>
+						<span aria-current="page"><?php echo esc_html( get_the_title( $post ) ); ?></span>
+					</nav>
+				</div>
+			</div>
+
+			<header class="article-hero"<?php echo $hero_style; ?>>
+				<div class="article-container">
+					<div class="article-hero__copy">
+						<p class="article-type"><?php echo esc_html( $category ); ?></p>
+						<h1><?php echo esc_html( $hero_title ); ?></h1>
+						<p class="article-hero__deck"><?php echo esc_html( $excerpt ); ?></p>
+						<?php if ( $first_id ) : ?>
+							<a class="article-button" href="#<?php echo esc_attr( $first_id ); ?>">Start with the evidence</a>
+						<?php endif; ?>
+					</div>
+				</div>
+			</header>
+
+			<section class="article-reading">
+				<div class="article-container article-reading__grid">
+					<aside class="article-toc article-toc--desktop" aria-label="On this page">
+						<p>On this page</p>
+						<ol><?php echo $toc_markup; ?></ol>
+						<a class="article-toc__cta" href="/request-a-quote/?intent=black-masterbatch&amp;source=<?php echo esc_attr( $post->post_name ); ?>">
+							<span>Have a current defect?</span>
+							<strong>Request a material review</strong>
+						</a>
+					</aside>
+
+					<div class="article-main">
+						<details class="article-toc-mobile">
+							<summary>On this page</summary>
+							<ol><?php echo $toc_markup; ?></ol>
+						</details>
+
+						<div class="article-content"><?php echo $content; ?></div>
+
+						<?php if ( ! empty( $related ) ) : ?>
+							<section class="article-related" aria-labelledby="continue-reading">
+								<h2 id="continue-reading">Continue reading</h2>
+								<div>
+									<?php foreach ( $related as $related_post ) : ?>
+										<a href="<?php echo esc_url( get_permalink( $related_post ) ); ?>">
+											<span><?php echo esc_html( mb_blog_category_label( $related_post->ID ) ); ?></span>
+											<strong><?php echo esc_html( get_the_title( $related_post ) ); ?></strong>
+										</a>
+									<?php endforeach; ?>
+								</div>
+							</section>
+						<?php endif; ?>
+					</div>
+				</div>
+			</section>
+
+			<section class="article-final">
+				<div class="article-container article-final__grid">
+					<div>
+						<h2>Turn the evidence into a reviewable question.</h2>
+						<p>Send the resin, process, product reference and current observations so the next check can be scoped properly.</p>
+					</div>
+					<a class="article-button" href="/request-a-quote/?intent=black-masterbatch&amp;source=<?php echo esc_attr( $post->post_name ); ?>">Submit an inquiry</a>
+				</div>
+			</section>
+		</main>
+		<?php
+
+		return (string) ob_get_clean();
 	}
 );
 
@@ -130,6 +608,63 @@ add_filter(
 	static function () {
 		return 'en-US';
 	}
+);
+
+add_filter(
+	'language_attributes',
+	static function ( $output ) {
+		if ( mb_is_bk040_page() ) {
+			$output .= ' data-type="product"';
+		}
+
+		return $output;
+	}
+);
+
+add_action(
+	'wp_head',
+	static function () {
+		if ( ! mb_is_bk040_page() ) {
+			return;
+		}
+
+		echo '<meta name="page-type" content="product">' . "\n";
+		echo '<meta name="site-kind" content="other">' . "\n";
+		echo '<meta name="theme-color" content="#305030">' . "\n";
+	},
+	2
+);
+
+/**
+ * Keep the front page out of the XML sitemap during the noindex staging phase.
+ *
+ * WordPress returns blog_public=0 while the production site is being reviewed.
+ * Returning an empty entry removes only the configured static front page from
+ * Rank Math's sitemap; all other published pages remain available.
+ *
+ * @param array        $url  Sitemap URL entry.
+ * @param string       $type Entry type.
+ * @param object|mixed $post Post object for post entries.
+ * @return array
+ */
+add_filter(
+	'rank_math/sitemap/entry',
+	static function ( $url, $type, $post ) {
+		if ( 'post' !== $type || ! is_object( $post ) || ! isset( $post->ID ) ) {
+			return $url;
+		}
+
+		$front_page_id = (int) get_option( 'page_on_front' );
+		$is_staged     = 0 === (int) get_option( 'blog_public' );
+
+		if ( $is_staged && $front_page_id > 0 && $front_page_id === (int) $post->ID ) {
+			return array();
+		}
+
+		return $url;
+	},
+	20,
+	3
 );
 
 /**
@@ -545,7 +1080,7 @@ add_shortcode(
 		);
 		$product_interest = $intent_map[ $intent ] ?? 'Not sure';
 		$source_page      = get_permalink() ?: home_url( '/request-a-quote/' );
-		$fields = array(
+		$document_fields = array(
 			array( 'name' => 'full_name', 'label' => 'Full name', 'type' => 'text', 'required' => true, 'autocomplete' => 'name' ),
 			array( 'name' => 'company', 'label' => 'Company', 'type' => 'text', 'required' => true, 'autocomplete' => 'organization' ),
 			array( 'name' => 'email', 'label' => 'Email', 'type' => 'email', 'required' => true, 'autocomplete' => 'email' ),
@@ -564,18 +1099,97 @@ add_shortcode(
 			array( 'name' => 'message', 'label' => 'Message / details', 'type' => 'textarea', 'full' => true ),
 		);
 
-		$html = '';
+		$render_field = static function ( $field ) use ( $product_interest ) {
+			$name        = $field['name'];
+			$id          = 'mb-rfq-' . $name;
+			$full        = ! empty( $field['full'] ) ? ' mtm-rfq-form__field--full' : '';
+			$star        = ! empty( $field['required'] ) ? ' <span class="mtm-rfq-form__req" aria-hidden="true">*</span>' : '';
+			$req         = ! empty( $field['required'] ) ? ' required' : '';
+			$rows        = isset( $field['rows'] ) ? (int) $field['rows'] : 5;
+			$placeholder = isset( $field['placeholder'] )
+				? ' placeholder="' . esc_attr( $field['placeholder'] ) . '"'
+				: '';
+
+			$field_html  = '<div class="mtm-rfq-form__field' . $full . '">';
+			$field_html .= '<label for="' . esc_attr( $id ) . '">' . esc_html( $field['label'] ) . $star . '</label>';
+
+			if ( 'select' === $field['type'] ) {
+				$field_html .= '<select id="' . esc_attr( $id ) . '" name="' . esc_attr( $name ) . '"' . $req . '>';
+				$field_html .= '<option value="">Please choose</option>';
+				foreach ( $field['options'] as $option ) {
+					$selected    = 'product_interest' === $name && $product_interest === $option
+						? ' selected'
+						: '';
+					$field_html .= '<option value="' . esc_attr( $option ) . '"' . $selected . '>' . esc_html( $option ) . '</option>';
+				}
+				$field_html .= '</select>';
+			} elseif ( 'textarea' === $field['type'] ) {
+				$field_html .= '<textarea id="' . esc_attr( $id ) . '" name="' . esc_attr( $name ) . '" rows="' . esc_attr( $rows ) . '"' . $placeholder . $req . '></textarea>';
+			} else {
+				$type        = 'email' === $field['type'] ? 'email' : 'text';
+				$ac          = ! empty( $field['autocomplete'] ) ? ' autocomplete="' . esc_attr( $field['autocomplete'] ) . '"' : '';
+				$field_html .= '<input type="' . esc_attr( $type ) . '" id="' . esc_attr( $id ) . '" name="' . esc_attr( $name ) . '"' . $ac . $placeholder . $req . ' />';
+			}
+
+			return $field_html . '</div>';
+		};
+
+		$contact_groups = array(
+			array(
+				'number' => '01',
+				'label'  => 'Contact',
+				'fields' => array(
+					array( 'name' => 'full_name', 'label' => 'Full name', 'type' => 'text', 'required' => true, 'autocomplete' => 'name' ),
+					array( 'name' => 'company', 'label' => 'Company', 'type' => 'text', 'required' => true, 'autocomplete' => 'organization' ),
+					array( 'name' => 'email', 'label' => 'Email', 'type' => 'email', 'required' => true, 'autocomplete' => 'email' ),
+					array( 'name' => 'country', 'label' => 'Country or region', 'type' => 'text', 'required' => true, 'autocomplete' => 'country-name' ),
+				),
+			),
+			array(
+				'number' => '02',
+				'label'  => 'Material and application',
+				'fields' => array(
+					array( 'name' => 'product_interest', 'label' => 'Product interest', 'type' => 'select', 'required' => true, 'options' => array( 'Black masterbatch', 'White masterbatch', 'Color masterbatch', 'Not sure' ) ),
+					array( 'name' => 'base_resin', 'label' => 'Base resin', 'type' => 'select', 'options' => array( 'Not sure', 'PE', 'PP', 'LDPE', 'LLDPE', 'HDPE', 'ABS', 'PET', 'PVC', 'Other' ) ),
+					array( 'name' => 'application', 'label' => 'Application or end product', 'type' => 'text', 'required' => true, 'full' => true, 'placeholder' => 'For example, blown film, injection-molded part or extruded profile' ),
+					array( 'name' => 'processing_method', 'label' => 'Processing method', 'type' => 'select', 'options' => array( 'Not sure', 'Film blowing', 'Injection molding', 'Extrusion', 'Re-granulating', 'Other' ) ),
+					array( 'name' => 'target_color_function', 'label' => 'Target or current issue', 'type' => 'textarea', 'required' => true, 'full' => true, 'rows' => 4, 'placeholder' => 'For example: deeper blackness, higher opacity, better dispersion, a color reference or a current production problem.' ),
+				),
+			),
+		);
+
+		$optional_fields = array(
+			array( 'name' => 'product_grade', 'label' => 'Current grade or model', 'type' => 'text' ),
+			array( 'name' => 'quantity', 'label' => 'Quantity', 'type' => 'text', 'placeholder' => 'Trial and estimated monthly quantity' ),
+			array( 'name' => 'destination_port', 'label' => 'Destination port', 'type' => 'text' ),
+			array( 'name' => 'color_reference_type', 'label' => 'Color reference type', 'type' => 'select', 'options' => array( 'Not sure', 'Physical sample', 'Pantone', 'RAL', 'Photo', 'Existing product', 'Previous grade', 'Customer standard' ) ),
+		);
+
+		$notices = '';
 		if ( 'success' === $status ) {
-			$html .= '<div class="mtm-rfq-form__notice mtm-rfq-form__notice--success" role="status">'
+			$notices .= '<div class="mtm-rfq-form__notice mtm-rfq-form__notice--success" role="status">'
 				. '<p>Your request has been received. Our team will review the product grade, application and document scope, then reply by email.</p>'
 				. '</div>';
 		} elseif ( 'error' === $status ) {
-			$html .= '<div class="mtm-rfq-form__notice mtm-rfq-form__notice--error" role="alert">'
+			$notices .= '<div class="mtm-rfq-form__notice mtm-rfq-form__notice--error" role="alert">'
 				. '<p>We could not submit your request. Check the required fields and try again.</p>'
 				. '</div>';
 		}
 
-		$html .= '<form class="mtm-rfq-form" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '" method="post">';
+		$html = '';
+		if ( ! $is_document_request ) {
+			$html .= '<div class="contact-form" id="request-form">';
+			$html .= '<div class="contact-form__head">'
+				. '<div><p class="contact-kicker">Your inquiry</p><h2>Your application.</h2></div>'
+				. '<p>Required fields are marked with an asterisk. A known product grade is helpful, but not required.</p>'
+				. '</div>';
+			$html .= $notices;
+		} else {
+			$html .= $notices;
+		}
+
+		$form_class  = 'mtm-rfq-form' . ( $is_document_request ? '' : ' mtm-rfq-form--contact' );
+		$html       .= '<form class="' . esc_attr( $form_class ) . '" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '" method="post">';
 		$html .= '<input type="hidden" name="action" value="mb_submit_rfq" />';
 		$html .= '<input type="hidden" name="form_context" value="' . esc_attr( $context ) . '" />';
 		$html .= '<input type="hidden" name="source_page" value="' . esc_url( $source_page ) . '" />';
@@ -585,49 +1199,47 @@ add_shortcode(
 			. '<label for="mb-rfq-website-url">Leave this field empty</label>'
 			. '<input type="text" id="mb-rfq-website-url" name="website_url" value="" tabindex="-1" autocomplete="off" />'
 			. '</div>';
-		$html .= '<div class="mtm-rfq-form__grid">';
 
-		foreach ( $fields as $field ) {
-			$name = $field['name'];
-			$id   = 'mb-rfq-' . $name;
-			$full = ! empty( $field['full'] ) ? ' mtm-rfq-form__field--full' : '';
-			$star = ! empty( $field['required'] ) ? ' <span class="mtm-rfq-form__req" aria-hidden="true">*</span>' : '';
-			$req  = ! empty( $field['required'] ) ? ' required' : '';
-
-			$html .= '<div class="mtm-rfq-form__field' . $full . '">';
-			$html .= '<label for="' . esc_attr( $id ) . '">' . esc_html( $field['label'] ) . $star . '</label>';
-
-			if ( 'select' === $field['type'] ) {
-				$html .= '<select id="' . esc_attr( $id ) . '" name="' . esc_attr( $name ) . '"' . $req . '>';
-				$html .= '<option value="">Please choose</option>';
-				foreach ( $field['options'] as $option ) {
-					$selected = 'product_interest' === $name && $product_interest === $option
-						? ' selected'
-						: '';
-					$html .= '<option value="' . esc_attr( $option ) . '"' . $selected . '>' . esc_html( $option ) . '</option>';
+		if ( $is_document_request ) {
+			$html .= '<div class="mtm-rfq-form__grid">';
+			foreach ( $document_fields as $field ) {
+				$html .= $render_field( $field );
+			}
+			$html .= '</div>';
+			$html .= '<div class="mtm-rfq-form__field mtm-rfq-form__field--full mtm-rfq-form__consent">'
+				. '<label><input type="checkbox" name="privacy_consent" value="1" required /> '
+				. 'I have read the <a href="/privacy-policy/">Privacy Policy</a>.</label>'
+				. '</div>';
+			$html .= '<p class="mtm-rfq-form__note">Fields marked <span aria-hidden="true">*</span> are required for document review. Document availability depends on the exact grade, application, country and intended use.</p>';
+			$html .= '<div class="mtm-rfq-form__actions"><button type="submit" class="mtm-rfq-form__submit">Send inquiry</button></div>';
+		} else {
+			foreach ( $contact_groups as $group ) {
+				$html .= '<fieldset class="contact-fieldset">';
+				$html .= '<legend><span>' . esc_html( $group['number'] ) . '</span>' . esc_html( $group['label'] ) . '</legend>';
+				$html .= '<div class="contact-form__grid">';
+				foreach ( $group['fields'] as $field ) {
+					$html .= $render_field( $field );
 				}
-				$html .= '</select>';
-			} elseif ( 'textarea' === $field['type'] ) {
-				$html .= '<textarea id="' . esc_attr( $id ) . '" name="' . esc_attr( $name ) . '" rows="5"' . $req . '></textarea>';
-			} else {
-				$type = 'email' === $field['type'] ? 'email' : 'text';
-				$ac   = ! empty( $field['autocomplete'] ) ? ' autocomplete="' . esc_attr( $field['autocomplete'] ) . '"' : '';
-				$html .= '<input type="' . esc_attr( $type ) . '" id="' . esc_attr( $id ) . '" name="' . esc_attr( $name ) . '"' . $ac . $req . ' />';
+				$html .= '</div></fieldset>';
 			}
 
+			$html .= '<details class="contact-advanced">'
+				. '<summary>Add technical details <span>Optional</span></summary>'
+				. '<div class="contact-form__grid">';
+			foreach ( $optional_fields as $field ) {
+				$html .= $render_field( $field );
+			}
+			$html .= '</div></details>';
+			$html .= '<p class="contact-document-link">Need TDS, SDS/MSDS or COA? <a href="/technical-documents/">Request technical documents separately</a>.</p>';
+			$html .= '<label class="contact-consent"><input type="checkbox" name="privacy_consent" value="1" required /> '
+				. 'I have read the <a href="/privacy-policy/">Privacy Policy</a>.</label>';
+			$html .= '<div class="contact-form__actions"><p>We review the application, grade and document scope, then reply by email with the next useful step.</p>'
+				. '<button type="submit" class="mtm-rfq-form__submit">Submit inquiry</button></div>';
+		}
+		$html .= '</form>';
+		if ( ! $is_document_request ) {
 			$html .= '</div>';
 		}
-
-		$html .= '</div>';
-		$html .= '<div class="mtm-rfq-form__field mtm-rfq-form__field--full mtm-rfq-form__consent">'
-			. '<label><input type="checkbox" name="privacy_consent" value="1" required /> '
-			. 'I have read the <a href="/privacy-policy/">Privacy Policy</a>.</label>'
-			. '</div>';
-		$html .= $is_document_request
-			? '<p class="mtm-rfq-form__note">Fields marked <span aria-hidden="true">*</span> are required for document review. Document availability depends on the exact grade, application, country and intended use.</p>'
-			: '<p class="mtm-rfq-form__note">Fields marked <span aria-hidden="true">*</span> are the core details the team needs to review and reply. Share your resin, processing method, end product and target requirement where you can.</p>';
-		$html .= '<div class="mtm-rfq-form__actions"><button type="submit" class="mtm-rfq-form__submit">Send inquiry</button></div>';
-		$html .= '</form>';
 
 		return $html;
 	}

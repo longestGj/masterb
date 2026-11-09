@@ -1,0 +1,330 @@
+[
+  {
+    "variant": "current",
+    "name": "desktop-1440",
+    "title": "Masterbatch Buyer Resources | GE CHEMICAL",
+    "viewportWidth": 1440,
+    "documentWidth": 1440,
+    "documentHeight": 2269,
+    "h1Count": 1,
+    "h1": "Masterbatch Buyer Resources",
+    "articleCards": 6,
+    "brokenImages": [],
+    "headings": [],
+    "sections": [],
+    "shortLinks": []
+  },
+  {
+    "variant": "proposal",
+    "name": "desktop-1440",
+    "title": "Masterbatch Buyer Resources | GE CHEMICAL",
+    "viewportWidth": 1440,
+    "documentWidth": 1440,
+    "documentHeight": 3593,
+    "h1Count": 1,
+    "h1": "Masterbatch buyer resources.",
+    "articleCards": 3,
+    "brokenImages": [],
+    "headings": [
+      {
+        "level": 1,
+        "text": "Masterbatch buyer resources.",
+        "lines": 2
+      },
+      {
+        "level": 2,
+        "text": "Start with the decision",
+        "lines": 2
+      },
+      {
+        "level": 2,
+        "text": "Buyer guides",
+        "lines": 1
+      },
+      {
+        "level": 2,
+        "text": "Buyer tools",
+        "lines": 1
+      },
+      {
+        "level": 2,
+        "text": "Product routes",
+        "lines": 1
+      },
+      {
+        "level": 2,
+        "text": "Need a material review?",
+        "lines": 1
+      }
+    ],
+    "sections": [
+      {
+        "className": "rx-hero",
+        "height": 697
+      },
+      {
+        "className": "rx-section rx-articles",
+        "height": 906
+      },
+      {
+        "className": "rx-tools",
+        "height": 617
+      },
+      {
+        "className": "rx-section rx-products",
+        "height": 612
+      },
+      {
+        "className": "rx-final",
+        "height": 253
+      }
+    ],
+    "shortLinks": []
+  },
+  {
+    "variant": "current",
+    "name": "tablet-768",
+    "title": "Masterbatch Buyer Resources | GE CHEMICAL",
+    "viewportWidth": 768,
+    "documentWidth": 768,
+    "documentHeight": 2706,
+    "h1Count": 1,
+    "h1": "Masterbatch Buyer Resources",
+    "articleCards": 6,
+    "brokenImages": [],
+    "headings": [],
+    "sections": [],
+    "shortLinks": []
+  },
+  {
+    "variant": "proposal",
+    "name": "tablet-768",
+    "title": "Masterbatch Buyer Resources | GE CHEMICAL",
+    "viewportWidth": 768,
+    "documentWidth": 768,
+    "documentHeight": 5978,
+    "h1Count": 1,
+    "h1": "Masterbatch buyer resources.",
+    "articleCards": 3,
+    "brokenImages": [],
+    "headings": [
+      {
+        "level": 1,
+        "text": "Masterbatch buyer resources.",
+        "lines": 1
+      },
+      {
+        "level": 2,
+        "text": "Start with the decision",
+        "lines": 1
+      },
+      {
+        "level": 2,
+        "text": "Buyer guides",
+        "lines": 1
+      },
+      {
+        "level": 2,
+        "text": "Buyer tools",
+        "lines": 1
+      },
+      {
+        "level": 2,
+        "text": "Product routes",
+        "lines": 1
+      },
+      {
+        "level": 2,
+        "text": "Need a material review?",
+        "lines": 1
+      }
+    ],
+    "sections": [
+      {
+        "className": "rx-hero",
+        "height": 956
+      },
+      {
+        "className": "rx-section rx-articles",
+        "height": 1466
+      },
+      {
+        "className": "rx-tools",
+        "height": 926
+      },
+      {
+        "className": "rx-section rx-products",
+        "height": 1268
+      },
+      {
+        "className": "rx-final",
+        "height": 229
+      }
+    ],
+    "shortLinks": []
+  },
+  {
+    "variant": "current",
+    "name": "mobile-390",
+    "title": "Masterbatch Buyer Resources | GE CHEMICAL",
+    "viewportWidth": 390,
+    "documentWidth": 390,
+    "documentHeight": 3052,
+    "h1Count": 1,
+    "h1": "Masterbatch Buyer Resources",
+    "articleCards": 6,
+    "brokenImages": [],
+    "headings": [],
+    "sections": [],
+    "shortLinks": []
+  },
+  {
+    "variant": "proposal",
+    "name": "mobile-390",
+    "title": "Masterbatch Buyer Resources | GE CHEMICAL",
+    "viewportWidth": 390,
+    "documentWidth": 390,
+    "documentHeight": 7354,
+    "h1Count": 1,
+    "h1": "Masterbatch buyer resources.",
+    "articleCards": 3,
+    "brokenImages": [],
+    "headings": [
+      {
+        "level": 1,
+        "text": "Masterbatch buyer resources.",
+        "lines": 2
+      },
+      {
+        "level": 2,
+        "text": "Start with the decision",
+        "lines": 2
+      },
+      {
+        "level": 2,
+        "text": "Buyer guides",
+        "lines": 1
+      },
+      {
+        "level": 2,
+        "text": "Buyer tools",
+        "lines": 1
+      },
+      {
+        "level": 2,
+        "text": "Product routes",
+        "lines": 1
+      },
+      {
+        "level": 2,
+        "text": "Need a material review?",
+        "lines": 4
+      }
+    ],
+    "sections": [
+      {
+        "className": "rx-hero",
+        "height": 1109
+      },
+      {
+        "className": "rx-section rx-articles",
+        "height": 1756
+      },
+      {
+        "className": "rx-tools",
+        "height": 1269
+      },
+      {
+        "className": "rx-section rx-products",
+        "height": 1254
+      },
+      {
+        "className": "rx-final",
+        "height": 831
+      }
+    ],
+    "shortLinks": []
+  },
+  {
+    "variant": "current",
+    "name": "mobile-320",
+    "title": "Masterbatch Buyer Resources | GE CHEMICAL",
+    "viewportWidth": 320,
+    "documentWidth": 320,
+    "documentHeight": 3339,
+    "h1Count": 1,
+    "h1": "Masterbatch Buyer Resources",
+    "articleCards": 6,
+    "brokenImages": [],
+    "headings": [],
+    "sections": [],
+    "shortLinks": []
+  },
+  {
+    "variant": "proposal",
+    "name": "mobile-320",
+    "title": "Masterbatch Buyer Resources | GE CHEMICAL",
+    "viewportWidth": 320,
+    "documentWidth": 320,
+    "documentHeight": 7470,
+    "h1Count": 1,
+    "h1": "Masterbatch buyer resources.",
+    "articleCards": 3,
+    "brokenImages": [],
+    "headings": [
+      {
+        "level": 1,
+        "text": "Masterbatch buyer resources.",
+        "lines": 3
+      },
+      {
+        "level": 2,
+        "text": "Start with the decision",
+        "lines": 2
+      },
+      {
+        "level": 2,
+        "text": "Buyer guides",
+        "lines": 1
+      },
+      {
+        "level": 2,
+        "text": "Buyer tools",
+        "lines": 1
+      },
+      {
+        "level": 2,
+        "text": "Product routes",
+        "lines": 1
+      },
+      {
+        "level": 2,
+        "text": "Need a material review?",
+        "lines": 4
+      }
+    ],
+    "sections": [
+      {
+        "className": "rx-hero",
+        "height": 1176
+      },
+      {
+        "className": "rx-section rx-articles",
+        "height": 1774
+      },
+      {
+        "className": "rx-tools",
+        "height": 1290
+      },
+      {
+        "className": "rx-section rx-products",
+        "height": 1275
+      },
+      {
+        "className": "rx-final",
+        "height": 820
+      }
+    ],
+    "shortLinks": []
+  }
+]

@@ -130,9 +130,10 @@
 |---|---|---|---|---|---|---|
 | P0 | 首页 | Home | `/` | Page / `front-page` | RFQ | 公司事实和品牌信息待审核 |
 | P0 | 母粒指南索引 | Masterbatch Guides | `/masterbatch-guides/` | Page / `page-guides` | 进入三类产品指南 | 已发布，三页内链闭合 |
-| P0 | 黑色母粒询盘指南 | Black Masterbatch RFQ Guide | `/masterbatch-guides/black-masterbatch/` | Page / `page-product-guide` | Black RFQ + 文件审核 | 已发布，父页已修复 |
-| P0 | 白色母粒询盘指南 | White Masterbatch RFQ Guide | `/masterbatch-guides/white-masterbatch/` | Page / `page-product-guide` | White RFQ + 文件审核 | 已发布，内容包已纳入仓库 |
-| P0 | 彩色母粒询盘指南 | Color Masterbatch RFQ Guide | `/masterbatch-guides/color-masterbatch/` | Page / `page-product-guide` | Color RFQ + 文件审核 | 已发布，内容包已纳入仓库 |
+| P0 | 黑色母粒产品页 | Black Masterbatch | `/products/black-masterbatch/` | Page / `page-black-masterbatch` | Black RFQ + 文件审核 | 已发布，父页为 `/products/` |
+| P0 | BK040 型号页 | BK040 - 40% Carbon Black Masterbatch | `/products/black-masterbatch/bk040/` | Page / `page-bk040-product` | BK040 报价与样品 | 已发布，父页为 Black Masterbatch |
+| P0 | 白色母粒产品页 | White Masterbatch RFQ Guide | `/products/white-masterbatch/` | Page / `page-product-guide` | White RFQ + 文件审核 | 已发布，父页为 `/products/` |
+| P0 | 彩色母粒产品页 | Color Masterbatch RFQ Guide | `/products/color-masterbatch/` | Page / `page-product-guide` | Color RFQ + 文件审核 | 已发布，父页为 `/products/` |
 | P0 | 询价与 RFQ | Request a Quote | `/request-a-quote/` | Page / `page-request-a-quote` | 提交 RFQ | 页面已发布；表单已启用私有存储，邮件投递待配置 |
 | P0 | 技术文件申请 | Request Technical Documents | `/technical-documents/` | Page / `page-document-request` | 提交文件审核申请 | 已发布；表单启用，审核人待确认 |
 | P0 | 公司与质量控制 | About / Quality | `/about-quality/` | Page / `page-about-quality` | 了解主体并询盘 | 仅可用已批准公司事实 |
@@ -148,7 +149,8 @@
 
 路由说明：
 
-- 当前主题注册的 `product` CPT 已占用 `/products/`，普通 Page 不得再用 `/products/black-masterbatch/` 等路径。
+- 父主题注册的 `product` CPT rewrite 已由子主题改到
+  `/product-catalog/`，公开产品 Page 使用 `/products/` 层级。
 - `/masterbatch-guides/` 是内容指南索引，不是 `product` CPT 归档。
 - `/technical-documents/` 是人工审核申请页，不是公开文件下载中心。
 - 已发布 URL 后续如修改，必须同步 Canonical、内链、Sitemap 并设置 301。

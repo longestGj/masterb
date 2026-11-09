@@ -85,6 +85,13 @@ final class MB_RFQ_Submission {
 		}
 
 		if (
+			'rfq' === $data['form_context']
+			&& '' === $data['target_color_function']
+		) {
+			return self::failure_result( $data );
+		}
+
+		if (
 			'documents' === $data['form_context']
 			&& ( '' === $data['documents_requested'] || '' === $data['document_purpose'] )
 		) {
@@ -317,7 +324,7 @@ final class MB_RFQ_Submission {
 			'Application'           => 'application',
 			'Base resin'            => 'base_resin',
 			'Processing method'     => 'processing_method',
-			'Target color/function' => 'target_color_function',
+			'Target or current issue' => 'target_color_function',
 			'Color reference type'  => 'color_reference_type',
 			'Product grade/model'   => 'product_grade',
 			'Quantity'              => 'quantity',

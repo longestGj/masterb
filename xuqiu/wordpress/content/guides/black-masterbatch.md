@@ -25,8 +25,8 @@ wp:
   object_type: "page"
   title: "Black Masterbatch RFQ Guide"
   slug: "black-masterbatch"
-  parent_slug: "masterbatch-guides"
-  parent_title: "Masterbatch Guides"
+  parent_slug: "products"
+  parent_title: "Products"
   parent_required: true
   template: "page-product-guide"
   status: "draft"
@@ -35,8 +35,8 @@ wp:
   noindex: true
 
 route:
-  path: "/masterbatch-guides/black-masterbatch/"
-  canonical: "/masterbatch-guides/black-masterbatch/"
+  path: "/products/black-masterbatch/"
+  canonical: "/products/black-masterbatch/"
   trailing_slash: true
 
 seo:
@@ -256,8 +256,8 @@ Send your black masterbatch RFQ with resin, application, processing method, blac
 
 ## Related masterbatch guides
 
-- [White masterbatch RFQ guide](/masterbatch-guides/white-masterbatch/)
-- [Color masterbatch RFQ guide](/masterbatch-guides/color-masterbatch/)
+- [White masterbatch RFQ guide](/products/white-masterbatch/)
+- [Color masterbatch RFQ guide](/products/color-masterbatch/)
 - [How to prepare a masterbatch RFQ](/resources/masterbatch-rfq-checklist/)
 
 <!--
