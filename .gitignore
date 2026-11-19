@@ -1,4 +1,5 @@
 .DS_Store
+.context-checkpoint.tmp.md
 .gstack/
 **/.DS_Store
 **/node_modules/
