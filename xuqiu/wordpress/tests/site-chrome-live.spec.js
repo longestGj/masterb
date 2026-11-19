@@ -213,20 +213,46 @@ test("Resources menu contains the four buyer resource routes", async ({
     const links = page.locator("#site-chrome-mobile-resources-menu a");
     await expect(links).toHaveCount(4);
     await expect(links).toContainText([
-      "Buyer Guides",
       "Blog",
       "Buyer FAQ",
       "Technical Documents",
+      "RFQ Checklist",
     ]);
   } else {
     await page.locator("[data-chrome-resources-toggle]").click();
     const links = page.locator("[data-chrome-resources-menu] > a");
     await expect(links).toHaveCount(4);
     await expect(links).toContainText([
-      "Buyer Guides",
       "Blog",
       "Buyer FAQ",
       "Technical Documents",
+      "RFQ Checklist",
+    ]);
+  }
+});
+
+test("Products menu contains every published product category", async ({
+  page,
+}, testInfo) => {
+  testInfo.setTimeout(120_000);
+  await openLivePage(page, liveBaseUrl);
+
+  if (testInfo.project.name === "mobile") {
+    await page.locator("[data-site-chrome-menu-button]").click();
+    await page.locator("[data-site-chrome-mobile-products-toggle]").click();
+    const links = page.locator("#site-chrome-mobile-products-menu a");
+    await expect(links).toHaveCount(2);
+    await expect(links).toContainText([
+      "Black masterbatch",
+      "Desiccant masterbatch",
+    ]);
+  } else {
+    await page.locator("[data-chrome-products-toggle]").click();
+    const links = page.locator("#site-chrome-products-menu > a");
+    await expect(links).toHaveCount(2);
+    await expect(links).toContainText([
+      "Black masterbatch",
+      "Desiccant masterbatch",
     ]);
   }
 });

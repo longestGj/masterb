@@ -48,7 +48,7 @@ body.mtm-about-field .mtm-about-v2 h2,
 body.mtm-about-field .mtm-about-v2 h3 {
 	color: var(--ge-color-text);
 	font-family: var(--ge-font-display);
-	font-weight: 400;
+	font-weight: 600;
 }
 
 body.mtm-about-field .mtm-about-v2 h2 {
@@ -91,6 +91,17 @@ body.mtm-about-field .mtm-about-hero__side p {
 
 body.mtm-about-field .mtm-about-hero__side p + p {
 	margin-top: 0.85rem;
+}
+
+/* Desktop hero copy starts at the top of the title row. */
+@media (min-width: 961px) {
+	body.mtm-about-field .mtm-about-hero__top {
+		align-items: start;
+	}
+
+	body.mtm-about-field .mtm-about-hero__side {
+		padding-top: 0.75rem;
+	}
 }
 
 body.mtm-about-field .mtm-about-actions {
@@ -173,7 +184,7 @@ body.mtm-about-field .mtm-about-basis strong {
 	color: var(--ge-color-accent);
 	font-family: var(--ge-font-display);
 	font-size: 2rem;
-	font-weight: 400;
+	font-weight: 600;
 	line-height: 1;
 }
 
@@ -312,7 +323,7 @@ body.mtm-about-field .mtm-about-context__index span {
 body.mtm-about-field .mtm-about-context__index strong {
 	font-family: var(--ge-font-display);
 	font-size: clamp(1.45rem, 2vw, 1.95rem);
-	font-weight: 400;
+	font-weight: 600;
 	line-height: 1.05;
 	letter-spacing: -0.03em;
 }
@@ -377,7 +388,7 @@ body.mtm-about-field .mtm-about-products__index > a:hover {
 body.mtm-about-field .mtm-about-products__index > a > strong {
 	font-family: var(--ge-font-display);
 	font-size: clamp(1.45rem, 2vw, 1.85rem);
-	font-weight: 400;
+	font-weight: 600;
 	line-height: 1.05;
 	letter-spacing: -0.03em;
 }
@@ -640,7 +651,7 @@ body.mtm-about-field .mtm-about-verify__grid strong {
 	color: var(--ge-color-on-primary);
 	font-family: var(--ge-font-display);
 	font-size: clamp(1.5rem, 2vw, 1.9rem);
-	font-weight: 400;
+	font-weight: 600;
 	line-height: 1.05;
 	letter-spacing: -0.03em;
 }
@@ -699,7 +710,7 @@ body.mtm-about-field .mtm-about-next__table > a > span {
 body.mtm-about-field .mtm-about-next__table > a > strong {
 	font-family: var(--ge-font-display);
 	font-size: 1.35rem;
-	font-weight: 400;
+	font-weight: 600;
 	line-height: 1.05;
 }
 

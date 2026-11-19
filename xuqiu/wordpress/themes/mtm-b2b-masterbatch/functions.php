@@ -6,6 +6,31 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
+ * Preload the two self-hosted display and body faces used across the site.
+ *
+ * The files are subsetted Latin WOFF2 assets. Other scripts fall back through
+ * the typography tokens in design-tokens.css.
+ */
+add_action(
+	'wp_head',
+	static function () {
+		$font_base = get_stylesheet_directory_uri() . '/assets/fonts';
+		$fonts     = array(
+			$font_base . '/archivo/archivo-latin-variable.woff2',
+			$font_base . '/inter/inter-latin-variable.woff2',
+		);
+
+		foreach ( $fonts as $font ) {
+			printf(
+				'<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n",
+				esc_url( $font )
+			);
+		}
+	},
+	1
+);
+
+/**
  * Keep the legacy product post type away from the public /products/ page tree.
  *
  * The parent theme registers a product content type at products/... even
@@ -96,10 +121,100 @@ add_action(
 				$theme->get( 'Version' )
 			);
 		}
-		if ( mb_is_black_masterbatch_guide_page() ) {
+		if ( mb_is_document_request_page() ) {
+			wp_enqueue_style(
+				'mtm-b2b-document-request-v2',
+				get_stylesheet_directory_uri() . '/assets/css/document-request-v2.css',
+				array( 'mtm-b2b-masterbatch' ),
+				$theme->get( 'Version' )
+			);
+		}
+		if ( mb_is_rfq_checklist_page() ) {
+			wp_enqueue_style(
+				'mtm-b2b-rfq-checklist-v2',
+				get_stylesheet_directory_uri() . '/assets/css/rfq-checklist-v2.css',
+				array( 'mtm-b2b-masterbatch' ),
+				$theme->get( 'Version' )
+			);
+			wp_enqueue_script(
+				'mtm-b2b-rfq-checklist',
+				get_stylesheet_directory_uri() . '/assets/js/rfq-checklist.js',
+				array(),
+				$theme->get( 'Version' ),
+				true
+			);
+		}
+		if ( mb_is_privacy_policy_page() ) {
+			wp_enqueue_style(
+				'mtm-b2b-privacy-policy-v2',
+				get_stylesheet_directory_uri() . '/assets/css/privacy-policy-v2.css',
+				array( 'mtm-b2b-masterbatch' ),
+				$theme->get( 'Version' )
+			);
+			wp_enqueue_script(
+				'mtm-b2b-privacy-policy-v2',
+				get_stylesheet_directory_uri() . '/assets/js/privacy-policy-v2.js',
+				array(),
+				$theme->get( 'Version' ),
+				true
+			);
+		}
+		if (
+			mb_is_black_masterbatch_guide_page()
+			|| mb_is_desiccant_category_page()
+			|| mb_is_film_packaging_page()
+		) {
 			wp_enqueue_style(
 				'mtm-b2b-black-masterbatch-guide',
 				get_stylesheet_directory_uri() . '/assets/css/black-masterbatch-guide.css',
+				array( 'mtm-b2b-masterbatch' ),
+				$theme->get( 'Version' )
+			);
+		}
+		if ( mb_is_film_packaging_page() ) {
+			wp_enqueue_style(
+				'mtm-b2b-film-packaging',
+				get_stylesheet_directory_uri() . '/assets/css/film-packaging.css',
+				array( 'mtm-b2b-black-masterbatch-guide' ),
+				$theme->get( 'Version' )
+			);
+		}
+		if ( mb_is_desiccant_category_page() ) {
+			wp_enqueue_style(
+				'mtm-b2b-desiccant-category',
+				get_stylesheet_directory_uri() . '/assets/css/desiccant-category.css',
+				array( 'mtm-b2b-black-masterbatch-guide' ),
+				$theme->get( 'Version' )
+			);
+		}
+		if ( mb_is_bk020_page() ) {
+			wp_enqueue_style(
+				'mtm-b2b-bk020-product',
+				get_stylesheet_directory_uri() . '/assets/css/bk020-product.css',
+				array( 'mtm-b2b-masterbatch' ),
+				$theme->get( 'Version' )
+			);
+		}
+		if ( mb_is_bk025_page() ) {
+			wp_enqueue_style(
+				'mtm-b2b-bk025-product',
+				get_stylesheet_directory_uri() . '/assets/css/bk025-product.css',
+				array( 'mtm-b2b-masterbatch' ),
+				$theme->get( 'Version' )
+			);
+		}
+		if ( mb_is_bk030_page() ) {
+			wp_enqueue_style(
+				'mtm-b2b-bk030-product',
+				get_stylesheet_directory_uri() . '/assets/css/bk030-product.css',
+				array( 'mtm-b2b-masterbatch' ),
+				$theme->get( 'Version' )
+			);
+		}
+		if ( mb_is_bk035_page() ) {
+			wp_enqueue_style(
+				'mtm-b2b-bk035-product',
+				get_stylesheet_directory_uri() . '/assets/css/bk035-product.css',
 				array( 'mtm-b2b-masterbatch' ),
 				$theme->get( 'Version' )
 			);
@@ -108,6 +223,45 @@ add_action(
 			wp_enqueue_style(
 				'mtm-b2b-bk040-product',
 				get_stylesheet_directory_uri() . '/assets/css/bk040-product.css',
+				array( 'mtm-b2b-masterbatch' ),
+				$theme->get( 'Version' )
+			);
+		}
+		if ( mb_is_pt300_page() ) {
+			wp_enqueue_style(
+				'mtm-b2b-pt300-product',
+				get_stylesheet_directory_uri() . '/assets/css/pt300-product.css',
+				array( 'mtm-b2b-masterbatch' ),
+				$theme->get( 'Version' )
+			);
+		}
+		if ( mb_is_pt450p_page() ) {
+			wp_enqueue_style(
+				'mtm-b2b-pt450p-product',
+				get_stylesheet_directory_uri() . '/assets/css/pt450p-product.css',
+				array( 'mtm-b2b-masterbatch' ),
+				$theme->get( 'Version' )
+			);
+		}
+		if ( mb_is_dm2476g_page() ) {
+			wp_enqueue_style(
+				'mtm-b2b-dm2476g-product',
+				get_stylesheet_directory_uri() . '/assets/css/dm2476g-product.css',
+				array( 'mtm-b2b-masterbatch' ),
+				$theme->get( 'Version' )
+			);
+		}
+		if (
+			is_page()
+			&& in_array(
+				get_page_template_slug( get_the_ID() ),
+				array( 'page-products', 'page-resources' ),
+				true
+			)
+		) {
+			wp_enqueue_style(
+				'mtm-b2b-product-category-breadcrumb',
+				get_stylesheet_directory_uri() . '/assets/css/product-category-breadcrumb.css',
 				array( 'mtm-b2b-masterbatch' ),
 				$theme->get( 'Version' )
 			);
@@ -205,6 +359,51 @@ function mb_is_contact_page() {
 }
 
 /**
+ * Whether the current page is rendered by the Technical Documents template.
+ *
+ * @return bool
+ */
+function mb_is_document_request_page() {
+	if ( ! is_page() ) {
+		return false;
+	}
+
+	$template = (string) get_page_template_slug( get_the_ID() );
+
+	return '' !== $template && false !== strpos( $template, 'page-document-request' );
+}
+
+/**
+ * Whether the current page is rendered by the RFQ Checklist template.
+ *
+ * @return bool
+ */
+function mb_is_rfq_checklist_page() {
+	if ( ! is_page() ) {
+		return false;
+	}
+
+	$template = (string) get_page_template_slug( get_the_ID() );
+
+	return '' !== $template && false !== strpos( $template, 'page-rfq-checklist' );
+}
+
+/**
+ * Whether the current page is rendered by the Privacy Policy template.
+ *
+ * @return bool
+ */
+function mb_is_privacy_policy_page() {
+	if ( ! is_page() ) {
+		return false;
+	}
+
+	$template = (string) get_page_template_slug( get_the_ID() );
+
+	return '' !== $template && false !== strpos( $template, 'page-privacy' );
+}
+
+/**
  * Whether the current page uses the Black Masterbatch guide template.
  *
  * @return bool
@@ -217,6 +416,36 @@ function mb_is_black_masterbatch_guide_page() {
 	$template = (string) get_page_template_slug( get_the_ID() );
 
 	return '' !== $template && false !== strpos( $template, 'page-black-masterbatch' );
+}
+
+/**
+ * Whether the current page uses the Desiccant category template.
+ *
+ * @return bool
+ */
+function mb_is_desiccant_category_page() {
+	if ( ! is_page() ) {
+		return false;
+	}
+
+	$template = (string) get_page_template_slug( get_the_ID() );
+
+	return '' !== $template && false !== strpos( $template, 'page-desiccant-masterbatch' );
+}
+
+/**
+ * Whether the current page uses the Film and Packaging application template.
+ *
+ * @return bool
+ */
+function mb_is_film_packaging_page() {
+	if ( ! is_page() ) {
+		return false;
+	}
+
+	$template = (string) get_page_template_slug( get_the_ID() );
+
+	return '' !== $template && false !== strpos( $template, 'page-film-packaging' );
 }
 
 /**
@@ -234,6 +463,111 @@ function mb_is_bk040_page() {
 	return '' !== $template && false !== strpos( $template, 'page-bk040-product' );
 }
 
+/**
+ * Whether the current page uses the BK020 product detail template.
+ *
+ * @return bool
+ */
+function mb_is_bk020_page() {
+	if ( ! is_page() ) {
+		return false;
+	}
+
+	$template = (string) get_page_template_slug( get_the_ID() );
+
+	return '' !== $template && false !== strpos( $template, 'page-bk020-product' );
+}
+
+/**
+ * Whether the current page uses the BK025 product detail template.
+ *
+ * @return bool
+ */
+function mb_is_bk025_page() {
+	if ( ! is_page() ) {
+		return false;
+	}
+
+	$template = (string) get_page_template_slug( get_the_ID() );
+
+	return '' !== $template && false !== strpos( $template, 'page-bk025-product' );
+}
+
+/**
+ * Whether the current page uses the BK030 product detail template.
+ *
+ * @return bool
+ */
+function mb_is_bk030_page() {
+	if ( ! is_page() ) {
+		return false;
+	}
+
+	$template = (string) get_page_template_slug( get_the_ID() );
+
+	return '' !== $template && false !== strpos( $template, 'page-bk030-product' );
+}
+
+/**
+ * Whether the current page uses the BK035 product detail template.
+ *
+ * @return bool
+ */
+function mb_is_bk035_page() {
+	if ( ! is_page() ) {
+		return false;
+	}
+
+	$template = (string) get_page_template_slug( get_the_ID() );
+
+	return '' !== $template && false !== strpos( $template, 'page-bk035-product' );
+}
+
+/**
+ * Whether the current page uses the PT-300 product detail template.
+ *
+ * @return bool
+ */
+function mb_is_pt300_page() {
+	if ( ! is_page() ) {
+		return false;
+	}
+
+	$template = (string) get_page_template_slug( get_the_ID() );
+
+	return '' !== $template && false !== strpos( $template, 'page-pt300-product' );
+}
+
+/**
+ * Whether the current page uses the PT-450P product detail template.
+ *
+ * @return bool
+ */
+function mb_is_pt450p_page() {
+	if ( ! is_page() ) {
+		return false;
+	}
+
+	$template = (string) get_page_template_slug( get_the_ID() );
+
+	return '' !== $template && false !== strpos( $template, 'page-pt450p-product' );
+}
+
+/**
+ * Whether the current page uses the DM2476G product detail template.
+ *
+ * @return bool
+ */
+function mb_is_dm2476g_page() {
+	if ( ! is_page() ) {
+		return false;
+	}
+
+	$template = (string) get_page_template_slug( get_the_ID() );
+
+	return '' !== $template && false !== strpos( $template, 'page-dm2476g-product' );
+}
+
 add_filter(
 	'body_class',
 	static function ( $classes ) {
@@ -246,11 +580,51 @@ add_filter(
 		if ( mb_is_contact_page() ) {
 			$classes[] = 'mtm-contact-v1';
 		}
-		if ( mb_is_black_masterbatch_guide_page() ) {
+		if ( mb_is_document_request_page() ) {
+			$classes[] = 'mtm-document-request';
+		}
+		if ( mb_is_rfq_checklist_page() ) {
+			$classes[] = 'mtm-rfq-checklist';
+		}
+		if ( mb_is_privacy_policy_page() ) {
+			$classes[] = 'mtm-privacy-policy';
+		}
+		if (
+			mb_is_black_masterbatch_guide_page()
+			|| mb_is_desiccant_category_page()
+			|| mb_is_film_packaging_page()
+		) {
 			$classes[] = 'mtm-black-guide-page';
+		}
+		if ( mb_is_film_packaging_page() ) {
+			$classes[] = 'mtm-film-packaging-page';
+		}
+		if ( mb_is_desiccant_category_page() ) {
+			$classes[] = 'mtm-desiccant-category';
 		}
 		if ( mb_is_bk040_page() ) {
 			$classes[] = 'mtm-bk040-page';
+		}
+		if ( mb_is_bk020_page() ) {
+			$classes[] = 'mtm-bk020-page';
+		}
+		if ( mb_is_bk025_page() ) {
+			$classes[] = 'mtm-bk025-page';
+		}
+		if ( mb_is_bk030_page() ) {
+			$classes[] = 'mtm-bk030-page';
+		}
+		if ( mb_is_bk035_page() ) {
+			$classes[] = 'mtm-bk035-page';
+		}
+		if ( mb_is_pt300_page() ) {
+			$classes[] = 'mtm-pt300-page';
+		}
+		if ( mb_is_pt450p_page() ) {
+			$classes[] = 'mtm-pt450p-page';
+		}
+		if ( mb_is_dm2476g_page() ) {
+			$classes[] = 'mtm-dm2476g-page';
 		}
 		if ( is_home() ) {
 			$classes[] = 'mtm-blog-archive';
@@ -260,6 +634,23 @@ add_filter(
 		}
 
 		return $classes;
+	}
+);
+
+/**
+ * Consolidate the former buyer-guide hub into the Blog resource index.
+ */
+add_action(
+	'template_redirect',
+	static function () {
+		if ( is_page( 'masterbatch-guides' ) ) {
+			$target = home_url( '/blog/' );
+			if ( ! empty( $_SERVER['QUERY_STRING'] ) ) {
+				$target .= '?' . $_SERVER['QUERY_STRING'];
+			}
+			wp_safe_redirect( esc_url_raw( $target ), 301 );
+			exit;
+		}
 	}
 );
 
@@ -277,6 +668,97 @@ function mb_blog_category_label( $post_id ) {
 
 	return $categories[0]->name;
 }
+
+/**
+ * Render a compact breadcrumb for product category pages.
+ *
+ * The structural /products/ page is hidden from public navigation, so it is
+ * shown as a label while every visible category name remains linked.
+ *
+ * @return string
+ */
+add_shortcode(
+	'mb_product_breadcrumb',
+	static function () {
+		if ( ! is_page() ) {
+			return '';
+		}
+
+		$page = get_queried_object();
+		if ( ! $page instanceof WP_Post ) {
+			return '';
+		}
+
+		$items = array(
+			'<span>Products</span>',
+			'<span aria-hidden="true">/</span>',
+		);
+		$ancestors = array_reverse( get_post_ancestors( $page ) );
+		$products_page = get_page_by_path( 'products' );
+
+		foreach ( $ancestors as $ancestor_id ) {
+			$ancestor = get_post( $ancestor_id );
+			if ( ! $ancestor instanceof WP_Post ) {
+				continue;
+			}
+
+			if ( ! $products_page || $products_page->ID !== $ancestor->ID ) {
+				$items[] = '<a href="' . esc_url( get_permalink( $ancestor ) ) . '">' .
+					esc_html( get_the_title( $ancestor ) ) . '</a>';
+				$items[] = '<span aria-hidden="true">/</span>';
+			}
+		}
+
+		$items[] = '<span aria-current="page">' . esc_html( get_the_title( $page ) ) . '</span>';
+
+		return '<nav class="mtm-category-crumb" aria-label="Breadcrumb">' .
+			implode( '', $items ) . '</nav>';
+	}
+);
+
+/**
+ * Render a compact breadcrumb for a page nested under a content hub.
+ *
+ * @param array $atts Shortcode attributes.
+ * @return string
+ */
+add_shortcode(
+	'mb_content_breadcrumb',
+	static function ( $atts ) {
+		$atts = shortcode_atts(
+			array(
+				'root'      => 'Resources',
+				'root_path' => '/resources/',
+			),
+			$atts,
+			'mb_content_breadcrumb'
+		);
+
+		if ( ! is_page() ) {
+			return '';
+		}
+
+		$page = get_queried_object();
+		if ( ! $page instanceof WP_Post ) {
+			return '';
+		}
+
+		$root_page = get_page_by_path( trim( $atts['root_path'], '/' ) );
+		if ( $root_page instanceof WP_Post && $root_page->ID === $page->ID ) {
+			return '';
+		}
+
+		$items = array(
+			'<a href="' . esc_url( $atts['root_path'] ) . '">' .
+				esc_html( $atts['root'] ) . '</a>',
+			'<span aria-hidden="true">/</span>',
+			'<span aria-current="page">' . esc_html( get_the_title( $page ) ) . '</span>',
+		);
+
+		return '<nav class="mtm-category-crumb" aria-label="Breadcrumb">' .
+			implode( '', $items ) . '</nav>';
+	}
+);
 
 /**
  * Render the Blog posts page from published WordPress posts.
@@ -301,7 +783,7 @@ add_shortcode(
 
 		$featured  = $posts[0];
 		$secondary = array_slice( $posts, 1, 2 );
-		$fallback  = get_stylesheet_directory_uri() . '/assets/images/home-masterbatch-product.jpg';
+		$fallback  = get_stylesheet_directory_uri() . '/assets/images/home-masterbatch-product.webp';
 
 		ob_start();
 		?>
@@ -309,8 +791,6 @@ add_shortcode(
 			<div class="blog-crumb-bar">
 				<div class="blog-container">
 					<nav class="blog-crumb" aria-label="Breadcrumb">
-						<a href="/">Home</a>
-						<span aria-hidden="true">/</span>
 						<span aria-current="page">Blog</span>
 					</nav>
 				</div>
@@ -323,7 +803,7 @@ add_shortcode(
 						<p>Read practical notes on material selection, supplier review and production troubleshooting before the next quote or trial.</p>
 						<div class="blog-hero__actions">
 							<a class="blog-button" href="#articles">Browse the guides</a>
-							<a class="blog-button blog-button--outline" href="/resources/">Open buyer tools</a>
+							<a class="blog-button blog-button--outline" href="/resources/masterbatch-rfq-checklist/">Open buyer tools</a>
 						</div>
 					</div>
 
@@ -405,9 +885,9 @@ add_shortcode(
 						<p>Use Resources for the RFQ checklist, buyer questions and technical document requests that support a real material decision.</p>
 					</div>
 					<nav aria-label="Buyer resources">
-						<a href="/resources/">
-							<span>Buyer resources</span>
-							<strong>RFQ checklist, Buyer FAQ and document guidance</strong>
+						<a href="/resources/masterbatch-rfq-checklist/">
+							<span>RFQ checklist</span>
+							<strong>Prepare product, resin, process and document details</strong>
 						</a>
 						<a href="/technical-documents/">
 							<span>Technical files</span>
@@ -511,8 +991,6 @@ add_shortcode(
 			<div class="article-crumb-bar">
 				<div class="article-container">
 					<nav class="article-crumb" aria-label="Breadcrumb">
-						<a href="/">Home</a>
-						<span aria-hidden="true">/</span>
 						<a href="/blog/">Blog</a>
 						<span aria-hidden="true">/</span>
 						<span aria-current="page"><?php echo esc_html( get_the_title( $post ) ); ?></span>
@@ -613,7 +1091,14 @@ add_filter(
 add_filter(
 	'language_attributes',
 	static function ( $output ) {
-		if ( mb_is_bk040_page() ) {
+		if (
+			mb_is_bk020_page()
+			|| mb_is_bk040_page()
+			|| mb_is_pt300_page()
+			|| mb_is_pt450p_page()
+			|| mb_is_dm2476g_page()
+			|| mb_is_desiccant_category_page()
+		) {
 			$output .= ' data-type="product"';
 		}
 
@@ -624,7 +1109,14 @@ add_filter(
 add_action(
 	'wp_head',
 	static function () {
-		if ( ! mb_is_bk040_page() ) {
+		if (
+			! mb_is_bk020_page()
+			&& ! mb_is_bk040_page()
+			&& ! mb_is_pt300_page()
+			&& ! mb_is_pt450p_page()
+			&& ! mb_is_dm2476g_page()
+			&& ! mb_is_desiccant_category_page()
+		) {
 			return;
 		}
 
@@ -808,6 +1300,209 @@ add_action(
 );
 
 /**
+ * Resolve the Meta (Facebook / Instagram) Pixel dataset ID.
+ *
+ * Disabled until configured; the ID is not a secret but stays out of the
+ * repository so wiring can be reviewed before any ad traffic is measured.
+ *
+ * @return string
+ */
+function mb_meta_pixel_id() {
+	$pixel_id = getenv( 'MASTERBATCH_META_PIXEL_ID' );
+	if ( ! $pixel_id ) {
+		$pixel_id = get_option( 'mb_meta_pixel_id', '' );
+	}
+	$pixel_id = trim( (string) $pixel_id );
+
+	return preg_match( '/^\d{10,20}$/', $pixel_id ) ? $pixel_id : '';
+}
+
+/**
+ * Resolve the Conversions API access token (environment only, never stored).
+ *
+ * @return string
+ */
+function mb_meta_capi_token() {
+	return trim( (string) getenv( 'MASTERBATCH_META_CAPI_TOKEN' ) );
+}
+
+/**
+ * Optional Events Manager test event code used while verifying the wiring.
+ *
+ * @return string
+ */
+function mb_meta_test_event_code() {
+	$code = trim( (string) getenv( 'MASTERBATCH_META_TEST_EVENT_CODE' ) );
+
+	return preg_match( '/^[A-Za-z0-9_-]{1,64}$/', $code ) ? $code : '';
+}
+
+/**
+ * Load Meta Pixel and report Lead conversions with an event ID shared with
+ * the server-side Conversions API event for deduplication.
+ *
+ * The success parameters are captured immediately because the GA4 snippet
+ * removes its own rfq_* parameters from the URL at DOMContentLoaded.
+ *
+ * @return void
+ */
+add_action(
+	'wp_head',
+	static function () {
+		if ( is_admin() || ( is_user_logged_in() && current_user_can( 'manage_options' ) ) ) {
+			return;
+		}
+
+		$pixel_id = mb_meta_pixel_id();
+		if ( '' === $pixel_id ) {
+			return;
+		}
+		?>
+		<script>
+			!function(f,b,e,v,n,t,s)
+			{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+			n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+			if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+			n.queue=[];t=b.createElement(e);t.async=!0;
+			t.src=v;s=b.getElementsByTagName(e)[0];
+			s.parentNode.insertBefore(t,s)}(window,document,'script',
+			'https://connect.facebook.net/en_US/fbevents.js');
+			fbq('init', <?php echo wp_json_encode( $pixel_id ); ?>);
+			fbq('track', 'PageView');
+
+			(function () {
+				var params = new URLSearchParams(window.location.search);
+				var status = params.get('rfq_status');
+				var eventId = params.get('mb_eid');
+				if (status !== 'success' || !eventId) { return; }
+
+				var context = params.get('rfq_context') === 'documents' ? 'documents' : 'rfq';
+				var product = params.get('rfq_product') || 'Not sure';
+
+				function fireLead() {
+					fbq('track', 'Lead', {
+						'content_name': context,
+						'content_category': product
+					}, { eventID: eventId });
+
+					var cleanUrl = new URL(window.location.href);
+					cleanUrl.searchParams.delete('mb_eid');
+					window.history.replaceState({}, '', cleanUrl.pathname + cleanUrl.search + cleanUrl.hash);
+				}
+
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', fireLead);
+				} else {
+					fireLead();
+				}
+			}());
+		</script>
+		<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=<?php echo esc_attr( $pixel_id ); ?>&amp;ev=PageView&amp;noscript=1" /></noscript>
+		<?php
+	},
+	98
+);
+
+/**
+ * Build the Privacy Policy document and its table of contents from Page 69.
+ *
+ * The page body remains the legal source of truth. This helper only adds
+ * section wrappers, stable anchors and the Contact treatment.
+ *
+ * @return array{body:string,toc:string}
+ */
+function mb_privacy_policy_document() {
+	static $document = null;
+
+	if ( null !== $document ) {
+		return $document;
+	}
+
+	$post_id  = (int) get_queried_object_id();
+	$post     = $post_id ? get_post( $post_id ) : null;
+	$document = array(
+		'body' => '',
+		'toc'  => '',
+	);
+
+	if ( ! $post || 'page' !== $post->post_type || '' === trim( $post->post_content ) ) {
+		return $document;
+	}
+
+	$rendered = do_blocks( $post->post_content );
+	$toc      = array();
+	$used_ids = array();
+
+	$rendered = preg_replace_callback(
+		'~<h2\b[^>]*>(.*?)</h2>(.*?)(?=<h2\b|$)~is',
+		static function ( $matches ) use ( &$toc, &$used_ids ) {
+			$heading_html = trim( $matches[1] );
+			$heading_text = trim( wp_strip_all_tags( $heading_html ) );
+			if ( '' === $heading_text ) {
+				return $matches[0];
+			}
+
+			$base_id = sanitize_title( $heading_text );
+			$base_id = '' !== $base_id ? $base_id : 'policy-section';
+			$slug    = $base_id;
+			$suffix  = 2;
+			while ( isset( $used_ids[ $slug ] ) ) {
+				$slug = $base_id . '-' . $suffix;
+				++$suffix;
+			}
+			$used_ids[ $slug ] = true;
+
+			$heading_id = $slug . '-title';
+			$class_name = 'privacy-topic';
+			if ( 'contact' === $slug ) {
+				$class_name .= ' privacy-contact';
+			}
+
+			$toc[] = sprintf(
+				'<a href="#%1$s">%2$s</a>',
+				esc_attr( $slug ),
+				esc_html( $heading_text )
+			);
+
+			return sprintf(
+				'<section id="%1$s" class="%2$s" aria-labelledby="%3$s"><h2 id="%3$s">%4$s</h2>%5$s</section>',
+				esc_attr( $slug ),
+				esc_attr( $class_name ),
+				esc_attr( $heading_id ),
+				$heading_html,
+				$matches[2]
+			);
+		},
+		$rendered
+	);
+
+	if ( is_wp_error( $rendered ) ) {
+		return $document;
+	}
+
+	$document['body'] = $rendered;
+	$document['toc']  = implode( '', $toc );
+
+	return $document;
+}
+
+add_shortcode(
+	'mb_privacy_policy_toc',
+	static function () {
+		$document = mb_privacy_policy_document();
+		return $document['toc'];
+	}
+);
+
+add_shortcode(
+	'mb_privacy_policy_body',
+	static function () {
+		$document = mb_privacy_policy_document();
+		return $document['body'];
+	}
+);
+
+/**
  * Render the current page content inside the imported homepage template.
  *
  * The core/post-content block requires a postId context that is not always
@@ -943,7 +1638,7 @@ add_action(
 		$faq_items = array(
 			array(
 				'question' => 'What can I send?',
-				'answer'   => 'We review black, white and color masterbatch inquiries for plastic processing.',
+				'answer'   => 'We review black and desiccant masterbatch inquiries for plastic processing.',
 			),
 			array(
 				'question' => 'Which details help with an RFQ?',
@@ -989,58 +1684,6 @@ add_action(
 );
 
 /**
- * Render a product-family-aware media band on the shared guide template.
- *
- * The importer stores each guide's product family in the _mb_product_family
- * meta. This shortcode picks a matching granule photo and pairs it with the
- * shared packaging and pallet photos, so the black, white and color guides
- * each show relevant imagery while still using one template.
- *
- * @return string
- */
-add_shortcode(
-	'mb_guide_media',
-	static function () {
-		$post_id = get_the_ID();
-		if ( ! $post_id ) {
-			$post_id = get_queried_object_id();
-		}
-		if ( ! $post_id ) {
-			return '';
-		}
-
-		$family = strtolower( trim( (string) get_post_meta( $post_id, '_mb_product_family', true ) ) );
-
-		$base = trailingslashit( get_stylesheet_directory_uri() ) . 'assets/images/';
-
-		$granule_map = array(
-			'black' => array( 'guide-black-granules.jpg', 'Black masterbatch granules' ),
-			'white' => array( 'guide-white-granules.jpg', 'White masterbatch granules' ),
-			'color' => array( 'guide-color-granules.jpg', 'Masterbatch granules' ),
-		);
-		$granule = isset( $granule_map[ $family ] ) ? $granule_map[ $family ] : $granule_map['color'];
-
-		$items = array(
-			array( $granule[0], $granule[1], $granule[1] ),
-			array( 'home-masterbatch-packaging.jpg', 'Stacked bags of white and black masterbatch on a pallet', 'Bagged masterbatch on a pallet' ),
-			array( 'masterbatch-palletized-shipment.jpg', 'Palletized masterbatch bags wrapped in stretch film, ready for shipment', 'Wrapped pallets ready for shipment' ),
-		);
-
-		$html = '<div class="mtm-guide-media">';
-		foreach ( $items as $item ) {
-			$html .= '<figure class="mtm-guide-media__item">'
-				. '<img src="' . esc_url( $base . $item[0] ) . '" alt="' . esc_attr( $item[1] ) . '"'
-				. ' loading="lazy" decoding="async" />'
-				. '<figcaption>' . esc_html( $item[2] ) . '</figcaption>'
-				. '</figure>';
-		}
-		$html .= '</div>';
-
-		return $html;
-	}
-);
-
-/**
  * Render the shared RFQ intake form.
  *
  * Submission is handled by the mb-rfq-submissions MU Plugin.
@@ -1073,10 +1716,8 @@ add_shortcode(
 		$intent_map   = array(
 			'black'              => 'Black masterbatch',
 			'black-masterbatch'  => 'Black masterbatch',
-			'white'              => 'White masterbatch',
-			'white-masterbatch'  => 'White masterbatch',
-			'color'              => 'Color masterbatch',
-			'color-masterbatch'  => 'Color masterbatch',
+			'desiccant'             => 'Desiccant masterbatch',
+			'desiccant-masterbatch' => 'Desiccant masterbatch',
 		);
 		$product_interest = $intent_map[ $intent ] ?? 'Not sure';
 		$source_page      = get_permalink() ?: home_url( '/request-a-quote/' );
@@ -1085,12 +1726,11 @@ add_shortcode(
 			array( 'name' => 'company', 'label' => 'Company', 'type' => 'text', 'required' => true, 'autocomplete' => 'organization' ),
 			array( 'name' => 'email', 'label' => 'Email', 'type' => 'email', 'required' => true, 'autocomplete' => 'email' ),
 			array( 'name' => 'country', 'label' => 'Country / region', 'type' => 'text', 'required' => true, 'autocomplete' => 'country-name' ),
-			array( 'name' => 'product_interest', 'label' => 'Product interest', 'type' => 'select', 'required' => true, 'options' => array( 'Black masterbatch', 'White masterbatch', 'Color masterbatch', 'Not sure' ) ),
+			array( 'name' => 'product_interest', 'label' => 'Product interest', 'type' => 'select', 'required' => true, 'options' => array( 'Black masterbatch', 'Desiccant masterbatch', 'Not sure' ) ),
 			array( 'name' => 'application', 'label' => 'Application (how it will be used)', 'type' => 'text', 'required' => true, 'full' => true ),
 			array( 'name' => 'base_resin', 'label' => 'Base resin', 'type' => 'select', 'options' => array( 'Not sure', 'PE', 'PP', 'LDPE', 'LLDPE', 'HDPE', 'ABS', 'PET', 'PVC', 'Other' ) ),
 			array( 'name' => 'processing_method', 'label' => 'Processing method', 'type' => 'select', 'options' => array( 'Not sure', 'Film blowing', 'Injection molding', 'Extrusion', 'Re-granulating', 'Other' ) ),
-			array( 'name' => 'target_color_function', 'label' => 'Target color or function', 'type' => 'text' ),
-			array( 'name' => 'color_reference_type', 'label' => 'Color reference type', 'type' => 'select', 'options' => array( 'Not sure', 'Physical sample', 'Pantone', 'RAL', 'Photo', 'Existing product', 'Previous grade', 'Customer standard' ) ),
+			array( 'name' => 'target_requirement', 'label' => 'Target requirement or current issue', 'type' => 'text' ),
 			array( 'name' => 'product_grade', 'label' => 'Product grade or model (if known)', 'type' => 'text' ),
 			array( 'name' => 'quantity', 'label' => 'Quantity (trial and estimated monthly)', 'type' => 'text' ),
 			array( 'name' => 'destination_port', 'label' => 'Destination port (optional)', 'type' => 'text' ),
@@ -1149,11 +1789,11 @@ add_shortcode(
 				'number' => '02',
 				'label'  => 'Material and application',
 				'fields' => array(
-					array( 'name' => 'product_interest', 'label' => 'Product interest', 'type' => 'select', 'required' => true, 'options' => array( 'Black masterbatch', 'White masterbatch', 'Color masterbatch', 'Not sure' ) ),
+					array( 'name' => 'product_interest', 'label' => 'Product interest', 'type' => 'select', 'required' => true, 'options' => array( 'Black masterbatch', 'Desiccant masterbatch', 'Not sure' ) ),
 					array( 'name' => 'base_resin', 'label' => 'Base resin', 'type' => 'select', 'options' => array( 'Not sure', 'PE', 'PP', 'LDPE', 'LLDPE', 'HDPE', 'ABS', 'PET', 'PVC', 'Other' ) ),
 					array( 'name' => 'application', 'label' => 'Application or end product', 'type' => 'text', 'required' => true, 'full' => true, 'placeholder' => 'For example, blown film, injection-molded part or extruded profile' ),
 					array( 'name' => 'processing_method', 'label' => 'Processing method', 'type' => 'select', 'options' => array( 'Not sure', 'Film blowing', 'Injection molding', 'Extrusion', 'Re-granulating', 'Other' ) ),
-					array( 'name' => 'target_color_function', 'label' => 'Target or current issue', 'type' => 'textarea', 'required' => true, 'full' => true, 'rows' => 4, 'placeholder' => 'For example: deeper blackness, higher opacity, better dispersion, a color reference or a current production problem.' ),
+					array( 'name' => 'target_requirement', 'label' => 'Target or current issue', 'type' => 'textarea', 'required' => true, 'full' => true, 'rows' => 4, 'placeholder' => 'For example: deeper blackness, better dispersion, moisture control or a current production problem.' ),
 				),
 			),
 		);
@@ -1162,7 +1802,6 @@ add_shortcode(
 			array( 'name' => 'product_grade', 'label' => 'Current grade or model', 'type' => 'text' ),
 			array( 'name' => 'quantity', 'label' => 'Quantity', 'type' => 'text', 'placeholder' => 'Trial and estimated monthly quantity' ),
 			array( 'name' => 'destination_port', 'label' => 'Destination port', 'type' => 'text' ),
-			array( 'name' => 'color_reference_type', 'label' => 'Color reference type', 'type' => 'select', 'options' => array( 'Not sure', 'Physical sample', 'Pantone', 'RAL', 'Photo', 'Existing product', 'Previous grade', 'Customer standard' ) ),
 		);
 
 		$notices = '';

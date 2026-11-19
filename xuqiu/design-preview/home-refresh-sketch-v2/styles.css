@@ -441,7 +441,7 @@ button {
 
 .sketch-product-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.25rem;
 }
 
@@ -462,12 +462,7 @@ button {
   border-color: var(--green-dark);
 }
 
-.sketch-product-card--white {
-  background: var(--white);
-  border-color: #d6ddd7;
-}
-
-.sketch-product-card--color {
+.sketch-product-card--desiccant {
   background: #eef4e9;
   border-color: #d4dfcf;
 }
@@ -828,6 +823,55 @@ button {
   line-height: 1;
   letter-spacing: -0.035em;
   white-space: nowrap;
+}
+
+.sketch-factory__facts {
+  display: grid;
+  margin-bottom: clamp(2rem, 4vw, 3.25rem);
+  padding: 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-block: 1px solid var(--line);
+}
+
+.sketch-factory__facts > div {
+  min-width: 0;
+  min-height: 106px;
+  padding: 1rem 1.25rem;
+  border-right: 1px solid var(--line);
+}
+
+.sketch-factory__facts > div:last-child {
+  border-right: 0;
+}
+
+.sketch-factory__facts dt {
+  color: var(--green);
+  font-family: "SFMono-Regular", "Roboto Mono", Consolas, monospace;
+  font-size: 0.62rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sketch-factory__facts dd {
+  display: grid;
+  margin: 0.3rem 0 0;
+  gap: 0.15rem;
+}
+
+.sketch-factory__facts strong {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(1.85rem, 2.5vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.sketch-factory__facts span {
+  color: var(--muted);
+  font-size: 0.68rem;
+  line-height: 1.4;
 }
 
 .sketch-factory__copy {
@@ -1544,6 +1588,27 @@ button {
 
   .sketch-factory__points {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .sketch-factory__facts {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sketch-factory__facts > div {
+    min-height: 92px;
+    padding: 0.85rem;
+  }
+
+  .sketch-factory__facts > div:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .sketch-factory__facts > div:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .sketch-factory__facts strong {
+    font-size: clamp(1.6rem, 7vw, 2rem);
   }
 
   .sketch-resource-list > a {

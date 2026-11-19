@@ -20,7 +20,9 @@ test("ships the Contact template, dedicated style and page condition", () => {
   const functions = read(path.join(THEME_ROOT, "functions.php"));
   const style = read(path.join(THEME_ROOT, "assets", "css", "contact-v1.css"));
 
-  expect(template).toContain("<h1 class=\"wp-block-heading\">Masterbatch inquiry.</h1>");
+  expect(template).toContain(
+    "<h1 class=\"wp-block-heading\">Request a masterbatch quote.</h1>",
+  );
   expect(template).toContain("[mb_rfq_form context=\"rfq\"]");
   expect(template).toContain("After you send it.");
   expect(template).toContain("Review scope.");
@@ -51,7 +53,7 @@ test("keeps the simplified RFQ and full document validation separate", () => {
   );
 
   expect(plugin).toContain("'rfq' === $data['form_context']");
-  expect(plugin).toContain("'' === $data['target_color_function']");
+  expect(plugin).toContain("'' === $data['target_requirement']");
   expect(plugin).toContain("'documents' === $data['form_context']");
   expect(plugin).toContain("'' === $data['documents_requested']");
   expect(plugin).toContain("'' === $data['document_purpose']");

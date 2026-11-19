@@ -96,7 +96,7 @@ function renderHomepagePreview() {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Masterbatch Products for Plastic Processing | GE CHEMICAL</title>
+  <title>Black Masterbatch Manufacturer in China | GE CHEMICAL</title>
   <style>
     :root {
       --wp--preset--color--paper: #f3f0e9;
@@ -182,14 +182,34 @@ test("renders the eight homepage sections and conversion paths", async ({
 }, testInfo) => {
   await expect(page.locator("h1")).toHaveCount(1);
   await expect(page.locator("h1")).toHaveText(
-    "Masterbatch, tuned to the line.",
+    "Black Masterbatch Manufacturer & Supplier in China",
+  );
+  await expect(page.locator(".sketch-hero__copy")).toContainText(
+    "GE Chemical manufactures black masterbatch",
   );
   await expect(page.locator(".sketch-basis > div")).toHaveCount(4);
+  await expect(page.locator(".sketch-factory__facts > div")).toHaveCount(4);
+  const companyFacts = page.locator(".sketch-factory__facts > div");
+  await expect(companyFacts.nth(0).locator("strong")).toHaveText("12");
+  await expect(companyFacts.nth(0).locator("span")).toHaveText(
+    "production lines",
+  );
+  await expect(companyFacts.nth(1).locator("strong")).toHaveText("50,000+");
+  await expect(companyFacts.nth(1).locator("span")).toHaveText("tonnes");
+  await expect(companyFacts.nth(2).locator("strong")).toHaveText("30+");
+  await expect(companyFacts.nth(2).locator("span")).toHaveText("countries");
+  await expect(companyFacts.nth(3).locator("strong")).toHaveText("In-house");
+  await expect(companyFacts.nth(3).locator("span")).toHaveText("lab testing");
+  await expect(page.locator(".sketch-product-card--black")).toContainText(
+    "BK035 and BK040 cover the high-jetness end",
+  );
+  await expect(page.locator(".sketch-product-card--black")).toContainText(
+    "Dispersion is reviewed against the exact grade",
+  );
   await expect(page.locator("main > section")).toHaveCount(7);
   const headerSource = readThemeFile("parts/header.html");
   for (const label of [
     "Home",
-    "Applications",
     "About Us",
     "Contact",
   ]) {
@@ -197,12 +217,12 @@ test("renders the eight homepage sections and conversion paths", async ({
   }
   expect(headerSource).toContain("Products");
   expect(headerSource).toContain("Resources");
-  expect(headerSource).toContain("Buyer Guides");
+  expect(headerSource).toContain("RFQ Checklist");
   expect(headerSource).toContain("Blog");
   expect(headerSource).toContain("Buyer FAQ");
   expect(headerSource).toContain("Technical Documents");
   await expect(page.locator(".site-chrome-header")).toBeVisible();
-  await expect(page.locator(".site-chrome-nav > a")).toHaveCount(4);
+  await expect(page.locator(".site-chrome-nav > a")).toHaveCount(3);
   await expect(page.locator(".site-chrome-nav-button")).toHaveCount(2);
   await expect(page.locator(".site-chrome-quote")).toContainText("Get a quote");
   await expect(page.locator(".site-chrome-footer")).toBeVisible();
@@ -223,7 +243,7 @@ test("renders the eight homepage sections and conversion paths", async ({
     await expect(page.locator("[data-chrome-products-menu]")).toBeVisible();
     await expect(
       page.locator("[data-chrome-products-menu] > a"),
-    ).toHaveCount(3);
+    ).toHaveCount(2);
     await page.keyboard.press("Escape");
     await expect(page.locator("[data-chrome-products-menu]")).toBeHidden();
 
@@ -253,13 +273,10 @@ test("renders the eight homepage sections and conversion paths", async ({
     page.locator('main a[href="/products/black-masterbatch/"]').first(),
   ).toBeVisible();
   await expect(
-    page.locator('main a[href="/products/white-masterbatch/"]').first(),
-  ).toBeVisible();
-  await expect(
-    page.locator('main a[href="/products/color-masterbatch/"]').first(),
+    page.locator('main a[href="/products/desiccant-masterbatch/"]').first(),
   ).toBeVisible();
   await expect(page.locator(".sketch-hero__media img")).toHaveCount(2);
-  await expect(page.locator(".sketch-product-card")).toHaveCount(3);
+  await expect(page.locator(".sketch-product-card")).toHaveCount(2);
   await expect(page.locator(".sketch-application-grid article")).toHaveCount(4);
   await expect(page.locator(".sketch-factory__photos img")).toHaveCount(3);
   await expect(page.locator(".sketch-product-table")).toHaveCount(0);
@@ -308,7 +325,7 @@ test("mobile header opens the compact navigation", async ({
   await expect(menuButton).toHaveAttribute("aria-label", "Close menu");
   await expect(mobileMenu).toHaveAttribute("aria-hidden", "false");
   await expect(mobileMenu).toBeVisible();
-  await expect(page.locator(".site-chrome-mobile-menu nav > a")).toHaveCount(4);
+  await expect(page.locator(".site-chrome-mobile-menu nav > a")).toHaveCount(3);
   await expect(
     page.locator(".site-chrome-mobile-menu nav > button"),
   ).toHaveCount(2);
@@ -316,7 +333,7 @@ test("mobile header opens the compact navigation", async ({
   await expect(page.locator("#site-chrome-mobile-products-menu")).toBeVisible();
   await expect(
     page.locator("#site-chrome-mobile-products-menu a"),
-  ).toHaveCount(3);
+  ).toHaveCount(2);
   await page.locator("[data-site-chrome-mobile-resources-toggle]").click();
   await expect(
     page.locator("#site-chrome-mobile-resources-menu"),
@@ -340,12 +357,9 @@ test("keeps public claims within the approved evidence boundary", async ({
     "Wudi Longda",
     "BINZHOU LEACHY",
     "SHANDONG BEIHONG",
-    "12 production lines",
-    "50,000",
-    "more than 30",
     "Tosaf",
     "all grades are",
-    "all white masterbatch is FDA",
+    "all products are FDA",
     "download TDS",
     "instant download",
   ];
@@ -354,6 +368,13 @@ test("keeps public claims within the approved evidence boundary", async ({
     expect(bodyText.toLowerCase()).not.toContain(claim.toLowerCase());
   }
 
+  await expect(page.getByText("12", { exact: true }).last()).toBeVisible();
+  await expect(page.getByText("50,000+", { exact: true })).toBeVisible();
+  await expect(page.getByText("30+", { exact: true })).toBeVisible();
+  await expect(page.getByText("In-house", { exact: true })).toBeVisible();
+  await expect(
+    page.getByText(/dispersion is reviewed against the exact grade/i),
+  ).toBeVisible();
   await expect(
     page.getByText(/documents follow the grade/i),
   ).toBeVisible();
@@ -362,15 +383,35 @@ test("keeps public claims within the approved evidence boundary", async ({
   ).toBeVisible();
 });
 
-test("does not overflow horizontally", async ({ page }) => {
-  const dimensions = await page.evaluate(() => ({
-    viewportWidth: window.innerWidth,
-    documentWidth: document.documentElement.scrollWidth,
-  }));
+test("does not overflow horizontally", async ({ page }, testInfo) => {
+  const widths =
+    testInfo.project.name === "mobile"
+      ? [390, 320]
+      : [1440, 1024, 768];
 
-  expect(dimensions.documentWidth).toBeLessThanOrEqual(
-    dimensions.viewportWidth + 1,
-  );
+  for (const width of widths) {
+    await page.setViewportSize({ width, height: 900 });
+    const dimensions = await page.evaluate(() => ({
+      viewportWidth: window.innerWidth,
+      documentWidth: document.documentElement.scrollWidth,
+      facts: Array.from(
+        document.querySelectorAll(".sketch-factory__facts > div"),
+      ).map((element) => {
+        const rect = element.getBoundingClientRect();
+        return { left: rect.left, right: rect.right };
+      }),
+    }));
+
+    expect(dimensions.documentWidth, `${width}px document`).toBeLessThanOrEqual(
+      dimensions.viewportWidth + 1,
+    );
+    for (const fact of dimensions.facts) {
+      expect(fact.left, `${width}px fact left`).toBeGreaterThanOrEqual(0);
+      expect(fact.right, `${width}px fact right`).toBeLessThanOrEqual(
+        dimensions.viewportWidth + 1,
+      );
+    }
+  }
 });
 
 test("desktop navigation fits before the mobile breakpoint", async ({
@@ -486,8 +527,6 @@ test("wires the RFQ form for secure server-side submission", async () => {
 
 test("ships the page-closure content packages and templates", async () => {
   for (const contentPath of [
-    "content/guides/white-masterbatch.md",
-    "content/guides/color-masterbatch.md",
     "content/pages/technical-documents.md",
     "content/pages/resources.md",
     "content/pages/masterbatch-rfq-checklist.md",
@@ -497,14 +536,15 @@ test("ships the page-closure content packages and templates", async () => {
     expect(source).not.toMatch(/^#\s+/m);
   }
 
-  for (const templatePath of [
+  const resourcesTemplate = readThemeFile("templates/page-resources.html");
+  expect(resourcesTemplate).toContain("<!-- wp:post-content");
+  expect(resourcesTemplate).toContain('slug":"footer"');
+
+  const documentTemplate = readThemeFile(
     "templates/page-document-request.html",
-    "templates/page-resources.html",
-  ]) {
-    const template = readThemeFile(templatePath);
-    expect(template).toContain("<!-- wp:post-content");
-    expect(template).toContain('slug":"footer"');
-  }
+  );
+  expect(documentTemplate).toContain('class="mtm-docs-v2"');
+  expect(documentTemplate).toContain('slug":"footer"');
 
   expect(readThemeFile("templates/page-document-request.html")).toContain(
     '[mb_rfq_form context="documents"]',

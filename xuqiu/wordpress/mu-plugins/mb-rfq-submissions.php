@@ -72,8 +72,7 @@ final class MB_RFQ_Submission {
 
 		$allowed_products = array(
 			'Black masterbatch',
-			'White masterbatch',
-			'Color masterbatch',
+			'Desiccant masterbatch',
 			'Not sure',
 		);
 		if ( ! in_array( $data['product_interest'], $allowed_products, true ) ) {
@@ -86,7 +85,7 @@ final class MB_RFQ_Submission {
 
 		if (
 			'rfq' === $data['form_context']
-			&& '' === $data['target_color_function']
+			&& '' === $data['target_requirement']
 		) {
 			return self::failure_result( $data );
 		}
@@ -125,8 +124,7 @@ final class MB_RFQ_Submission {
 					'_mb_rfq_application'        => $data['application'],
 					'_mb_rfq_base_resin'         => $data['base_resin'],
 					'_mb_rfq_processing_method'  => $data['processing_method'],
-					'_mb_rfq_target'             => $data['target_color_function'],
-					'_mb_rfq_color_reference'    => $data['color_reference_type'],
+					'_mb_rfq_target'             => $data['target_requirement'],
 					'_mb_rfq_product_grade'      => $data['product_grade'],
 					'_mb_rfq_quantity'           => $data['quantity'],
 					'_mb_rfq_destination_port'   => $data['destination_port'],
@@ -195,8 +193,7 @@ final class MB_RFQ_Submission {
 			'application',
 			'base_resin',
 			'processing_method',
-			'target_color_function',
-			'color_reference_type',
+			'target_requirement',
 			'product_grade',
 			'quantity',
 			'destination_port',
@@ -324,8 +321,7 @@ final class MB_RFQ_Submission {
 			'Application'           => 'application',
 			'Base resin'            => 'base_resin',
 			'Processing method'     => 'processing_method',
-			'Target or current issue' => 'target_color_function',
-			'Color reference type'  => 'color_reference_type',
+			'Target or current issue' => 'target_requirement',
 			'Product grade/model'   => 'product_grade',
 			'Quantity'              => 'quantity',
 			'Destination port'      => 'destination_port',
@@ -463,8 +459,7 @@ add_action(
 					'Application'           => '_mb_rfq_application',
 					'Base resin'            => '_mb_rfq_base_resin',
 					'Processing method'     => '_mb_rfq_processing_method',
-					'Target color/function' => '_mb_rfq_target',
-					'Color reference type'  => '_mb_rfq_color_reference',
+					'Target or current issue' => '_mb_rfq_target',
 					'Product grade/model'   => '_mb_rfq_product_grade',
 					'Quantity'              => '_mb_rfq_quantity',
 					'Destination port'      => '_mb_rfq_destination_port',

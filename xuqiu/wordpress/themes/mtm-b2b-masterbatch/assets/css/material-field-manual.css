@@ -190,9 +190,9 @@ body.home .mtm-home .mtm-home-hero__title {
 	margin-top: 1rem;
 	margin-bottom: 1.4rem;
 	color: var(--field-ink);
-	font-family: Georgia, "Times New Roman", serif;
+	font-family: var(--ge-font-display);
 	font-size: clamp(4.5rem, 8.5vw, 8.3rem);
-	font-weight: 400;
+	font-weight: 600;
 	line-height: 0.84;
 	letter-spacing: -0.075em;
 }
@@ -312,9 +312,9 @@ body.home .mtm-home .mtm-home-products .mtm-home-section-heading > p:last-child 
 
 body.home .mtm-home .mtm-home-products .mtm-home-section-heading h2 {
 	color: var(--field-ink);
-	font-family: Georgia, "Times New Roman", serif;
+	font-family: var(--ge-font-display);
 	font-size: clamp(2.9rem, 5.2vw, 5.4rem);
-	font-weight: 400;
+	font-weight: 600;
 	line-height: 0.92;
 }
 
@@ -377,9 +377,9 @@ body.home .mtm-home .mtm-home-card-grid--three h3 {
 	grid-row: 3;
 	margin: 1rem 1.5rem 0.8rem;
 	color: var(--field-ink);
-	font-family: Georgia, "Times New Roman", serif;
+	font-family: var(--ge-font-display);
 	font-size: clamp(2.5rem, 4vw, 4.2rem);
-	font-weight: 400;
+	font-weight: 600;
 	line-height: 0.92;
 	letter-spacing: -0.05em;
 }
@@ -492,9 +492,9 @@ body.home .mtm-home .mtm-home-applications-transition .mtm-eyebrow {
 
 body.home .mtm-home .mtm-home-applications-transition h2 {
 	color: var(--field-ink);
-	font-family: Georgia, "Times New Roman", serif;
+	font-family: var(--ge-font-display);
 	font-size: clamp(2.9rem, 5.2vw, 5.4rem);
-	font-weight: 400;
+	font-weight: 600;
 	line-height: 0.92;
 	margin: 0;
 }
@@ -527,9 +527,9 @@ body.home .mtm-home .mtm-home-process .mtm-eyebrow {
 
 body.home .mtm-home .mtm-home-process h2 {
 	color: var(--field-paper);
-	font-family: Georgia, "Times New Roman", serif;
+	font-family: var(--ge-font-display);
 	font-size: clamp(3rem, 5.2vw, 5.7rem);
-	font-weight: 400;
+	font-weight: 600;
 	line-height: 0.9;
 }
 
@@ -586,9 +586,9 @@ body.home .mtm-home .mtm-home-documents .mtm-eyebrow {
 
 body.home .mtm-home .mtm-home-documents h2 {
 	color: var(--field-ink);
-	font-family: Georgia, "Times New Roman", serif;
+	font-family: var(--ge-font-display);
 	font-size: clamp(2.9rem, 4.2vw, 4.7rem);
-	font-weight: 400;
+	font-weight: 600;
 	line-height: 0.94;
 }
 
@@ -645,7 +645,7 @@ body.home .mtm-home .mtm-home-about {
 	color: #fff;
 	background:
 		linear-gradient(0deg, rgba(11, 23, 29, 0.9), rgba(11, 23, 29, 0.18) 66%),
-		url("../images/home-workshop-equipment.jpg") center / cover,
+		url("../images/home-workshop-equipment.webp") center / cover,
 		var(--field-ink);
 }
 
@@ -662,9 +662,9 @@ body.home .mtm-home .mtm-home-about .mtm-eyebrow {
 body.home .mtm-home .mtm-home-about h2 {
 	max-width: 760px;
 	color: #fff;
-	font-family: Georgia, "Times New Roman", serif;
+	font-family: var(--ge-font-display);
 	font-size: clamp(3rem, 5.5vw, 6rem);
-	font-weight: 400;
+	font-weight: 600;
 	line-height: 0.88;
 }
 
@@ -712,9 +712,9 @@ body.home .mtm-home .mtm-home-resources .mtm-eyebrow {
 
 body.home .mtm-home .mtm-home-resources h2 {
 	color: var(--field-ink);
-	font-family: Georgia, "Times New Roman", serif;
+	font-family: var(--ge-font-display);
 	font-size: clamp(2.9rem, 5.2vw, 5.4rem);
-	font-weight: 400;
+	font-weight: 600;
 	line-height: 0.92;
 }
 
@@ -746,9 +746,9 @@ body.home .mtm-home .mtm-home-resource-card__index {
 }
 
 body.home .mtm-home .mtm-home-resource-card h3 {
-	font-family: Georgia, "Times New Roman", serif;
+	font-family: var(--ge-font-display);
 	font-size: 1.35rem;
-	font-weight: 400;
+	font-weight: 600;
 	line-height: 1.1;
 }
 
@@ -795,9 +795,9 @@ body.home .mtm-home .mtm-home-final-cta__panel::after {
 
 body.home .mtm-home .mtm-home-final-cta h2 {
 	color: #fff9ef;
-	font-family: Georgia, "Times New Roman", serif;
+	font-family: var(--ge-font-display);
 	font-size: clamp(3.5rem, 6.5vw, 7rem);
-	font-weight: 400;
+	font-weight: 600;
 	line-height: 0.85;
 }
 

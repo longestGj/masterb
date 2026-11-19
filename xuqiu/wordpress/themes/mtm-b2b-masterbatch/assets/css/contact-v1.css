@@ -63,7 +63,7 @@ body.mtm-contact-v1 textarea {
   margin: 0;
   color: var(--ge-color-text);
   font-family: var(--ge-font-display);
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .contact-kicker {
@@ -385,7 +385,7 @@ body.mtm-contact-v1 textarea {
   padding-block: var(--ge-section-space);
   color: var(--ge-color-on-primary);
   background-color: var(--ge-color-primary-dark);
-  background-image: url("../../wordpress/themes/mtm-b2b-masterbatch/assets/images/masterbatch-palletized-shipment.jpg");
+  background-image: url("../images/masterbatch-palletized-shipment.webp");
   background-position: center;
   background-size: cover;
 }
@@ -465,7 +465,7 @@ body.mtm-contact-v1 textarea {
   color: var(--ge-color-on-primary);
   font-family: var(--ge-font-display);
   font-size: 1.55rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.05;
 }
 
@@ -584,7 +584,7 @@ body.mtm-contact-v1 textarea {
   color: var(--ge-color-text);
   font-family: var(--ge-font-display);
   font-size: clamp(1.35rem, 1.8vw, 1.65rem);
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.05;
 }
 

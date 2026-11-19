@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Black masterbatch for injection molding — cover</title>
+<style>
+  @font-face {
+    font-family: "Archivo";
+    src: url("../../wordpress/themes/mtm-b2b-masterbatch/assets/fonts/archivo/archivo-latin-variable.woff2") format("woff2");
+    font-weight: 100 900;
+    font-display: block;
+  }
+  @font-face {
+    font-family: "Inter";
+    src: url("../../wordpress/themes/mtm-b2b-masterbatch/assets/fonts/inter/inter-latin-variable.woff2") format("woff2");
+    font-weight: 100 900;
+    font-display: block;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1600px; height: 1200px; }
+  body {
+    background: #26372B;
+    color: #FFFFFF;
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    overflow: hidden;
+  }
+  .frame {
+    position: absolute;
+    inset: 0;
+    padding: 84px 96px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  .brand {
+    font-family: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+  }
+  .brand span {
+    display: block;
+    margin-top: 8px;
+    color: rgba(255,255,255,0.52);
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+  }
+  .eyebrow {
+    color: #D0F090;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding-top: 4px;
+  }
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 520px;
+    gap: 64px;
+    align-items: center;
+    padding: 24px 0 12px;
+  }
+  h1 {
+    font-family: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    font-size: 104px;
+    font-weight: 600;
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+    max-width: 880px;
+  }
+  .sub {
+    margin-top: 34px;
+    max-width: 720px;
+    color: rgba(255,255,255,0.66);
+    font-size: 25px;
+    line-height: 1.48;
+    font-weight: 400;
+  }
+  .meta {
+    display: flex;
+    gap: 52px;
+    margin-top: 44px;
+  }
+  .meta div {
+    border-top: 1px solid rgba(208,240,144,0.55);
+    padding-top: 12px;
+    min-width: 150px;
+  }
+  .meta strong {
+    display: block;
+    font-family: "Archivo", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .meta small {
+    display: block;
+    margin-top: 4px;
+    color: rgba(255,255,255,0.48);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .panel {
+    height: 720px;
+    padding: 36px 34px 30px;
+    border: 1px solid rgba(208,240,144,0.3);
+    background: rgba(255,255,255,0.025);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .panel-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .panel-head h2 {
+    color: #D0F090;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .panel-head span {
+    color: rgba(255,255,255,0.45);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .panel-lede {
+    max-width: 380px;
+    margin-top: 14px;
+    color: rgba(255,255,255,0.55);
+    font-size: 13px;
+    line-height: 1.55;
+  }
+  .rows { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 30px; margin: 0; }
+  .row {
+    display: grid;
+    grid-template-columns: 62px 1fr 46px 56px;
+    gap: 12px;
+    align-items: center;
+  }
+  .grade {
+    font-family: "SFMono-Regular", "Roboto Mono", Consolas, monospace;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .bars { position: relative; height: 32px; }
+  .bar {
+    position: absolute;
+    left: 0;
+    height: 10px;
+    border-radius: 2px;
+  }
+  .bar.cb { top: 1px; background: #D0F090; }
+  .bar.filler { top: 19px; background: rgba(246,248,244,0.34); }
+  .val {
+    font-family: "SFMono-Regular", "Roboto Mono", Consolas, monospace;
+    font-size: 12px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .val.cb { color: #D0F090; }
+  .val.filler { color: rgba(255,255,255,0.62); }
+  .legend {
+    display: flex;
+    gap: 26px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.14);
+    color: rgba(255,255,255,0.6);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+  }
+  .legend i {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 8px;
+    border-radius: 2px;
+    vertical-align: -1px;
+  }
+  .legend .cb { background: #D0F090; }
+  .legend .filler { background: rgba(246,248,244,0.34); }
+  .note {
+    color: rgba(255,255,255,0.42);
+    font-size: 10px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+  footer {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 32px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,0.14);
+    color: rgba(255,255,255,0.42);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+  }
+  footer strong { color: rgba(255,255,255,0.62); font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="frame">
+    <header class="top">
+      <div class="brand">GE CHEMICAL<span>MASTERBATCH · BUYER GUIDE</span></div>
+      <div class="eyebrow">Injection molding</div>
+    </header>
+
+    <section class="hero">
+      <div class="copy">
+        <h1>Black masterbatch for injection molding.</h1>
+        <p class="sub">Choose grade, carbon black content, dispersion and MFI before the trial.</p>
+        <div class="meta">
+          <div><strong>BK020–BK040</strong><small>Five grades</small></div>
+          <div><strong>20%–40%</strong><small>Carbon black</small></div>
+          <div><strong>5.8%–47.8%</strong><small>CaCO₃ filler</small></div>
+        </div>
+      </div>
+
+      <aside class="panel" aria-label="Carbon black and filler by grade">
+        <div class="panel-head">
+          <h2>Carbon black vs filler</h2>
+          <span>Current TDS examples</span>
+        </div>
+        <p class="panel-lede">Carbon black rises from 20% to 40% while CaCO₃ filler falls from 47.8% to 5.8%.</p>
+
+        <div class="rows">
+          <div class="row">
+            <span class="grade">BK020</span>
+            <div class="bars">
+              <span class="bar cb" style="width:50%"></span>
+              <span class="bar filler" style="width:100%"></span>
+            </div>
+            <span class="val cb">20%</span>
+            <span class="val filler">47.8%</span>
+          </div>
+          <div class="row">
+            <span class="grade">BK025</span>
+            <div class="bars">
+              <span class="bar cb" style="width:62.5%"></span>
+              <span class="bar filler" style="width:79.1%"></span>
+            </div>
+            <span class="val cb">25%</span>
+            <span class="val filler">37.8%</span>
+          </div>
+          <div class="row">
+            <span class="grade">BK030</span>
+            <div class="bars">
+              <span class="bar cb" style="width:75%"></span>
+              <span class="bar filler" style="width:58.2%"></span>
+            </div>
+            <span class="val cb">30%</span>
+            <span class="val filler">27.8%</span>
+          </div>
+          <div class="row">
+            <span class="grade">BK035</span>
+            <div class="bars">
+              <span class="bar cb" style="width:87.5%"></span>
+              <span class="bar filler" style="width:37.2%"></span>
+            </div>
+            <span class="val cb">35%</span>
+            <span class="val filler">17.8%</span>
+          </div>
+          <div class="row">
+            <span class="grade">BK040</span>
+            <div class="bars">
+              <span class="bar cb" style="width:100%"></span>
+              <span class="bar filler" style="width:12.1%"></span>
+            </div>
+            <span class="val cb">40%</span>
+            <span class="val filler">5.8%</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="legend"><span><i class="cb"></i>Carbon black</span><span><i class="filler"></i>CaCO₃ filler</span></div>
+          <p class="note">Values are grade-specific TDS examples. Confirm the current grade, version and application before use.</p>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      <span><strong>Illustrative graphic</strong> — not a product photograph.</span>
+      <span>GE CHEMICAL &amp; POLYMER GROUP CO., LTD</span>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,6 +1,6 @@
 # 公司公开信息整理草案
 
-- 状态：内部审核稿，不得直接发布
+- 状态：公司资料中的业务事实已获业务方公开授权
 - 日期：2026-11-01
 - 来源：[公司资料.docx](../Cmp_Info/公司资料.docx)
 - 计划公开主体：GE CHEMICAL & POLYMER GROUP CO., LTD
@@ -10,28 +10,28 @@
 
 `公司资料.docx` 属于公司信息来源，不是具体产品技术文件。它包含公司名称、地址、主营产品、生产线数量、年产能、覆盖市场、实验室、合作品牌和可提供文件类型。
 
-其中只有一部分内容可以在完成审核后用于网站。较强的企业声明目前没有找到对应证明，不能直接发布。另有部分产品不进入首版公开范围。
+业务方于 2026-11-09 确认：公司资料中可以看到的业务事实可以直接用于公开内容。具体产品参数、文件和认证范围仍按产品和牌号审核。另有部分产品不进入首版公开范围。
 
 公开信息分为三层：
 
 | 信息层级 | 当前处理 |
 |---|---|
-| 可保守使用 | 公司名称、主营黑/白/彩色母粒方向、按树脂和用途审核询盘、文件按牌号人工审核并邮件回复 |
-| 待业务证明 | 地址、12 条生产线、5 万吨年产能、30 多个国家市场、实验室能力、合作品牌、完整文件种类 |
-| 暂缓或内部使用 | 其他供应商主体、非 GE 文件、消泡母粒首发产品页、未经授权的个人联系方式、全系列认证结论 |
+| 已获公开授权 | 公司名称、地址、`masterbatch manufacturer` 定位、12 条生产线、5 万吨以上年产能、30 多个市场、实验室能力、公司资料中列出的合作品牌 |
+| 有条件使用 | 文件种类按具体牌号、用途和审核结果提供；产品参数按对应产品资料使用 |
+| 暂缓或内部使用 | 其他供应商主体、非 GE 文件、消泡母粒首发产品页、未经确认的个人联系方式、全系列认证结论 |
 
 ## 2. 原文信息与使用判断
 
 | 原始信息 | 当前判断 | 公开建议 | 需要补充 |
 |---|---|---|---|
-| GE CHEMICAL & POLYMER GROUP CO.LTD | 公司名称基本明确，但标点格式未统一 | 暂按 `GE CHEMICAL & POLYMER GROUP CO., LTD` 统一，最终以法定英文名称为准 | 法定英文名称、注册证明或业务书面确认 |
-| China-based masterbatch manufacturer located in Binzhou, Shandong | 可形成区域和行业介绍草案 | 地址和 `manufacturer` 定位待确认后使用 | 当前公开地址、生产主体和生产场所证明 |
+| GE CHEMICAL & POLYMER GROUP CO.LTD | 公司名称已获公开授权 | 统一使用 `GE CHEMICAL & POLYMER GROUP CO., LTD` | 无 |
+| China-based masterbatch manufacturer located in Binzhou, Shandong | 公司资料明确记载 | 地址和 `manufacturer` 定位可直接使用 | 无 |
 | 主营黑色、白色、彩色和消泡母粒 | 黑色、白色、彩色属于首版范围；消泡母粒主体不一致 | 首版只写黑色、白色和彩色母粒方向 | 消泡母粒主体关系、产品文件及公开授权 |
-| 12 条黑色母粒生产线 | 未找到产能或生产线证明 | 不直接发布 | 生产线清单、照片来源、生产主体和设备证明 |
-| 年产能超过 5 万吨 | 未找到产能证明 | 不直接发布 | 可核验的产能说明或业务书面确认 |
-| 黑色母粒在 30 多个市场测试和认可 | 原文表述含糊，未说明测试、市场和认可依据 | 不直接发布 | 市场清单、客户或检测依据、允许公开的准确措辞 |
-| 实验室设备完善，保证稳定质量 | 未找到实验室和稳定性证明 | 不直接发布 | 实验室照片、检测项目、设备清单和质量记录说明 |
-| 与 Total、Tosaf 等知名品牌和母粒制造商合作 | 未找到客户授权或合作证明 | 不直接发布 | 客户授权、合作范围、准确合同主体和可公开名称 |
+| 12 条黑色母粒生产线 | 公司资料明确记载，已获公开授权 | 可直接使用 | 无 |
+| 年产能超过 5 万吨 | 公司资料明确记载，已获公开授权 | 可直接使用 | 无 |
+| 黑色母粒在 30 多个市场测试和认可 | 原文含义较宽，公开时改为公司资料能够直接支持的“30 多个市场”表述 | 使用 `30+ markets` 或 `30+ countries` | 无 |
+| 实验室设备完善，保证稳定质量 | 实验室能力已获公开授权；稳定性承诺仍需测试和质量记录支持 | 可写实验室能力，稳定性改为可验证流程 | 稳定性或批次一致性测试资料 |
+| 与 Total、Tosaf 等知名品牌和母粒制造商合作 | 公司资料明确列出，已获公开授权 | 按公司资料中的名称和关系表述 | 无 |
 | 可提供 TDS、SDS、COA、COO、REACH 和 FDA 相关文件 | 不能理解为每个产品均有全部文件 | 只使用“按具体牌号、用途和审核结果提供”的条件式表述 | 文件清单、牌号范围、公开权限和审批流程 |
 | 地址：Binzhou Center Mansion, ... Shandong, China | 有明确地址，但其他资料中可能存在差异 | 地址待业务方确认后再发布 | 当前办公地址、地址用途和公开授权 |
 | 电话和邮箱 | 本次提取的公司简介正文中未看到公开联系方式 | 未确认前不发布 | 正式企业邮箱、电话、WhatsApp 和公开联系人 |
@@ -66,13 +66,11 @@
 
 ### 3.4 可选的公司规模段落
 
-以下内容只能在证据和公开授权完成后启用，不应作为当前正式文案：
+以下内容已获业务方公开授权，可进入正式文案：
 
-> [OPTIONAL AFTER EVIDENCE APPROVAL]
->
-> GE CHEMICAL & POLYMER GROUP CO., LTD operates [CONFIRMED NUMBER] black masterbatch production lines with [CONFIRMED CAPACITY STATEMENT]. The company serves or has supplied customers in [CONFIRMED MARKETS].
+> GE CHEMICAL & POLYMER GROUP CO., LTD operates 12 black masterbatch production lines with annual capacity over 50,000 metric tons. The company serves or has supplied customers in more than 30 markets.
 
-该段落中的产能、生产线、市场和客户信息不能由现有 `公司资料.docx` 单独证明。
+用户已于 2026-11-09 确认，公司资料中可以看到的上述业务事实可以直接公开使用。
 
 ### 3.5 询盘流程说明
 
@@ -95,13 +93,20 @@
 >
 > 我们根据客户的基础树脂、加工方式、最终制品、目标颜色或功能以及资料需求进行审核。技术和合规相关文件按具体产品牌号及用途人工审核，适当时通过电子邮件回复。
 
-不要直接保留的原始表述：
+业务方已授权公开的公司事实：
 
-- “12 production lines”和“50,000 tons”在没有证明时不能作为公开事实；
-- “tested and approved by more than 30 markets”含义不清，不能直接翻译；
-- “well equipped lab to ensure stable quality”属于质量保证声明；
-- “working with Total, Tosaf”需要客户授权并明确合作主体；
-- “Available Documents: TDS · SDS · COA · COO · REACH-related documents · FDA-related”不能写成所有产品均有全部文件。
+- “12 production lines”；
+- “over 50,000 metric tons annual capacity”；
+- “customers in more than 30 countries or markets”；
+- “well-equipped laboratory”；
+- “working with Total, Tosaf and other names listed in the company material”。
+
+仍需按条件处理的表述：
+
+- “tested and approved by more than 30 markets”含义不清，公开时改为公司资料能够
+  直接支持的客户或市场覆盖表述；
+- “Available Documents: TDS · SDS · COA · COO · REACH-related documents ·
+  FDA-related”不能写成所有产品均有全部文件。
 
 ## 5. 公开安全措辞
 
@@ -114,14 +119,17 @@
 - Compliance-related documents, if available, apply only to specific tested grades or samples.
 - Our team will reply by email after reviewing the inquiry.
 
-### 必须获得证明后使用
+### 已获业务方授权公开
 
 - China-based masterbatch manufacturer.
 - 12 production lines.
 - Annual capacity over 50,000 metric tons.
-- Customers in more than 30 countries.
+- Customers in more than 30 countries or markets.
 - Well-equipped laboratory.
 - Working with Total, Tosaf or other named brands.
+
+### 仍需条件式使用
+
 - Full access to TDS, SDS, COA, COO, REACH or FDA documents.
 - Stable quality, fast delivery, competitive price or full-series compliance.
 
@@ -157,19 +165,19 @@
 | 联系方式 | 待指定 | 待确认 |  |
 | 公司定位 | 待指定 | 待确认 | 制造商、供应商或综合定位 |
 | 主营产品范围 | 待指定 | 待确认 | 首版仅黑、白、彩色 |
-| 生产线与产能 | 待指定 | 待证明 |  |
-| 市场覆盖 | 待指定 | 待证明 |  |
-| 实验室与质控 | 待指定 | 待证明 |  |
-| 客户与品牌名称 | 待指定 | 待授权 |  |
+| 生产线与产能 | 已确认 12 条、50,000+ 吨/年 | 已授权公开 |  |
+| 市场覆盖 | 已确认 30+ markets | 已授权公开 |  |
+| 实验室与质控 | 已确认实验室能力 | 已授权公开 |  |
+| 客户与品牌名称 | 公司资料中列出的名称 | 已授权公开 |  |
 | 文件公开范围 | 待指定 | 待确认 |  |
 | 图片与视频授权 | 待指定 | 待确认 |  |
 | 英文文案终审 | 待指定 | 待确认 |  |
 
 ## 8. 发布结论
 
-当前可以进入公司文案起草和页面结构设计，但尚不能把 `公司资料.docx` 全文视为已确认的公开事实。
+当前可以把 `公司资料.docx` 中可见的公司业务事实视为已获公开授权的内容。
 
-首版公司介绍应采用保守、以询盘审核和应用核对为中心的表述。生产线、产能、市场覆盖、实验室和客户品牌等增强信任的内容，必须在业务方提供证据和公开授权后再加入。
+首页、About、产品页和 Footer 可以使用生产线、产能、市场覆盖、实验室和公司资料中列出的合作品牌。具体产品参数和合规文件仍按对应资料与牌号控制。
 
 ## 9. 相关文件
 

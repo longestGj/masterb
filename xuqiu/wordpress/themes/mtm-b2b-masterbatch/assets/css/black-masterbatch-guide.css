@@ -73,7 +73,7 @@ body.mtm-black-guide-page :focus-visible {
   margin: 0;
   color: var(--ge-color-text);
   font-family: var(--ge-font-display);
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .bm-page h1 {
@@ -308,7 +308,7 @@ body.mtm-black-guide-page :focus-visible {
   margin-top: 0.85rem;
   font-family: var(--ge-font-display);
   font-size: 1.45rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.08;
 }
 
@@ -556,7 +556,7 @@ body.mtm-black-guide-page :focus-visible {
   color: var(--ge-color-on-primary);
   font-family: var(--ge-font-display);
   font-size: 1.45rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.08;
 }
 
@@ -773,7 +773,7 @@ body.mtm-black-guide-page :focus-visible {
   margin-top: 0.75rem;
   font-family: var(--ge-font-display);
   font-size: 1.25rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.1;
 }
 
@@ -816,7 +816,7 @@ body.mtm-black-guide-page :focus-visible {
   margin-top: 1.4rem;
   font-family: var(--ge-font-display);
   font-size: 1.45rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.08;
 }
 
@@ -860,7 +860,7 @@ body.mtm-black-guide-page :focus-visible {
   color: var(--ge-color-primary);
   font-family: var(--ge-font-display);
   font-size: 3rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1;
 }
 
@@ -923,7 +923,7 @@ body.mtm-black-guide-page :focus-visible {
   margin-top: 0.7rem;
   font-family: var(--ge-font-display);
   font-size: 1.3rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.08;
 }
 
@@ -974,7 +974,7 @@ body.mtm-black-guide-page :focus-visible {
   margin-top: 1.2rem;
   font-family: var(--ge-font-display);
   font-size: 1.35rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.08;
 }
 
@@ -1640,5 +1640,101 @@ body.mtm-black-guide-page :focus-visible {
   .bm-page *::after {
     transition-duration: 0.01ms !important;
     transform: none !important;
+  }
+}
+
+
+/* PT-300 filled grade range entry. */
+.bm-pt300-callout {
+  display: flex;
+  margin-top: var(--ge-space-md);
+  padding: var(--ge-space-md) var(--ge-card-padding);
+  justify-content: space-between;
+  gap: var(--ge-space-lg);
+  align-items: center;
+  background: var(--ge-color-surface-soft);
+  border: 1px solid var(--ge-color-border);
+}
+
+.bm-pt300-callout span {
+  color: var(--ge-color-primary);
+  font-family: var(--ge-font-mono);
+  font-size: 0.62rem;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.bm-pt300-callout h3 {
+  margin-top: var(--ge-space-xs);
+  font-size: 1.45rem;
+}
+
+.bm-pt300-callout p {
+  max-width: 720px;
+  margin-top: var(--ge-space-xs);
+  color: var(--ge-color-text-muted);
+  font-size: 0.78rem;
+}
+
+.bm-pt300-callout .bm-text-link {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 760px) {
+  .bm-pt300-callout {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .bm-pt300-callout .bm-text-link {
+    min-height: var(--ge-control-height);
+  }
+}
+
+
+/* PT-450P no-filler grade range entry. */
+.bm-pt450p-callout {
+  display: flex;
+  margin-top: var(--ge-space-md);
+  padding: var(--ge-space-md) var(--ge-card-padding);
+  justify-content: space-between;
+  gap: var(--ge-space-lg);
+  align-items: center;
+  background: var(--ge-color-surface-soft);
+  border: 1px solid var(--ge-color-border);
+}
+
+.bm-pt450p-callout span {
+  color: var(--ge-color-primary);
+  font-family: var(--ge-font-mono);
+  font-size: 0.62rem;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.bm-pt450p-callout h3 {
+  margin-top: var(--ge-space-xs);
+  font-size: 1.45rem;
+}
+
+.bm-pt450p-callout p {
+  max-width: 720px;
+  margin-top: var(--ge-space-xs);
+  color: var(--ge-color-text-muted);
+  font-size: 0.78rem;
+}
+
+.bm-pt450p-callout .bm-text-link {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 760px) {
+  .bm-pt450p-callout {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .bm-pt450p-callout .bm-text-link {
+    min-height: var(--ge-control-height);
   }
 }

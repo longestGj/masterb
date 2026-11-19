@@ -8,7 +8,7 @@ status: "review"
 title: "Request Masterbatch Technical Documents"
 primary_keyword: "masterbatch technical documents"
 search_intent: "transactional"
-page_job: "Collect document-review requests for black, white and color masterbatch without offering direct public file access."
+page_job: "Collect document-review requests for black and desiccant masterbatch without offering direct public file access."
 product_family: "all"
 body_format: "markdown-portable-v1"
 body_starts_at_heading: 2
@@ -31,7 +31,7 @@ route:
 
 seo:
   title: "Request Masterbatch Technical Documents | GE CHEMICAL"
-  description: "Request TDS, SDS/MSDS, COA and compliance-related document review for black, white or color masterbatch inquiries and intended use."
+  description: "Request TDS, SDS/MSDS, COA and compliance-related document review for black or desiccant masterbatch inquiries and intended use."
   robots: "noindex,nofollow"
   canonical_route_key: "documents.request"
   open_graph_image_id: null
@@ -41,7 +41,7 @@ seo:
 hero:
   eyebrow: "Technical Documents"
   title: "Request Masterbatch Technical Documents"
-  summary: "Request review of technical or compliance-related documents for a specific black, white or color masterbatch inquiry. Availability is checked by grade, application, country and intended use."
+  summary: "Request review of technical or compliance-related documents for a specific black or desiccant masterbatch inquiry. Availability is checked by grade, application, country and intended use."
   image_id: null
 
 relations:
@@ -49,8 +49,7 @@ relations:
   related_content_ids:
     - "guides.index"
     - "guide.black"
-    - "guide.white"
-    - "guide.color"
+    - "product.desiccant.index"
     - "quote.request"
     - "privacy.policy"
 
@@ -96,7 +95,7 @@ Common request situations include:
 
 ## Information to prepare before requesting documents
 
-- Product interest: black masterbatch, white masterbatch, color masterbatch or not sure.
+- Product interest: black masterbatch, desiccant masterbatch or not sure.
 - Product grade or model, if known.
 - Application or final plastic product.
 - Base resin, such as PE, PP, LDPE, LLDPE, HDPE, ABS, PET, PVC or another resin.
@@ -137,6 +136,5 @@ The form below asks for the required document type and purpose. Submitting a req
 ## Related pages
 
 - [Black masterbatch guide](/products/black-masterbatch/)
-- [White masterbatch guide](/products/white-masterbatch/)
-- [Color masterbatch guide](/products/color-masterbatch/)
+- [Desiccant masterbatch guide](/products/desiccant-masterbatch/)
 - [Privacy Policy](/privacy-policy/)

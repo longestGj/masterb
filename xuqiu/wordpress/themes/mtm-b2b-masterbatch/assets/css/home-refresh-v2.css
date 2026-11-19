@@ -250,10 +250,10 @@ button {
   max-width: 660px;
   margin: 0;
   font-family: var(--ge-font-display);
-  font-size: clamp(4.3rem, 7.2vw, 7.4rem);
-  font-weight: 400;
-  line-height: 0.88;
-  letter-spacing: -0.065em;
+  font-size: clamp(3.5rem, 5.4vw, 5.65rem);
+  font-weight: 600;
+  line-height: 0.92;
+  letter-spacing: -0.055em;
 }
 
 .sketch-hero__copy > p:not(.sketch-eyebrow) {
@@ -400,7 +400,7 @@ button {
   margin: 0;
   font-family: var(--ge-font-display);
   font-size: clamp(2.65rem, 4vw, 4.2rem);
-  font-weight: 400;
+  font-weight: 600;
   line-height: 0.96;
   letter-spacing: -0.05em;
 }
@@ -424,7 +424,7 @@ button {
 
 .sketch-product-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.25rem;
 }
 
@@ -445,12 +445,7 @@ button {
   border-color: var(--ge-color-primary-dark);
 }
 
-.sketch-product-card--white {
-  background: var(--ge-color-white);
-  border-color: var(--ge-color-border);
-}
-
-.sketch-product-card--color {
+.sketch-product-card--desiccant {
   background: var(--ge-color-product-color);
   border-color: var(--ge-color-border);
 }
@@ -519,7 +514,7 @@ button {
   margin: 0;
   font-family: var(--ge-font-display);
   font-size: 1.85rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1;
   letter-spacing: -0.035em;
 }
@@ -631,7 +626,7 @@ button {
   margin: 0.4rem 0 0;
   font-family: var(--ge-font-display);
   font-size: 2rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1;
   letter-spacing: -0.035em;
 }
@@ -807,10 +802,59 @@ button {
   margin: 0 0 1.6rem;
   font-family: var(--ge-font-display);
   font-size: clamp(2.6rem, 3.5vw, 3.7rem);
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1;
   letter-spacing: -0.035em;
   white-space: nowrap;
+}
+
+.sketch-factory__facts {
+  display: grid;
+  margin-bottom: clamp(2rem, 4vw, 3.25rem);
+  padding: 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-block: 1px solid var(--ge-color-border);
+}
+
+.sketch-factory__facts > div {
+  min-width: 0;
+  min-height: 106px;
+  padding: 1rem 1.25rem;
+  border-right: 1px solid var(--ge-color-border);
+}
+
+.sketch-factory__facts > div:last-child {
+  border-right: 0;
+}
+
+.sketch-factory__facts dt {
+  color: var(--ge-color-primary);
+  font-family: var(--ge-font-mono);
+  font-size: 0.62rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sketch-factory__facts dd {
+  display: grid;
+  margin: 0.3rem 0 0;
+  gap: 0.15rem;
+}
+
+.sketch-factory__facts strong {
+  color: var(--ge-color-text);
+  font-family: var(--ge-font-display);
+  font-size: clamp(1.85rem, 2.5vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.sketch-factory__facts span {
+  color: var(--ge-color-text-muted);
+  font-size: 0.68rem;
+  line-height: 1.4;
 }
 
 .sketch-factory__copy {
@@ -949,7 +993,7 @@ button {
   margin: 0 0 1rem;
   font-family: var(--ge-font-display);
   font-size: 1.65rem;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .sketch-faq details {
@@ -1400,7 +1444,8 @@ button {
   }
 
   .sketch-hero h1 {
-    font-size: clamp(3.45rem, 16vw, 5rem);
+    font-size: clamp(3rem, 13vw, 4rem);
+    line-height: 0.95;
   }
 
   .sketch-hero__media {
@@ -1527,6 +1572,27 @@ button {
 
   .sketch-factory__points {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .sketch-factory__facts {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sketch-factory__facts > div {
+    min-height: 92px;
+    padding: 0.85rem;
+  }
+
+  .sketch-factory__facts > div:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .sketch-factory__facts > div:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--ge-color-border);
+  }
+
+  .sketch-factory__facts strong {
+    font-size: clamp(1.6rem, 7vw, 2rem);
   }
 
   .sketch-resource-list > a {

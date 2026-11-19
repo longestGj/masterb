@@ -25,9 +25,7 @@ wordpress/
 │   │   ├── resources.md
 │   │   └── technical-documents.md
 │   └── guides/
-│       ├── black-masterbatch.md
-│       ├── color-masterbatch.md
-│       └── white-masterbatch.md
+│       └── black-masterbatch.md
 └── tests/
     ├── homepage.spec.js
     ├── importer-syntax.js
@@ -56,9 +54,13 @@ MB_LIVE_BASE_URL=https://gzh.hzscf.site \
 `page-home.html`、导入包正文、Header 和 Footer。测试检查 8 个区块、唯一 H1、
 产品与转化入口、公开声明边界，以及桌面和移动端横向溢出。
 
-主题 `0.9.9` 的 About / Quality 与 Buyer FAQ 模板、专属 CSS 和
+主题 `0.9.56` 的 About / Quality 与 Buyer FAQ 模板、专属 CSS 和
 `functions.php` 条件加载逻辑已从线上同步回仓库。线上 CRLF 已统一为 LF；
 同步后的文件内容哈希与服务器标准化内容一致。
+
+全站字体由 `assets/fonts/archivo/` 和 `assets/fonts/inter/` 下的自托管
+WOFF2 文件提供。标题使用 Archivo 600，正文、导航、按钮和表单使用 Inter；
+不要改回 Google Fonts CDN 或只在本机存在的 Avenir Next。
 
 ## 安装持久命令
 
@@ -295,7 +297,8 @@ wpcli post meta list <PAGE_ID> --format=table
 1. 页面为 Draft。
 2. 标题、slug 和父页面正确。
 3. 正文章节、表格、FAQ 和 CTA 文本正确。
-4. `page-product-guide` 模板存在；不存在时先按默认模板预览。
+4. Black 使用 `page-black-masterbatch`，Desiccant 使用
+   `page-desiccant-masterbatch`。
 5. `_mb_seo_title`、`_mb_seo_description`、`_mb_form_key` 等字段已保存。
 6. CTA 目标页面和表单尚未创建时，不发布页面。
 

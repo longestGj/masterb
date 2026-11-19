@@ -68,8 +68,6 @@ mbci_assert( false !== strpos( $privacy_blocks, 'private WordPress inquiry recor
 mbci_assert( false === strpos( $privacy_raw, 'The RFQ form submission service is not enabled' ), 'Privacy package does not retain the obsolete UI-only blocker.' );
 
 $closure_packages = array(
-	'content/guides/white-masterbatch.md',
-	'content/guides/color-masterbatch.md',
 	'content/pages/technical-documents.md',
 	'content/pages/resources.md',
 	'content/pages/masterbatch-rfq-checklist.md',

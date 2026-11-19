@@ -114,14 +114,14 @@ test("renders the approved eleven-section About structure", async ({
 }, testInfo) => {
   await expect(page.locator("h1")).toHaveCount(1);
   await expect(page.locator("h1")).toHaveText(
-    "How we review a masterbatch inquiry.",
+      "About GE Chemical and masterbatch review.",
   );
   await expect(page.locator("main > section")).toHaveCount(11);
 
   for (const heading of [
     "Company facts used in every inquiry.",
     "Reviewed from the application, not a catalog.",
-    "Three product routes, one review method.",
+    "Two product routes, one review method.",
     "Prepare the application before discussing the product.",
     "What happens after you send an inquiry.",
     "Document review.",
@@ -134,7 +134,7 @@ test("renders the approved eleven-section About structure", async ({
   }
 
   await expect(page.locator(".mtm-about-company__facts > div")).toHaveCount(6);
-  await expect(page.locator(".mtm-about-products__index > a")).toHaveCount(3);
+  await expect(page.locator(".mtm-about-products__index > a")).toHaveCount(2);
   await expect(
     page.locator(
       '.mtm-about-products__index > a[href="/products/black-masterbatch/"]',
@@ -142,12 +142,7 @@ test("renders the approved eleven-section About structure", async ({
   ).toBeVisible();
   await expect(
     page.locator(
-      '.mtm-about-products__index > a[href="/products/white-masterbatch/"]',
-    ),
-  ).toBeVisible();
-  await expect(
-    page.locator(
-      '.mtm-about-products__index > a[href="/products/color-masterbatch/"]',
+      '.mtm-about-products__index > a[href="/products/desiccant-masterbatch/"]',
     ),
   ).toBeVisible();
   await expect(
@@ -185,7 +180,7 @@ test("keeps About claims inside the approved evidence boundary", async ({
     "download tds",
     "instant download",
     "all grades are",
-    "all white masterbatch is fda",
+    "all grades are fda",
   ]) {
     expect(bodyText).not.toContain(claim);
   }

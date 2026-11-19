@@ -4,7 +4,7 @@ content_type: "resource_article"
 schema_version: 1
 locale: "en-US"
 route_key: "resources.rfq_checklist"
-status: "review"
+status: "approved"
 title: "Masterbatch RFQ Checklist"
 primary_keyword: "masterbatch RFQ"
 search_intent: "informational"
@@ -21,11 +21,11 @@ wp:
   parent_slug: "resources"
   parent_title: "Masterbatch Buyer Resources"
   parent_required: true
-  template: "page-resources"
-  status: "draft"
+  template: "page-rfq-checklist"
+  status: "publish"
   comment_status: "closed"
   ping_status: "closed"
-  noindex: true
+  noindex: false
 
 route:
   path: "/resources/masterbatch-rfq-checklist/"
@@ -33,9 +33,9 @@ route:
   trailing_slash: true
 
 seo:
-  title: "Masterbatch RFQ Checklist | GE CHEMICAL"
+  title: "Masterbatch RFQ Checklist | Inputs & Documents"
   description: "Use this masterbatch RFQ checklist to collect resin, process, application, target, quantity, destination and document review details."
-  robots: "noindex,nofollow"
+  robots: "index,follow"
   canonical_route_key: "resources.rfq_checklist"
   open_graph_image_id: null
   structured_data:
@@ -52,8 +52,7 @@ relations:
   parent_content_id: "resources.index"
   related_content_ids:
     - "guide.black"
-    - "guide.white"
-    - "guide.color"
+    - "product.desiccant.index"
     - "documents.request"
     - "quote.request"
 
@@ -74,9 +73,9 @@ review:
   next_review_at: null
 
 import:
-  target_environment: "staging"
+  target_environment: "production"
   idempotency_key: "resource.rfq_checklist"
-  create_status: "draft"
+  create_status: "publish"
   body_h1_allowed: false
 ---
 
@@ -84,7 +83,7 @@ Use this checklist to prepare the information a masterbatch supplier usually nee
 
 ## Product and application
 
-- Product direction: black, white, color or not sure.
+- Product direction: black, desiccant or not sure.
 - Final product or application.
 - Current issue or improvement target.
 - Application environment or customer requirement, where relevant.
@@ -98,8 +97,7 @@ Use this checklist to prepare the information a masterbatch supplier usually nee
 
 ## Target requirement
 
-- Blackness, opacity, whiteness or color target.
-- Color reference type and details for color inquiries.
+- Blackness, appearance or moisture-control target.
 - Dispersion, appearance or processing concern.
 - Tolerance expectation, if the buyer has one.
 
@@ -120,6 +118,6 @@ Document availability depends on the exact product grade, application, country a
 
 ## Send the inquiry
 
-Use the [Request a Quote](/request-a-quote/) form for product review or the [Technical Documents](/technical-documents/) form for document review. You can select black, white or color masterbatch in either form.
+Use the [Request a Quote](/request-a-quote/) form for product review or the [Technical Documents](/technical-documents/) form for document review. You can select black or desiccant masterbatch in either form.
 
 The more complete the information is, the easier it is for the team to identify what must be checked before any product, sample or document response.

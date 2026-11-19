@@ -21,16 +21,16 @@ colors:
   error: "#A33A32"
 typography:
   display:
-    fontFamily: "Georgia, Times New Roman, serif"
-    fontWeight: 400
+    fontFamily: "Archivo, Helvetica Neue, Arial, sans-serif"
+    fontWeight: 600
     fontSize: clamp(2.65rem, 4vw, 4.2rem)
-    letterSpacing: -0.05em
+    letterSpacing: -0.04em
   body:
-    fontFamily: "Avenir Next, Inter, Helvetica Neue, Arial, sans-serif"
+    fontFamily: "Inter, Helvetica Neue, Arial, sans-serif"
     fontSize: 1rem
     lineHeight: 1.6
   label:
-    fontFamily: "Avenir Next, Inter, Helvetica Neue, Arial, sans-serif"
+    fontFamily: "Inter, Helvetica Neue, Arial, sans-serif"
     fontSize: 0.75rem
     letterSpacing: 0.02em
   mono:
@@ -94,9 +94,9 @@ product guides, technical document requests, RFQ forms and buyer resources.
 **Key characteristics:**
 
 - White page surfaces with forest-green structural bands.
-- Georgia display type against a restrained sans-serif UI.
+- Archivo display type against a restrained Inter UI.
 - Lime marks interaction, focus and selected states rather than carrying body copy.
-- Product routes differ by material treatment: black, white and color surfaces.
+- Product routes differ by material treatment: black and desiccant surfaces.
 - White space separates ideas; it does not replace missing content.
 
 ## Colors
@@ -127,20 +127,20 @@ is used for bounded structural emphasis, not as the default page background.
 
 - Do not use the old terracotta, brass or cream page background for new work.
 - Use `#26372B` for black-masterbatch card surfaces and dark process bands.
-- Use `#FFFFFF` for white-masterbatch cards.
-- Use `#EEF4E9` for color-masterbatch cards.
+- Use `#EEF4E9` for desiccant-masterbatch cards.
 - Use color for hierarchy, not decoration.
 - Text on green surfaces is white or `rgba(255,255,255,0.64)` or higher.
 - Lime is not used for long text or a white page background.
 
 ## Typography
 
-**Display:** Georgia is the editorial voice for H1 and major section headings.
-It gives the technical content a material-manual character that is distinct
-from generic industrial templates.
+**Display:** Archivo is the structural voice for H1 and major section headings.
+Its compact forms and 600 weight give the technical content an industrial,
+material-manual character without relying on a default corporate serif.
 
-**Body and UI:** Avenir Next is the preferred sans-serif, with Inter,
-Helvetica Neue and Arial fallbacks. No external webfont request is required.
+**Body and UI:** Inter is the preferred sans-serif, with Helvetica Neue and
+Arial fallbacks. Archivo and Inter are self-hosted as subsetted WOFF2 files.
+No Google Fonts request is made at runtime.
 
 **Data and identifiers:** Monospace is limited to product codes, batch language
 and short process numbers. It is not used for every label.
@@ -149,9 +149,9 @@ and short process numbers. It is not used for every label.
 
 | Role | Desktop | Mobile | Weight | Line height |
 |---|---:|---:|---:|---:|
-| H1 | `clamp(3.7rem, 6vw, 6rem)` | `clamp(3.45rem, 16vw, 5rem)` | 400 | 0.96-1 |
-| H2 | `clamp(2.65rem, 4vw, 4.2rem)` | `clamp(2.65rem, 12vw, 3.75rem)` | 400 | 0.96-1 |
-| H3 | `1.85rem-2rem` | `1.6rem-1.85rem` | 400 | 1 |
+| H1 | `clamp(3.7rem, 6vw, 6rem)` | `clamp(3.45rem, 16vw, 5rem)` | 600 | 0.96-1 |
+| H2 | `clamp(2.65rem, 4vw, 4.2rem)` | `clamp(2.65rem, 12vw, 3.75rem)` | 600 | 0.96-1 |
+| H3 | `1.85rem-2rem` | `1.6rem-1.85rem` | 600 | 1 |
 | Section intro | `0.92rem` | `0.88rem` | 400 | 1.7 |
 | Body | `1rem` | `1rem` | 400 | 1.6 |
 | Card body | `0.8rem-0.84rem` | `0.78rem-0.82rem` | 400 | 1.5-1.65 |
@@ -227,8 +227,7 @@ two equal columns. Factory copy and imagery use approximately `0.82fr 1.18fr`.
 - Product images fill a `210px` frame on desktop and `160px` on mobile.
 - Product surfaces:
   - Black: `#26372B` background with white text.
-  - White: `#FFFFFF` background with ink text.
-  - Color: `#EEF4E9` background with ink text.
+  - Desiccant: `#EEF4E9` background with ink text.
 
 ### Application cards
 
@@ -299,6 +298,7 @@ two equal columns. Factory copy and imagery use approximately `0.82fr 1.18fr`.
 
 | Date | Decision | Rationale |
 |------|----------|-----------|
+| 2026-11-10 | Archivo display, Inter body/UI, both self-hosted | Gives the industrial material site a consistent cross-device type system and removes system-font fallback drift |
 | 2026-11-08 | White base, forest-green structure, lime signal | Matches the approved homepage and keeps technical content readable |
 | 2026-11-08 | Georgia display, Avenir/Inter body | Editorial material-manual character without external font dependency |
 | 2026-11-08 | 1240px container and compact 44px section rhythm | Consistent wide-grid layout without repeated double spacing |

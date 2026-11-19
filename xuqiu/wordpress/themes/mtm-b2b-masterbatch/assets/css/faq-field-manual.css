@@ -6,7 +6,7 @@
  *
  * Two deliberate departures from the other field pages, carried over from the
  * approved concept:
- * 1. Questions are set in the serif display face, not as mono uppercase labels.
+ * 1. Questions use the shared Archivo display face, not mono uppercase labels.
  * 2. There is no sequence numbering. The leading marker encodes where an answer
  *    lands instead: on this page, after a grade review, or not published.
  */
@@ -172,20 +172,53 @@ body.mtm-faq-field .field-kicker {
 /* Slim editorial title block paired with the lookup index. */
 body.mtm-faq-field .faq-open {
 	display: grid;
-	padding: clamp(3rem, 7vw, 5.5rem) clamp(1.25rem, 4vw, 4rem) clamp(2.5rem, 5vw, 4rem);
+	padding: clamp(3rem, 7vw, 5.5rem) max(var(--ge-gutter), calc((100vw - var(--ge-container) - 2.5rem) / 2 + var(--ge-gutter))) clamp(2.5rem, 5vw, 4rem);
 	grid-template-columns: 0.82fr 1.18fr;
 	gap: clamp(2rem, 5vw, 4.5rem);
 	align-items: start;
 	background: var(--field-paper);
 	border-bottom: 3px solid var(--field-brass);
 }
+
+body.mtm-faq-field .faq-open__title > .wp-block-shortcode {
+	margin: 0 0 1.25rem;
+}
+
+body.mtm-faq-field .faq-open__title .mtm-category-crumb {
+	display: flex;
+	min-height: 44px;
+	margin: 0 0 var(--ge-space-lg);
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	align-items: center;
+	color: var(--field-clay);
+	font-size: 0.72rem;
+	font-weight: 750;
+	line-height: 1.4;
+	letter-spacing: 0.02em;
+}
+
+body.mtm-faq-field .faq-open__title .mtm-category-crumb a {
+	color: var(--field-ink);
+	border-bottom: 1px solid transparent;
+}
+
+body.mtm-faq-field .faq-open__title .mtm-category-crumb a:hover,
+body.mtm-faq-field .faq-open__title .mtm-category-crumb a:focus-visible {
+	border-bottom-color: var(--field-clay);
+}
+
+body.mtm-faq-field .faq-open__title .mtm-category-crumb [aria-current="page"] {
+	color: rgba(16, 32, 39, 0.62);
+}
+
 body.mtm-faq-field .faq-open__title { position: sticky; top: 5.5rem; align-self: start; }
 body.mtm-faq-field .faq-open h1 {
 	max-width: 11ch;
 	margin: 0.9rem 0 1.2rem;
-	font-family: Georgia, "Times New Roman", serif;
+	font-family: var(--ge-font-display);
 	font-size: clamp(2.9rem, 4.6vw, 4.9rem);
-	font-weight: 400;
+	font-weight: 600;
 	line-height: 0.9;
 	letter-spacing: -0.05em;
 }
@@ -248,7 +281,7 @@ body.mtm-faq-field .faq-index__code {
 }
 body.mtm-faq-field .faq-index__group { font-size: 0.74rem; letter-spacing: 0.02em; color: rgba(16, 32, 39, 0.7); }
 body.mtm-faq-field .faq-qtext {
-	font-family: Georgia, serif;
+	font-family: var(--ge-font-display);
 	font-size: 0.95rem;
 	line-height: 1.35;
 	border-bottom: 1px solid transparent;
@@ -300,9 +333,9 @@ body.mtm-faq-field .faq-register {
 }
 body.mtm-faq-field .faq-register h2 {
 	margin: 0.7rem 0 0;
-	font-family: Georgia, serif;
+	font-family: var(--ge-font-display);
 	font-size: clamp(1.9rem, 3vw, 3rem);
-	font-weight: 400;
+	font-weight: 600;
 	line-height: 0.98;
 	letter-spacing: -0.04em;
 	color: #fff;
@@ -336,9 +369,9 @@ body.mtm-faq-field .faq-group__head {
 }
 body.mtm-faq-field .faq-group__head h2 {
 	margin: 0;
-	font-family: Georgia, serif;
+	font-family: var(--ge-font-display);
 	font-size: clamp(1.5rem, 2.4vw, 2.2rem);
-	font-weight: 400;
+	font-weight: 600;
 	line-height: 1;
 	letter-spacing: -0.03em;
 }
@@ -393,9 +426,9 @@ body.mtm-faq-field .faq-qa__code {
 body.mtm-faq-field .faq-qa__q h3 {
 	display: inline;
 	margin: 0;
-	font-family: Georgia, "Times New Roman", serif;
+	font-family: var(--ge-font-display);
 	font-size: 1.18rem;
-	font-weight: 400;
+	font-weight: 600;
 	line-height: 1.32;
 	letter-spacing: -0.015em;
 }
@@ -411,7 +444,7 @@ body.mtm-faq-field .faq-qa__toggle {
 }
 body.mtm-faq-field .faq-qa__toggle::before {
 	display: inline-block;
-	font-family: Georgia, serif;
+	font-family: var(--ge-font-display);
 	font-size: 1.15rem;
 	line-height: 1;
 	content: "+";
@@ -456,9 +489,9 @@ body.mtm-faq-field .faq-cta {
 }
 body.mtm-faq-field .faq-cta h2 {
 	margin: 0.7rem 0 1rem;
-	font-family: Georgia, serif;
+	font-family: var(--ge-font-display);
 	font-size: clamp(2.2rem, 4vw, 3.9rem);
-	font-weight: 400;
+	font-weight: 600;
 	line-height: 0.94;
 	letter-spacing: -0.05em;
 }
@@ -477,9 +510,9 @@ body.mtm-faq-field .faq-cta__routes a {
 body.mtm-faq-field .faq-cta__routes a:hover strong,
 body.mtm-faq-field .faq-cta__routes a:focus-visible strong { border-bottom-color: var(--field-ink); }
 body.mtm-faq-field .faq-cta__routes strong {
-	font-family: Georgia, serif;
+	font-family: var(--ge-font-display);
 	font-size: 1.05rem;
-	font-weight: 400;
+	font-weight: 600;
 	border-bottom: 1px solid transparent;
 }
 body.mtm-faq-field .faq-cta__routes span {
@@ -493,6 +526,7 @@ body.mtm-faq-field .faq-cta__routes span {
 
 @media (max-width: 900px) {
 	body.mtm-faq-field .faq-open, body.mtm-faq-field .faq-register, body.mtm-faq-field .faq-cta { grid-template-columns: 1fr; }
+	body.mtm-faq-field .faq-open { padding-inline: clamp(1.25rem, 4vw, 4rem); }
 	body.mtm-faq-field .faq-open__title { position: static; }
 	body.mtm-faq-field .faq-index a { grid-template-columns: 1.3rem minmax(0, 1fr) auto; }
 	/* Group is already the heading above each answer block on a narrow page. */

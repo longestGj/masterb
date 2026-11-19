@@ -12,7 +12,9 @@ test("renders the live RFQ form without submitting", async ({ page }) => {
 
   const form = page.locator("form.mtm-rfq-form");
   await expect(form).toBeVisible();
-  await expect(page.locator("h1")).toHaveText("Masterbatch inquiry.");
+  await expect(page.locator("h1")).toHaveText(
+    "Request a masterbatch quote.",
+  );
   await expect(page.locator("main > section")).toHaveCount(4);
   await expect(page.locator(".contact-form .contact-fieldset")).toHaveCount(2);
   await expect(page.locator(".contact-form details.contact-advanced")).toHaveCount(
@@ -24,7 +26,9 @@ test("renders the live RFQ form without submitting", async ({ page }) => {
   await expect(form.locator('input[name="product_grade"]')).toBeHidden();
   await expect(form.locator('input[name="quantity"]')).toBeHidden();
   await expect(form.locator('input[name="destination_port"]')).toBeHidden();
-  await expect(form.locator('select[name="color_reference_type"]')).toBeHidden();
+  await expect(form.locator('select[name="color_reference_type"]')).toHaveCount(
+    0,
+  );
   await page.locator(".contact-form details.contact-advanced summary").click();
   await expect(form.locator('input[name="product_grade"]')).toBeVisible();
   await page.locator(".contact-form details.contact-advanced summary").click();
@@ -47,7 +51,7 @@ test("renders the live RFQ form without submitting", async ({ page }) => {
     "Black masterbatch",
   );
   await expect(
-    form.locator('textarea[name="target_color_function"]'),
+    form.locator('textarea[name="target_requirement"]'),
   ).toHaveAttribute("required", "");
   await expect(form.locator('button[type="submit"]')).toHaveText(
     "Submit inquiry",
@@ -62,7 +66,7 @@ test("renders the live RFQ form without submitting", async ({ page }) => {
     .locator('input[name="application"]')
     .fill("Browser layout check");
   await form
-    .locator('textarea[name="target_color_function"]')
+    .locator('textarea[name="target_requirement"]')
     .fill("Current issue layout check");
   await form.locator('input[name="privacy_consent"]').check();
 

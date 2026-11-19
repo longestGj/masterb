@@ -1,0 +1,2393 @@
+{
+ "31": {
+  "slug": "black-masterbatch",
+  "type": "page",
+  "status": "publish",
+  "title": "Black Masterbatch",
+  "template": "page-black-masterbatch",
+  "parent": 113,
+  "modified_gmt": "2026-11-10 01:57:35",
+  "permalink": "https://www.gemasterbatch.com/products/black-masterbatch/",
+  "meta": {
+   "_mb_content_id": [
+    "guide.black"
+   ],
+   "_mb_content_type": [
+    "product_guide"
+   ],
+   "_mb_schema_version": [
+    "1"
+   ],
+   "_mb_locale": [
+    "en-US"
+   ],
+   "_mb_route_key": [
+    "guides.black"
+   ],
+   "_mb_route_path": [
+    "/products/black-masterbatch/"
+   ],
+   "_mb_canonical": [
+    "/products/black-masterbatch/"
+   ],
+   "_mb_primary_keyword": [
+    "black masterbatch"
+   ],
+   "_mb_search_intent": [
+    "commercial_investigation"
+   ],
+   "_mb_page_job": [
+    "Introduce the Black Masterbatch range, applications, quality checks and buyer questions behind BK020-BK040."
+   ],
+   "_mb_product_family": [
+    "black"
+   ],
+   "_mb_hero_eyebrow": [
+    "Black Masterbatch"
+   ],
+   "_mb_hero_title": [
+    "Black Masterbatch RFQ Guide for B2B Plastic Buyers"
+   ],
+   "_mb_hero_summary": [
+    "Prepare a clearer black masterbatch inquiry by sharing your resin, application, processing method, blackness target, dispersion requirement, current issue and document needs."
+   ],
+   "_mb_primary_cta_id": [
+    "cta.black.rfq"
+   ],
+   "_mb_secondary_cta_id": [
+    "cta.black.documents"
+   ],
+   "_mb_form_key": [
+    "rfq_document_request"
+   ],
+   "_mb_form_context": [
+    "rfq"
+   ],
+   "_mb_form_prefill": [
+    "Black Masterbatch"
+   ],
+   "_mb_seo_title": [
+    "Black Masterbatch Manufacturer: BK020–BK040 Grades"
+   ],
+   "_mb_seo_description": [
+    "Compare BK020–BK040 black masterbatch grades from 20% to 40% carbon black for film, molding and recycling. Request a quote or free sample."
+   ],
+   "_mb_robots": [
+    "index,follow"
+   ],
+   "_mb_noindex": [
+    "0"
+   ],
+   "_mb_content_hash": [
+    "961cda5c3393a905d52c567b672b3d3a34d6b64e4aacb440c712cb40bed181b6"
+   ],
+   "_mb_front_matter": [
+    "{\"content_id\":\"guide.black\",\"content_type\":\"product_guide\",\"schema_version\":1,\"locale\":\"en-US\",\"route_key\":\"guides.black\",\"status\":\"review\",\"title\":\"Black Masterbatch RFQ Guide\",\"primary_keyword\":\"black masterbatch\",\"secondary_keywords\":[\"black masterbatch supplier\",\"black masterbatch manufacturer\",\"carbon black masterbatch\",\"black masterbatch for film\",\"black masterbatch for injection molding\",\"black masterbatch for recycled plastic\"],\"search_intent\":\"commercial_investigation\",\"page_job\":\"Help B2B plastic buyers prepare a complete black masterbatch RFQ for manual product and document review.\",\"product_family\":\"black\",\"body_format\":\"markdown-portable-v1\",\"body_starts_at_heading\":2,\"h1_source\":\"hero.title\",\"wp\":{\"object_type\":\"page\",\"title\":\"Black Masterbatch RFQ Guide\",\"slug\":\"black-masterbatch\",\"parent_slug\":\"masterbatch-guides\",\"parent_title\":\"Masterbatch Guides\",\"parent_required\":true,\"template\":\"page-product-guide\",\"status\":\"draft\",\"comment_status\":\"closed\",\"ping_status\":\"closed\",\"noindex\":true},\"route\":{\"path\":\"/products/black-masterbatch/\",\"canonical\":\"/products/black-masterbatch/\",\"trailing_slash\":true},\"seo\":{\"title\":\"Black Masterbatch RFQ Guide | GE CHEMICAL\",\"description\":\"Prepare a black masterbatch RFQ with resin, application, blackness target, dispersion needs, quantity and document request details for manual review.\",\"robots\":\"noindex,nofollow\",\"canonical_route_key\":\"guides.black\",\"open_graph_image_id\":null,\"structured_data\":[\"WebPage\",\"BreadcrumbList\",\"FAQPage\"]},\"hero\":{\"eyebrow\":\"Black Masterbatch\",\"title\":\"Black Masterbatch RFQ Guide for B2B Plastic Buyers\",\"summary\":\"Prepare a clearer black masterbatch inquiry by sharing your resin, application, processing method, blackness target, dispersion requirement, current issue and document needs.\",\"image_id\":null},\"conversion\":{\"primary_cta_id\":\"cta.black.rfq\",\"secondary_cta_id\":\"cta.black.documents\",\"form_key\":\"rfq_document_request\",\"form_context\":\"rfq\"},\"form\":{\"product_interest_prefill\":\"Black Masterbatch\",\"source_page\":\"guide.black\",\"application_options\":[\"Film\",\"Plastic Bag\",\"Injection Molding\",\"Recycled Plastic\",\"Extrusion\",\"Distributor Inquiry\",\"Other\"],\"recommended_rfq_fields\":[\"base_resin\",\"processing_method\",\"target_color_function\",\"current_problem\",\"product_grade_model\",\"current_grade_supplier\",\"addition_ratio\",\"trial_quantity\",\"monthly_quantity\",\"destination_port\"],\"document_request_fields\":[\"documents_requested\",\"document_purpose\"],\"success_message\":\"Your request has been received. Our team will review the product grade, application and document scope, then reply by email.\",\"notification_recipient_source\":\"environment_or_wordpress_secure_configuration\"},\"relations\":{\"parent_content_id\":null,\"related_content_ids\":[\"resource.rfq-checklist\",\"guide.white\",\"guide.color\",\"documents.request\"]},\"template_contract\":{\"required_sections\":[\"hero\",\"buyer-problems\",\"buyer-inputs\",\"application-context\",\"rfq-checklist\",\"document-review\",\"evidence-boundaries\",\"faq\",\"final-cta\",\"related-content\"],\"faq_source\":\"body:faq\",\"render_h1_once\":true,\"render_body_from\":\"markdown\"},\"evidence\":{\"status\":\"buyer-guidance-only\",\"public_entity\":\"GE CHEMICAL & POLYMER GROUP CO., LTD\",\"source_files\":[\"Cmp_Info/LIMITED_PRD_BLACK_WHITE_COLOR_RFQ_CONTENT_GE_ONLY_DOCUMENT_REQUEST.md\",\"Cmp_Info/MASTERBATCH_SUPPLIER_EVIDENCE_CONFIRMATION.md\",\"Cmp_Info/PAGE_COPY_BLACK_MASTERBATCH_RFQ.md\",\"Cmp_Info/FORM_COPY_RFQ_DOCUMENT_REQUEST.md\"],\"grade_specific_values_published\":false,\"compliance_scope\":\"specific-tested-grades-or-samples-only\",\"public_claims\":\"RFQ guidance only; no full-series parameter or compliance claim\"},\"review\":{\"content_owner\":\"unassigned\",\"seo_owner\":\"unassigned\",\"evidence_owner\":\"unassigned\",\"approved_at\":null,\"reviewed_at\":\"2026-11-02\",\"next_review_at\":null},\"import\":{\"target_environment\":\"staging\",\"idempotency_key\":\"guide.black\",\"create_status\":\"draft\",\"body_h1_allowed\":false,\"publish_blockers\":[\"Masterbatch Guides parent page and final route not confirmed\",\"RFQ and document request form pages not available\",\"Form recipient and review workflow not confirmed\",\"Company facts and product-grade evidence require approval\",\"Privacy policy and image rights require approval\"]}}"
+   ],
+   "_mb_template_contract": [
+    "{\"required_sections\":[\"hero\",\"buyer-problems\",\"buyer-inputs\",\"application-context\",\"rfq-checklist\",\"document-review\",\"evidence-boundaries\",\"faq\",\"final-cta\",\"related-content\"],\"faq_source\":\"body:faq\",\"render_h1_once\":true,\"render_body_from\":\"markdown\"}"
+   ],
+   "_mb_parent_content_id": [
+    "masterbatch-guides.index"
+   ],
+   "_wp_page_template": [
+    "page-black-masterbatch"
+   ],
+   "_edit_lock": [
+    "1793775056:1"
+   ],
+   "rank_math_title": [
+    "Black Masterbatch Manufacturer: BK020–BK040 Grades"
+   ],
+   "rank_math_description": [
+    "Compare BK020–BK040 black masterbatch grades from 20% to 40% carbon black for film, molding and recycling. Request a quote or free sample."
+   ],
+   "rank_math_focus_keyword": [
+    "black masterbatch"
+   ],
+   "rank_math_robots": [
+    "a:2:{i:0;s:5:\"index\";i:1;s:6:\"follow\";}"
+   ],
+   "rank_math_internal_links_processed": [
+    "1"
+   ]
+  }
+ },
+ "53": {
+  "slug": "home",
+  "type": "page",
+  "status": "publish",
+  "title": "Black Masterbatch Manufacturer in China",
+  "template": "page-home",
+  "parent": 0,
+  "modified_gmt": "2026-11-10 07:05:04",
+  "permalink": "https://www.gemasterbatch.com/",
+  "meta": {
+   "_mb_content_id": [
+    "home"
+   ],
+   "_mb_content_type": [
+    "home"
+   ],
+   "_mb_schema_version": [
+    "1"
+   ],
+   "_mb_locale": [
+    "en-US"
+   ],
+   "_mb_route_key": [
+    "home"
+   ],
+   "_mb_route_path": [
+    "/"
+   ],
+   "_mb_canonical": [
+    "/"
+   ],
+   "_mb_primary_keyword": [
+    "masterbatch"
+   ],
+   "_mb_search_intent": [
+    "commercial_investigation"
+   ],
+   "_mb_page_job": [
+    "Position GE Chemical as a black masterbatch manufacturer and supplier in China, present the black and desiccant product routes, and guide qualified buyers into an application-focused review."
+   ],
+   "_mb_product_family": [
+    "all"
+   ],
+   "_mb_hero_eyebrow": [
+    "Black Masterbatch · Desiccant Masterbatch"
+   ],
+   "_mb_hero_title": [
+    "Masterbatch Products for Plastic Processing"
+   ],
+   "_mb_hero_summary": [
+    "GE Chemical manufactures black masterbatch in five carbon black loadings from 20% to 40% and supplies CaO desiccant masterbatch for moisture-control applications. Share the resin, process and end product for grade review."
+   ],
+   "_mb_primary_cta_id": [
+    "cta.general.rfq"
+   ],
+   "_mb_secondary_cta_id": [
+    "cta.general.documents"
+   ],
+   "_mb_form_key": [
+    "rfq_document_request"
+   ],
+   "_mb_form_context": [
+    "rfq"
+   ],
+   "_mb_form_prefill": [
+    ""
+   ],
+   "_mb_seo_title": [
+    "Black Masterbatch Manufacturer in China | GE CHEMICAL"
+   ],
+   "_mb_seo_description": [
+    "Black masterbatch manufacturer in China for 20 to 40 percent carbon black and CaO desiccant masterbatch. Share resin, process and application for review."
+   ],
+   "_mb_robots": [
+    "index,follow"
+   ],
+   "_mb_content_hash": [
+    "07e88f8a06e276d3c9f4fb28478c6ed45803007ef246c0285262edad2a36dcc9"
+   ],
+   "_mb_template_contract": [
+    "{\"required_sections\":[\"hero\",\"products\",\"applications\",\"review-process\",\"documents\",\"about\",\"resources\",\"quote\"],\"render_h1_once\":true,\"render_body_from\":\"gutenberg-blocks-v1\"}"
+   ],
+   "_mb_parent_content_id": [
+    ""
+   ],
+   "_wp_page_template": [
+    "page-home"
+   ],
+   "_mb_body_format": [
+    "gutenberg-blocks-v1"
+   ],
+   "_mb_front_page": [
+    "1"
+   ],
+   "_edit_lock": [
+    "1793865097:1"
+   ],
+   "_mb_noindex": [
+    "0"
+   ],
+   "rank_math_title": [
+    "Black Masterbatch Manufacturer in China | GE CHEMICAL"
+   ],
+   "rank_math_description": [
+    "Black masterbatch manufacturer in China for 20 to 40 percent carbon black and CaO desiccant masterbatch. Share resin, process and application for review."
+   ],
+   "rank_math_focus_keyword": [
+    "masterbatch"
+   ],
+   "rank_math_robots": [
+    "a:2:{i:0;s:5:\"index\";i:1;s:6:\"follow\";}"
+   ],
+   "rank_math_internal_links_processed": [
+    "1"
+   ]
+  }
+ },
+ "58": {
+  "slug": "faq",
+  "type": "page",
+  "status": "publish",
+  "title": "Masterbatch Buyer FAQ",
+  "template": "page-faq",
+  "parent": 0,
+  "modified_gmt": "2026-11-10 01:57:58",
+  "permalink": "https://www.gemasterbatch.com/faq/",
+  "meta": {
+   "_mb_content_id": [
+    "faq"
+   ],
+   "_mb_content_type": [
+    "faq"
+   ],
+   "_mb_schema_version": [
+    "1"
+   ],
+   "_mb_locale": [
+    "en-US"
+   ],
+   "_mb_route_key": [
+    "faq"
+   ],
+   "_mb_route_path": [
+    "/faq/"
+   ],
+   "_mb_canonical": [
+    "/faq/"
+   ],
+   "_mb_primary_keyword": [
+    "masterbatch faq"
+   ],
+   "_mb_search_intent": [
+    "informational"
+   ],
+   "_mb_page_job": [
+    "Answer common masterbatch buyer questions on product range, RFQ preparation, samples, technical document review and application fit, then guide readers into a guide, RFQ or document request."
+   ],
+   "_mb_product_family": [
+    "all"
+   ],
+   "_mb_hero_eyebrow": [
+    "Buyer FAQ"
+   ],
+   "_mb_hero_title": [
+    "Masterbatch Buyer FAQ for Plastic Processing"
+   ],
+   "_mb_hero_summary": [
+    "Short answers to the questions plastic processors, distributors and masterbatch buyers ask before an inquiry."
+   ],
+   "_mb_primary_cta_id": [
+    "cta.general.rfq"
+   ],
+   "_mb_secondary_cta_id": [
+    "cta.general.documents"
+   ],
+   "_mb_form_key": [
+    "rfq_document_request"
+   ],
+   "_mb_form_context": [
+    "faq"
+   ],
+   "_mb_form_prefill": [
+    ""
+   ],
+   "_mb_seo_title": [
+    "Masterbatch Buyer FAQ | Quotes, Samples & Documents"
+   ],
+   "_mb_seo_description": [
+    "Answers to common masterbatch buyer questions on product range, RFQ preparation, samples, technical document review and application fit."
+   ],
+   "_mb_robots": [
+    "index,follow"
+   ],
+   "_mb_noindex": [
+    "0"
+   ],
+   "_mb_content_hash": [
+    "b5014ae4414f2d904a34aa552155c9519b8d9507477721172f97b1b2aca280bc"
+   ],
+   "_mb_template_contract": [
+    "{\"required_sections\":[\"hero\",\"faq\",\"final-cta\",\"related-content\"],\"faq_source\":\"body\",\"render_h1_once\":true,\"render_body_from\":\"markdown\"}"
+   ],
+   "_mb_parent_content_id": [
+    ""
+   ],
+   "_wp_page_template": [
+    "page-faq"
+   ],
+   "_mb_body_format": [
+    "markdown-portable-v1"
+   ],
+   "_mb_front_page": [
+    ""
+   ],
+   "_edit_lock": [
+    "1793865057:1"
+   ],
+   "rank_math_title": [
+    "Masterbatch Buyer FAQ | Quotes, Samples & Documents"
+   ],
+   "rank_math_description": [
+    "Answers to common masterbatch buyer questions on product range, RFQ preparation, samples, technical document review and application fit."
+   ],
+   "rank_math_focus_keyword": [
+    "masterbatch faq"
+   ],
+   "rank_math_robots": [
+    "a:2:{i:0;s:5:\"index\";i:1;s:6:\"follow\";}"
+   ],
+   "rank_math_internal_links_processed": [
+    "1"
+   ]
+  }
+ },
+ "59": {
+  "slug": "masterbatch-guides",
+  "type": "page",
+  "status": "publish",
+  "title": "Masterbatch Guides",
+  "template": "page-guides",
+  "parent": 0,
+  "modified_gmt": "2026-11-10 07:05:05",
+  "permalink": "https://www.gemasterbatch.com/masterbatch-guides/",
+  "meta": {
+   "_mb_content_id": [
+    "guides.index"
+   ],
+   "_mb_content_type": [
+    "guides_index"
+   ],
+   "_mb_schema_version": [
+    "1"
+   ],
+   "_mb_locale": [
+    "en-US"
+   ],
+   "_mb_route_key": [
+    "guides.index"
+   ],
+   "_mb_route_path": [
+    "/masterbatch-guides/"
+   ],
+   "_mb_canonical": [
+    "/masterbatch-guides/"
+   ],
+   "_mb_primary_keyword": [
+    "masterbatch guides"
+   ],
+   "_mb_search_intent": [
+    "commercial_investigation"
+   ],
+   "_mb_page_job": [
+    "Help buyers compare current Black and Desiccant product routes, prepare an RFQ and understand technical document review."
+   ],
+   "_mb_product_family": [
+    "all"
+   ],
+   "_mb_hero_eyebrow": [
+    "Masterbatch Guides"
+   ],
+   "_mb_hero_title": [
+    "Masterbatch Guides for Black, White and Color Requirements"
+   ],
+   "_mb_hero_summary": [
+    "Use Masterbatch Buyer Resources to prepare an RFQ, understand document review and find current Black or Desiccant product guidance."
+   ],
+   "_mb_primary_cta_id": [
+    "cta.general.rfq"
+   ],
+   "_mb_secondary_cta_id": [
+    "cta.general.documents"
+   ],
+   "_mb_form_key": [
+    "rfq_document_request"
+   ],
+   "_mb_form_context": [
+    "guides"
+   ],
+   "_mb_form_prefill": [
+    ""
+   ],
+   "_mb_seo_title": [
+    "Masterbatch Guides | GE CHEMICAL"
+   ],
+   "_mb_seo_description": [
+    "Use the GE masterbatch guides to compare product directions, prepare an RFQ and understand how technical documents are reviewed."
+   ],
+   "_mb_robots": [
+    "noindex,nofollow"
+   ],
+   "_mb_noindex": [
+    "1"
+   ],
+   "_mb_content_hash": [
+    "734b3e0ee15a0b0bde2370135e3bc7076ad08ef5c5186fa5098ba16c61d75a43"
+   ],
+   "_mb_template_contract": [
+    "{\"required_sections\":[\"hero\",\"guide-selection\",\"review-process\",\"final-cta\"],\"render_h1_once\":true,\"render_body_from\":\"markdown\"}"
+   ],
+   "_mb_parent_content_id": [
+    ""
+   ],
+   "_wp_page_template": [
+    "page-guides"
+   ],
+   "_mb_body_format": [
+    "markdown-portable-v1"
+   ],
+   "_mb_front_page": [
+    ""
+   ],
+   "rank_math_title": [
+    "Masterbatch Guides | GE CHEMICAL"
+   ],
+   "rank_math_description": [
+    "Use the GE masterbatch guides to compare product directions, prepare an RFQ and understand how technical documents are reviewed."
+   ],
+   "rank_math_focus_keyword": [
+    "masterbatch guides"
+   ],
+   "rank_math_robots": [
+    "a:2:{i:0;s:7:\"noindex\";i:1;s:8:\"nofollow\";}"
+   ],
+   "rank_math_internal_links_processed": [
+    "1"
+   ]
+  }
+ },
+ "60": {
+  "slug": "request-a-quote",
+  "type": "page",
+  "status": "publish",
+  "title": "Request a Masterbatch Quote",
+  "template": "page-request-a-quote",
+  "parent": 0,
+  "modified_gmt": "2026-11-10 01:57:36",
+  "permalink": "https://www.gemasterbatch.com/request-a-quote/",
+  "meta": {
+   "_mb_content_id": [
+    "quote.request"
+   ],
+   "_mb_content_type": [
+    "quote_request"
+   ],
+   "_mb_schema_version": [
+    "1"
+   ],
+   "_mb_locale": [
+    "en-US"
+   ],
+   "_mb_route_key": [
+    "quote.request"
+   ],
+   "_mb_route_path": [
+    "/request-a-quote/"
+   ],
+   "_mb_canonical": [
+    "/request-a-quote/"
+   ],
+   "_mb_primary_keyword": [
+    "masterbatch quote"
+   ],
+   "_mb_search_intent": [
+    "transactional"
+   ],
+   "_mb_page_job": [
+    "Collect a complete masterbatch RFQ in one place so the team can review product grade, application and document scope before replying."
+   ],
+   "_mb_product_family": [
+    "all"
+   ],
+   "_mb_hero_eyebrow": [
+    "Request a Quote"
+   ],
+   "_mb_hero_title": [
+    "Request a Masterbatch Quote"
+   ],
+   "_mb_hero_summary": [
+    "Share your resin, application, processing method, target requirement, quantity and document needs. The team reviews each inquiry by product grade and application, then replies by email."
+   ],
+   "_mb_primary_cta_id": [
+    "cta.quote.submit"
+   ],
+   "_mb_secondary_cta_id": [
+    "cta.quote.documents"
+   ],
+   "_mb_form_key": [
+    "rfq_document_request"
+   ],
+   "_mb_form_context": [
+    "rfq"
+   ],
+   "_mb_form_prefill": [
+    ""
+   ],
+   "_mb_seo_title": [
+    "Request a Masterbatch Quote | GE CHEMICAL"
+   ],
+   "_mb_seo_description": [
+    "Send a masterbatch RFQ with resin, application, processing method, target requirement, quantity and document needs for manual review by email."
+   ],
+   "_mb_robots": [
+    "index,follow"
+   ],
+   "_mb_noindex": [
+    "0"
+   ],
+   "_mb_content_hash": [
+    "5fa91fd60da01141ed543a4bea18ef5317218722cf60a0f666be2df6f8c8de05"
+   ],
+   "_mb_template_contract": [
+    "{\"required_sections\":[\"hero\",\"what-to-prepare\",\"review-process\",\"document-review\",\"claim-boundaries\",\"final-cta\"],\"render_h1_once\":true,\"render_body_from\":\"markdown\"}"
+   ],
+   "_mb_parent_content_id": [
+    ""
+   ],
+   "_wp_page_template": [
+    "page-request-a-quote"
+   ],
+   "_mb_body_format": [
+    "markdown-portable-v1"
+   ],
+   "_mb_front_page": [
+    ""
+   ],
+   "_edit_lock": [
+    "1793869314:1"
+   ],
+   "rank_math_title": [
+    "Request a Masterbatch Quote | GE CHEMICAL"
+   ],
+   "rank_math_description": [
+    "Send a masterbatch RFQ with resin, application, processing method, target requirement, quantity and document needs for manual review by email."
+   ],
+   "rank_math_focus_keyword": [
+    "masterbatch quote"
+   ],
+   "rank_math_robots": [
+    "a:2:{i:0;s:5:\"index\";i:1;s:6:\"follow\";}"
+   ],
+   "rank_math_internal_links_processed": [
+    "1"
+   ]
+  }
+ },
+ "66": {
+  "slug": "about-quality",
+  "type": "page",
+  "status": "publish",
+  "title": "About / Quality",
+  "template": "page-about-quality",
+  "parent": 0,
+  "modified_gmt": "2026-11-10 07:05:05",
+  "permalink": "https://www.gemasterbatch.com/about-quality/",
+  "meta": {
+   "_mb_content_id": [
+    "about.quality"
+   ],
+   "_mb_content_type": [
+    "about_quality"
+   ],
+   "_mb_schema_version": [
+    "1"
+   ],
+   "_mb_locale": [
+    "en-US"
+   ],
+   "_mb_route_key": [
+    "about.quality"
+   ],
+   "_mb_route_path": [
+    "/about-quality/"
+   ],
+   "_mb_canonical": [
+    "/about-quality/"
+   ],
+   "_mb_primary_keyword": [
+    "masterbatch company"
+   ],
+   "_mb_search_intent": [
+    "commercial_investigation"
+   ],
+   "_mb_page_job": [
+    "Explain the approved company scope and how masterbatch inquiries and technical documents are reviewed, without unverified scale or compliance claims."
+   ],
+   "_mb_product_family": [
+    "all"
+   ],
+   "_mb_hero_eyebrow": [
+    "About / Quality"
+   ],
+   "_mb_hero_title": [
+    "About & Quality: How We Review Masterbatch Inquiries"
+   ],
+   "_mb_hero_summary": [
+    "GE CHEMICAL reviews black and desiccant masterbatch inquiries by resin, application and target. Product fit and technical documents are reviewed by exact grade and application."
+   ],
+   "_mb_primary_cta_id": [
+    "cta.about.rfq"
+   ],
+   "_mb_secondary_cta_id": [
+    "cta.about.documents"
+   ],
+   "_mb_form_key": [
+    ""
+   ],
+   "_mb_form_context": [
+    ""
+   ],
+   "_mb_form_prefill": [
+    ""
+   ],
+   "_mb_seo_title": [
+    "About GE Chemical | Masterbatch Quality & Review"
+   ],
+   "_mb_seo_description": [
+    "How GE CHEMICAL reviews black and desiccant masterbatch inquiries by exact grade and application. Documents are handled by request and review."
+   ],
+   "_mb_robots": [
+    "index,follow"
+   ],
+   "_mb_noindex": [
+    "0"
+   ],
+   "_mb_content_hash": [
+    "715a0e17867ee15390c153cbefe3c62d14d0929ec94bffe8a83e571db4e8e279"
+   ],
+   "_mb_template_contract": [
+    "{\"required_sections\":[\"hero\",\"what-we-focus-on\",\"inquiry-review\",\"document-review\",\"claim-boundaries\",\"next-step\"],\"render_h1_once\":true,\"render_body_from\":\"markdown\"}"
+   ],
+   "_mb_parent_content_id": [
+    ""
+   ],
+   "_wp_page_template": [
+    "page-about-quality"
+   ],
+   "_mb_body_format": [
+    "markdown-portable-v1"
+   ],
+   "_mb_front_page": [
+    ""
+   ],
+   "_edit_lock": [
+    "1793869300:1"
+   ],
+   "rank_math_title": [
+    "About GE Chemical | Masterbatch Quality & Review"
+   ],
+   "rank_math_description": [
+    "How GE CHEMICAL reviews black and desiccant masterbatch inquiries by exact grade and application. Documents are handled by request and review."
+   ],
+   "rank_math_focus_keyword": [
+    "masterbatch company"
+   ],
+   "rank_math_robots": [
+    "a:2:{i:0;s:5:\"index\";i:1;s:6:\"follow\";}"
+   ],
+   "rank_math_internal_links_processed": [
+    "1"
+   ]
+  }
+ },
+ "69": {
+  "slug": "privacy-policy",
+  "type": "page",
+  "status": "publish",
+  "title": "Privacy Policy",
+  "template": "page-privacy",
+  "parent": 0,
+  "modified_gmt": "2026-11-16 06:34:06",
+  "permalink": "https://www.gemasterbatch.com/privacy-policy/",
+  "meta": {
+   "_mb_content_id": [
+    "privacy.policy"
+   ],
+   "_mb_content_type": [
+    "privacy_policy"
+   ],
+   "_mb_schema_version": [
+    "1"
+   ],
+   "_mb_locale": [
+    "en-US"
+   ],
+   "_mb_route_key": [
+    "privacy.policy"
+   ],
+   "_mb_route_path": [
+    "/privacy-policy/"
+   ],
+   "_mb_canonical": [
+    "/privacy-policy/"
+   ],
+   "_mb_primary_keyword": [
+    "privacy policy"
+   ],
+   "_mb_search_intent": [
+    "informational"
+   ],
+   "_mb_page_job": [
+    "Explain how GE Chemical handles personal information submitted through the website's inquiry forms and related business communications."
+   ],
+   "_mb_product_family": [
+    "all"
+   ],
+   "_mb_hero_eyebrow": [
+    "Privacy"
+   ],
+   "_mb_hero_title": [
+    "Privacy Policy"
+   ],
+   "_mb_hero_summary": [
+    "How GE CHEMICAL & POLYMER GROUP CO., LTD handles information submitted through this website."
+   ],
+   "_mb_primary_cta_id": [
+    ""
+   ],
+   "_mb_secondary_cta_id": [
+    ""
+   ],
+   "_mb_form_key": [
+    ""
+   ],
+   "_mb_form_context": [
+    ""
+   ],
+   "_mb_form_prefill": [
+    ""
+   ],
+   "_mb_seo_title": [
+    "Privacy Policy | GE CHEMICAL"
+   ],
+   "_mb_seo_description": [
+    "Learn what information GE Chemical collects through inquiry forms, why it is used and how to ask about access, correction or deletion."
+   ],
+   "_mb_robots": [
+    "noindex,nofollow"
+   ],
+   "_mb_content_hash": [
+    "e5914357a160de2f7c019d2ab3acaeb56acadce33b879e6815c7b2aad8c72737"
+   ],
+   "_mb_front_matter": [
+    "{\"content_id\":\"privacy.policy\",\"content_type\":\"privacy_policy\",\"schema_version\":1,\"locale\":\"en-US\",\"route_key\":\"privacy.policy\",\"status\":\"review\",\"title\":\"Privacy Policy\",\"primary_keyword\":\"privacy policy\",\"search_intent\":\"informational\",\"page_job\":\"Explain how GE Chemical handles personal information submitted through the website's inquiry forms and related business communications.\",\"product_family\":\"all\",\"body_format\":\"markdown-portable-v1\",\"body_starts_at_heading\":2,\"h1_source\":\"hero.title\",\"wp\":{\"object_type\":\"page\",\"title\":\"Privacy Policy\",\"slug\":\"privacy-policy\",\"template\":\"page-privacy\",\"status\":\"draft\",\"comment_status\":\"closed\",\"ping_status\":\"closed\",\"noindex\":true},\"route\":{\"path\":\"/privacy-policy/\",\"canonical\":\"/privacy-policy/\",\"trailing_slash\":true},\"seo\":{\"title\":\"Privacy Policy | GE CHEMICAL\",\"description\":\"Learn what information GE Chemical collects through inquiry forms, why it is used and how to ask about access, correction or deletion.\",\"robots\":\"noindex,nofollow\",\"canonical_route_key\":\"privacy.policy\",\"open_graph_image_id\":null,\"structured_data\":[\"WebPage\"]},\"hero\":{\"eyebrow\":\"Privacy\",\"title\":\"Privacy Policy\",\"summary\":\"How GE CHEMICAL & POLYMER GROUP CO., LTD handles information submitted through this website.\",\"image_id\":null},\"relations\":{\"parent_content_id\":null,\"related_content_ids\":[\"home\",\"quote.request\",\"documents.request\"]},\"evidence\":{\"status\":\"implementation-aligned\",\"public_entity\":\"GE CHEMICAL & POLYMER GROUP CO., LTD\",\"source_files\":[\"Cmp_Info/DOCUMENT_REQUEST_FORM_BRIEF.md\",\"xuqiu/wordpress/themes/mtm-b2b-masterbatch/templates/page-request-a-quote.html\",\"xuqiu/wordpress/mu-plugins/mb-rfq-submissions.php\",\"xuqiu/wordpress/themes/mtm-b2b-masterbatch/functions.php\"],\"public_claims\":\"Current form behavior and general website data-handling information only\"},\"review\":{\"content_owner\":\"unassigned\",\"seo_owner\":\"unassigned\",\"evidence_owner\":\"unassigned\",\"approved_at\":null,\"reviewed_at\":\"2026-11-05\",\"next_review_at\":null},\"import\":{\"target_environment\":\"staging\",\"idempotency_key\":\"privacy.policy\",\"create_status\":\"draft\",\"body_h1_allowed\":false,\"publish_blockers\":[\"Business review of the policy is pending\",\"Email delivery configuration requires confirmation\",\"Privacy Policy requires final business and legal review\"]}}"
+   ],
+   "_mb_template_contract": [
+    "[]"
+   ],
+   "_mb_parent_content_id": [
+    ""
+   ],
+   "_wp_page_template": [
+    "page-privacy"
+   ],
+   "_mb_body_format": [
+    "markdown-portable-v1"
+   ],
+   "_mb_front_page": [
+    ""
+   ],
+   "_mb_noindex": [
+    "1"
+   ],
+   "rank_math_title": [
+    "Privacy Policy | GE CHEMICAL"
+   ],
+   "rank_math_description": [
+    "Learn what information GE Chemical collects through inquiry forms, why it is used and how to ask about access, correction or deletion."
+   ],
+   "rank_math_focus_keyword": [
+    "privacy policy"
+   ],
+   "rank_math_robots": [
+    "a:2:{i:0;s:7:\"noindex\";i:1;s:8:\"nofollow\";}"
+   ],
+   "rank_math_internal_links_processed": [
+    "1"
+   ]
+  }
+ },
+ "79": {
+  "slug": "technical-documents",
+  "type": "page",
+  "status": "publish",
+  "title": "Request Masterbatch Technical Documents",
+  "template": "page-document-request",
+  "parent": 0,
+  "modified_gmt": "2026-11-10 07:05:06",
+  "permalink": "https://www.gemasterbatch.com/technical-documents/",
+  "meta": {
+   "_mb_content_id": [
+    "documents.request"
+   ],
+   "_mb_content_type": [
+    "document_request"
+   ],
+   "_mb_schema_version": [
+    "1"
+   ],
+   "_mb_locale": [
+    "en-US"
+   ],
+   "_mb_route_key": [
+    "documents.request"
+   ],
+   "_mb_route_path": [
+    "/technical-documents/"
+   ],
+   "_mb_canonical": [
+    "/technical-documents/"
+   ],
+   "_mb_primary_keyword": [
+    "masterbatch technical documents"
+   ],
+   "_mb_search_intent": [
+    "transactional"
+   ],
+   "_mb_page_job": [
+    "Collect document-review requests for black and desiccant masterbatch without offering direct public file access."
+   ],
+   "_mb_product_family": [
+    "all"
+   ],
+   "_mb_hero_eyebrow": [
+    "Technical Documents"
+   ],
+   "_mb_hero_title": [
+    "Request Masterbatch Technical Documents"
+   ],
+   "_mb_hero_summary": [
+    "Request review of technical or compliance-related documents for a specific black or desiccant masterbatch inquiry. Availability is checked by grade, application, country and intended use."
+   ],
+   "_mb_primary_cta_id": [
+    ""
+   ],
+   "_mb_secondary_cta_id": [
+    ""
+   ],
+   "_mb_form_key": [
+    ""
+   ],
+   "_mb_form_context": [
+    ""
+   ],
+   "_mb_form_prefill": [
+    ""
+   ],
+   "_mb_seo_title": [
+    "Request Masterbatch Technical Documents | GE CHEMICAL"
+   ],
+   "_mb_seo_description": [
+    "Request TDS, SDS/MSDS, COA and compliance-related document review for black or desiccant masterbatch inquiries and intended use."
+   ],
+   "_mb_robots": [
+    "index,follow"
+   ],
+   "_mb_noindex": [
+    "0"
+   ],
+   "_mb_content_hash": [
+    "6a226c51803228492e4d7cafcf081881880c4ca720a08ae91e6a528e89d2e460"
+   ],
+   "_mb_template_contract": [
+    "[]"
+   ],
+   "_mb_parent_content_id": [
+    ""
+   ],
+   "_wp_page_template": [
+    "page-document-request"
+   ],
+   "_mb_body_format": [
+    "markdown-portable-v1"
+   ],
+   "_mb_front_page": [
+    ""
+   ],
+   "rank_math_title": [
+    "Request Masterbatch Technical Documents | GE CHEMICAL"
+   ],
+   "rank_math_description": [
+    "Request TDS, SDS/MSDS, COA and compliance-related document review for black or desiccant masterbatch inquiries and intended use."
+   ],
+   "rank_math_focus_keyword": [
+    "masterbatch technical documents"
+   ],
+   "rank_math_robots": [
+    "a:2:{i:0;s:5:\"index\";i:1;s:6:\"follow\";}"
+   ],
+   "rank_math_internal_links_processed": [
+    "1"
+   ]
+  }
+ },
+ "80": {
+  "slug": "resources",
+  "type": "page",
+  "status": "publish",
+  "title": "Masterbatch Buyer Resources",
+  "template": "page-resources",
+  "parent": 0,
+  "modified_gmt": "2026-11-10 01:57:33",
+  "permalink": "https://www.gemasterbatch.com/resources/",
+  "meta": {
+   "_mb_content_id": [
+    "resources.index"
+   ],
+   "_mb_content_type": [
+    "resource_index"
+   ],
+   "_mb_schema_version": [
+    "1"
+   ],
+   "_mb_locale": [
+    "en-US"
+   ],
+   "_mb_route_key": [
+    "resources.index"
+   ],
+   "_mb_route_path": [
+    "/resources/"
+   ],
+   "_mb_canonical": [
+    "/resources/"
+   ],
+   "_mb_primary_keyword": [
+    "masterbatch guide"
+   ],
+   "_mb_search_intent": [
+    "informational"
+   ],
+   "_mb_page_job": [
+    "Give B2B buyers one route into product guides, RFQ preparation, document review and common buyer questions."
+   ],
+   "_mb_product_family": [
+    "all"
+   ],
+   "_mb_hero_eyebrow": [
+    "Buyer Resources"
+   ],
+   "_mb_hero_title": [
+    "Masterbatch Buyer Resources"
+   ],
+   "_mb_hero_summary": [
+    "Start with the product direction closest to your application, prepare the details needed for review, and understand how technical documents are handled."
+   ],
+   "_mb_primary_cta_id": [
+    ""
+   ],
+   "_mb_secondary_cta_id": [
+    ""
+   ],
+   "_mb_form_key": [
+    ""
+   ],
+   "_mb_form_context": [
+    ""
+   ],
+   "_mb_form_prefill": [
+    ""
+   ],
+   "_mb_seo_title": [
+    "Masterbatch Buyer Resources | GE CHEMICAL"
+   ],
+   "_mb_seo_description": [
+    "Explore black and desiccant masterbatch routes, read buyer guides, prepare an RFQ and understand technical document review."
+   ],
+   "_mb_robots": [
+    "noindex,nofollow"
+   ],
+   "_mb_noindex": [
+    "1"
+   ],
+   "_mb_content_hash": [
+    "0fc51a6884ed1c5900687d6210c433ae1b21332c89f1d080d5941b7b0dd244cc"
+   ],
+   "_mb_front_matter": [
+    "{\"content_id\":\"resources.index\",\"content_type\":\"resource_index\",\"schema_version\":1,\"locale\":\"en-US\",\"route_key\":\"resources.index\",\"status\":\"review\",\"title\":\"Masterbatch Buyer Resources\",\"primary_keyword\":\"masterbatch guide\",\"search_intent\":\"informational\",\"page_job\":\"Give B2B buyers one route into product guides, RFQ preparation, document review and common buyer questions.\",\"product_family\":\"all\",\"body_format\":\"markdown-portable-v1\",\"body_starts_at_heading\":2,\"h1_source\":\"hero.title\",\"wp\":{\"object_type\":\"page\",\"title\":\"Masterbatch Buyer Resources\",\"slug\":\"resources\",\"template\":\"page-resources\",\"status\":\"draft\",\"comment_status\":\"closed\",\"ping_status\":\"closed\",\"noindex\":true},\"route\":{\"path\":\"/resources/\",\"canonical\":\"/resources/\",\"trailing_slash\":true},\"seo\":{\"title\":\"Masterbatch Buyer Resources | GE CHEMICAL\",\"description\":\"Use these masterbatch buyer resources to prepare an RFQ, choose a product direction, understand document review and find answers to common questions.\",\"robots\":\"noindex,nofollow\",\"canonical_route_key\":\"resources.index\",\"open_graph_image_id\":null,\"structured_data\":[\"CollectionPage\",\"BreadcrumbList\"]},\"hero\":{\"eyebrow\":\"Buyer Resources\",\"title\":\"Masterbatch Buyer Resources\",\"summary\":\"Start with the product direction closest to your application, prepare the details needed for review, and understand how technical documents are handled.\",\"image_id\":null},\"relations\":{\"parent_content_id\":null,\"related_content_ids\":[\"guides.index\",\"guide.black\",\"guide.white\",\"guide.color\",\"documents.request\",\"faq\",\"quote.request\"]},\"evidence\":{\"status\":\"buyer-guidance-only\",\"public_entity\":\"GE CHEMICAL & POLYMER GROUP CO., LTD\",\"source_files\":[\"xuqiu/MASTERBATCH_WEBSITE_CONTENT_STRUCTURE.md\",\"u8272u6bcdu7c92u77e5u8bc6u5e93/README.md\"],\"public_claims\":\"Navigation and buyer-preparation guidance only\"},\"review\":{\"content_owner\":\"unassigned\",\"seo_owner\":\"unassigned\",\"evidence_owner\":\"unassigned\",\"approved_at\":null,\"reviewed_at\":\"2026-11-05\",\"next_review_at\":null},\"import\":{\"target_environment\":\"staging\",\"idempotency_key\":\"resources.index\",\"create_status\":\"draft\",\"body_h1_allowed\":false}}"
+   ],
+   "_mb_template_contract": [
+    "[]"
+   ],
+   "_mb_parent_content_id": [
+    ""
+   ],
+   "_wp_page_template": [
+    "page-resources"
+   ],
+   "_mb_body_format": [
+    "markdown-portable-v1"
+   ],
+   "_mb_front_page": [
+    ""
+   ],
+   "rank_math_title": [
+    "Masterbatch Buyer Resources | GE CHEMICAL"
+   ],
+   "rank_math_description": [
+    "Explore black and desiccant masterbatch routes, read buyer guides, prepare an RFQ and understand technical document review."
+   ],
+   "rank_math_focus_keyword": [
+    "masterbatch guide"
+   ],
+   "rank_math_robots": [
+    "a:2:{i:0;s:7:\"noindex\";i:1;s:8:\"nofollow\";}"
+   ],
+   "rank_math_internal_links_processed": [
+    "1"
+   ]
+  }
+ },
+ "81": {
+  "slug": "masterbatch-rfq-checklist",
+  "type": "page",
+  "status": "publish",
+  "title": "Masterbatch RFQ Checklist",
+  "template": "page-rfq-checklist",
+  "parent": 80,
+  "modified_gmt": "2026-11-10 01:57:38",
+  "permalink": "https://www.gemasterbatch.com/resources/masterbatch-rfq-checklist/",
+  "meta": {
+   "_mb_content_id": [
+    "resource.rfq_checklist"
+   ],
+   "_mb_content_type": [
+    "resource_article"
+   ],
+   "_mb_schema_version": [
+    "1"
+   ],
+   "_mb_locale": [
+    "en-US"
+   ],
+   "_mb_route_key": [
+    "resources.rfq_checklist"
+   ],
+   "_mb_route_path": [
+    "/resources/masterbatch-rfq-checklist/"
+   ],
+   "_mb_canonical": [
+    "/resources/masterbatch-rfq-checklist/"
+   ],
+   "_mb_primary_keyword": [
+    "masterbatch RFQ"
+   ],
+   "_mb_search_intent": [
+    "informational"
+   ],
+   "_mb_page_job": [
+    "Help buyers collect the minimum useful technical and commercial context for masterbatch review."
+   ],
+   "_mb_product_family": [
+    "all"
+   ],
+   "_mb_hero_eyebrow": [
+    "RFQ Checklist"
+   ],
+   "_mb_hero_title": [
+    "Masterbatch RFQ Checklist"
+   ],
+   "_mb_hero_summary": [
+    "A complete inquiry gives the team enough context to review product fit and document scope without guessing the application."
+   ],
+   "_mb_primary_cta_id": [
+    ""
+   ],
+   "_mb_secondary_cta_id": [
+    ""
+   ],
+   "_mb_form_key": [
+    ""
+   ],
+   "_mb_form_context": [
+    ""
+   ],
+   "_mb_form_prefill": [
+    ""
+   ],
+   "_mb_seo_title": [
+    "Masterbatch RFQ Checklist | Inputs & Documents"
+   ],
+   "_mb_seo_description": [
+    "Use this masterbatch RFQ checklist to collect resin, process, application, target, quantity, destination and document review details."
+   ],
+   "_mb_robots": [
+    "index,follow"
+   ],
+   "_mb_noindex": [
+    "0"
+   ],
+   "_mb_content_hash": [
+    "b82645c4b1cc9f50fb2f8ba81f11e6b9e0c202b430442b2cfe63567c96df79a9"
+   ],
+   "_mb_front_matter": [
+    "{\"content_id\":\"resource.rfq_checklist\",\"content_type\":\"resource_article\",\"schema_version\":1,\"locale\":\"en-US\",\"route_key\":\"resources.rfq_checklist\",\"status\":\"review\",\"title\":\"Masterbatch RFQ Checklist\",\"primary_keyword\":\"masterbatch RFQ\",\"search_intent\":\"informational\",\"page_job\":\"Help buyers collect the minimum useful technical and commercial context for masterbatch review.\",\"product_family\":\"all\",\"body_format\":\"markdown-portable-v1\",\"body_starts_at_heading\":2,\"h1_source\":\"hero.title\",\"wp\":{\"object_type\":\"page\",\"title\":\"Masterbatch RFQ Checklist\",\"slug\":\"masterbatch-rfq-checklist\",\"parent_slug\":\"resources\",\"parent_title\":\"Masterbatch Buyer Resources\",\"parent_required\":true,\"template\":\"page-resources\",\"status\":\"draft\",\"comment_status\":\"closed\",\"ping_status\":\"closed\",\"noindex\":true},\"route\":{\"path\":\"/resources/masterbatch-rfq-checklist/\",\"canonical\":\"/resources/masterbatch-rfq-checklist/\",\"trailing_slash\":true},\"seo\":{\"title\":\"Masterbatch RFQ Checklist | GE CHEMICAL\",\"description\":\"Use this masterbatch RFQ checklist to collect resin, process, application, target, quantity, destination and document review details.\",\"robots\":\"noindex,nofollow\",\"canonical_route_key\":\"resources.rfq_checklist\",\"open_graph_image_id\":null,\"structured_data\":[\"Article\",\"BreadcrumbList\"]},\"hero\":{\"eyebrow\":\"RFQ Checklist\",\"title\":\"Masterbatch RFQ Checklist\",\"summary\":\"A complete inquiry gives the team enough context to review product fit and document scope without guessing the application.\",\"image_id\":null},\"relations\":{\"parent_content_id\":\"resources.index\",\"related_content_ids\":[\"guide.black\",\"guide.white\",\"guide.color\",\"documents.request\",\"quote.request\"]},\"evidence\":{\"status\":\"buyer-guidance-only\",\"public_entity\":\"GE CHEMICAL & POLYMER GROUP CO., LTD\",\"source_files\":[\"u8272u6bcdu7c92u77e5u8bc6u5e93/05_u8be2u76d8u4e0eu5916u8d38/09_u4ea7u54c1u8be2u76d8u9700u8981u95eeu4ec0u4e48.md\",\"Cmp_Info/DOCUMENT_REQUEST_FORM_BRIEF.md\"],\"public_claims\":\"RFQ preparation framework only; no fixed product or commercial terms\"},\"review\":{\"content_owner\":\"unassigned\",\"seo_owner\":\"unassigned\",\"evidence_owner\":\"unassigned\",\"approved_at\":null,\"reviewed_at\":\"2026-11-05\",\"next_review_at\":null},\"import\":{\"target_environment\":\"staging\",\"idempotency_key\":\"resource.rfq_checklist\",\"create_status\":\"draft\",\"body_h1_allowed\":false}}"
+   ],
+   "_mb_template_contract": [
+    "[]"
+   ],
+   "_mb_parent_content_id": [
+    "resources.index"
+   ],
+   "_wp_page_template": [
+    "page-rfq-checklist"
+   ],
+   "_mb_body_format": [
+    "markdown-portable-v1"
+   ],
+   "_mb_front_page": [
+    ""
+   ],
+   "rank_math_title": [
+    "Masterbatch RFQ Checklist | Inputs & Documents"
+   ],
+   "rank_math_description": [
+    "Use this masterbatch RFQ checklist to collect resin, process, application, target, quantity, destination and document review details."
+   ],
+   "rank_math_focus_keyword": [
+    "masterbatch RFQ"
+   ],
+   "rank_math_robots": [
+    "a:2:{i:0;s:5:\"index\";i:1;s:6:\"follow\";}"
+   ],
+   "rank_math_internal_links_processed": [
+    "1"
+   ]
+  }
+ },
+ "113": {
+  "slug": "products",
+  "type": "page",
+  "status": "publish",
+  "title": "Masterbatch Products",
+  "template": "page-products",
+  "parent": 0,
+  "modified_gmt": "2026-11-10 07:05:07",
+  "permalink": "https://www.gemasterbatch.com/products/",
+  "meta": {
+   "rank_math_internal_links_processed": [
+    "1"
+   ],
+   "_mb_content_id": [
+    "products.index"
+   ],
+   "_mb_content_type": [
+    "product_index"
+   ],
+   "_mb_schema_version": [
+    "1"
+   ],
+   "_mb_locale": [
+    "en-US"
+   ],
+   "_mb_route_key": [
+    "products.index"
+   ],
+   "_mb_route_path": [
+    "/products/"
+   ],
+   "_mb_canonical": [
+    "/products/"
+   ],
+   "_mb_primary_keyword": [
+    "masterbatch products"
+   ],
+   "rank_math_focus_keyword": [
+    "masterbatch products"
+   ],
+   "_mb_search_intent": [
+    "commercial_investigation"
+   ],
+   "_mb_page_job": [
+    "Route plastic processing buyers to the black and desiccant masterbatch product pages and collect the application details needed for review."
+   ],
+   "_mb_product_family": [
+    "all"
+   ],
+   "_mb_hero_eyebrow": [
+    "Masterbatch Products"
+   ],
+   "_mb_hero_title": [
+    "Masterbatch Products"
+   ],
+   "_mb_hero_summary": [
+    "Choose black or desiccant masterbatch, then share the resin, process and final part for review."
+   ],
+   "_mb_primary_cta_id": [
+    "cta.general.rfq"
+   ],
+   "_mb_secondary_cta_id": [
+    "cta.general.documents"
+   ],
+   "_mb_seo_title": [
+    "Masterbatch Products | GE CHEMICAL"
+   ],
+   "rank_math_title": [
+    "Masterbatch Products | GE CHEMICAL"
+   ],
+   "_mb_seo_description": [
+    "Structural product route for black and desiccant masterbatch pages."
+   ],
+   "rank_math_description": [
+    "Structural product route for black and desiccant masterbatch pages."
+   ],
+   "_mb_robots": [
+    "noindex,nofollow"
+   ],
+   "rank_math_robots": [
+    "a:2:{i:0;s:7:\"noindex\";i:1;s:8:\"nofollow\";}"
+   ],
+   "_mb_noindex": [
+    "1"
+   ],
+   "_mb_body_format": [
+    "gutenberg-blocks-v1"
+   ],
+   "_wp_page_template": [
+    "page-products"
+   ]
+  }
+ },
+ "117": {
+  "slug": "bk040",
+  "type": "page",
+  "status": "publish",
+  "title": "BK040 - 40% Carbon Black Masterbatch",
+  "template": "page-bk040-product",
+  "parent": 31,
+  "modified_gmt": "2026-11-08 11:36:22",
+  "permalink": "https://www.gemasterbatch.com/products/black-masterbatch/bk040/",
+  "meta": {
+   "rank_math_internal_links_processed": [
+    "1"
+   ],
+   "_mb_content_id": [
+    "product.black.bk040"
+   ],
+   "_mb_content_type": [
+    "product_detail"
+   ],
+   "_mb_schema_version": [
+    "1"
+   ],
+   "_mb_locale": [
+    "en-US"
+   ],
+   "_mb_route_key": [
+    "products.black.bk040"
+   ],
+   "_mb_route_path": [
+    "/products/black-masterbatch/bk040/"
+   ],
+   "_mb_canonical": [
+    "/products/black-masterbatch/bk040/"
+   ],
+   "_mb_primary_keyword": [
+    "40% carbon black masterbatch"
+   ],
+   "rank_math_focus_keyword": [
+    "40% carbon black masterbatch"
+   ],
+   "_mb_search_intent": [
+    "commercial_investigation"
+   ],
+   "_mb_page_job": [
+    "Explain the BK040 grade, its position in the BK range, current TDS parameters, applications and trial route."
+   ],
+   "_mb_product_family": [
+    "black"
+   ],
+   "_mb_hero_eyebrow": [
+    "BK040"
+   ],
+   "_mb_hero_title": [
+    "40% Carbon Black Masterbatch — BK040"
+   ],
+   "_mb_hero_summary": [
+    "BK040 is GE CHEMICALs high-loading black masterbatch for premium film and high-gloss molded parts. It carries 40% virgin carbon black in a matched LLDPE + LDPE carrier with only 5.8% CaCO3 filler."
+   ],
+   "_mb_primary_cta_id": [
+    "cta.bk040.quote"
+   ],
+   "_mb_secondary_cta_id": [
+    "cta.bk040.sample"
+   ],
+   "_mb_form_key": [
+    "rfq_document_request"
+   ],
+   "_mb_form_context": [
+    "rfq"
+   ],
+   "_mb_form_prefill": [
+    "Black masterbatch"
+   ],
+   "_mb_seo_title": [
+    "40% Carbon Black Masterbatch (BK040) | Film & Molding"
+   ],
+   "rank_math_title": [
+    "40% Carbon Black Masterbatch (BK040) | Film & Molding"
+   ],
+   "_mb_seo_description": [
+    "BK040 uses 40% carbon black in a PE carrier with 5.8% CaCO3 filler for film and injection molding. Review specs, dosage and request a sample."
+   ],
+   "rank_math_description": [
+    "BK040 uses 40% carbon black in a PE carrier with 5.8% CaCO3 filler for film and injection molding. Review specs, dosage and request a sample."
+   ],
+   "_mb_robots": [
+    "index,follow"
+   ],
+   "rank_math_robots": [
+    "a:2:{i:0;s:5:\"index\";i:1;s:6:\"follow\";}"
+   ],
+   "_mb_noindex": [
+    "0"
+   ],
+   "_mb_body_format": [
+    "template-rendered-v1"
+   ],
+   "_mb_parent_content_id": [
+    "guide.black"
+   ],
+   "_wp_page_template": [
+    "page-bk040-product"
+   ]
+  }
+ },
+ "122": {
+  "slug": "masterbatch-for-blown-film",
+  "type": "post",
+  "status": "publish",
+  "title": "How to Choose Masterbatch for Blown Film",
+  "template": "",
+  "parent": 0,
+  "modified_gmt": "2026-11-10 02:41:17",
+  "permalink": "https://www.gemasterbatch.com/blog/masterbatch-for-blown-film/",
+  "meta": {
+   "rank_math_internal_links_processed": [
+    "1"
+   ],
+   "_thumbnail_id": [
+    "135"
+   ],
+   "_mb_content_id": [
+    "post.film_selection"
+   ],
+   "_mb_content_type": [
+    "article"
+   ],
+   "_mb_route_path": [
+    "/masterbatch-for-blown-film/"
+   ],
+   "_mb_canonical": [
+    "/masterbatch-for-blown-film/"
+   ],
+   "_mb_primary_keyword": [
+    "masterbatch for blown film"
+   ],
+   "rank_math_focus_keyword": [
+    "masterbatch for blown film"
+   ],
+   "_mb_seo_title": [
+    "Masterbatch for Blown Film: Buyer Guide | GE CHEMICAL"
+   ],
+   "rank_math_title": [
+    "Masterbatch for Blown Film: Buyer Guide | GE CHEMICAL"
+   ],
+   "_mb_seo_description": [
+    "Choose masterbatch for blown film by resin, carrier, structure, thickness, let-down ratio, end use and trial conditions."
+   ],
+   "rank_math_description": [
+    "Choose masterbatch for blown film by resin, carrier, structure, thickness, let-down ratio, end use and trial conditions."
+   ],
+   "_mb_robots": [
+    "index,follow"
+   ],
+   "rank_math_robots": [
+    "a:2:{i:0;s:5:\"index\";i:1;s:6:\"follow\";}"
+   ],
+   "_mb_noindex": [
+    "0"
+   ],
+   "_mb_article_hero_title": [
+    "How to choose masterbatch for blown film."
+   ]
+  }
+ },
+ "123": {
+  "slug": "black-specks-in-masterbatch-film",
+  "type": "post",
+  "status": "publish",
+  "title": "Poor Dispersion and Black Specks in Masterbatch Film: A Diagnostic Guide",
+  "template": "",
+  "parent": 0,
+  "modified_gmt": "2026-11-08 13:09:46",
+  "permalink": "https://www.gemasterbatch.com/blog/black-specks-in-masterbatch-film/",
+  "meta": {
+   "rank_math_internal_links_processed": [
+    "1"
+   ],
+   "_thumbnail_id": [
+    "136"
+   ],
+   "_mb_content_id": [
+    "post.black_specks"
+   ],
+   "_mb_content_type": [
+    "article"
+   ],
+   "_mb_route_path": [
+    "/black-specks-in-masterbatch-film/"
+   ],
+   "_mb_canonical": [
+    "/black-specks-in-masterbatch-film/"
+   ],
+   "_mb_primary_keyword": [
+    "poor dispersion masterbatch"
+   ],
+   "rank_math_focus_keyword": [
+    "poor dispersion masterbatch"
+   ],
+   "_mb_seo_title": [
+    "Black Specks in Masterbatch Film: Diagnostic Guide"
+   ],
+   "rank_math_title": [
+    "Black Specks in Masterbatch Film: Diagnostic Guide"
+   ],
+   "_mb_seo_description": [
+    "Trace black specks, streaks and poor dispersion in plastic film with a control sample, batch records and a controlled verification step."
+   ],
+   "rank_math_description": [
+    "Trace black specks, streaks and poor dispersion in plastic film with a control sample, batch records and a controlled verification step."
+   ],
+   "_mb_robots": [
+    "index,follow"
+   ],
+   "rank_math_robots": [
+    "a:2:{i:0;s:5:\"index\";i:1;s:6:\"follow\";}"
+   ],
+   "_mb_noindex": [
+    "0"
+   ],
+   "_mb_article_hero_title": [
+    "Poor dispersion and black specks in masterbatch film."
+   ]
+  }
+ },
+ "129": {
+  "slug": "how-to-vet-a-masterbatch-supplier",
+  "type": "post",
+  "status": "publish",
+  "title": "How to Vet a Masterbatch Supplier: A Practical Buyer Checklist",
+  "template": "",
+  "parent": 0,
+  "modified_gmt": "2026-11-10 01:57:34",
+  "permalink": "https://www.gemasterbatch.com/blog/how-to-vet-a-masterbatch-supplier/",
+  "meta": {
+   "rank_math_internal_links_processed": [
+    "1"
+   ],
+   "_thumbnail_id": [
+    "137"
+   ],
+   "_mb_content_id": [
+    "post.supplier_vetting"
+   ],
+   "_mb_content_type": [
+    "article"
+   ],
+   "_mb_route_path": [
+    "/how-to-vet-a-masterbatch-supplier/"
+   ],
+   "_mb_canonical": [
+    "/how-to-vet-a-masterbatch-supplier/"
+   ],
+   "_mb_primary_keyword": [
+    "how to choose a masterbatch supplier"
+   ],
+   "rank_math_focus_keyword": [
+    "how to choose a masterbatch supplier"
+   ],
+   "_mb_seo_title": [
+    "How to Vet a Masterbatch Supplier | GE CHEMICAL"
+   ],
+   "rank_math_title": [
+    "How to Vet a Masterbatch Supplier | GE CHEMICAL"
+   ],
+   "_mb_seo_description": [
+    "Check the supplier entity, product documents, sample trial, batch controls and quotation terms before buying masterbatch."
+   ],
+   "rank_math_description": [
+    "Check the supplier entity, product documents, sample trial, batch controls and quotation terms before buying masterbatch."
+   ],
+   "_mb_robots": [
+    "index,follow"
+   ],
+   "rank_math_robots": [
+    "a:2:{i:0;s:5:\"index\";i:1;s:6:\"follow\";}"
+   ],
+   "_mb_noindex": [
+    "0"
+   ],
+   "_mb_article_hero_title": [
+    "How to vet a masterbatch supplier."
+   ]
+  }
+ },
+ "132": {
+  "slug": "blog",
+  "type": "page",
+  "status": "publish",
+  "title": "Blog",
+  "template": "",
+  "parent": 0,
+  "modified_gmt": "2026-11-08 12:59:34",
+  "permalink": "https://www.gemasterbatch.com/blog/",
+  "meta": {
+   "rank_math_internal_links_processed": [
+    "1"
+   ],
+   "_mb_content_id": [
+    "blog.index"
+   ],
+   "_mb_content_type": [
+    "blog_index"
+   ],
+   "_mb_route_path": [
+    "/blog/"
+   ],
+   "_mb_canonical": [
+    "/blog/"
+   ],
+   "_mb_primary_keyword": [
+    "masterbatch guides"
+   ],
+   "rank_math_focus_keyword": [
+    "masterbatch guides"
+   ],
+   "_mb_seo_title": [
+    "Masterbatch Guides and Buyer Articles | GE CHEMICAL"
+   ],
+   "rank_math_title": [
+    "Masterbatch Guides and Buyer Articles | GE CHEMICAL"
+   ],
+   "_mb_seo_description": [
+    "Read masterbatch selection, troubleshooting and supplier review guides for plastic processing buyers, with practical checks for resin, film and documents."
+   ],
+   "rank_math_description": [
+    "Read masterbatch selection, troubleshooting and supplier review guides for plastic processing buyers, with practical checks for resin, film and documents."
+   ],
+   "_mb_robots": [
+    "index,follow"
+   ],
+   "rank_math_robots": [
+    "a:2:{i:0;s:5:\"index\";i:1;s:6:\"follow\";}"
+   ],
+   "_mb_noindex": [
+    "0"
+   ]
+  }
+ },
+ "142": {
+  "slug": "bk020",
+  "type": "page",
+  "status": "publish",
+  "title": "Black Masterbatch BK020",
+  "template": "page-bk020-product",
+  "parent": 31,
+  "modified_gmt": "2026-11-09 10:49:54",
+  "permalink": "https://www.gemasterbatch.com/products/black-masterbatch/bk020/",
+  "meta": {
+   "rank_math_internal_links_processed": [
+    "1"
+   ],
+   "_mb_content_id": [
+    "product.black.bk020"
+   ],
+   "_mb_content_type": [
+    "product_detail"
+   ],
+   "_mb_product_family": [
+    "black"
+   ],
+   "_mb_product_grade": [
+    "BK020"
+   ],
+   "_mb_route_path": [
+    "/products/black-masterbatch/bk020/"
+   ],
+   "_mb_canonical": [
+    "/products/black-masterbatch/bk020/"
+   ],
+   "_mb_robots": [
+    "index,follow"
+   ],
+   "rank_math_robots": [
+    "a:2:{i:0;s:5:\"index\";i:1;s:6:\"follow\";}"
+   ],
+   "_mb_noindex": [
+    "0"
+   ],
+   "_wp_page_template": [
+    "page-bk020-product"
+   ],
+   "_mb_seo_title": [
+    "Black Masterbatch BK020 | 20% Carbon Black Grade"
+   ],
+   "rank_math_title": [
+    "Black Masterbatch BK020 | 20% Carbon Black Grade"
+   ],
+   "_mb_seo_description": [
+    "BK020 is a 20% carbon black masterbatch with a PE carrier and 47.8% CaCO3 filler for trash bags, injection molding and re-granulating."
+   ],
+   "rank_math_description": [
+    "BK020 is a 20% carbon black masterbatch with a PE carrier and 47.8% CaCO3 filler for trash bags, injection molding and re-granulating."
+   ],
+   "_mb_primary_keyword": [
+    "black masterbatch"
+   ],
+   "rank_math_focus_keyword": [
+    "black masterbatch"
+   ],
+   "_mb_search_intent": [
+    "commercial_investigation"
+   ],
+   "_mb_page_job": [
+    "Explain BK020, its filled 20% position, current TDS values, applications, limitations and review route."
+   ],
+   "_mb_hero_eyebrow": [
+    "BK020"
+   ],
+   "_mb_hero_title": [
+    "Black Masterbatch BK020"
+   ],
+   "_mb_hero_summary": [
+    "BK020 is GE CHEMICAL's 20% virgin carbon black masterbatch for trash bags, injection molding and re-granulating. The current TDS lists a 22% LLDPE + LDPE carrier, 10% dispersing agent and 47.8% CaCO3 filler."
+   ],
+   "_mb_schema_version": [
+    "1"
+   ],
+   "_mb_locale": [
+    "en-US"
+   ],
+   "_mb_route_key": [
+    "products.black.bk020"
+   ],
+   "_mb_body_format": [
+    "template-rendered-v1"
+   ],
+   "_mb_parent_content_id": [
+    "guide.black"
+   ]
+  }
+ },
+ "143": {
+  "slug": "bk025",
+  "type": "page",
+  "status": "publish",
+  "title": "BK025 - 25% Carbon Black Masterbatch",
+  "template": "page-bk025-product",
+  "parent": 31,
+  "modified_gmt": "2026-11-09 07:08:57",
+  "permalink": "https://www.gemasterbatch.com/products/black-masterbatch/bk025/",
+  "meta": {
+   "rank_math_internal_links_processed": [
+    "1"
+   ],
+   "_mb_content_id": [
+    "product.black.bk025"
+   ],
+   "_mb_content_type": [
+    "product_detail"
+   ],
+   "_mb_product_family": [
+    "black"
+   ],
+   "_mb_product_grade": [
+    "BK025"
+   ],
+   "_mb_route_path": [
+    "/products/black-masterbatch/bk025/"
+   ],
+   "_mb_canonical": [
+    "/products/black-masterbatch/bk025/"
+   ],
+   "_mb_robots": [
+    "index,follow"
+   ],
+   "rank_math_robots": [
+    "a:2:{i:0;s:5:\"index\";i:1;s:6:\"follow\";}"
+   ],
+   "_mb_noindex": [
+    "0"
+   ],
+   "_wp_page_template": [
+    "page-bk025-product"
+   ],
+   "_mb_schema_version": [
+    "1"
+   ],
+   "_mb_locale": [
+    "en-US"
+   ],
+   "_mb_route_key": [
+    "products.black.bk025"
+   ],
+   "_mb_primary_keyword": [
+    "25% carbon black masterbatch"
+   ],
+   "rank_math_focus_keyword": [
+    "25% carbon black masterbatch"
+   ],
+   "_mb_search_intent": [
+    "commercial_investigation"
+   ],
+   "_mb_page_job": [
+    "Explain the BK025 grade, its position in the BK range, current TDS parameters, applications and trial route."
+   ],
+   "_mb_hero_eyebrow": [
+    "BK025"
+   ],
+   "_mb_hero_title": [
+    "25% Carbon Black Masterbatch — BK025"
+   ],
+   "_mb_hero_summary": [
+    "BK025 is GE CHEMICAL's economy black masterbatch for film blowing and injection molding. It carries 25% virgin carbon black in a matched LLDPE + LDPE carrier with 37.8% CaCO3 filler."
+   ],
+   "_mb_seo_title": [
+    "25% Carbon Black Masterbatch (BK025) | Film & Molding"
+   ],
+   "rank_math_title": [
+    "25% Carbon Black Masterbatch (BK025) | Film & Molding"
+   ],
+   "_mb_seo_description": [
+    "BK025 uses 25% carbon black in a PE carrier with 37.8% CaCO3 filler for film blowing and injection molding. Review specs and request a sample."
+   ],
+   "rank_math_description": [
+    "BK025 uses 25% carbon black in a PE carrier with 37.8% CaCO3 filler for film blowing and injection molding. Review specs and request a sample."
+   ],
+   "_mb_body_format": [
+    "template-rendered-v1"
+   ],
+   "_mb_parent_content_id": [
+    "guide.black"
+   ]
+  }
+ },
+ "144": {
+  "slug": "bk030",
+  "type": "page",
+  "status": "publish",
+  "title": "BK030 - 30% Carbon Black Masterbatch",
+  "template": "page-bk030-product",
+  "parent": 31,
+  "modified_gmt": "2026-11-09 05:53:27",
+  "permalink": "https://www.gemasterbatch.com/products/black-masterbatch/bk030/",
+  "meta": {
+   "rank_math_internal_links_processed": [
+    "1"
+   ],
+   "_mb_content_id": [
+    "product.black.bk030"
+   ],
+   "_mb_content_type": [
+    "product_detail"
+   ],
+   "_mb_product_family": [
+    "black"
+   ],
+   "_mb_product_grade": [
+    "BK030"
+   ],
+   "_mb_route_path": [
+    "/products/black-masterbatch/bk030/"
+   ],
+   "_mb_canonical": [
+    "/products/black-masterbatch/bk030/"
+   ],
+   "_mb_robots": [
+    "index,follow"
+   ],
+   "rank_math_robots": [
+    "a:2:{i:0;s:5:\"index\";i:1;s:6:\"follow\";}"
+   ],
+   "_mb_noindex": [
+    "0"
+   ],
+   "_wp_page_template": [
+    "page-bk030-product"
+   ],
+   "_mb_schema_version": [
+    "1"
+   ],
+   "_mb_locale": [
+    "en-US"
+   ],
+   "_mb_route_key": [
+    "products.black.bk030"
+   ],
+   "_mb_primary_keyword": [
+    "30% carbon black masterbatch"
+   ],
+   "rank_math_focus_keyword": [
+    "30% carbon black masterbatch"
+   ],
+   "_mb_search_intent": [
+    "commercial_investigation"
+   ],
+   "_mb_page_job": [
+    "Explain the BK030 grade, its position in the BK range, current TDS parameters, applications and trial route."
+   ],
+   "_mb_hero_eyebrow": [
+    "BK030"
+   ],
+   "_mb_hero_title": [
+    "30% Carbon Black Masterbatch — BK030"
+   ],
+   "_mb_hero_summary": [
+    "BK030 is GE CHEMICAL's balanced black masterbatch for trash bags and injection molding. It carries 30% virgin carbon black in a matched LLDPE + LDPE carrier with 27.8% CaCO3 filler."
+   ],
+   "_mb_seo_title": [
+    "30% Carbon Black Masterbatch (BK030) | Trash Bags & Molding"
+   ],
+   "rank_math_title": [
+    "30% Carbon Black Masterbatch (BK030) | Trash Bags & Molding"
+   ],
+   "_mb_seo_description": [
+    "BK030 uses 30% carbon black in a PE carrier with 27.8% CaCO3 filler for trash bags and injection molding. Review specs and request a sample."
+   ],
+   "rank_math_description": [
+    "BK030 uses 30% carbon black in a PE carrier with 27.8% CaCO3 filler for trash bags and injection molding. Review specs and request a sample."
+   ],
+   "_mb_body_format": [
+    "template-rendered-v1"
+   ],
+   "_mb_parent_content_id": [
+    "guide.black"
+   ]
+  }
+ },
+ "145": {
+  "slug": "bk035",
+  "type": "page",
+  "status": "publish",
+  "title": "BK035 - 35% Carbon Black Masterbatch",
+  "template": "page-bk035-product",
+  "parent": 31,
+  "modified_gmt": "2026-11-09 03:20:29",
+  "permalink": "https://www.gemasterbatch.com/products/black-masterbatch/bk035/",
+  "meta": {
+   "rank_math_internal_links_processed": [
+    "1"
+   ],
+   "_mb_content_id": [
+    "product.black.bk035"
+   ],
+   "_mb_content_type": [
+    "product_detail"
+   ],
+   "_mb_product_family": [
+    "black"
+   ],
+   "_mb_product_grade": [
+    "BK035"
+   ],
+   "_mb_route_path": [
+    "/products/black-masterbatch/bk035/"
+   ],
+   "_mb_canonical": [
+    "/products/black-masterbatch/bk035/"
+   ],
+   "_mb_robots": [
+    "index,follow"
+   ],
+   "rank_math_robots": [
+    "a:2:{i:0;s:5:\"index\";i:1;s:6:\"follow\";}"
+   ],
+   "_mb_noindex": [
+    "0"
+   ],
+   "_wp_page_template": [
+    "page-bk035-product"
+   ],
+   "_mb_schema_version": [
+    "1"
+   ],
+   "_mb_locale": [
+    "en-US"
+   ],
+   "_mb_route_key": [
+    "products.black.bk035"
+   ],
+   "_mb_primary_keyword": [
+    "35% carbon black masterbatch"
+   ],
+   "rank_math_focus_keyword": [
+    "35% carbon black masterbatch"
+   ],
+   "_mb_search_intent": [
+    "commercial_investigation"
+   ],
+   "_mb_page_job": [
+    "Explain the BK035 grade, its position in the BK range, current TDS parameters, applications and trial route."
+   ],
+   "_mb_hero_eyebrow": [
+    "BK035"
+   ],
+   "_mb_hero_title": [
+    "35% Carbon Black Masterbatch — BK035"
+   ],
+   "_mb_hero_summary": [
+    "BK035 is GE CHEMICAL's high-blackness black masterbatch for trash bags and injection molding. It carries 35% virgin carbon black in a matched LLDPE + LDPE carrier with only 17.8% CaCO3 filler."
+   ],
+   "_mb_seo_title": [
+    "35% Carbon Black Masterbatch (BK035) | Trash Bags & Molding"
+   ],
+   "rank_math_title": [
+    "35% Carbon Black Masterbatch (BK035) | Trash Bags & Molding"
+   ],
+   "_mb_seo_description": [
+    "BK035 uses 35% carbon black in a PE carrier with 17.8% CaCO3 filler for trash bags and injection molding. Review specs and request a sample."
+   ],
+   "rank_math_description": [
+    "BK035 uses 35% carbon black in a PE carrier with 17.8% CaCO3 filler for trash bags and injection molding. Review specs and request a sample."
+   ],
+   "_mb_body_format": [
+    "template-rendered-v1"
+   ],
+   "_mb_parent_content_id": [
+    "guide.black"
+   ]
+  }
+ },
+ "147": {
+  "slug": "how-to-choose-carbon-black-content",
+  "type": "post",
+  "status": "publish",
+  "title": "How to Choose Carbon Black Content in Black Masterbatch",
+  "template": "",
+  "parent": 0,
+  "modified_gmt": "2026-11-08 14:08:55",
+  "permalink": "https://www.gemasterbatch.com/blog/how-to-choose-carbon-black-content/",
+  "meta": {
+   "rank_math_internal_links_processed": [
+    "1"
+   ],
+   "_thumbnail_id": [
+    "146"
+   ],
+   "_mb_content_id": [
+    "post.carbon_black_content"
+   ],
+   "_mb_content_type": [
+    "article"
+   ],
+   "_mb_route_path": [
+    "/how-to-choose-carbon-black-content/"
+   ],
+   "_mb_canonical": [
+    "/how-to-choose-carbon-black-content/"
+   ],
+   "_mb_primary_keyword": [
+    "carbon black content in black masterbatch"
+   ],
+   "rank_math_focus_keyword": [
+    "carbon black content in black masterbatch"
+   ],
+   "_mb_seo_title": [
+    "Carbon Black Content in Black Masterbatch | GE CHEMICAL"
+   ],
+   "rank_math_title": [
+    "Carbon Black Content in Black Masterbatch | GE CHEMICAL"
+   ],
+   "_mb_seo_description": [
+    "Compare 20%, 30%, 35% and 40% carbon black masterbatch grades by resin, filler, dispersion, use rate, trial results and cost per tonne."
+   ],
+   "rank_math_description": [
+    "Compare 20%, 30%, 35% and 40% carbon black masterbatch grades by resin, filler, dispersion, use rate, trial results and cost per tonne."
+   ],
+   "_mb_robots": [
+    "index,follow"
+   ],
+   "rank_math_robots": [
+    "a:2:{i:0;s:5:\"index\";i:1;s:6:\"follow\";}"
+   ],
+   "_mb_noindex": [
+    "0"
+   ],
+   "_mb_article_hero_title": [
+    "How to choose carbon black content in black masterbatch."
+   ]
+  }
+ },
+ "153": {
+  "slug": "pt-300",
+  "type": "page",
+  "status": "publish",
+  "title": "Black Masterbatch PT-300",
+  "template": "page-pt300-product",
+  "parent": 31,
+  "modified_gmt": "2026-11-09 10:49:55",
+  "permalink": "https://www.gemasterbatch.com/products/black-masterbatch/pt-300/",
+  "meta": {
+   "rank_math_internal_links_processed": [
+    "1"
+   ],
+   "_wp_page_template": [
+    "page-pt300-product"
+   ],
+   "_thumbnail_id": [
+    "152"
+   ],
+   "_mb_content_id": [
+    "product.black.pt300"
+   ],
+   "_mb_content_type": [
+    "product_detail"
+   ],
+   "_mb_product_family": [
+    "black"
+   ],
+   "_mb_product_grade": [
+    "PT-300"
+   ],
+   "_mb_route_path": [
+    "/products/black-masterbatch/pt-300/"
+   ],
+   "_mb_canonical": [
+    "/products/black-masterbatch/pt-300/"
+   ],
+   "_mb_primary_keyword": [
+    "black masterbatch"
+   ],
+   "rank_math_focus_keyword": [
+    "black masterbatch"
+   ],
+   "_mb_search_intent": [
+    "commercial_investigation"
+   ],
+   "_mb_page_job": [
+    "Explain the PT-300 filled 25% black masterbatch, its position against BK025, current TDS values, applications and sample route."
+   ],
+   "_mb_hero_eyebrow": [
+    "PT-300"
+   ],
+   "_mb_hero_title": [
+    "Black Masterbatch PT-300"
+   ],
+   "_mb_hero_summary": [
+    "PT-300 is GE CHEMICAL's 25% virgin carbon black masterbatch for film blowing, injection molding and re-granulating. The current TDS lists a 21% LLDPE + LDPE carrier, 12% dispersing agent and 41.8% CaCO3 filler."
+   ],
+   "_mb_seo_title": [
+    "Black Masterbatch PT-300 | 25% Carbon Black, Filled"
+   ],
+   "rank_math_title": [
+    "Black Masterbatch PT-300 | 25% Carbon Black, Filled"
+   ],
+   "_mb_seo_description": [
+    "PT-300 is a 25% virgin carbon black masterbatch with a PE carrier and 41.8% CaCO3 filler for film blowing, injection molding and re-granulating."
+   ],
+   "rank_math_description": [
+    "PT-300 is a 25% virgin carbon black masterbatch with a PE carrier and 41.8% CaCO3 filler for film blowing, injection molding and re-granulating."
+   ],
+   "_mb_body_format": [
+    "template-rendered-v1"
+   ],
+   "_mb_parent_content_id": [
+    "guide.black"
+   ],
+   "_mb_route_key": [
+    "products.black.pt300"
+   ],
+   "_mb_schema_version": [
+    "1"
+   ],
+   "_mb_locale": [
+    "en-US"
+   ],
+   "_mb_robots": [
+    "index,follow"
+   ],
+   "rank_math_robots": [
+    "a:2:{i:0;s:5:\"index\";i:1;s:6:\"follow\";}"
+   ],
+   "_mb_noindex": [
+    "0"
+   ]
+  }
+ },
+ "158": {
+  "slug": "pt-450p",
+  "type": "page",
+  "status": "publish",
+  "title": "Black Masterbatch PT-450P",
+  "template": "page-pt450p-product",
+  "parent": 31,
+  "modified_gmt": "2026-11-09 10:49:56",
+  "permalink": "https://www.gemasterbatch.com/products/black-masterbatch/pt-450p/",
+  "meta": {
+   "rank_math_internal_links_processed": [
+    "1"
+   ],
+   "_wp_page_template": [
+    "page-pt450p-product"
+   ],
+   "_thumbnail_id": [
+    "157"
+   ],
+   "_mb_content_id": [
+    "product.black.pt450p"
+   ],
+   "_mb_content_type": [
+    "product_detail"
+   ],
+   "_mb_product_family": [
+    "black"
+   ],
+   "_mb_product_grade": [
+    "PT-450P"
+   ],
+   "_mb_route_path": [
+    "/products/black-masterbatch/pt-450p/"
+   ],
+   "_mb_canonical": [
+    "/products/black-masterbatch/pt-450p/"
+   ],
+   "_mb_primary_keyword": [
+    "black masterbatch"
+   ],
+   "rank_math_focus_keyword": [
+    "black masterbatch"
+   ],
+   "_mb_search_intent": [
+    "commercial_investigation"
+   ],
+   "_mb_page_job": [
+    "Explain the PT-450P high-loading no-filler black masterbatch, its current TDS values, Food Grade label, applications and sample route."
+   ],
+   "_mb_hero_eyebrow": [
+    "PT-450P"
+   ],
+   "_mb_hero_title": [
+    "Black Masterbatch PT-450P"
+   ],
+   "_mb_hero_summary": [
+    "PT-450P is GE CHEMICAL's 42% P-type virgin carbon black masterbatch for film blowing and injection molding. The current TDS lists a 57.8% virgin LLDPE carrier, no filler and Food Grade: Yes."
+   ],
+   "_mb_seo_title": [
+    "Black Masterbatch PT-450P | 42% P-Type, No Filler"
+   ],
+   "rank_math_title": [
+    "Black Masterbatch PT-450P | 42% P-Type, No Filler"
+   ],
+   "_mb_seo_description": [
+    "PT-450P is a 42% P-type virgin carbon black masterbatch with a virgin LLDPE carrier and no filler for film blowing and injection molding."
+   ],
+   "rank_math_description": [
+    "PT-450P is a 42% P-type virgin carbon black masterbatch with a virgin LLDPE carrier and no filler for film blowing and injection molding."
+   ],
+   "_mb_body_format": [
+    "template-rendered-v1"
+   ],
+   "_mb_parent_content_id": [
+    "guide.black"
+   ],
+   "_mb_route_key": [
+    "products.black.pt450p"
+   ],
+   "_mb_schema_version": [
+    "1"
+   ],
+   "_mb_locale": [
+    "en-US"
+   ],
+   "_mb_robots": [
+    "index,follow"
+   ],
+   "rank_math_robots": [
+    "a:2:{i:0;s:5:\"index\";i:1;s:6:\"follow\";}"
+   ],
+   "_mb_noindex": [
+    "0"
+   ]
+  }
+ },
+ "161": {
+  "slug": "desiccant-masterbatch",
+  "type": "page",
+  "status": "publish",
+  "title": "Desiccant Masterbatch",
+  "template": "page-desiccant-masterbatch",
+  "parent": 113,
+  "modified_gmt": "2026-11-10 01:57:38",
+  "permalink": "https://www.gemasterbatch.com/products/desiccant-masterbatch/",
+  "meta": {
+   "rank_math_internal_links_processed": [
+    "1"
+   ],
+   "_wp_page_template": [
+    "page-desiccant-masterbatch"
+   ],
+   "_thumbnail_id": [
+    "160"
+   ],
+   "_mb_content_id": [
+    "product.desiccant.index"
+   ],
+   "_mb_content_type": [
+    "product_category"
+   ],
+   "_mb_product_family": [
+    "desiccant"
+   ],
+   "_mb_route_path": [
+    "/products/desiccant-masterbatch/"
+   ],
+   "_mb_canonical": [
+    "/products/desiccant-masterbatch/"
+   ],
+   "_mb_primary_keyword": [
+    "desiccant masterbatch"
+   ],
+   "rank_math_focus_keyword": [
+    "desiccant masterbatch"
+   ],
+   "_mb_search_intent": [
+    "commercial_investigation"
+   ],
+   "_mb_page_job": [
+    "Introduce desiccant masterbatch as a functional moisture-control product route and lead buyers to the DM2476G product page."
+   ],
+   "_mb_seo_title": [
+    "Desiccant Masterbatch | CaO Moisture Control | GE CHEMICAL"
+   ],
+   "rank_math_title": [
+    "Desiccant Masterbatch | CaO Moisture Control | GE CHEMICAL"
+   ],
+   "_mb_seo_description": [
+    "Review CaO desiccant masterbatch for moisture-exposed injection, extrusion and film blowing. Compare DM2476G and share the resin and process for review."
+   ],
+   "rank_math_description": [
+    "Review CaO desiccant masterbatch for moisture-exposed injection, extrusion and film blowing. Compare DM2476G and share the resin and process for review."
+   ],
+   "_mb_body_format": [
+    "template-rendered-v1"
+   ],
+   "_mb_robots": [
+    "index,follow"
+   ],
+   "rank_math_robots": [
+    "a:2:{i:0;s:5:\"index\";i:1;s:6:\"follow\";}"
+   ],
+   "_mb_noindex": [
+    "0"
+   ],
+   "_mb_hero_title": [
+    "Desiccant Masterbatch"
+   ],
+   "_mb_hero_summary": [
+    "DM2476G is a 75.9% grey CaO desiccant masterbatch in a 24% recycled PE carrier for moisture that still reaches injection, extrusion and film blowing after storage and drying controls."
+   ]
+  }
+ },
+ "162": {
+  "slug": "dm2476g",
+  "type": "page",
+  "status": "publish",
+  "title": "Desiccant Masterbatch DM2476G",
+  "template": "page-dm2476g-product",
+  "parent": 161,
+  "modified_gmt": "2026-11-09 10:49:56",
+  "permalink": "https://www.gemasterbatch.com/products/desiccant-masterbatch/dm2476g/",
+  "meta": {
+   "rank_math_internal_links_processed": [
+    "1"
+   ],
+   "_wp_page_template": [
+    "page-dm2476g-product"
+   ],
+   "_thumbnail_id": [
+    "160"
+   ],
+   "_mb_content_id": [
+    "product.desiccant.dm2476g"
+   ],
+   "_mb_content_type": [
+    "product_detail"
+   ],
+   "_mb_product_family": [
+    "desiccant"
+   ],
+   "_mb_product_grade": [
+    "DM2476G"
+   ],
+   "_mb_route_path": [
+    "/products/desiccant-masterbatch/dm2476g/"
+   ],
+   "_mb_canonical": [
+    "/products/desiccant-masterbatch/dm2476g/"
+   ],
+   "_mb_primary_keyword": [
+    "desiccant masterbatch"
+   ],
+   "rank_math_focus_keyword": [
+    "desiccant masterbatch"
+   ],
+   "_mb_search_intent": [
+    "commercial_investigation"
+   ],
+   "_mb_page_job": [
+    "Explain the DM2476G CaO desiccant masterbatch, current TDS values, moisture-control boundaries, applications and trial route."
+   ],
+   "_mb_hero_eyebrow": [
+    "DM2476G"
+   ],
+   "_mb_hero_title": [
+    "Desiccant Masterbatch DM2476G"
+   ],
+   "_mb_hero_summary": [
+    "DM2476G is GE CHEMICAL's 75.9% grey CaO drying masterbatch for moisture-exposed injection, extrusion and film blowing. Its current TDS lists a 24% recycled PE carrier, 0.10% max moisture and a 1% recommended starting dosage."
+   ],
+   "_mb_seo_title": [
+    "Desiccant Masterbatch DM2476G | 75.9% CaO Grade"
+   ],
+   "rank_math_title": [
+    "Desiccant Masterbatch DM2476G | 75.9% CaO Grade"
+   ],
+   "_mb_seo_description": [
+    "DM2476G is a 75.9% grey CaO drying masterbatch in a 24% recycled PE carrier for moisture-exposed injection, extrusion and film blowing."
+   ],
+   "rank_math_description": [
+    "DM2476G is a 75.9% grey CaO drying masterbatch in a 24% recycled PE carrier for moisture-exposed injection, extrusion and film blowing."
+   ],
+   "_mb_body_format": [
+    "template-rendered-v1"
+   ],
+   "_mb_parent_content_id": [
+    "product.desiccant.index"
+   ],
+   "_mb_route_key": [
+    "products.desiccant.dm2476g"
+   ],
+   "_mb_schema_version": [
+    "1"
+   ],
+   "_mb_locale": [
+    "en-US"
+   ],
+   "_mb_robots": [
+    "index,follow"
+   ],
+   "rank_math_robots": [
+    "a:2:{i:0;s:5:\"index\";i:1;s:6:\"follow\";}"
+   ],
+   "_mb_noindex": [
+    "0"
+   ]
+  }
+ }
+}

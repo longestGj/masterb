@@ -1,27 +1,51 @@
 <!-- wp:template-part {"slug":"header","area":"header","tagName":"header"} /-->
 
-<!-- wp:group {"tagName":"main","layout":{"type":"constrained","contentSize":"1120px"},"style":{"spacing":{"padding":{"top":"var(--wp--preset--spacing--l)","bottom":"var(--wp--preset--spacing--xl)","left":"1.5rem","right":"1.5rem"}}}} -->
-<main class="wp-block-group" style="padding-top:var(--wp--preset--spacing--l);padding-right:1.5rem;padding-bottom:var(--wp--preset--spacing--xl);padding-left:1.5rem">
-	<!-- wp:group {"align":"wide","className":"mtm-privacy-hero","backgroundColor":"paper","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"var(--wp--preset--spacing--m)","bottom":"var(--wp--preset--spacing--m)","left":"var(--wp--preset--spacing--m)","right":"var(--wp--preset--spacing--m)"}}}} -->
-	<div class="wp-block-group alignwide mtm-privacy-hero has-paper-background-color has-background" style="padding-top:var(--wp--preset--spacing--m);padding-right:var(--wp--preset--spacing--m);padding-bottom:var(--wp--preset--spacing--m);padding-left:var(--wp--preset--spacing--m)">
-		<!-- wp:paragraph {"className":"mtm-eyebrow"} -->
-		<p class="mtm-eyebrow">Privacy</p>
-		<!-- /wp:paragraph -->
+<!-- wp:html -->
+<main id="privacy-content" class="mtm-privacy-v2">
+	<section class="privacy-hero" aria-labelledby="privacy-title">
+		<div class="privacy-shell">
+			<nav class="privacy-crumb" aria-label="Breadcrumb">
+				<a href="/">Home</a>
+				<span aria-hidden="true">/</span>
+				<span aria-current="page">Privacy Policy</span>
+			</nav>
 
-		<!-- wp:post-title {"level":1} /-->
+			<div class="privacy-hero__grid">
+				<div class="privacy-hero__title">
+					<p class="privacy-label">Privacy</p>
+					<h1 id="privacy-title">Privacy Policy</h1>
+				</div>
 
-		<!-- wp:post-excerpt {"className":"mtm-privacy-summary","moreText":"","showMoreOnNewLine":false,"excerptLength":1000} /-->
-	</div>
-	<!-- /wp:group -->
+				<div class="privacy-hero__summary">
+					<p>How GE CHEMICAL &amp; POLYMER GROUP CO., LTD handles information submitted through this website.</p>
+					<a href="#contact">Contact</a>
+				</div>
+			</div>
+		</div>
+	</section>
 
-	<!-- wp:group {"align":"wide","className":"mtm-privacy-content","layout":{"type":"constrained","contentSize":"860px"},"style":{"spacing":{"margin":{"top":"var(--wp--preset--spacing--m)"}}}} -->
-	<div class="wp-block-group alignwide mtm-privacy-content" style="margin-top:var(--wp--preset--spacing--m)">
-		<!-- wp:shortcode -->
-		[mb_page_content]
-		<!-- /wp:shortcode -->
-	</div>
-	<!-- /wp:group -->
+	<details class="privacy-mobile-index">
+		<summary>On this page</summary>
+		<nav aria-label="Privacy policy sections">
+			[mb_privacy_policy_toc]
+		</nav>
+	</details>
+
+	<section class="privacy-content">
+		<div class="privacy-shell privacy-layout">
+			<aside class="privacy-toc">
+				<p>On this page</p>
+				<nav aria-label="Privacy policy sections">
+					[mb_privacy_policy_toc]
+				</nav>
+			</aside>
+
+			<article class="privacy-document" aria-label="Privacy Policy">
+				[mb_privacy_policy_body]
+			</article>
+		</div>
+	</section>
 </main>
-<!-- /wp:group -->
+<!-- /wp:html -->
 
 <!-- wp:template-part {"slug":"footer","area":"footer","tagName":"footer"} /-->

@@ -103,7 +103,7 @@ body.mtm-article-page :focus-visible {
   margin: 0;
   color: var(--ge-color-text);
   font-family: var(--ge-font-display);
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .article-hero {
@@ -281,7 +281,7 @@ body.mtm-article-page :focus-visible {
 .article-toc__cta strong {
   font-family: var(--ge-font-display);
   font-size: 1.35rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
 }
 
@@ -423,7 +423,7 @@ body.mtm-article-page :focus-visible {
 .article-related strong {
   font-family: var(--ge-font-display);
   font-size: 1.45rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
 }
 

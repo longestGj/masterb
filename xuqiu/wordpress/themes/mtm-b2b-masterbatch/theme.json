@@ -1,6 +1,22 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 3,
+	"settings": {
+		"typography": {
+			"fontFamilies": [
+				{
+					"fontFamily": "Inter, Helvetica Neue, Arial, sans-serif",
+					"name": "Inter",
+					"slug": "inter"
+				},
+				{
+					"fontFamily": "Archivo, Helvetica Neue, Arial, sans-serif",
+					"name": "Archivo",
+					"slug": "archivo"
+				}
+			]
+		}
+	},
 	"customTemplates": [
 		{
 			"name": "landing",
@@ -8,13 +24,6 @@
 				"page"
 			],
 			"title": "No Header or Footer (Landing Page)"
-		},
-		{
-			"name": "page-product-guide",
-			"postTypes": [
-				"page"
-			],
-			"title": "Masterbatch Product Guide"
 		},
 		{
 			"name": "page-home",
@@ -57,6 +66,13 @@
 				"page"
 			],
 			"title": "Masterbatch Buyer Resources"
+		},
+		{
+			"name": "page-rfq-checklist",
+			"postTypes": [
+				"page"
+			],
+			"title": "Masterbatch RFQ Checklist"
 		},
 		{
 			"name": "page-about-quality",

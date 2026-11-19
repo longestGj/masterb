@@ -4,7 +4,7 @@ content_type: "resource_index"
 schema_version: 1
 locale: "en-US"
 route_key: "resources.index"
-status: "review"
+status: "approved"
 title: "Masterbatch Buyer Resources"
 primary_keyword: "masterbatch guide"
 search_intent: "informational"
@@ -19,7 +19,7 @@ wp:
   title: "Masterbatch Buyer Resources"
   slug: "resources"
   template: "page-resources"
-  status: "draft"
+  status: "publish"
   comment_status: "closed"
   ping_status: "closed"
   noindex: true
@@ -31,7 +31,7 @@ route:
 
 seo:
   title: "Masterbatch Buyer Resources | GE CHEMICAL"
-  description: "Use these masterbatch buyer resources to prepare an RFQ, choose a product direction, understand document review and find answers to common questions."
+  description: "Explore black and desiccant masterbatch routes, read buyer guides, prepare an RFQ and understand technical document review."
   robots: "noindex,nofollow"
   canonical_route_key: "resources.index"
   open_graph_image_id: null
@@ -50,8 +50,7 @@ relations:
   related_content_ids:
     - "guides.index"
     - "guide.black"
-    - "guide.white"
-    - "guide.color"
+    - "product.desiccant.index"
     - "documents.request"
     - "faq"
     - "quote.request"
@@ -73,9 +72,9 @@ review:
   next_review_at: null
 
 import:
-  target_environment: "staging"
+  target_environment: "production"
   idempotency_key: "resources.index"
-  create_status: "draft"
+  create_status: "publish"
   body_h1_allowed: false
 ---
 
@@ -83,9 +82,8 @@ These resources help buyers describe a masterbatch requirement in enough detail 
 
 ## Choose a product direction
 
-- [Black masterbatch RFQ guide](/products/black-masterbatch/) for blackness, dispersion, carrier resin and current processing issues.
-- [White masterbatch RFQ guide](/products/white-masterbatch/) for whiteness, opacity, TiO2 context and document needs.
-- [Color masterbatch RFQ guide](/products/color-masterbatch/) for color references, tolerance expectations and sample discussion.
+- [Black masterbatch](/products/black-masterbatch/) for blackness, dispersion, carrier resin and current processing issues.
+- [Desiccant masterbatch](/products/desiccant-masterbatch/) for CaO moisture control, applications and DM2476G review.
 
 ## Buyer articles
 

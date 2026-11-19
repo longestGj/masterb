@@ -8,6 +8,8 @@ const themeStyle = fs.readFileSync(
   "utf8",
 );
 const themeVersion = themeStyle.match(/^Version:\s*(\S+)$/m)?.[1];
+const liveThemeVersion =
+  process.env.MB_LIVE_THEME_VERSION || themeVersion;
 
 test.skip(!liveBaseUrl, "Set MB_LIVE_BASE_URL to run live About checks.");
 
@@ -31,7 +33,7 @@ test.beforeEach(async ({ page }, testInfo) => {
 test("serves the eleven-section About redesign", async ({ page }) => {
   await expect(page.locator("h1")).toHaveCount(1);
   await expect(page.locator("h1")).toHaveText(
-    "How we review a masterbatch inquiry.",
+    "About GE Chemical and masterbatch review.",
   );
   await expect(page.locator("main > section")).toHaveCount(11);
   await expect(
@@ -52,7 +54,7 @@ test("serves the eleven-section About redesign", async ({ page }) => {
     page.getByRole("heading", { name: "Choose your next step." }),
   ).toBeVisible();
   await expect(page.getByText("Who reviews your inquiry.")).toHaveCount(0);
-  await expect(page.locator(".mtm-about-products__index > a")).toHaveCount(3);
+  await expect(page.locator(".mtm-about-products__index > a")).toHaveCount(2);
   await expect(
     page.locator(".mtm-about-applications__grid article"),
   ).toHaveCount(4);
@@ -60,7 +62,7 @@ test("serves the eleven-section About redesign", async ({ page }) => {
   await expect(page.locator("main details")).toHaveCount(0);
   await expect(
     page.locator(
-      `link[href*="about-field-manual.css"][href*="ver=${themeVersion}"]`,
+      `link[href*="about-field-manual.css"][href*="ver=${liveThemeVersion}"]`,
     ),
   ).toHaveCount(1);
 });

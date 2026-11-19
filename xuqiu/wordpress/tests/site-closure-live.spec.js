@@ -7,13 +7,17 @@ test.skip(!liveBaseUrl, "Set MB_LIVE_BASE_URL to run live site closure checks.")
 
 const primaryRoutes = [
   "/",
-  "/masterbatch-guides/",
   "/products/black-masterbatch/",
+  "/products/black-masterbatch/bk020/",
+  "/products/black-masterbatch/bk025/",
+  "/products/black-masterbatch/bk030/",
+  "/products/black-masterbatch/bk035/",
   "/products/black-masterbatch/bk040/",
-  "/products/white-masterbatch/",
-  "/products/color-masterbatch/",
+  "/products/black-masterbatch/pt-300/",
+  "/products/black-masterbatch/pt-450p/",
+  "/products/desiccant-masterbatch/",
+  "/products/desiccant-masterbatch/dm2476g/",
   "/technical-documents/",
-  "/resources/",
   "/resources/masterbatch-rfq-checklist/",
   "/blog/",
   "/blog/masterbatch-for-blown-film/",
@@ -26,23 +30,68 @@ const primaryRoutes = [
   "/privacy-policy/",
 ];
 
+test("the retired guides hub redirects to Blog", async ({
+  request,
+}) => {
+  const response = await request.get(
+    `${liveBaseUrl}/masterbatch-guides/?source=legacy-hub`,
+    { maxRedirects: 0 },
+  );
+  expect(response.status()).toBe(301);
+  const redirect = new URL(response.headers().location, liveBaseUrl);
+  expect(`${redirect.pathname}${redirect.search}`).toBe(
+    "/blog/?source=legacy-hub",
+  );
+});
+
+test("the Resources parent route redirects to Blog", async ({ request }) => {
+  const response = await request.get(
+    `${liveBaseUrl}/resources/?source=legacy-resources`,
+    { maxRedirects: 0 },
+  );
+  expect(response.status()).toBe(301);
+  const redirect = new URL(response.headers().location, liveBaseUrl);
+  expect(`${redirect.pathname}${redirect.search}`).toBe(
+    "/blog/?source=legacy-resources",
+  );
+});
+
 test("legacy product guide URLs redirect to product routes", async ({
   request,
 }) => {
-  const redirects = [
-    "/masterbatch-guides/black-masterbatch/",
+  const response = await request.get(
+    `${liveBaseUrl}/masterbatch-guides/black-masterbatch/?source=legacy`,
+    {
+      maxRedirects: 0,
+    },
+  );
+  expect(response.status()).toBe(301);
+  const redirect = new URL(response.headers().location, liveBaseUrl);
+  expect(`${redirect.pathname}${redirect.search}`).toBe(
+    "/products/black-masterbatch/?source=legacy",
+  );
+});
+
+test("removed White and Color URLs redirect to the home page", async ({
+  request,
+}) => {
+  const routes = [
+    "/products/white-masterbatch",
+    "/products/white-masterbatch/",
+    "/products/color-masterbatch",
+    "/products/color-masterbatch/",
     "/masterbatch-guides/white-masterbatch/",
     "/masterbatch-guides/color-masterbatch/",
   ];
 
-  for (const route of redirects) {
-    const response = await request.get(`${liveBaseUrl}${route}?source=legacy`, {
+  for (const route of routes) {
+    const response = await request.get(`${liveBaseUrl}${route}?source=removed`, {
       maxRedirects: 0,
     });
     expect(response.status(), route).toBe(301);
     const redirect = new URL(response.headers().location, liveBaseUrl);
     expect(`${redirect.pathname}${redirect.search}`, route).toBe(
-      `${route.replace("/masterbatch-guides/", "/products/")}?source=legacy`,
+      "/?source=removed",
     );
   }
 });
@@ -60,27 +109,19 @@ test("the structural Products page is hidden from public navigation", async ({
   );
 });
 
-test("unfinished BK product URLs redirect to the Black Masterbatch page", async ({
-  request,
-}) => {
-  for (const grade of ["bk020", "bk025", "bk030", "bk035"]) {
-    const response = await request.get(
-      `${liveBaseUrl}/products/black-masterbatch/${grade}/?source=placeholder`,
-      { maxRedirects: 0 },
-    );
-    expect(response.status(), grade).toBe(301);
-    const redirect = new URL(response.headers().location, liveBaseUrl);
-    expect(`${redirect.pathname}${redirect.search}`, grade).toBe(
-      "/products/black-masterbatch/?source=placeholder",
-    );
-  }
+test("BK020 resolves as a published product page", async ({ request }) => {
+  const response = await request.get(
+    `${liveBaseUrl}/products/black-masterbatch/bk020/`,
+    { maxRedirects: 0 },
+  );
+  expect(response.status()).toBe(200);
 });
 
 test("primary navigation and CTA routes resolve cleanly", async ({
   page,
   request,
 }) => {
-  test.setTimeout(120_000);
+  test.setTimeout(300_000);
   const internalLinks = new Set();
 
   for (const route of primaryRoutes) {
@@ -139,7 +180,7 @@ test("document request form requires document type and purpose", async ({
   page,
 }) => {
   await page.goto(
-    `${liveBaseUrl}/technical-documents/?intent=white-masterbatch#request-form`,
+    `${liveBaseUrl}/technical-documents/?intent=desiccant-masterbatch#request-form`,
     { waitUntil: "networkidle" },
   );
 
@@ -152,7 +193,7 @@ test("document request form requires document type and purpose", async ({
     "documents",
   );
   await expect(form.locator('select[name="product_interest"]')).toHaveValue(
-    "White masterbatch",
+    "Desiccant masterbatch",
   );
   await expect(
     form.locator('select[name="documents_requested"]'),

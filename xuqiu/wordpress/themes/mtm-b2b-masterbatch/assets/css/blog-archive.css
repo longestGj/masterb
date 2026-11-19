@@ -103,7 +103,7 @@ body.mtm-blog-archive :focus-visible {
   margin: 0;
   color: var(--ge-color-text);
   font-family: var(--ge-font-display);
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .blog-page h1 {
@@ -245,7 +245,7 @@ body.mtm-blog-archive .blog-button--outline:hover {
   color: var(--ge-color-on-primary);
   font-family: var(--ge-font-display);
   font-size: 1.32rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
 }
 
@@ -485,7 +485,7 @@ body.mtm-blog-archive .blog-button--outline:hover {
 .blog-tools nav strong {
   font-family: var(--ge-font-display);
   font-size: 1.55rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
 }
 

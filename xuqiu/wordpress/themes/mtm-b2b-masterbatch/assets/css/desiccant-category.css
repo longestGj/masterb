@@ -1,0 +1,32 @@
+/* Product-specific support for the Black Masterbatch category pattern. */
+body.mtm-desiccant-category .bm-hero__media img {
+  object-position: center 42%;
+}
+
+body.mtm-desiccant-category .bm-family-panel strong {
+  display: flex;
+  min-height: 72px;
+  align-items: center;
+}
+
+body.mtm-desiccant-category .bm-md-grade-table thead th:first-child {
+  width: 20%;
+}
+
+body.mtm-desiccant-category .bm-md-grade-table thead th:nth-child(2) {
+  width: 24%;
+}
+
+body.mtm-desiccant-category .bm-md-grade-table thead th:nth-child(3) {
+  width: 56%;
+}
+
+body.mtm-desiccant-category .bm-application-routes article {
+  min-height: 210px;
+}
+
+@media (max-width: 760px) {
+  body.mtm-desiccant-category .bm-application-routes article {
+    min-height: 0;
+  }
+}

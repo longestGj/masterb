@@ -5,32 +5,29 @@ schema_version: 1
 locale: "en-US"
 route_key: "home"
 status: "review"
-title: "Masterbatch Products"
-primary_keyword: "masterbatch"
+title: "Black Masterbatch Manufacturer in China"
+primary_keyword: "black masterbatch manufacturer"
 secondary_keywords:
+  - "black masterbatch supplier"
+  - "masterbatch manufacturer in China"
   - "plastic masterbatch"
   - "black masterbatch"
-  - "white masterbatch"
-  - "color masterbatch"
+  - "desiccant masterbatch"
   - "masterbatch for plastics"
   - "masterbatch applications"
   - "masterbatch RFQ"
   - "master batch"
   - "masterbatches"
-  - "colour masterbatch"
   - "carbon black masterbatch"
-  - "custom color masterbatch"
   - "masterbatch for blown film"
   - "masterbatch for injection molding"
   - "masterbatch for extrusion"
   - "masterbatch for recycled plastic"
-  - "masterbatch color reference"
   - "masterbatch TDS"
   - "masterbatch document request"
-  - "masterbatch supplier"
   - "masterbatch quotation"
 search_intent: "commercial_investigation"
-page_job: "Present black, white and color masterbatch product pathways for plastic processing buyers and guide product inquiries into an application-focused RFQ review."
+page_job: "Position GE Chemical as a black masterbatch manufacturer and supplier in China, present the black and desiccant product routes, and guide qualified buyers into an application-focused review."
 product_family: "all"
 body_format: "gutenberg-blocks-v1"
 body_starts_at_heading: 1
@@ -38,7 +35,7 @@ h1_source: "body"
 
 wp:
   object_type: "page"
-  title: "Masterbatch Products"
+  title: "Black Masterbatch Manufacturer in China"
   slug: "home"
   template: "page-home"
   status: "draft"
@@ -53,8 +50,8 @@ route:
   trailing_slash: true
 
 seo:
-  title: "Masterbatch Products for Plastic Processing | GE CHEMICAL"
-  description: "Black, white and color masterbatch products for film, packaging, injection molding, extrusion and recycled plastics. Share your application requirements."
+  title: "Black Masterbatch Manufacturer in China | GE CHEMICAL"
+  description: "Black masterbatch manufacturer in China for 20 to 40 percent carbon black and CaO desiccant masterbatch. Share resin, process and application for review."
   robots: "noindex,nofollow"
   canonical_route_key: "home"
   open_graph_image_id: null
@@ -62,9 +59,9 @@ seo:
     - "WebPage"
 
 hero:
-  eyebrow: "Black · White · Color Masterbatch"
-  title: "Masterbatch Products for Plastic Processing"
-  summary: "We review black, white and color plastic masterbatch inquiries for film blowing, packaging, injection molding, extrusion and recycled PE and PP applications. Send the resin, processing method, end product, target and current grade. We’ll check masterbatch product fit and document scope, then reply."
+  eyebrow: "Black Masterbatch · Desiccant Masterbatch"
+  title: "Black Masterbatch Manufacturer & Supplier in China"
+  summary: "GE Chemical manufactures black masterbatch in five carbon black loadings from 20% to 40% and supplies CaO desiccant masterbatch for moisture-control applications. Share the resin, process and end product for grade review."
   image_id: null
 
 conversion:
@@ -77,8 +74,7 @@ relations:
   parent_content_id: null
   related_content_ids:
     - "guide.black"
-    - "guide.white"
-    - "guide.color"
+    - "product.desiccant.index"
     - "quote.request"
     - "documents.request"
     - "resources.index"
@@ -144,21 +140,21 @@ import:
 					<!-- /wp:paragraph -->
 
 					<!-- wp:heading {"level":1,"className":"mtm-home-hero__title"} -->
-					<h1 class="wp-block-heading mtm-home-hero__title">Masterbatch, tuned to the line.</h1>
+					<h1 class="wp-block-heading mtm-home-hero__title">Black Masterbatch Manufacturer &amp; Supplier in China</h1>
 					<!-- /wp:heading -->
 
 					<!-- wp:paragraph {"className":"mtm-home-hero__summary"} -->
-					<p class="mtm-home-hero__summary">Black, white and color systems for film, packaging, molding and extrusion, backed by a conversation about resin, process and the result you need.</p>
+					<p class="mtm-home-hero__summary">GE Chemical manufactures black masterbatch in five carbon black loadings from 20% to 40% and supplies CaO desiccant masterbatch for moisture-control applications. Share the resin, process and end product for grade review.</p>
 					<!-- /wp:paragraph -->
 
 					<!-- wp:buttons {"className":"mtm-home-hero__actions"} -->
 					<div class="wp-block-buttons mtm-home-hero__actions">
 						<!-- wp:button {"backgroundColor":"brass","textColor":"ink","className":"is-style-fill"} -->
-						<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-ink-color has-brass-background-color has-text-color has-background wp-element-button" href="/request-a-quote/">Build your RFQ</a></div>
+						<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-ink-color has-brass-background-color has-text-color has-background wp-element-button" href="/products/black-masterbatch/">Explore black masterbatch</a></div>
 						<!-- /wp:button -->
 
 						<!-- wp:button {"className":"is-style-outline mtm-home-button-light"} -->
-						<div class="wp-block-button is-style-outline mtm-home-button-light"><a class="wp-block-button__link wp-element-button" href="/masterbatch-guides/">See material routes</a></div>
+						<div class="wp-block-button is-style-outline mtm-home-button-light"><a class="wp-block-button__link wp-element-button" href="/request-a-quote/">Get a quote</a></div>
 						<!-- /wp:button -->
 					</div>
 					<!-- /wp:buttons -->
@@ -166,7 +162,7 @@ import:
 					<!-- wp:group {"className":"mtm-home-hero__specs","layout":{"type":"flex","flexWrap":"wrap"}} -->
 					<div class="wp-block-group mtm-home-hero__specs">
 						<!-- wp:paragraph {"className":"mtm-home-hero__spec"} -->
-						<p class="mtm-home-hero__spec"><span>Materials</span><strong>Black / White / Color</strong></p>
+						<p class="mtm-home-hero__spec"><span>Materials</span><strong>Black / Desiccant</strong></p>
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"className":"mtm-home-hero__spec"} -->
@@ -189,14 +185,14 @@ import:
 				<div class="wp-block-group mtm-home-hero-stack">
 					<!-- wp:image {"sizeSlug":"full","className":"mtm-home-hero-photo"} -->
 					<figure class="wp-block-image size-full mtm-home-hero-photo">
-						<img src="/wp-content/themes/mtm-b2b-masterbatch/assets/images/home-factory-building.jpg" alt="Masterbatch factory building exterior" width="1600" height="1200" loading="eager" fetchpriority="high" decoding="async" />
+						<img src="/wp-content/themes/mtm-b2b-masterbatch/assets/images/home-factory-building.webp" alt="Masterbatch factory building exterior" width="1400" height="1050" loading="eager" fetchpriority="high" decoding="async" />
 						<figcaption class="wp-element-caption">Factory context / review by exact grade and application</figcaption>
 					</figure>
 					<!-- /wp:image -->
 
 					<!-- wp:image {"sizeSlug":"full","className":"mtm-home-hero-photo-inset"} -->
 					<figure class="wp-block-image size-full mtm-home-hero-photo-inset">
-						<img src="/wp-content/themes/mtm-b2b-masterbatch/assets/images/guide-black-granules.jpg" alt="Black masterbatch granules" width="800" height="800" loading="eager" decoding="async" />
+						<img src="/wp-content/themes/mtm-b2b-masterbatch/assets/images/guide-black-granules.webp" alt="Black masterbatch granules" width="760" height="1013" loading="eager" decoding="async" />
 						<figcaption class="wp-element-caption">BK / carbon system</figcaption>
 					</figure>
 					<!-- /wp:image -->
@@ -230,10 +226,7 @@ import:
 		<p>Black masterbatch</p>
 		<!-- /wp:paragraph -->
 		<!-- wp:paragraph -->
-		<p>White masterbatch</p>
-		<!-- /wp:paragraph -->
-		<!-- wp:paragraph -->
-		<p>Color masterbatch</p>
+		<p>Desiccant masterbatch</p>
 		<!-- /wp:paragraph -->
 		<!-- wp:paragraph -->
 		<p>Application review</p>
@@ -256,13 +249,13 @@ import:
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph -->
-				<p>Start with the job, then the color system. Each route shows the details that change the review.</p>
+				<p>Start with the job, then the product function. Each route shows the details that change the review.</p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:group -->
 
 			<!-- wp:columns {"className":"mtm-home-card-grid mtm-home-card-grid\u002d\u002dthree"} -->
-			<div class="wp-block-columns mtm-home-card-grid mtm-home-card-grid--three">
+			<div class="wp-block-columns mtm-home-card-grid mtm-home-card-grid--two">
 				<!-- wp:column {"className":"mtm-home-card-column"} -->
 				<div class="wp-block-column mtm-home-card-column">
 					<!-- wp:group {"className":"mtm-home-card mtm-home-card\u002d\u002dblack mtm-home-card\u002d\u002ddark","layout":{"type":"constrained"}} -->
@@ -271,7 +264,7 @@ import:
 						<p class="mtm-eyebrow">Black Masterbatch</p>
 						<!-- /wp:paragraph -->
 						<!-- wp:image {"sizeSlug":"medium","linkDestination":"none","className":"mtm-home-product-thumb"} -->
-						<figure class="wp-block-image size-medium mtm-home-product-thumb"><img src="/wp-content/themes/mtm-b2b-masterbatch/assets/images/guide-black-granules.jpg" alt="Black masterbatch granules" loading="lazy" decoding="async" /></figure>
+						<figure class="wp-block-image size-medium mtm-home-product-thumb"><img src="/wp-content/themes/mtm-b2b-masterbatch/assets/images/guide-black-granules.webp" alt="Black masterbatch granules" loading="lazy" decoding="async" /></figure>
 						<!-- /wp:image -->
 						<!-- wp:heading {"level":3} -->
 						<h3 class="wp-block-heading">Depth with control.</h3>
@@ -302,72 +295,35 @@ import:
 
 				<!-- wp:column {"className":"mtm-home-card-column"} -->
 				<div class="wp-block-column mtm-home-card-column">
-					<!-- wp:group {"className":"mtm-home-card mtm-home-card\u002d\u002dwhite mtm-home-card\u002d\u002ddark","layout":{"type":"constrained"}} -->
-					<div class="wp-block-group mtm-home-card mtm-home-card--white mtm-home-card--dark">
+					<!-- wp:group {"className":"mtm-home-card mtm-home-card\u002d\u002ddesiccant mtm-home-card\u002d\u002ddark","layout":{"type":"constrained"}} -->
+					<div class="wp-block-group mtm-home-card mtm-home-card--desiccant mtm-home-card--dark">
 						<!-- wp:paragraph {"className":"mtm-eyebrow"} -->
-						<p class="mtm-eyebrow">White Masterbatch</p>
+						<p class="mtm-eyebrow">Desiccant Masterbatch</p>
 						<!-- /wp:paragraph -->
 						<!-- wp:image {"sizeSlug":"medium","linkDestination":"none","className":"mtm-home-product-thumb"} -->
-						<figure class="wp-block-image size-medium mtm-home-product-thumb"><img src="/wp-content/themes/mtm-b2b-masterbatch/assets/images/guide-white-granules.jpg" alt="White masterbatch granules" loading="lazy" decoding="async" /></figure>
+						<figure class="wp-block-image size-medium mtm-home-product-thumb"><img src="/wp-content/themes/mtm-b2b-masterbatch/assets/images/dm2476g-product-hero.webp" alt="DM2476G desiccant masterbatch granules" width="1200" height="900" loading="lazy" decoding="async" /></figure>
 						<!-- /wp:image -->
 						<!-- wp:heading {"level":3} -->
-						<h3 class="wp-block-heading">Opacity with context.</h3>
+						<h3 class="wp-block-heading">Control moisture at the melt.</h3>
 						<!-- /wp:heading -->
 						<!-- wp:paragraph -->
-						<p>Send the resin and process, along with the opacity target, TiO2 context, end product and document requirements.</p>
+						<p>Describe the resin, regrind share, storage conditions, current defect and document needs so the moisture-control route can be reviewed.</p>
 						<!-- /wp:paragraph -->
 						<!-- wp:group {"className":"mtm-home-spec-tags","layout":{"type":"flex","flexWrap":"wrap"}} -->
 						<div class="wp-block-group mtm-home-spec-tags">
 							<!-- wp:paragraph {"className":"mtm-home-spec-tag"} -->
-							<p class="mtm-home-spec-tag">Opacity</p>
+							<p class="mtm-home-spec-tag">Moisture source</p>
 							<!-- /wp:paragraph -->
 							<!-- wp:paragraph {"className":"mtm-home-spec-tag"} -->
-							<p class="mtm-home-spec-tag">Whiteness</p>
+							<p class="mtm-home-spec-tag">CaO grade</p>
 							<!-- /wp:paragraph -->
 							<!-- wp:paragraph {"className":"mtm-home-spec-tag"} -->
-							<p class="mtm-home-spec-tag">TiO2 context</p>
+							<p class="mtm-home-spec-tag">Trial dose</p>
 							<!-- /wp:paragraph -->
 						</div>
 						<!-- /wp:group -->
 						<!-- wp:paragraph {"className":"mtm-home-card-link"} -->
-						<p class="mtm-home-card-link"><a href="/products/white-masterbatch/">Open white route</a></p>
-						<!-- /wp:paragraph -->
-					</div>
-					<!-- /wp:group -->
-				</div>
-				<!-- /wp:column -->
-
-				<!-- wp:column {"className":"mtm-home-card-column"} -->
-				<div class="wp-block-column mtm-home-card-column">
-					<!-- wp:group {"className":"mtm-home-card mtm-home-card\u002d\u002dcolor mtm-home-card\u002d\u002ddark","layout":{"type":"constrained"}} -->
-					<div class="wp-block-group mtm-home-card mtm-home-card--color mtm-home-card--dark">
-						<!-- wp:paragraph {"className":"mtm-eyebrow"} -->
-						<p class="mtm-eyebrow">Color Masterbatch</p>
-						<!-- /wp:paragraph -->
-						<!-- wp:image {"sizeSlug":"medium","linkDestination":"none","className":"mtm-home-product-thumb"} -->
-						<figure class="wp-block-image size-medium mtm-home-product-thumb"><img src="/wp-content/themes/mtm-b2b-masterbatch/assets/images/guide-color-granules.jpg" alt="Mixed-color masterbatch granules" loading="lazy" decoding="async" /></figure>
-						<!-- /wp:image -->
-						<!-- wp:heading {"level":3} -->
-						<h3 class="wp-block-heading">Reference becomes direction.</h3>
-						<!-- /wp:heading -->
-						<!-- wp:paragraph -->
-						<p>Describe the resin and end product. Include the color reference and tolerance expectation, and say whether a sample discussion is needed.</p>
-						<!-- /wp:paragraph -->
-						<!-- wp:group {"className":"mtm-home-spec-tags","layout":{"type":"flex","flexWrap":"wrap"}} -->
-						<div class="wp-block-group mtm-home-spec-tags">
-							<!-- wp:paragraph {"className":"mtm-home-spec-tag"} -->
-							<p class="mtm-home-spec-tag">Reference</p>
-							<!-- /wp:paragraph -->
-							<!-- wp:paragraph {"className":"mtm-home-spec-tag"} -->
-							<p class="mtm-home-spec-tag">Tolerance</p>
-							<!-- /wp:paragraph -->
-							<!-- wp:paragraph {"className":"mtm-home-spec-tag"} -->
-							<p class="mtm-home-spec-tag">Sample review</p>
-							<!-- /wp:paragraph -->
-						</div>
-						<!-- /wp:group -->
-						<!-- wp:paragraph {"className":"mtm-home-card-link"} -->
-						<p class="mtm-home-card-link"><a href="/products/color-masterbatch/">Open color route</a></p>
+						<p class="mtm-home-card-link"><a href="/products/desiccant-masterbatch/">Open desiccant route</a></p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:group -->
@@ -427,7 +383,7 @@ import:
 					<h3 class="wp-block-heading mtm-home-app-row__title">Injection molding</h3>
 					<!-- /wp:heading -->
 					<!-- wp:paragraph {"className":"mtm-home-app-row__desc"} -->
-					<p class="mtm-home-app-row__desc">Molded parts need the resin, part type, surface requirement, color target and any current problem.</p>
+					<p class="mtm-home-app-row__desc">Molded parts need the resin, part type, surface or blackness requirement and any current problem.</p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
@@ -694,7 +650,7 @@ import:
 					<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"right"}} -->
 					<div class="wp-block-buttons">
 						<!-- wp:button {"className":"is-style-outline"} -->
-						<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/resources/">Explore Resources</a></div>
+						<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/blog/">Explore Resources</a></div>
 						<!-- /wp:button -->
 					</div>
 					<!-- /wp:buttons -->
@@ -795,7 +751,7 @@ import:
 					<h3 class="wp-block-heading">What can I send?</h3>
 					<!-- /wp:heading -->
 					<!-- wp:paragraph -->
-					<p>We review black, white and color masterbatch inquiries for plastic processing.</p>
+					<p>We review black and desiccant masterbatch inquiries for plastic processing.</p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->

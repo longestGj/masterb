@@ -5,7 +5,7 @@ schema_version: 1
 locale: "en-US"
 route_key: "guides.black"
 status: "review"
-title: "Black Masterbatch RFQ Guide"
+title: "Black Masterbatch"
 primary_keyword: "black masterbatch"
 secondary_keywords:
   - "black masterbatch supplier"
@@ -15,7 +15,7 @@ secondary_keywords:
   - "black masterbatch for injection molding"
   - "black masterbatch for recycled plastic"
 search_intent: "commercial_investigation"
-page_job: "Help B2B plastic buyers prepare a complete black masterbatch RFQ for manual product and document review."
+page_job: "Introduce the Black Masterbatch range, applications, quality checks and buyer questions behind BK020-BK040."
 product_family: "black"
 body_format: "markdown-portable-v1"
 body_starts_at_heading: 2
@@ -23,12 +23,12 @@ h1_source: "hero.title"
 
 wp:
   object_type: "page"
-  title: "Black Masterbatch RFQ Guide"
+  title: "Black Masterbatch"
   slug: "black-masterbatch"
   parent_slug: "products"
   parent_title: "Products"
   parent_required: true
-  template: "page-product-guide"
+  template: "page-black-masterbatch"
   status: "draft"
   comment_status: "closed"
   ping_status: "closed"
@@ -40,8 +40,8 @@ route:
   trailing_slash: true
 
 seo:
-  title: "Black Masterbatch RFQ Guide | GE CHEMICAL"
-  description: "Prepare a black masterbatch RFQ with resin, application, blackness target, dispersion needs, quantity and document request details for manual review."
+  title: "Black Masterbatch Manufacturer: BK020–BK040 Grades"
+  description: "Compare BK020–BK040 black masterbatch grades from 20% to 40% carbon black for film, molding and recycling. Request a quote or free sample."
   robots: "noindex,nofollow"
   canonical_route_key: "guides.black"
   open_graph_image_id: null
@@ -52,8 +52,8 @@ seo:
 
 hero:
   eyebrow: "Black Masterbatch"
-  title: "Black Masterbatch RFQ Guide for B2B Plastic Buyers"
-  summary: "Prepare a clearer black masterbatch inquiry by sharing your resin, application, processing method, blackness target, dispersion requirement, current issue and document needs."
+  title: "Black Masterbatch & Carbon Black Masterbatch"
+  summary: "Five grades from 20% to 40% carbon black for film, injection molding and recycled plastics."
   image_id: null
 
 conversion:
@@ -76,7 +76,7 @@ form:
   recommended_rfq_fields:
     - "base_resin"
     - "processing_method"
-    - "target_color_function"
+    - "target_requirement"
     - "current_problem"
     - "product_grade_model"
     - "current_grade_supplier"
@@ -94,8 +94,7 @@ relations:
   parent_content_id: null
   related_content_ids:
     - "resource.rfq-checklist"
-    - "guide.white"
-    - "guide.color"
+    - "product.desiccant.index"
     - "documents.request"
 
 template_contract:
@@ -147,6 +146,7 @@ import:
     - "Privacy policy and image rights require approval"
 ---
 
+<!-- Legacy body retained for reference only. The live page copy is rendered by templates/page-black-masterbatch.html. -->
 <!-- mb:body-intro -->
 GE CHEMICAL & POLYMER GROUP CO., LTD reviews each inquiry by product grade, application and document scope before confirming technical data or document availability.
 
@@ -256,8 +256,7 @@ Send your black masterbatch RFQ with resin, application, processing method, blac
 
 ## Related masterbatch guides
 
-- [White masterbatch RFQ guide](/products/white-masterbatch/)
-- [Color masterbatch RFQ guide](/products/color-masterbatch/)
+- [Desiccant masterbatch](/products/desiccant-masterbatch/)
 - [How to prepare a masterbatch RFQ](/resources/masterbatch-rfq-checklist/)
 
 <!--
@@ -265,7 +264,7 @@ WORDPRESS IMPORT CHECKLIST
 
 1. Import this file as a Page, not a Post.
 2. Create the Products parent page with slug "products" before assigning the parent.
-3. Set the page title to wp.title. Render hero.title as the only H1 through page-product-guide.
+3. Set the page title to wp.title. Render hero.title as the only H1 through page-black-masterbatch.
 4. Do not paste the YAML front matter into the WordPress body.
 5. Keep the page as Draft and noindex until every publish_blocker is cleared.
 6. Create /request-a-quote/ and /technical-documents/ before testing CTA destinations.

@@ -60,7 +60,7 @@
     "title": "How to Choose Carbon Black Content in Black Masterbatch",
     "heroTitle": "How to choose carbon black content in black masterbatch.",
     "slug": "how-to-choose-carbon-black-content",
-    "seoTitle": "Carbon Black Content in Black Masterbatch Guide | GE CHEMICAL",
+    "seoTitle": "Carbon Black Content in Black Masterbatch | GE CHEMICAL",
     "description": "Compare 20%, 30%, 35% and 40% carbon black masterbatch grades by resin, filler, dispersion, use rate, trial results and cost per tonne.",
     "excerpt": "Use resin, filler, dispersion, let-down ratio and a line trial to choose the right carbon black content for black masterbatch.",
     "primaryKeyword": "carbon black content in black masterbatch",
@@ -74,5 +74,24 @@
     "featuredImage": "images/masterbatch-carbon-black-content.webp",
     "featuredAlt": "Masterbatch product granules in a close product view",
     "contentFile": "content/posts/how-to-choose-carbon-black-content.wordpress.html"
+  },
+  {
+    "title": "How to Choose Black Masterbatch for Injection Molding",
+    "heroTitle": "How to choose black masterbatch for injection molding.",
+    "slug": "black-masterbatch-for-injection-molding",
+    "seoTitle": "Black Masterbatch for Injection Molding: Buyer Guide",
+    "description": "Choose black masterbatch for injection molding by resin, part surface, carbon black content, dispersion, MFI and a comparable trial.",
+    "excerpt": "Use the molded part, resin, surface, carbon black content, dispersion and MFI to shortlist a grade, then confirm it in a comparable trial.",
+    "primaryKeyword": "black masterbatch for injection molding",
+    "category": "Masterbatch Guides",
+    "categorySlug": "masterbatch-guides",
+    "tags": [
+      "injection molding",
+      "black masterbatch",
+      "masterbatch selection"
+    ],
+    "featuredImage": "images/black-masterbatch-injection-molding.webp",
+    "featuredAlt": "Illustrative schematic of an injection molding machine showing the hopper, heated barrel and screw, nozzle, mold and clamp",
+    "contentFile": "content/posts/black-masterbatch-for-injection-molding.wordpress.html"
   }
 ]

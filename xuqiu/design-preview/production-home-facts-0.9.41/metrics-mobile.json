@@ -1,0 +1,33 @@
+{
+  "viewport": 320,
+  "documentWidth": 320,
+  "fact": {
+    "left": 0,
+    "right": 320,
+    "width": 320,
+    "height": 187,
+    "columns": "144px 144px"
+  },
+  "factItems": [
+    {
+      "left": 16,
+      "right": 160,
+      "height": 93
+    },
+    {
+      "left": 160,
+      "right": 304,
+      "height": 93
+    },
+    {
+      "left": 16,
+      "right": 160,
+      "height": 92
+    },
+    {
+      "left": 160,
+      "right": 304,
+      "height": 92
+    }
+  ]
+}

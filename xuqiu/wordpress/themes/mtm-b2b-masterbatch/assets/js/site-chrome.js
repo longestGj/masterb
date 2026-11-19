@@ -153,6 +153,7 @@
 		blog: "/blog",
 		faq: "/faq",
 		documents: "/technical-documents",
+		checklist: "/resources/masterbatch-rfq-checklist",
 		about: "/about-quality",
 		contact: "/request-a-quote"
 	};
@@ -178,7 +179,7 @@
 
 	if (
 		resourceToggle
-		&& ["/resources", "/blog", "/faq", "/technical-documents"].some(function (route) {
+		&& ["/resources", "/blog", "/faq", "/technical-documents", "/resources/masterbatch-rfq-checklist"].some(function (route) {
 			return pathname === route || pathname.indexOf(route + "/") === 0;
 		})
 	) {

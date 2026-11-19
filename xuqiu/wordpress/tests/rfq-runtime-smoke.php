@@ -26,8 +26,7 @@ $result = MB_RFQ_Submission::process(
 		'application'           => 'Integration test only',
 		'base_resin'            => 'PE',
 		'processing_method'     => 'Film blowing',
-		'target_color_function' => 'Test target',
-		'color_reference_type'  => 'Not sure',
+		'target_requirement'    => 'Test target',
 		'product_grade'         => '',
 		'quantity'              => '1 test',
 		'destination_port'      => '',
@@ -92,7 +91,7 @@ $invalid_document_request = MB_RFQ_Submission::process(
 		'company'               => 'Test Company',
 		'email'                 => 'rfq-document-invalid@example.com',
 		'country'               => 'Test Country',
-		'product_interest'      => 'White masterbatch',
+		'product_interest'      => 'Desiccant masterbatch',
 		'application'           => 'Integration test only',
 		'privacy_consent'       => '1',
 		'form_context'          => 'documents',
@@ -112,7 +111,7 @@ $document_result = MB_RFQ_Submission::process(
 		'company'               => 'Test Company',
 		'email'                 => 'rfq-document-valid@example.com',
 		'country'               => 'Test Country',
-		'product_interest'      => 'White masterbatch',
+		'product_interest'      => 'Desiccant masterbatch',
 		'application'           => 'Document review integration test',
 		'privacy_consent'       => '1',
 		'form_context'          => 'documents',
@@ -126,7 +125,7 @@ if ( 'success' !== ( $document_result['status'] ?? '' ) ) {
 	WP_CLI::error( 'The valid document request was not accepted.' );
 }
 if (
-	'White masterbatch' !== ( $document_result['product_interest'] ?? '' )
+	'Desiccant masterbatch' !== ( $document_result['product_interest'] ?? '' )
 	|| 'documents' !== ( $document_result['form_context'] ?? '' )
 ) {
 	WP_CLI::error( 'The document analytics context was not returned.' );
@@ -174,9 +173,9 @@ $ga_result = MB_RFQ_Submission::process(
 		'company'               => 'Test Company',
 		'email'                 => 'rfq-ga4-failure@example.com',
 		'country'               => 'Test Country',
-		'product_interest'      => 'Color masterbatch',
+		'product_interest'      => 'Desiccant masterbatch',
 		'application'           => 'Email failure integration test',
-		'target_color_function' => 'Test target',
+		'target_requirement'    => 'Test target',
 		'privacy_consent'       => '1',
 		'form_context'          => 'rfq',
 		'ga_client_id'          => 'ga4-test-client.123',
@@ -192,7 +191,7 @@ if ( 'success' !== ( $ga_result['status'] ?? '' ) || true === ( $ga_result['emai
 $ga_event = $ga_request['body']['events'][0] ?? array();
 if (
 	'rfq_email_delivery_failed' !== ( $ga_event['name'] ?? '' )
-	|| 'Color masterbatch' !== ( $ga_event['params']['product_interest'] ?? '' )
+	|| 'Desiccant masterbatch' !== ( $ga_event['params']['product_interest'] ?? '' )
 ) {
 	wp_delete_post( (int) $ga_result['id'], true );
 	WP_CLI::error( 'The GA4 email delivery failure event was not generated correctly.' );

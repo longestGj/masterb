@@ -12,6 +12,7 @@ const articles = [
       "wenzhang/Masterbatch_for_Film_and_Blown_Film_Selection_Guide.md",
     ),
     output: "masterbatch-for-blown-film",
+    frozen: true,
     title: "How to Choose Masterbatch for Blown Film",
     heroTitle: "How to choose masterbatch for blown film.",
     slug: "masterbatch-for-blown-film",
@@ -34,6 +35,7 @@ const articles = [
       "wenzhang/Poor_Dispersion_and_Black_Specks_Diagnostic_Guide.md",
     ),
     output: "black-specks-in-masterbatch-film",
+    frozen: true,
     title:
       "Poor Dispersion and Black Specks in Masterbatch Film: A Diagnostic Guide",
     heroTitle: "Poor dispersion and black specks in masterbatch film.",
@@ -56,6 +58,7 @@ const articles = [
       "wenzhang/How_to_Vet_a_Masterbatch_Supplier.md",
     ),
     output: "how-to-vet-a-masterbatch-supplier",
+    frozen: true,
     title: "How to Vet a Masterbatch Supplier: A Practical Buyer Checklist",
     heroTitle: "How to vet a masterbatch supplier.",
     slug: "how-to-vet-a-masterbatch-supplier",
@@ -81,10 +84,11 @@ const articles = [
       "wenzhang/How_to_Choose_Carbon_Black_Content.md",
     ),
     output: "how-to-choose-carbon-black-content",
+    frozen: true,
     title: "How to Choose Carbon Black Content in Black Masterbatch",
     heroTitle: "How to choose carbon black content in black masterbatch.",
     slug: "how-to-choose-carbon-black-content",
-    seoTitle: "Carbon Black Content in Black Masterbatch Guide | GE CHEMICAL",
+    seoTitle: "Carbon Black Content in Black Masterbatch | GE CHEMICAL",
     description:
       "Compare 20%, 30%, 35% and 40% carbon black masterbatch grades by resin, filler, dispersion, use rate, trial results and cost per tonne.",
     excerpt:
@@ -99,6 +103,33 @@ const articles = [
     ],
     featuredImage: "images/masterbatch-carbon-black-content.webp",
     featuredAlt: "Masterbatch product granules in a close product view",
+  },
+  {
+    source: path.join(
+      outputRoot,
+      "black-masterbatch-for-injection-molding.wordpress.html",
+    ),
+    output: "black-masterbatch-for-injection-molding",
+    prebuilt: true,
+    title: "How to Choose Black Masterbatch for Injection Molding",
+    heroTitle: "How to choose black masterbatch for injection molding.",
+    slug: "black-masterbatch-for-injection-molding",
+    seoTitle: "Black Masterbatch for Injection Molding: Buyer Guide",
+    description:
+      "Choose black masterbatch for injection molding by resin, part surface, carbon black content, dispersion, MFI and a comparable trial.",
+    excerpt:
+      "Use the molded part, resin, surface, carbon black content, dispersion and MFI to shortlist a grade, then confirm it in a comparable trial.",
+    primaryKeyword: "black masterbatch for injection molding",
+    category: "Masterbatch Guides",
+    categorySlug: "masterbatch-guides",
+    tags: [
+      "injection molding",
+      "black masterbatch",
+      "masterbatch selection",
+    ],
+    featuredImage: "images/black-masterbatch-injection-molding.webp",
+    featuredAlt:
+      "Illustrative schematic of an injection molding machine showing the hopper, heated barrel and screw, nozzle, mold and clamp",
   },
 ];
 
@@ -326,13 +357,21 @@ fs.mkdirSync(outputRoot, { recursive: true });
 const manifest = [];
 
 for (const article of articles) {
-  const source = fs.readFileSync(article.source, "utf8");
-  const blocks = markdownToBlocks(publicArticle(source));
   const outputPath = path.join(
     outputRoot,
     `${article.output}.wordpress.html`,
   );
-  fs.writeFileSync(outputPath, `${blocks}\n`);
+
+  // Published posts are frozen: their current HTML is the source of truth and
+  // must not be overwritten by older Markdown drafts. Prebuilt entries are
+  // authored directly as WordPress HTML and only need a manifest record.
+  if (!article.frozen && !article.prebuilt) {
+    const source = fs.readFileSync(article.source, "utf8");
+    const blocks = markdownToBlocks(publicArticle(source));
+    fs.writeFileSync(outputPath, `${blocks}\n`);
+  } else if (article.prebuilt && !fs.existsSync(outputPath)) {
+    throw new Error(`Prebuilt article is missing: ${outputPath}`);
+  }
 
   manifest.push({
     title: article.title,

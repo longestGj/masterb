@@ -12,6 +12,8 @@ const liveBaseUrl = process.env.MB_LIVE_BASE_URL;
 const themeVersion = fs
   .readFileSync(path.join(THEME_ROOT, "style.css"), "utf8")
   .match(/^Version:\s*(\S+)$/m)?.[1];
+const liveThemeVersion =
+  process.env.MB_LIVE_THEME_VERSION || themeVersion;
 
 function readThemeFile(relativePath) {
   return fs.readFileSync(path.join(THEME_ROOT, relativePath), "utf8");
@@ -201,7 +203,7 @@ test("serves the BK040 page on the live product route", async ({
   const stylesheet = await page
     .locator('link[rel="stylesheet"][href*="bk040-product.css"]')
     .getAttribute("href");
-  expect(stylesheet).toContain(`ver=${themeVersion}`);
+  expect(stylesheet).toContain(`ver=${liveThemeVersion}`);
 
   await page.evaluate(async () => {
     document.querySelectorAll("img[loading='lazy']").forEach((image) => {

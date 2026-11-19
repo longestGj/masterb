@@ -12,6 +12,8 @@ const liveBaseUrl = process.env.MB_LIVE_BASE_URL;
 const themeVersion = fs
   .readFileSync(path.join(THEME_ROOT, "style.css"), "utf8")
   .match(/^Version:\s*(\S+)$/m)?.[1];
+const liveThemeVersion =
+  process.env.MB_LIVE_THEME_VERSION || themeVersion;
 
 function readThemeFile(relativePath) {
   return fs.readFileSync(path.join(THEME_ROOT, relativePath), "utf8");
@@ -97,6 +99,19 @@ test("renders the approved 10-angle Black Masterbatch guide", async ({
     "faq",
   );
   await expect(page.locator(".bm-md-grade-table tbody tr")).toHaveCount(5);
+  await expect(page.locator(".bm-pt300-callout")).toContainText(
+    "PT-300",
+  );
+  await expect(
+    page.locator(
+      '.bm-pt300-callout a[href="/products/black-masterbatch/pt-300/"]',
+    ),
+  ).toHaveCount(1);
+  await expect(
+    page.locator(
+      '.bm-pt450p-callout a[href="/products/black-masterbatch/pt-450p/"]',
+    ),
+  ).toHaveCount(1);
   await expect(page.locator(".bm-faq-group")).toHaveCount(6);
   await expect(page.locator(".bm-faq-group details")).toHaveCount(36);
   await expect(page.locator(".bm-guide-map a")).toHaveCount(9);
@@ -195,6 +210,16 @@ test("serves the 10-angle guide on the live route", async ({
     "faq",
   );
   await expect(page.locator(".bm-md-grade-table tbody tr")).toHaveCount(5);
+  await expect(
+    page.locator(
+      '.bm-pt300-callout a[href="/products/black-masterbatch/pt-300/"]',
+    ),
+  ).toHaveCount(1);
+  await expect(
+    page.locator(
+      '.bm-pt450p-callout a[href="/products/black-masterbatch/pt-450p/"]',
+    ),
+  ).toHaveCount(1);
   await expect(page.locator(".bm-faq-group")).toHaveCount(6);
   await expect(page.locator(".bm-faq-group details")).toHaveCount(36);
   await expect(page).toHaveTitle(
@@ -208,7 +233,7 @@ test("serves the 10-angle guide on the live route", async ({
   const stylesheet = await page
     .locator('link[rel="stylesheet"][href*="black-masterbatch-guide.css"]')
     .getAttribute("href");
-  expect(stylesheet).toContain(`ver=${themeVersion}`);
+  expect(stylesheet).toContain(`ver=${liveThemeVersion}`);
 
   await page.evaluate(async () => {
     document.querySelectorAll("img[loading='lazy']").forEach((image) => {

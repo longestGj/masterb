@@ -11,12 +11,16 @@
 	<section class="wp-block-group faq-open">
 		<!-- wp:group {"className":"faq-open__title","layout":{"type":"default"}} -->
 		<div class="wp-block-group faq-open__title">
+			<!-- wp:shortcode -->
+			[mb_content_breadcrumb root="Resources" root_path="/blog/"]
+			<!-- /wp:shortcode -->
+
 			<!-- wp:paragraph {"className":"field-kicker"} -->
 			<p class="field-kicker">Masterbatch Buyer FAQ</p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:heading {"level":1} -->
-			<h1 class="wp-block-heading">Questions before the inquiry.</h1>
+			<h1 class="wp-block-heading">Masterbatch buyer FAQ for plastic processors.</h1>
 			<!-- /wp:heading -->
 
 			<!-- wp:paragraph {"className":"faq-open__summary"} -->
@@ -35,10 +39,9 @@
 
 		<!-- wp:html -->
 		<div class="faq-index">
-			<div class="faq-index__head"><span>Question index</span><span>20 questions</span></div>
+			<div class="faq-index__head"><span>Question index</span><span>19 questions</span></div>
 			<a href="#q-01"><span class="faq-index__code">P-01</span><span class="faq-index__group">Product range</span><span class="faq-qtext">What masterbatch products do you review?</span><span class="faq-mark faq-mark--here" aria-hidden="true"></span><span class="faq-vh">Answered on this page</span></a>
 			<a href="#q-02"><span class="faq-index__code">P-02</span><span class="faq-index__group">Product range</span><span class="faq-qtext">Do you publish a full product catalogue?</span><span class="faq-mark faq-mark--none" aria-hidden="true"></span><span class="faq-vh">Not published here</span></a>
-			<a href="#q-03"><span class="faq-index__code">P-03</span><span class="faq-index__group">Colour and formulation</span><span class="faq-qtext">Can you match a specific colour or custom formulation?</span><span class="faq-mark faq-mark--review" aria-hidden="true"></span><span class="faq-vh">Reviewed by grade</span></a>
 			<a href="#q-04"><span class="faq-index__code">R-01</span><span class="faq-index__group">Preparing an RFQ</span><span class="faq-qtext">What information should an RFQ include?</span><span class="faq-mark faq-mark--here" aria-hidden="true"></span><span class="faq-vh">Answered on this page</span></a>
 			<a href="#q-05"><span class="faq-index__code">R-02</span><span class="faq-index__group">Preparing an RFQ</span><span class="faq-qtext">Do I need to choose a grade before contacting you?</span><span class="faq-mark faq-mark--here" aria-hidden="true"></span><span class="faq-vh">Answered on this page</span></a>
 			<a href="#q-06"><span class="faq-index__code">R-03</span><span class="faq-index__group">Preparing an RFQ</span><span class="faq-qtext">How do you handle price, MOQ and lead time?</span><span class="faq-mark faq-mark--none" aria-hidden="true"></span><span class="faq-vh">Not published here</span></a>
@@ -47,7 +50,7 @@
 			<a href="#q-09"><span class="faq-index__code">D-01</span><span class="faq-index__group">Technical documents</span><span class="faq-qtext">Can I request TDS, SDS/MSDS or COA?</span><span class="faq-mark faq-mark--review" aria-hidden="true"></span><span class="faq-vh">Reviewed by grade</span></a>
 			<a href="#q-10"><span class="faq-index__code">D-02</span><span class="faq-index__group">Technical documents</span><span class="faq-qtext">Why are documents reviewed by grade?</span><span class="faq-mark faq-mark--here" aria-hidden="true"></span><span class="faq-vh">Answered on this page</span></a>
 			<a href="#q-11"><span class="faq-index__code">D-03</span><span class="faq-index__group">Technical documents</span><span class="faq-qtext">Are your products RoHS, FDA or food-contact compliant?</span><span class="faq-mark faq-mark--none" aria-hidden="true"></span><span class="faq-vh">Not published here</span></a>
-			<a href="#q-16"><span class="faq-index__code">T-01</span><span class="faq-index__group">Reading a data sheet</span><span class="faq-qtext">What is pigment loading, and how does it differ from the addition ratio?</span><span class="faq-mark faq-mark--review" aria-hidden="true"></span><span class="faq-vh">Reviewed by grade</span></a>
+			<a href="#q-16"><span class="faq-index__code">T-01</span><span class="faq-index__group">Reading a data sheet</span><span class="faq-qtext">What is carbon black loading, and how does it differ from the addition ratio?</span><span class="faq-mark faq-mark--review" aria-hidden="true"></span><span class="faq-vh">Reviewed by grade</span></a>
 			<a href="#q-17"><span class="faq-index__code">T-02</span><span class="faq-index__group">Reading a data sheet</span><span class="faq-qtext">What do MFI or MFR tell me on a masterbatch sheet?</span><span class="faq-mark faq-mark--here" aria-hidden="true"></span><span class="faq-vh">Answered on this page</span></a>
 			<a href="#q-18"><span class="faq-index__code">T-03</span><span class="faq-index__group">Reading a data sheet</span><span class="faq-qtext">Is a typical value the same as a specification value?</span><span class="faq-mark faq-mark--here" aria-hidden="true"></span><span class="faq-vh">Answered on this page</span></a>
 			<a href="#q-19"><span class="faq-index__code">T-04</span><span class="faq-index__group">Reading a data sheet</span><span class="faq-qtext">What is a control sample?</span><span class="faq-mark faq-mark--here" aria-hidden="true"></span><span class="faq-vh">Answered on this page</span></a>
@@ -67,13 +70,12 @@
 		<div class="faq-register__intro">
 			<p class="field-kicker">Evidence boundary</p>
 			<h2>What this page will not answer.</h2>
-			<p>Four things a buyer usually asks first cannot be answered from a general page. They are listed here so nobody has to hunt for them.</p>
+			<p>Three things a buyer usually asks first cannot be answered from a general page. They are listed here so nobody has to hunt for them.</p>
 		</div>
 		<dl class="faq-register__list">
 			<div><dt>Price, MOQ, lead time</dt><dd>Set after the team reviews the exact grade, application and quantity. Nothing is published in advance.</dd></div>
 			<div><dt>Full-series compliance</dt><dd>Compliance documents, where available, apply only to specific tested grades or samples.</dd></div>
 			<div><dt>Document downloads</dt><dd>TDS, SDS/MSDS, COA and compliance requests go through the document form and a manual review.</dd></div>
-			<div><dt>Guaranteed colour match</dt><dd>Colour targets are reviewed against your reference, resin and process, not promised from a page.</dd></div>
 		</dl>
 	</section>
 	<!-- /wp:html -->
@@ -87,8 +89,8 @@
 				<details class="faq-qa__q" open>
 					<summary><span class="faq-qa__code">P-01</span><h3>What masterbatch products do you review?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
 					<div class="faq-qa__a">
-						<p>We review black, white and color masterbatch inquiries for plastic processing applications such as film, packaging, injection molding, extrusion and recycled PE and PP.</p>
-						<p>Other product directions are assessed case by case through an inquiry, and we do not publish fixed parameters for them.</p>
+						<p>We review black and desiccant masterbatch inquiries for plastic processing applications such as film, packaging, injection molding, extrusion and recycled PE and PP.</p>
+						<p>Other product directions are not presented as current product lines.</p>
 						<span class="faq-qa__scope">Answered in full on this page</span>
 					</div>
 				</details>
@@ -99,23 +101,8 @@
 					<summary><span class="faq-qa__code">P-02</span><h3>Do you publish a full product catalogue?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
 					<div class="faq-qa__a">
 						<p>No. Grade lists, parameters and pricing sheets are not published as a catalogue, because a grade is only meaningful against a resin, a process and an end product.</p>
-						<p>The three product routes describe what a buyer should clarify for each direction: <a href="/products/black-masterbatch/">black</a>, <a href="/products/white-masterbatch/">white</a> and <a href="/products/color-masterbatch/">color</a>.</p>
+						<p>The two product routes describe what a buyer should clarify for each direction: <a href="/products/black-masterbatch/">black</a> and <a href="/products/desiccant-masterbatch/">desiccant</a>.</p>
 						<span class="faq-qa__scope">Not published &mdash; see the product guides</span>
-					</div>
-				</details>
-			</article>
-		</section>
-
-		<section class="faq-group">
-			<div class="faq-group__head"><h2>Colour and formulation</h2><span class="faq-group__tally">1 reviewed by grade</span></div>
-
-			<article class="faq-qa" id="q-03">
-				<details class="faq-qa__q" open>
-					<summary><span class="faq-qa__code">P-03</span><h3>Can you match a specific colour or provide a custom formulation?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
-					<div class="faq-qa__a">
-						<p>Colour matching and custom requirements are discussed through an RFQ. Suitability is reviewed by base resin, application and the colour reference you provide &mdash; a physical sample, a Pantone or RAL number, a photograph, an existing product or a previous grade.</p>
-						<p>Where a spectrophotometer reading is available, share it with the reference. We do not promise an exact Delta E value or a guaranteed Pantone or RAL match from this page.</p>
-						<span class="faq-qa__scope">Reviewed by reference, resin and process</span>
 					</div>
 				</details>
 			</article>
@@ -175,7 +162,7 @@
 				<details class="faq-qa__q" open>
 					<summary><span class="faq-qa__code">S-02</span><h3>What does a sample trial need to prove?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
 					<div class="faq-qa__a">
-						<p>A trial is usually judged on four things: colour or function target against your control sample, dispersion and appearance in your own process, stability across the shots or metres you run, and whether anything changed in the downstream product.</p>
+						<p>A trial is usually judged on four things: target blackness or function against your control sample, dispersion and appearance in your own process, stability across the shots or metres you run, and whether anything changed in the downstream product.</p>
 						<p>Agreeing the target before the trial starts is what makes the result usable.</p>
 						<span class="faq-qa__scope">Targets set with your resin and process</span>
 					</div>
@@ -225,10 +212,10 @@
 
 			<article class="faq-qa" id="q-16">
 				<details class="faq-qa__q" open>
-					<summary><span class="faq-qa__code">T-01</span><h3>What is pigment loading, and how does it differ from the addition ratio?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
+					<summary><span class="faq-qa__code">T-01</span><h3>What is carbon black loading, and how does it differ from the addition ratio?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
 					<div class="faq-qa__a">
-						<p>Loading is how much pigment or carbon black sits inside the masterbatch itself. The addition ratio is how much of that masterbatch you feed into your process. They are related but not the same thing: a higher-loading grade is usually dosed at a lower ratio.</p>
-						<p>Neither figure can be assumed from a colour name. Both are confirmed against the specific grade.</p>
+						<p>Loading is how much carbon black sits inside the black masterbatch itself. The addition ratio is how much of that masterbatch you feed into your process. They are related but not the same thing: a higher-loading grade is usually dosed at a lower ratio.</p>
+						<p>Neither figure can be assumed from a grade name. Both are confirmed against the specific product and TDS.</p>
 						<span class="faq-qa__scope">Confirmed against the exact grade</span>
 					</div>
 				</details>
@@ -261,7 +248,7 @@
 					<summary><span class="faq-qa__code">T-04</span><h3>What is a control sample, and why does it matter?</h3><span class="faq-qa__toggle" aria-hidden="true"></span></summary>
 					<div class="faq-qa__a">
 						<p>A control sample is material that produced a result you already accepted. You keep it and run a new batch side by side with it, on the same resin, the same machine and the same settings.</p>
-						<p>That turns &ldquo;is this the right colour?&rdquo; into &ldquo;does this match the control?&rdquo;, which is a question a line can actually answer. It is also how batch-to-batch variation gets judged.</p>
+						<p>That turns &ldquo;is this the right black or appearance?&rdquo; into &ldquo;does this match the control?&rdquo;, which is a question a line can actually answer. It is also how batch-to-batch variation gets judged.</p>
 						<span class="faq-qa__scope">Answered in full on this page</span>
 					</div>
 				</details>
@@ -343,7 +330,7 @@
 			<a href="/request-a-quote/"><strong>Request a Quote</strong><span>Product review</span></a>
 			<a href="/technical-documents/"><strong>Request Technical Documents</strong><span>Document review</span></a>
 			<a href="/resources/masterbatch-rfq-checklist/"><strong>Masterbatch RFQ Checklist</strong><span>Before you write</span></a>
-			<a href="/masterbatch-guides/"><strong>Masterbatch Guides</strong><span>Black, white, colour</span></a>
+			<a href="/blog/"><strong>Buyer Guides</strong><span>Selection, applications and troubleshooting</span></a>
 		</div>
 	</section>
 	<!-- /wp:html -->

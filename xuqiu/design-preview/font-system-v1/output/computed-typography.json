@@ -1,0 +1,203 @@
+[
+  {
+    "page": "home",
+    "body": {
+      "selector": "body",
+      "family": "Inter, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "20px",
+      "weight": "400",
+      "lineHeight": "34px"
+    },
+    "h1": {
+      "selector": "h1",
+      "family": "Archivo, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "77.76px",
+      "weight": "600",
+      "lineHeight": "71.5392px"
+    },
+    "h2": {
+      "selector": "h2",
+      "family": "Archivo, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "57.6px",
+      "weight": "600",
+      "lineHeight": "55.296px"
+    },
+    "nav": {
+      "selector": ".site-chrome-nav a",
+      "family": "Inter, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "15.04px",
+      "weight": "600",
+      "lineHeight": "18.048px"
+    },
+    "button": {
+      "selector": "button, .wp-block-button__link, .sketch-button",
+      "family": "Inter, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "15.04px",
+      "weight": "600",
+      "lineHeight": "18.048px"
+    },
+    "input": null
+  },
+  {
+    "page": "guides",
+    "body": {
+      "selector": "body",
+      "family": "Inter, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "20px",
+      "weight": "400",
+      "lineHeight": "34px"
+    },
+    "h1": {
+      "selector": "h1",
+      "family": "Archivo, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "52px",
+      "weight": "600",
+      "lineHeight": "59.8px"
+    },
+    "h2": {
+      "selector": "h2",
+      "family": "Archivo, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "42px",
+      "weight": "600",
+      "lineHeight": "50.4px"
+    },
+    "nav": {
+      "selector": ".site-chrome-nav a",
+      "family": "Inter, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "15.04px",
+      "weight": "600",
+      "lineHeight": "18.048px"
+    },
+    "button": {
+      "selector": "button, .wp-block-button__link, .sketch-button",
+      "family": "Inter, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "15.04px",
+      "weight": "600",
+      "lineHeight": "18.048px"
+    },
+    "input": null
+  },
+  {
+    "page": "product",
+    "body": {
+      "selector": "body",
+      "family": "Inter, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "20px",
+      "weight": "400",
+      "lineHeight": "34px"
+    },
+    "h1": {
+      "selector": "h1",
+      "family": "Archivo, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "79.2px",
+      "weight": "600",
+      "lineHeight": "74.448px"
+    },
+    "h2": {
+      "selector": "h2",
+      "family": "Archivo, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "54.72px",
+      "weight": "600",
+      "lineHeight": "53.6256px"
+    },
+    "nav": {
+      "selector": ".site-chrome-nav a",
+      "family": "Inter, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "15.04px",
+      "weight": "600",
+      "lineHeight": "18.048px"
+    },
+    "button": {
+      "selector": "button, .wp-block-button__link, .sketch-button",
+      "family": "Inter, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "15.04px",
+      "weight": "600",
+      "lineHeight": "18.048px"
+    },
+    "input": null
+  },
+  {
+    "page": "article",
+    "body": {
+      "selector": "body",
+      "family": "Inter, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "20px",
+      "weight": "400",
+      "lineHeight": "34px"
+    },
+    "h1": {
+      "selector": "h1",
+      "family": "Archivo, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "82.08px",
+      "weight": "600",
+      "lineHeight": "77.1552px"
+    },
+    "h2": {
+      "selector": "h2",
+      "family": "Archivo, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "44.8px",
+      "weight": "600",
+      "lineHeight": "47.04px"
+    },
+    "nav": {
+      "selector": ".site-chrome-nav a",
+      "family": "Inter, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "15.04px",
+      "weight": "600",
+      "lineHeight": "18.048px"
+    },
+    "button": {
+      "selector": "button, .wp-block-button__link, .sketch-button",
+      "family": "Inter, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "15.04px",
+      "weight": "600",
+      "lineHeight": "18.048px"
+    },
+    "input": null
+  },
+  {
+    "page": "contact",
+    "body": {
+      "selector": "body",
+      "family": "Inter, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "20px",
+      "weight": "400",
+      "lineHeight": "34px"
+    },
+    "h1": {
+      "selector": "h1",
+      "family": "Archivo, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "89.28px",
+      "weight": "600",
+      "lineHeight": "81.2448px"
+    },
+    "h2": {
+      "selector": "h2",
+      "family": "Archivo, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "43.2px",
+      "weight": "600",
+      "lineHeight": "42.336px"
+    },
+    "nav": {
+      "selector": ".site-chrome-nav a",
+      "family": "Inter, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "15.04px",
+      "weight": "600",
+      "lineHeight": "18.048px"
+    },
+    "button": {
+      "selector": "button, .wp-block-button__link, .sketch-button",
+      "family": "Inter, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "20px",
+      "weight": "400",
+      "lineHeight": "34px"
+    },
+    "input": {
+      "selector": "input, select, textarea",
+      "family": "Inter, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "20px",
+      "weight": "400",
+      "lineHeight": "34px"
+    }
+  }
+]

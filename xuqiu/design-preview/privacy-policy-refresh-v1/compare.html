@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy 重设计对照</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 32px;
+      color: #17201c;
+      background: #f6f8f4;
+      font: 14px/1.6 Inter, Arial, sans-serif;
+    }
+    h1 { margin: 0 0 6px; font-size: 32px; }
+    h2 { margin: 0 0 14px; font-size: 19px; }
+    p { margin: 0 0 22px; color: #68736e; }
+    section { margin-top: 34px; }
+    .pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+    figure {
+      margin: 0;
+      padding: 12px;
+      background: #fff;
+      border: 1px solid #d8ded9;
+    }
+    figcaption {
+      padding: 2px 2px 12px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid #e4e8e5;
+    }
+    .mobile-pair {
+      grid-template-columns: minmax(0, 390px) minmax(0, 390px);
+      justify-content: start;
+    }
+    .notes {
+      max-width: 1100px;
+      padding: 18px 20px;
+      background: #fff;
+      border-left: 3px solid #305030;
+    }
+    .notes ul { margin: 8px 0 0; padding-left: 20px; }
+    @media (max-width: 900px) {
+      body { padding: 16px; }
+      .pair { grid-template-columns: 1fr; }
+      .mobile-pair { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Privacy Policy 重设计对照</h1>
+  <p>现版是通用 Hero + 860px 正文；新版改为深绿法律封面、固定目录和 68 字符以内的阅读栏。法务正文未改写。</p>
+
+  <div class="notes">
+    <strong>本次设计解决的四个问题</strong>
+    <ul>
+      <li>长文没有章节导航，用户难以快速找到 Cookie、保存期限或隐私请求入口。</li>
+      <li>现版摘要、标题和正文之间缺少法律文档应有的层级。</li>
+      <li>手机端仍是简单单列长页，新版提供可展开的两列/单列目录。</li>
+      <li>正文颜色、字体、间距和 Header / Footer 统一使用 DESIGN.md 的 tokens。</li>
+    </ul>
+  </div>
+
+  <section>
+    <h2>桌面 1440</h2>
+    <div class="pair">
+      <figure>
+        <figcaption>现版</figcaption>
+        <img src="output/current-desktop-1440.png" alt="当前 Privacy Policy 桌面页面">
+      </figure>
+      <figure>
+        <figcaption>新版生产</figcaption>
+        <img src="output/production-desktop-1440.png" alt="新版 Privacy Policy 桌面页面">
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>手机 390</h2>
+    <div class="pair mobile-pair">
+      <figure>
+        <figcaption>现版</figcaption>
+        <img src="output/current-mobile-390.png" alt="当前 Privacy Policy 手机页面">
+      </figure>
+      <figure>
+        <figcaption>新版生产</figcaption>
+        <img src="output/production-mobile-390.png" alt="新版 Privacy Policy 手机页面">
+      </figure>
+    </div>
+  </section>
+</body>
+</html>

@@ -715,6 +715,46 @@ body.black-masterbatch-preview :focus-visible {
   background: var(--ge-color-surface-soft);
 }
 
+.bm-pt300-callout,
+.bm-pt450p-callout {
+  display: flex;
+  margin-top: var(--ge-space-md);
+  padding: var(--ge-space-md) var(--ge-card-padding);
+  justify-content: space-between;
+  gap: var(--ge-space-lg);
+  align-items: center;
+  background: var(--ge-color-surface-soft);
+  border: 1px solid var(--ge-color-border);
+}
+
+.bm-pt300-callout span,
+.bm-pt450p-callout span {
+  color: var(--ge-color-primary);
+  font-family: var(--ge-font-mono);
+  font-size: 0.62rem;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.bm-pt300-callout h3,
+.bm-pt450p-callout h3 {
+  margin-top: var(--ge-space-xs);
+  font-size: 1.45rem;
+}
+
+.bm-pt300-callout p,
+.bm-pt450p-callout p {
+  max-width: 720px;
+  margin-top: var(--ge-space-xs);
+  color: var(--ge-color-text-muted);
+  font-size: 0.78rem;
+}
+
+.bm-pt300-callout .bm-text-link,
+.bm-pt450p-callout .bm-text-link {
+  flex: 0 0 auto;
+}
+
 .bm-performance {
   background: var(--ge-color-surface-soft);
 }
@@ -1450,6 +1490,17 @@ body.black-masterbatch-preview :focus-visible {
 }
 
 @media (max-width: 760px) {
+  .bm-pt300-callout,
+  .bm-pt450p-callout {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .bm-pt300-callout .bm-text-link,
+  .bm-pt450p-callout .bm-text-link {
+    min-height: var(--ge-control-height);
+  }
+
   .bm-page h1 {
     font-size: clamp(3.25rem, 12.5vw, 4.6rem);
   }

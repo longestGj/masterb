@@ -29,13 +29,14 @@ function verifyBalancedBlocks(source, label) {
   expect(stack, label).toEqual([]);
 }
 
-test("ships four balanced WordPress article packages", async () => {
-  expect(manifest).toHaveLength(4);
+test("ships five balanced WordPress article packages", async () => {
+  expect(manifest).toHaveLength(5);
   expect(manifest.map((article) => article.slug)).toEqual([
     "masterbatch-for-blown-film",
     "black-specks-in-masterbatch-film",
     "how-to-vet-a-masterbatch-supplier",
     "how-to-choose-carbon-black-content",
+    "black-masterbatch-for-injection-molding",
   ]);
 
   for (const article of manifest) {
@@ -45,6 +46,8 @@ test("ships four balanced WordPress article packages", async () => {
     );
     verifyBalancedBlocks(source, article.slug);
     expect(source).not.toContain("Internal review notes");
+    // Numeric ranges stay in ASCII "to" form (for example, "20% to 40%").
+    // En and em dashes remain rejected project-wide for consistent article HTML.
     expect(source).not.toContain("—");
     expect(source).not.toContain("–");
     expect(source).toContain("<!-- wp:heading");
@@ -75,6 +78,20 @@ test("ships four balanced WordPress article packages", async () => {
   expect(carbonBlack).toContain('href="/products/black-masterbatch/bk020/"');
   expect(carbonBlack).toContain('href="/products/black-masterbatch/bk040/"');
   expect(carbonBlack).toContain("Masterbatch price per kg");
+  expect(carbonBlack).toContain(
+    'href="/blog/black-masterbatch-for-injection-molding/"',
+  );
+
+  const injection = fs.readFileSync(
+    path.join(
+      POST_ROOT,
+      "black-masterbatch-for-injection-molding.wordpress.html",
+    ),
+    "utf8",
+  );
+  expect(injection).toContain('href="/products/black-masterbatch/bk040/"');
+  expect(injection).toContain('href="/technical-documents/"');
+  expect(injection).toContain("The current BK020 to BK040 pages list an adjustable MFI");
 });
 
 test("ships the shared technical article template and renderer", async () => {
@@ -104,9 +121,11 @@ test("redirects legacy root article URLs to the Blog route", async ({
 }) => {
   test.skip(!liveBaseUrl, "Set MB_LIVE_BASE_URL to run live checks.");
 
-  const legacySlugs = manifest
-    .map((article) => article.slug)
-    .filter((slug) => slug !== "how-to-choose-carbon-black-content");
+  const legacySlugs = [
+    "masterbatch-for-blown-film",
+    "black-specks-in-masterbatch-film",
+    "how-to-vet-a-masterbatch-supplier",
+  ];
 
   for (const slug of legacySlugs) {
     const response = await request.get(
@@ -123,6 +142,7 @@ test("redirects legacy root article URLs to the Blog route", async ({
 
 test("publishes all articles and their resources entries", async ({
   page,
+  request,
 }, testInfo) => {
   test.skip(!liveBaseUrl, "Set MB_LIVE_BASE_URL to run live article checks.");
   test.setTimeout(180_000);
@@ -130,9 +150,10 @@ test("publishes all articles and their resources entries", async ({
   for (const article of manifest) {
     const route = `/blog/${article.slug}/`;
     const response = await page.goto(`${liveBaseUrl}${route}`, {
-      waitUntil: "networkidle",
+      waitUntil: "domcontentloaded",
     });
     expect(response?.status(), route).toBe(200);
+    await page.waitForSelector(".article-page");
     await expect(page.locator("body"), route).toHaveClass(/single-post/);
     await expect(page.locator("body"), route).toHaveClass(/mtm-article-page/);
     await expect(page.locator("h1"), route).toHaveCount(1);
@@ -197,11 +218,11 @@ test("publishes all articles and their resources entries", async ({
     });
   }
 
-  await page.goto(`${liveBaseUrl}/resources/`, {
-    waitUntil: "networkidle",
+  const resources = await request.get(`${liveBaseUrl}/resources/`, {
+    maxRedirects: 0,
   });
-  await expect(page.locator("h2#articles")).toHaveText("Buyer articles");
-  await expect(
-    page.locator('h2#articles + p a[href="/blog/"]'),
-  ).toHaveCount(1);
+  expect(resources.status()).toBe(301);
+  expect(
+    new URL(resources.headers().location, liveBaseUrl).pathname,
+  ).toBe("/blog/");
 });

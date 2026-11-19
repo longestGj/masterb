@@ -10,10 +10,9 @@ primary_keyword: "masterbatch products"
 secondary_keywords:
   - "masterbatch supplier"
   - "black masterbatch"
-  - "white masterbatch"
-  - "color masterbatch"
+  - "desiccant masterbatch"
 search_intent: "commercial_investigation"
-page_job: "Route plastic processing buyers to the black, white and color masterbatch product pages and collect the application details needed for review."
+page_job: "Route plastic processing buyers to the black and desiccant masterbatch product pages and collect the application details needed for review."
 product_family: "all"
 body_format: "markdown-portable-v1"
 body_starts_at_heading: 2
@@ -36,7 +35,7 @@ route:
 
 seo:
   title: "Masterbatch Products | GE CHEMICAL"
-  description: "Explore black, white and color masterbatch product routes for film, packaging, injection molding, extrusion and recycled plastics."
+  description: "Explore black and desiccant masterbatch product routes for film, packaging, injection molding, extrusion and recycled plastics."
   robots: "noindex,nofollow"
   canonical_route_key: "products.index"
   open_graph_image_id: null
@@ -54,8 +53,7 @@ relations:
   parent_content_id: null
   related_content_ids:
     - "guide.black"
-    - "guide.white"
-    - "guide.color"
+    - "product.desiccant.index"
     - "documents.request"
     - "quote.request"
 
@@ -74,16 +72,15 @@ import:
   body_h1_allowed: false
 ---
 
-This Page exists as the structural parent for `/products/black-masterbatch/`,
-`/products/white-masterbatch/` and `/products/color-masterbatch/`. It is not a
-public marketing destination, is excluded from navigation and is served as a
-redirect to the site home page.
+This Page exists as the structural parent for `/products/black-masterbatch/`
+and `/products/desiccant-masterbatch/`. It is not a public marketing
+destination, is excluded from navigation and is served as a redirect to the
+site home page.
 
 ## Product families
 
 - [Black masterbatch](/products/black-masterbatch/) for blackness, carbon black loading, dispersion, carrier resin and current processing issues.
-- [White masterbatch](/products/white-masterbatch/) for whiteness, opacity, TiO2 context, carrier compatibility and document needs.
-- [Color masterbatch](/products/color-masterbatch/) for color references, tolerance expectations, carrier resin and sample discussion.
+- [Desiccant masterbatch](/products/desiccant-masterbatch/) for CaO moisture control, applications and DM2476G review.
 
 The black product route now includes the dedicated [BK040 40% carbon black masterbatch](/products/black-masterbatch/bk040/) detail page.
 

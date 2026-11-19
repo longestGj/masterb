@@ -8,6 +8,11 @@
 - 产品与证据限制：[Limited PRD](../Cmp_Info/LIMITED_PRD_BLACK_WHITE_COLOR_RFQ_CONTENT_GE_ONLY_DOCUMENT_REQUEST.md)
 - SEO 参考：本地笔记 `/Users/ssl/soft/note/ssl/SEO知识库`，重点采用搜索意图、页面关键词、标题层级、URL、内链、Canonical、Sitemap、图片和 B2B 博客规划规则
 
+> [!IMPORTANT]
+> 2026-11-10 当前公开产品线只有 **Black Masterbatch** 和
+> **Desiccant Masterbatch**。本文中 White Masterbatch、Color Masterbatch、
+> 相关表单字段和页面模板条目属于历史规格，不再适用。
+
 ## 1. 文档结论
 
 现有 Markdown 内容适合继续作为独立站内容的编辑主源，但不应由 WordPress 前台直接读取和即时解析 Markdown。推荐采用以下链路：
@@ -488,12 +493,11 @@ form_context: rfq | document_request
 | `email` | email | 总是 | 有效邮箱；用于回复 |
 | `whatsapp` | tel | 否 | 最大 40 字符 |
 | `country_region` | select | 总是 | 受控国家列表 + Other |
-| `product_interest` | select | 总是 | Black / White / Color / Not sure |
+| `product_interest` | select | 总是 | Black / Desiccant / Not sure |
 | `application` | select | 总是 | Film / Bag / Injection / Recycled Plastic / Extrusion / Distributor / Other |
 | `base_resin` | select | RFQ 推荐 | PE / PP / LDPE / LLDPE / HDPE / ABS / PET / PVC / Other / Not sure |
 | `processing_method` | select | RFQ 推荐 | Film Blowing / Injection Molding / Extrusion / Re-granulating / Other / Not sure |
-| `target_color_function` | textarea | 彩色询盘必填 | 黑度、遮盖、颜色目标或功能要求 |
-| `color_reference_type` | select | 彩色询盘推荐 | Physical Sample / Pantone / RAL / Photo / Existing Product / Previous Supplier Grade / Customer Standard / Not sure |
+| `target_requirement` | textarea | RFQ 必填 | 黑度、分散、水分控制或当前生产问题 |
 | `product_grade_model` | text | 否 | 当前牌号、替换目标或已知 GE 牌号 |
 | `current_problem` | select | 否 | Dispersion / Blackness / Opacity / Color Matching / Document Request / Processing Issue / Other |
 | `current_grade_supplier` | text | 否 | 帮助替换评估 |
@@ -516,7 +520,7 @@ form_context: rfq | document_request
 
 - 从 `documents.request` 进入时显示文件类型、用途和产品上下文。
 - 选择任一 `documents_requested` 后，`document_purpose` 变为必填。
-- 选择 Color 后，`target_color_function` 和 `color_reference_type` 显示并变为推荐或必填。
+- RFQ 模式下 `target_requirement` 必填。
 - 选择 Other 时显示补充文本框。
 - 未选择颜色或资料意图时，不显示无关的深度字段，减少表单负担。
 - 表单不得上传 TDS、SDS、COA 或其他公共文件作为交付物。
@@ -754,7 +758,8 @@ WordPress 管理员可管理：
 - 没有把规划稿、Market Research Only 或 Not for Dev 内容直接导入。
 - 公开页面没有非 GE 主体名称。
 - 没有公共文件下载、即时文件和自动文件交付。
-- 没有未确认的产能、客户名称、认证、全系列适用或法规承诺。
+- 公司规模和市场事实来自业务方提供的公司资料；产品参数、认证、全系列适用
+  或法规承诺仍按具体产品和牌号核对。
 - 文档申请所需的表单字段、收件流程和成功消息完整。
 - 隐私政策有效，表单说明与实际数据保存一致。
 - 图片和视频获得公开授权。
@@ -847,8 +852,9 @@ WordPress 管理员可管理：
 以下未解决前，只能做内容模型和 staging 实施，不能把相关页面标记为正式发布：
 
 1. 法定英文公司名称和 GE 公开主体授权。
-2. 公司地址、定位、生产主体和生产场所可否公开。
-3. 生产线、产能、市场覆盖、实验室和客户品牌的证据与措辞。
+2. 公司地址、`manufacturer` 定位、生产线、产能、市场覆盖、实验室和公司
+   资料中列出的合作品牌已获业务方公开授权，后续只需统一措辞。
+3. 每个牌号的产品参数和文件范围仍按对应资料确认。
 4. 正式企业邮箱、电话、WhatsApp 和公开联系人。
 5. RFQ 与文件申请的实际收件人、审核人和回复流程。
 6. 表单是否保存提交记录、保存时限和访问权限。

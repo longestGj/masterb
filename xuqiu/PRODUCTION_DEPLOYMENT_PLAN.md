@@ -1,9 +1,10 @@
 # Masterbatch Production Deployment Plan
 
-- Status: Production WordPress deployed over HTTPS on 2026-11-07; intentionally noindex pending SMTP and final launch approval
+- Status: Production WordPress deployed over HTTPS; search indexing enabled on
+  2026-11-10
 - Date: 2026-11-08
-- Target domain: `https://www.ashareai.com`
-- Canonical host: `www.ashareai.com`
+- Target domain: `https://www.gemasterbatch.com`
+- Canonical host: `www.gemasterbatch.com`
 - Production SSH alias: `masterbatch`
 - Deployment model: native LEMP, no Docker
 - Source site: `https://gzh.hzscf.site/`
@@ -1327,3 +1328,224 @@ If production fails:
 - Scheduled database and file backups remain deferred by user decision.
 - WordPress core, plugin and theme updates remain blocked until a manual
   backup/restore process exists.
+
+### Self-hosted Archivo + Inter Typography - 2026-11-10
+
+- Created a new release by copying
+  `/var/www/ashareai/releases/20261110-4` to
+  `/var/www/ashareai/releases/20261110-5`; the live symlink now points to
+  release 5 and release 4 remains available for rollback.
+- Applied only typography changes through
+  `xuqiu/wordpress/bin/apply-font-system.php`. Existing production-only
+  BK025, BK030 and BK035 files were preserved.
+- Added subsetted self-hosted WOFF2 files and OFL licenses under
+  `assets/fonts/archivo/` and `assets/fonts/inter/`.
+- H1-H6 use Archivo 600. Body, navigation, buttons, tables and form controls
+  use Inter. The theme preloads both fonts from `wp_head`.
+- Both font files returned HTTP 200 with `font/woff2`, and the homepage
+  emitted two font preload tags.
+- Eight representative production routes returned HTTP 200. Live typography
+  checks passed on desktop and mobile, and the Header/Footer plus route and
+  form suite passed `27 / 27` with one intentional project skip.
+- `blog_public=0`, page meta noindex and the Nginx noindex header remain
+  unchanged.
+
+### Domain Migration, Indexing and Retired-Domain Cleanup - 2026-11-10
+
+- Production canonical domain is `https://www.gemasterbatch.com`.
+  `ashareai.com` and `www.ashareai.com` were retired by business decision.
+- WordPress `home` and `siteurl` point to the new domain, the database has
+  zero remaining old-domain references, and the homepage QR code targets the
+  new quote URL.
+- Search indexing was enabled with `blog_public=1`; the temporary Nginx
+  `X-Robots-Tag: noindex` header was removed. The homepage now returns
+  `index, follow` with a self-canonical.
+- Rank Math Sitemap caches were regenerated. The homepage is present in the
+  page sitemap, Privacy Policy remains excluded, and all child sitemaps have
+  zero old-domain references.
+- Retired-domain Nginx server blocks and old configuration files were moved
+  out of active configuration. `nginx -T` now contains only
+  `gemasterbatch.com` and `www.gemasterbatch.com`.
+- The old `www.ashareai.com` Certbot certificate and renewal configuration
+  were deleted. Certbot now manages only the `gemasterbatch.com` certificate.
+- Recoverable backups of the removed Nginx files and Let's Encrypt material
+  are in
+  `/var/backups/ashareai/retired-ashareai-20261110T100853Z/`.
+- Post-cleanup checks: canonical host returns 200, apex redirects to www,
+  robots and Sitemap return 200, and live route/canonical/robots tests passed
+  `4 / 4`.
+
+### About Hero Desktop Spacing Fix - 2026-11-10
+
+- Promoted theme `0.9.57` to
+  `/var/www/ashareai/releases/20261110-6`.
+- About Hero previously used bottom alignment in its two-column desktop grid.
+  At 1440px the title was about 363px tall and the right-hand copy was pushed
+  down, leaving about 150px of empty space above it.
+- The desktop-only breakpoint now top-aligns the right column and adds a
+  `12px` optical text offset. The stacked phone and tablet layouts are
+  unchanged.
+- Local About Playwright passed `7 / 7` with one intentional project skip.
+  Live Chrome checks from `961px` through `1440px` show a `12px` title-to-copy
+  text offset with no horizontal overflow.
+- Release `/var/www/ashareai/releases/20261110-3` remains available for
+  rollback.
+
+### Buyer FAQ Container and Breadcrumb - 2026-11-10
+
+- Promoted theme `0.9.58` to
+  `/var/www/ashareai/releases/20261110-7`.
+- The FAQ hero previously started at `x=57.6px` at 1440px while standard
+  site content started around `x=100px`. The hero now uses the shared 1240px
+  content alignment while keeping the section full-bleed.
+- Added a `Resources / Masterbatch Buyer FAQ` breadcrumb above the hero title.
+- Live FAQ tests passed `4 / 4`; desktop and mobile checks show no horizontal
+  overflow. At 1440px both breadcrumb and H1 start at `x=100px`.
+- Release `/var/www/ashareai/releases/20261110-6` remains available for
+  rollback.
+
+### Buyer FAQ Breadcrumb Spacing - 2026-11-10
+
+- The generated shortcode outputs the breadcrumb `<nav>` directly, so the
+  wrapper margin used in the first release did not create vertical space.
+- Theme `0.9.59` applies `var(--ge-space-lg)` directly to the breadcrumb.
+  The rendered desktop and mobile gap is `24px`.
+- Live FAQ tests passed `4 / 4`; release
+  `/var/www/ashareai/releases/20261110-8` is active and release
+  `/var/www/ashareai/releases/20261110-7` remains available for rollback.
+
+### Technical Documents v2 - 2026-11-10
+
+- Promoted theme `0.9.60` to
+  `/var/www/ashareai/releases/20261110-9`.
+- Replaced the generic constrained template with a dedicated
+  `mtm-docs-v2` layout using the shared 1240px container and a Resources
+  breadcrumb.
+- Added a full document-review structure: buyer situations, nine preparation
+  inputs, manual review criteria, compliance boundaries, the real Documents
+  form and related-page links.
+- Every body paragraph, heading and list item comes from
+  `content/pages/technical-documents.md`; the page test now verifies the full
+  Markdown body against the rendered template.
+- Live tests passed `4 / 4`. At 1440px the H1 starts at `x=100px`; core widths
+  from `1440` through `320px` have no horizontal overflow.
+- Release `/var/www/ashareai/releases/20261110-8` remains available for
+  rollback.
+
+### Resources Navigation Consolidation - 2026-11-10
+
+- Promoted theme `0.9.61` to
+  `/var/www/ashareai/releases/20261110-10`.
+- Resources is now a navigation-only grouping, matching the Products menu.
+  Its menu contains Blog, Buyer FAQ, Technical Documents and RFQ Checklist.
+- Page 80 remains as the structural parent for the checklist route but is
+  `noindex,nofollow` in both the theme metadata and Rank Math. It is excluded
+  from the generated page sitemap.
+- Nginx exact redirects send `/resources` and `/resources/` to `/blog/`
+  while preserving query strings. The retired `/masterbatch-guides/` redirect
+  now also goes directly to `/blog/`.
+- Generic Resources links in the homepage, About, RFQ, FAQ, Blog and
+  breadcrumbs now point to the relevant child page.
+- Live Resources tests passed: Header and menu `4 / 4`, redirects `4 / 4`,
+  Blog resource entry `2 / 2`.
+- Release `/var/www/ashareai/releases/20261110-9` remains available for
+  rollback.
+
+### BK025 / BK030 / BK035 Mobile Overflow - 2026-11-10
+
+- Promoted theme `0.9.62` to
+  `/var/www/ashareai/releases/20261110-11`.
+- The three product pages already had dedicated CSS files, but
+  `functions.php` did not enqueue them by template and the expected body
+  classes were absent. Unconstrained source images expanded the mobile
+  document to about `1400px`.
+- Added the missing BK025, BK030 and BK035 page conditions, stylesheet
+  enqueues and body classes without changing page content or product data.
+- Dedicated 390px tests passed and the full mobile route audit passed. All
+  three pages now report a document width of `390px`.
+- Release `/var/www/ashareai/releases/20261110-10` remains available for
+  rollback.
+
+### RFQ Checklist v2 - 2026-11-10
+
+- Promoted theme `0.9.63` to
+  `/var/www/ashareai/releases/20261110-12`.
+- Page 81 now uses the dedicated `page-rfq-checklist` template instead of the
+  generic `page-resources` layout.
+- Added five checklist chapters with 18 visible checkbox controls, a section
+  index, the complete document-boundary copy and RFQ / Documents CTAs.
+- The template is verified against the complete Markdown body, preventing
+  copy drift or missing checklist items.
+- Live checks passed `4 / 4`; `1440` through `320px` have no horizontal
+  overflow. At 1440px the H1 starts at `x=100px`.
+- Release `/var/www/ashareai/releases/20261110-11` remains available for
+  rollback.
+
+### RFQ Checklist Local Progress - 2026-11-10
+
+- Promoted theme `0.9.64` to
+  `/var/www/ashareai/releases/20261110-13`.
+- Added visible copy clarifying that checkbox state is local only and is not
+  submitted or saved.
+- Added a live `N of 18 items checked` count, a progress line and a
+  `Clear checklist` button. The script is loaded only on this template.
+- Live interaction checks passed `4 / 4`, including checking three items,
+  progress updates and clearing the checklist.
+- Release `/var/www/ashareai/releases/20261110-12` remains available for
+  rollback.
+
+### RFQ Checklist Vertical Spacing - 2026-11-10
+
+- Promoted theme `0.9.65` to
+  `/var/www/ashareai/releases/20261110-14`.
+- Reduced Hero top padding, breadcrumb bottom margin and checklist section
+  top padding so the three layers no longer stack into excessive whitespace.
+- At 1440px the measured gaps are approximately `58 / 48 / 49px` for
+  header-to-breadcrumb, breadcrumb-to-H1 and checklist-to-toolbar. At 390px
+  they are `29 / 48 / 49px`.
+- Live checklist tests passed `4 / 4`; no horizontal overflow was introduced.
+- Release `/var/www/ashareai/releases/20261110-13` remains available for
+  rollback.
+
+### Privacy Policy v2 - 2026-11-10
+
+- Promoted theme `0.9.66` to
+  `/var/www/ashareai/releases/20261110-15`.
+- Rebuilt `/privacy-policy/` as a dedicated legal reading page with a
+  full-bleed forest-green cover, sticky desktop contents, expandable mobile
+  contents and a 760px reading column.
+- Page 69 remains the sole legal content source. New shortcode helpers
+  generate section wrappers, anchors and the table of contents from the
+  current Gutenberg body; no legal copy is duplicated in the template.
+- The page continues to emit `noindex,nofollow`. Public routes remain
+  `index,follow`; the stale SEO test assertion was corrected to reflect the
+  current public indexing policy.
+- Added `tests/privacy-policy-page.spec.js`, covering exact Markdown body
+  parity, 12 section targets, one H1, layout, robots metadata and image
+  loading.
+- Live Privacy checks passed `4 / 4`; guardrail routes, site chrome, RFQ and
+  closure checks passed `47` with `1` skipped; the corrected SEO audit passed
+  `10 / 10`. Production widths `1440 / 1024 / 768 / 390 / 320px` have no
+  horizontal overflow and the Header-to-Hero edge is continuous.
+- PHP-FPM was reloaded after the symlink switch because its realpath cache
+  continued serving release 14 for the first request.
+- Release `/var/www/ashareai/releases/20261110-14` remains available for
+  rollback.
+
+### Image Sitemap Additions - 2026-11-11
+
+- Promoted MU Plugin `mb-seo-schema.php` `1.1.0` in release
+  `/var/www/ashareai/releases/20261110-17`.
+- Rank Math already had image sitemap support enabled, but template-rendered
+  theme assets were invisible to its media-library parser.
+- Added an explicit page-slug mapping for high-value product, factory,
+  packaging and technical-document images. Image URLs are forced to HTTPS.
+- `page-sitemap.xml` now contains `29` `<image:image>` nodes across the home
+  page, Black / Desiccant categories, all current product detail pages,
+  About and Technical Documents.
+- A server-side asset check confirmed all `29` image URLs return
+  `200 image/webp`. The focused Playwright test passed `3` with `1` mobile
+  skip because XML output is viewport-independent.
+- Release `/var/www/ashareai/releases/20261110-15` remains the clean rollback.
+  The failed intermediate release 16 was moved to
+  `/var/backups/ashareai/releases/20261110-16-failed-image-sitemap`.

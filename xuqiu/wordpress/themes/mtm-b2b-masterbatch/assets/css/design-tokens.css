@@ -3,6 +3,23 @@
  * Global source of truth for colors, type, spacing, layout and component sizes.
  */
 
+@font-face {
+	font-family: "Archivo";
+	src: url("../fonts/archivo/archivo-latin-variable.woff2") format("woff2");
+	font-style: normal;
+	font-weight: 400 700;
+	font-stretch: 100%;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Inter";
+	src: url("../fonts/inter/inter-latin-variable.woff2") format("woff2");
+	font-style: normal;
+	font-weight: 400 700;
+	font-display: swap;
+}
+
 :root {
 	/* Brand and semantic colors */
 	--ge-color-primary: #305030;
@@ -29,8 +46,8 @@
 	--ge-color-focus: #d0f090;
 
 	/* Typography */
-	--ge-font-display: Georgia, "Times New Roman", serif;
-	--ge-font-sans: "Avenir Next", Inter, "Helvetica Neue", Arial, sans-serif;
+	--ge-font-display: Archivo, "Helvetica Neue", Arial, sans-serif;
+	--ge-font-sans: Inter, "Helvetica Neue", Arial, sans-serif;
 	--ge-font-mono: "SFMono-Regular", "Roboto Mono", Consolas, monospace;
 	--ge-font-cjk-sans: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
 	--ge-font-cjk-serif: "Songti SC", STSong, "Noto Serif CJK SC", serif;

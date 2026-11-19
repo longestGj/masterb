@@ -40,7 +40,7 @@ test("ships the Blog archive template, query renderer and styles", async () => {
   expect(css).toContain("var(--ge-font-display)");
 });
 
-test("serves the live Blog archive with the latest three posts", async ({
+test("serves the live Blog archive with the latest posts", async ({
   page,
 }, testInfo) => {
   test.skip(!liveBaseUrl, "Set MB_LIVE_BASE_URL to run live Blog checks.");
@@ -58,7 +58,7 @@ test("serves the live Blog archive with the latest three posts", async ({
   await expect(page.locator(".blog-feature")).toHaveCount(1);
   await expect(page.locator(".blog-feature h3 a")).toHaveAttribute(
     "href",
-    `${liveBaseUrl}/blog/how-to-choose-carbon-black-content/`,
+    `${liveBaseUrl}/blog/black-masterbatch-for-injection-molding/`,
   );
   await expect(page.locator(".blog-secondary-card")).toHaveCount(2);
   await expect(page.locator(".blog-reading-index a")).toHaveCount(3);
@@ -103,7 +103,9 @@ test("serves the live Blog archive with the latest three posts", async ({
   expect(layout.brokenImages).toEqual([]);
 
   await expect(
-    page.locator('.blog-tools a[href="/resources/"]'),
+    page.locator(
+      '.blog-tools a[href="/resources/masterbatch-rfq-checklist/"]',
+    ),
   ).toHaveCount(1);
 
   await page.screenshot({

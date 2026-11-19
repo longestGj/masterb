@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GE Chemical font comparison</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 32px;
+      color: #17201c;
+      background: #f6f8f4;
+      font: 14px/1.5 Arial, sans-serif;
+    }
+    h1 { margin: 0 0 6px; font-size: 28px; }
+    p { margin: 0 0 24px; color: #68736e; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      align-items: start;
+    }
+    figure {
+      margin: 0;
+      padding: 12px;
+      background: #fff;
+      border: 1px solid #d8ded9;
+    }
+    figcaption {
+      padding: 4px 4px 12px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    img { display: block; width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <h1>Homepage typography comparison</h1>
+  <p>Left: current Georgia + system sans. Right: proposed Archivo 600 + Inter.</p>
+  <div class="grid">
+    <figure>
+      <figcaption>Current</figcaption>
+      <img src="output/home-desktop-1440-current.png" alt="Current homepage typography">
+    </figure>
+    <figure>
+      <figcaption>Proposed</figcaption>
+      <img src="output/home-desktop-1440-proposed.png" alt="Proposed homepage typography">
+    </figure>
+  </div>
+</body>
+</html>

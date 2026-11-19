@@ -126,6 +126,8 @@ The WordPress site may use essential cookies for administration, security and us
 
 If Google Analytics 4 is enabled, Google may process analytics data such as page visits, referral source, device and browser information, approximate location and form conversion events. The event data used for inquiry reporting does not include the submitted name, company, email address, message or other form contents. Google Analytics is not used by this site for advertising personalization.
 
+If Meta Pixel and the Meta Conversions API are enabled, Meta (Facebook and Instagram) may receive page view and form conversion events from this website to measure advertising performance. The server-side conversion request includes a hashed version of the submitted email address (SHA-256), the visitor IP address and browser details, but not the submitted name, company, message or other form contents. Browser and server events share one event identifier so Meta can count each conversion once.
+
 The web server and hosting infrastructure may record standard technical information such as IP address, browser details, requested page and time of access. These logs are used for security, troubleshooting and service reliability.
 
 ## Children

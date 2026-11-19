@@ -4,7 +4,7 @@ content_type: "guides_index"
 schema_version: 1
 locale: "en-US"
 route_key: "guides.index"
-status: "review"
+status: "redirect"
 title: "Masterbatch Guides"
 primary_keyword: "masterbatch guides"
 search_intent: "informational"
@@ -22,7 +22,7 @@ wp:
   status: "publish"
   comment_status: "closed"
   ping_status: "closed"
-  noindex: false
+  noindex: true
 
 route:
   path: "/masterbatch-guides/"
@@ -33,6 +33,9 @@ seo:
   title: "Masterbatch Guides | GE CHEMICAL"
   description: "Use the GE masterbatch guides to compare product directions, prepare an RFQ and understand how technical documents are reviewed."
   robots: "noindex,nofollow"
+  redirect:
+    status: 301
+    target: "/blog/"
   canonical_route_key: "guides.index"
   open_graph_image_id: null
   structured_data:
@@ -50,8 +53,7 @@ relations:
   related_content_ids:
     - "products.index"
     - "guide.black"
-    - "guide.white"
-    - "guide.color"
+    - "product.desiccant.index"
     - "documents.request"
     - "faq"
 
@@ -74,11 +76,10 @@ The product pages and buyer resources answer different questions. Start with the
 
 ## Choose a product direction
 
-Review the [Black masterbatch](/products/black-masterbatch/),
-[White masterbatch](/products/white-masterbatch/) and
-[Color masterbatch](/products/color-masterbatch/) product routes. Each route
-covers the material context, application questions and information a buyer
-should prepare.
+Review the [Black masterbatch](/products/black-masterbatch/) and
+[Desiccant masterbatch](/products/desiccant-masterbatch/) product routes. Each
+route covers the material context, application questions and information a
+buyer should prepare.
 
 ## Prepare an inquiry
 

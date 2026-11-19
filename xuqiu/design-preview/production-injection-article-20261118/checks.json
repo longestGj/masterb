@@ -1,0 +1,48 @@
+{
+  "desktop": {
+    "title": "Black Masterbatch for Injection Molding: Buyer Guide",
+    "h1": [
+      "How to choose black masterbatch for injection molding."
+    ],
+    "canonical": "https://www.gemasterbatch.com/blog/black-masterbatch-for-injection-molding/",
+    "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+    "ogImage": "https://www.gemasterbatch.com/wp-content/uploads/2026/11/black-masterbatch-injection-molding.webp",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "imgs": [],
+    "jsonld": [
+      [
+        "Organization",
+        "WebSite",
+        "ImageObject",
+        "WebPage",
+        "Person",
+        "BlogPosting"
+      ]
+    ],
+    "consoleErrors": []
+  },
+  "mobile": {
+    "title": "Black Masterbatch for Injection Molding: Buyer Guide",
+    "h1": [
+      "How to choose black masterbatch for injection molding."
+    ],
+    "canonical": "https://www.gemasterbatch.com/blog/black-masterbatch-for-injection-molding/",
+    "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+    "ogImage": "https://www.gemasterbatch.com/wp-content/uploads/2026/11/black-masterbatch-injection-molding.webp",
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "imgs": [],
+    "jsonld": [
+      [
+        "Organization",
+        "WebSite",
+        "ImageObject",
+        "WebPage",
+        "Person",
+        "BlogPosting"
+      ]
+    ],
+    "consoleErrors": []
+  }
+}

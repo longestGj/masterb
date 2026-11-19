@@ -32,12 +32,12 @@ const replacements = [
     '<a href="/products/black-masterbatch/">Review black masterbatch</a>',
   ],
   [
-    '<a href="#quote">Review white masterbatch</a>',
-    '<a href="/products/white-masterbatch/">Review white masterbatch</a>',
+    '<a class="sketch-button" href="#products">Explore black masterbatch</a>',
+    '<a class="sketch-button" href="/products/black-masterbatch/">Explore black masterbatch</a>',
   ],
   [
-    '<a href="#quote">Review color masterbatch</a>',
-    '<a href="/products/color-masterbatch/">Review color masterbatch</a>',
+    '<a href="#quote">Review desiccant masterbatch</a>',
+    '<a href="/products/desiccant-masterbatch/">Review desiccant masterbatch</a>',
   ],
   [
     '<a class="sketch-button sketch-button--light" href="#quote">Request technical documents</a>',
