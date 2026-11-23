@@ -7,16 +7,16 @@
 
 - 最后核验：2026-11-18
 - 正式域名：`https://www.gemasterbatch.com`
-- 当前 release：`/var/www/ashareai/releases/20261118-film-publish-3`
-- 干净回滚 release：`/var/www/ashareai/releases/20261118-film-publish-2`
+- 当前 release：`/var/www/ashareai/releases/20261123-pipe-profile-publish`
+- 干净回滚 release：`/var/www/ashareai/releases/20261123-pipe-profile-preview`
 - WordPress：`7.1.4`
-- 子主题：`mtm-b2b-masterbatch 0.9.71`
-- MU Plugin：`mb-seo-schema.php 1.1.1`
+- 子主题：`mtm-b2b-masterbatch 0.9.79`
+- MU Plugin：`mb-seo-schema.php 1.1.2`；`mb-rfq-submissions.php 0.3.1`
 - Rank Math SEO：`1.0.281`
 - WP Mail SMTP：`4.10.3`
 - 搜索引擎索引：`blog_public=1`
-- 当前公开路由：17 个页面 Sitemap URL + 6 个 Blog/文章 URL
-- 当前图片 Sitemap：30 个 `<image:image>` 节点
+- 当前公开路由：18 个页面 Sitemap URL + 7 个 Blog/文章 URL；另有 noindex Thank You 页面，不进入 Sitemap
+- 当前图片 Sitemap：31 个 `<image:image>` 节点
 - Privacy Policy：`noindex,nofollow`
 - 已知未完成：GA4 API Secret（服务端失败事件）、GSC Sitemap 提交确认、
   自动备份与恢复演练、Privacy 法务最终审核、RFQ/Documents 责任人与响应时限
@@ -1531,3 +1531,143 @@ curl -sS -o /dev/null -w '%{http_code}\n' https://gzh.hzscf.site/
   偶发 `ERR_CONNECTION_CLOSED` / 冷缓存慢响应影响，出现非内容断言的失败。
 - 该问题不影响页面发布状态；发布前/后的页面级检查已通过，服务器稳定性
   仍需单独排查。
+
+
+## 2026-11-20 Thank You + 自定义 404 发布
+
+- 主题 release：`/var/www/ashareai/releases/20261120-thankyou-404-2`，基于
+  `20261118-film-publish-3`；子主题 `mtm-b2b-masterbatch 0.9.74`，
+  MU Plugin `mb-rfq-submissions.php 0.3.1`。
+- 新增 Thank You Page 222：`/thank-you/`，模板 `page-thank-you`，
+  `publish` + `noindex,nofollow`，不进入 Sitemap；公开页面 200。
+- RFQ/Documents 成功提交现在跳转 `/thank-you/`，保留
+  `rfq_status / rfq_context / rfq_product / rfq_source / mb_eid`；
+  错误仍回原表单 `#request-form`。若 Thank You 页面未发布，handler
+  回退旧行为，避免 404。
+- 新增子主题 `templates/404.html` 和 `assets/css/404-page.css`，替换父主题
+  中文 404。访问不存在的 URL 时 URL 不变、HTTP 状态保持 404，渲染英文
+  自定义 404；没有做 301/302 跳转。
+- 修复发布过程中发现的 `rank_math_robots` 双重序列化：Thank You 页面
+  曾短暂输出 `index, follow`，已用 `update_post_meta(..., array(...))`
+  修正为 `noindex,nofollow`，并复查通过。
+- 修复 404 页面 skip link 可见的问题：`404-page.css` 增加 `.bm-skip`
+  样式，skip link 默认在视口外，仅聚焦时出现。
+- 验证：`tests/thank-you.spec.js` + `tests/404-page.spec.js`
+  线上 **8 passed**；Thank You 200 + noindex；404 返回 404 + 自定义 H1；
+  蜜罐 POST 返回 `/thank-you/?rfq_status=success`，不创建询盘、不发邮件；
+  `page-sitemap.xml` 17 个 URL，不含 `/thank-you/`；桌面 1440 / 手机 390
+  无横向溢出。
+- 数据库备份：
+  `/var/www/ashareai/backups/ashareai-db-pre-thankyou-404-20261120.sql.gz`。
+- 回滚：主题切回 `/var/www/ashareai/releases/20261118-film-publish-3`；
+  Page 222 改回 draft 或删除；handler 随旧 release 恢复 0.3.0；数据库用
+  上述备份恢复。
+- 已知：服务器仍有偶发慢响应/连接中断；线上测试重试后通过。
+
+
+## 2026-11-20 Request a Quote 版面修复
+
+- Release `20261120-quote-fix-1`，主题 `0.9.75`；只修改
+  `contact-v1.css`，不改模板、表单字段或提交逻辑。
+- 左侧 Hero 两栏比例从 `0.72 / 1.28` 改为 `0.9 / 1.1`，H1 改为
+  `clamp(3.2rem, 5.1vw, 4.5rem)` 且 `max-width: 100%`，修复大标题
+  侵入右侧表单栏。
+- 必填星号：label 从继承的 `display:grid` 改为 `display:block`，
+  `.mtm-rfq-form__req` 改为 `display:inline`，星号回到标题同一行右侧。
+- 验证宽度：390 / 768 / 960 / 1100 / 1405 / 1440 / 1920；H1 无内部
+  溢出，1405px 下 H1 右边缘约 615px、表单左边缘约 671px，保留间距。
+- 测试：新增 `tests/quote-layout.spec.js`，线上 2 passed；
+  `contact-page.spec.js` 静态 4 passed。
+- 回滚：主题切回 `/var/www/ashareai/releases/20261120-thankyou-404-2`。
+
+
+## 2026-11-20 旧 Contact / About 短链接修复
+
+- Release `20261120-contact-redirect-1`，主题 `0.9.76`；修正 Thank You
+  和 404 模板中指向 `/contact/` 的站内断链，改为 `/request-a-quote/`。
+- 新增 301：`/contact`、`/contact/` → `/request-a-quote/`；
+  `/about`、`/about/` → `/about-quality/`。
+- 重定向只在 `is_404()` 时执行，未来若创建真实 Contact/About 页面不会被
+  旧 map 覆盖。
+- 验证：四个旧 URL 均 301 到正确目标且目标 200；Thank You/404 中
+  `/contact/` 链接数为 0；`legacy-redirects`、`thank-you`、`404-page`
+  线上测试 **12 passed**。
+- 未处理：`/products/slip-masterbatch`、旧 shipping-terms FAQ、`/author/`
+  和 `/&` 保持 404；它们没有当前对应内容，不做误导性跳转。
+- 回滚：主题切回 `/var/www/ashareai/releases/20261120-quote-fix-1`。
+
+
+## 2026-11-20 旧 /rfq 表单地址重定向
+
+- Release `20261120-rfq-redirect-1`，主题 `0.9.77`；在旧 URL map 中加入
+  `/rfq` 和 `/rfq/` → `/request-a-quote/`。
+- 带 `preselect_product` / `preselect_need_documents` 的旧参数 URL 会
+  301 到干净的表单 URL，不保留 white/color 等历史参数。
+- 当前 robots.txt 只 Disallow `/wp-admin/`；GSC 的
+  “Blocked by robots.txt” 是旧抓取时留下的历史状态，Google 重爬后会
+  看到 301 并归并。
+- 验证：`/rfq`、`/rfq/`、带参数 `/rfq?...` 均 301 到
+  `/request-a-quote/`；`/contact`、`/about` 继续正常；目标页 200。
+  `legacy-redirects` 测试 3 passed；一次 mobile 全量复跑受服务器慢响应
+  影响失败，定向复跑通过，curl 结果稳定。
+- 回滚：主题切回 `/var/www/ashareai/releases/20261120-contact-redirect-1`。
+
+
+## 2026-11-21 Black Masterbatch Let-Down Ratio 文章发布
+
+- 新增 Post 225：`/blog/black-masterbatch-let-down-ratio/`，标题
+  `Black Masterbatch Let-Down Ratio: How to Calculate It`，分类
+  Masterbatch Guides，Featured Image Attachment 224。
+- 内容约 1,956 词，8 个 H2、5 个 H3；包含计算公式、20%/30%/40%
+  示例、kg/h 喂料换算、试机检查、同炭黑目标成本比较和 RFQ 信息。
+- SEO：Title `Black Masterbatch Let-Down Ratio: Calculation Guide`，
+  Description 147 字符；Canonical、`index,follow`、BlogPosting Schema
+  正常；文章已进入 `post-sitemap.xml`。
+- 内链：carbon black content、blown film、injection molding、BK020、
+  BK030、BK040、technical documents、RFQ 等 10 个链接均 200。
+- 测试：`articles.spec.js` + `blog-archive.spec.js` 线上 12 passed；
+  `seo-audit` schema 和 page basics 4 passed；桌面/手机无横向溢出。
+- 发布前数据库备份：
+  `/var/www/ashareai/backups/ashareai-db-pre-letdown-article-20261121.sql.gz`；
+  文章原草稿备份
+  `/var/www/ashareai/backups/post-225-pre-publish-20261121.html`。
+- 回滚：Post 225 改回 draft 或删除；如需恢复草稿，用上述 225 备份；
+  本次无需切换主题 release。
+
+
+## 2026-11-23 Pipe & Profile 页面草稿预览
+
+- 主题 release：`/var/www/ashareai/releases/20261123-pipe-profile-preview`，子主题
+  `mtm-b2b-masterbatch 0.9.78`，`mb-seo-schema.php 1.1.2`。
+- 新增 Page 228 `Black Masterbatch for Pipe and Profile Extrusion`：`draft`，
+  父级 Page 31，模板 `page-pipe-profile`，缩略图 Attachment 227，
+  `_mb_robots=noindex,nofollow`，公开访问 404。
+- 新增 `templates/page-pipe-profile.html`、`assets/css/pipe-profile.css`、
+  `assets/images/pipe-profile-hero.webp`；Hero 为自定义矢量图，无外部版权素材。
+- `functions.php` 仅按模板条件加载页面 CSS 和 body class；未发布页面。
+- Black 分类页的 Pipe 入站链接仍只在本地，尚未部署，避免草稿 404。
+- 验证：`pipe-profile.spec.js` 静态 2 passed、线上 2 skipped；PHP 语法和
+  `git diff --check` 通过。
+- 回滚：主题切回 `/var/www/ashareai/releases/20261120-rfq-redirect-1`；
+  Page 228 删除或保持 draft；Attachment 227 可保留。
+- 未执行：页面正式发布、Black 分类页入站链接、Sitemap 页面/图片更新。
+
+
+## 2026-11-23 Pipe & Profile 页面发布
+
+- 发布 Page 228：`/products/black-masterbatch/pipe-profile/`，父级 Page 31，
+  模板 `page-pipe-profile`，状态 publish，`index,follow`，缩略图 Attachment 227。
+- 主题 release：`/var/www/ashareai/releases/20261123-pipe-profile-publish`，
+  子主题 `0.9.79`；新增页面模板、CSS、Hero 图和 Black 分类页 Pipe 入站链接。
+- Hero 图是自定义矢量插画（管端、型材、母粒），已转 1600×1200 WebP；
+  未使用外部版权素材。
+- 内容边界：引用当前 BK TDS 的 20% to 40%、载体、CaCO3 和 2% to 5%
+  起始建议；不承诺 WRAS/NSF、压力管适用、户外寿命或“最佳 UV 保护”。
+- 验证：`pipe-profile.spec.js` 4 passed；`seo-audit` schema + page basics
+  4 passed；`sitemap-images` 7 passed（1 skipped mobile）；页面 200，
+  Canonical、Title、Description、FAQPage/WebPage/BreadcrumbList Schema 正常；
+  Black 分类页入站链接存在；`page-sitemap.xml` 18 个 URL、31 个图片节点，
+  Pipe 页面和 Hero 图已包含；桌面/手机无横向溢出。
+- 回滚：主题切回 `/var/www/ashareai/releases/20261123-pipe-profile-preview`；
+  Page 228 改回 draft 或删除；数据库备份
+  `/var/www/ashareai/backups/ashareai-db-pre-pipe-page-20261123.sql.gz`。

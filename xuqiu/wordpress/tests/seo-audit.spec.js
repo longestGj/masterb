@@ -105,6 +105,8 @@ test("maps each public page role to appropriate JSON-LD", async ({
     ["/resources/", ["CollectionPage"], false],
     ["/blog/", ["CollectionPage"], false],
     ["/blog/how-to-vet-a-masterbatch-supplier/", ["BlogPosting"], true],
+    ["/blog/black-masterbatch-let-down-ratio/", ["BlogPosting"], true],
+    ["/products/black-masterbatch/pipe-profile/", ["WebPage"], false],
   ];
 
   for (const [route, expectedTypes, articleAllowed] of expectations) {
@@ -214,6 +216,8 @@ test("audits every published page and post for page-level SEO basics", async ({
     "/blog/how-to-vet-a-masterbatch-supplier/",
     "/blog/black-specks-in-masterbatch-film/",
     "/blog/black-masterbatch-for-injection-molding/",
+    "/blog/black-masterbatch-let-down-ratio/",
+    "/products/black-masterbatch/pipe-profile/",
   ];
 
   for (const route of routes) {

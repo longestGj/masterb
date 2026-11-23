@@ -163,6 +163,8 @@ add_action(
 			mb_is_black_masterbatch_guide_page()
 			|| mb_is_desiccant_category_page()
 			|| mb_is_film_packaging_page()
+			|| mb_is_pipe_profile_page()
+			|| mb_is_thank_you_page()
 		) {
 			wp_enqueue_style(
 				'mtm-b2b-black-masterbatch-guide',
@@ -176,6 +178,30 @@ add_action(
 				'mtm-b2b-film-packaging',
 				get_stylesheet_directory_uri() . '/assets/css/film-packaging.css',
 				array( 'mtm-b2b-black-masterbatch-guide' ),
+				$theme->get( 'Version' )
+			);
+		}
+		if ( mb_is_pipe_profile_page() ) {
+			wp_enqueue_style(
+				'mtm-b2b-pipe-profile',
+				get_stylesheet_directory_uri() . '/assets/css/pipe-profile.css',
+				array( 'mtm-b2b-black-masterbatch-guide' ),
+				$theme->get( 'Version' )
+			);
+		}
+		if ( mb_is_thank_you_page() ) {
+			wp_enqueue_style(
+				'mtm-b2b-thank-you',
+				get_stylesheet_directory_uri() . '/assets/css/thank-you.css',
+				array( 'mtm-b2b-black-masterbatch-guide' ),
+				$theme->get( 'Version' )
+			);
+		}
+		if ( is_404() ) {
+			wp_enqueue_style(
+				'mtm-b2b-404-page',
+				get_stylesheet_directory_uri() . '/assets/css/404-page.css',
+				array( 'mtm-b2b-masterbatch' ),
 				$theme->get( 'Version' )
 			);
 		}
@@ -449,6 +475,36 @@ function mb_is_film_packaging_page() {
 }
 
 /**
+ * Whether the current page uses the Pipe and Profile application template.
+ *
+ * @return bool
+ */
+function mb_is_pipe_profile_page() {
+	if ( ! is_page() ) {
+		return false;
+	}
+
+	$template = (string) get_page_template_slug( get_the_ID() );
+
+	return '' !== $template && false !== strpos( $template, 'page-pipe-profile' );
+}
+
+/**
+ * Whether the current page uses the Thank You confirmation template.
+ *
+ * @return bool
+ */
+function mb_is_thank_you_page() {
+	if ( ! is_page() ) {
+		return false;
+	}
+
+	$template = (string) get_page_template_slug( get_the_ID() );
+
+	return '' !== $template && false !== strpos( $template, 'page-thank-you' );
+}
+
+/**
  * Whether the current page uses the BK040 product detail template.
  *
  * @return bool
@@ -593,11 +649,22 @@ add_filter(
 			mb_is_black_masterbatch_guide_page()
 			|| mb_is_desiccant_category_page()
 			|| mb_is_film_packaging_page()
+			|| mb_is_pipe_profile_page()
+			|| mb_is_thank_you_page()
 		) {
 			$classes[] = 'mtm-black-guide-page';
 		}
 		if ( mb_is_film_packaging_page() ) {
 			$classes[] = 'mtm-film-packaging-page';
+		}
+		if ( mb_is_pipe_profile_page() ) {
+			$classes[] = 'mtm-pipe-profile-page';
+		}
+		if ( mb_is_thank_you_page() ) {
+			$classes[] = 'mtm-thank-you-page';
+		}
+		if ( is_404() ) {
+			$classes[] = 'mtm-404-page';
 		}
 		if ( mb_is_desiccant_category_page() ) {
 			$classes[] = 'mtm-desiccant-category';
@@ -651,6 +718,39 @@ add_action(
 			wp_safe_redirect( esc_url_raw( $target ), 301 );
 			exit;
 		}
+	}
+);
+
+/**
+ * Redirect legacy short URLs to their current equivalents.
+ *
+ * Only applies to 404 requests, so a future real Contact or About page is
+ * not shadowed by this map.
+ *
+ * @return void
+ */
+add_action(
+	'template_redirect',
+	static function () {
+		if ( ! is_404() ) {
+			return;
+		}
+
+		$path = trim(
+			(string) wp_parse_url( (string) ( $_SERVER['REQUEST_URI'] ?? '' ), PHP_URL_PATH ),
+			'/'
+		);
+		$map  = array(
+			'contact' => '/request-a-quote/',
+			'about'   => '/about-quality/',
+			'rfq'     => '/request-a-quote/',
+		);
+		if ( ! isset( $map[ $path ] ) ) {
+			return;
+		}
+
+		wp_safe_redirect( home_url( $map[ $path ] ), 301 );
+		exit;
 	}
 );
 

@@ -144,6 +144,23 @@ Featured Image：
 - 英文用保守、证据优先的 B2B 表达；
 - 篇幅由问题和证据决定，不按固定字数平均分配。
 
+### 5.1 Humanizer pass（必过）
+
+每篇新文章或大幅改写的文章，在跑测试和发布前必须完成一次 `humanizer` 润色。
+
+执行顺序：
+
+1. 通读全文，标出 humanizer SKILL.md 里的 AI 写作模式；
+2. 保留全部事实、数字、牌号、测试条件、引用、内链、SEO 字段和 CTA；
+3. 重写句子和段落节奏，删除空泛过渡、重复 closer、装饰性加粗和机械三段式；
+4. 检查没有新增事实，也没有丢失原有 claim；
+5. 检查没有 `–` / `—`，数值范围仍用 `to`；
+6. 记录改写段落、保留项和未解决风险。
+
+如果当前会话技能目录没有加载 `humanizer`，按
+`~/.codex/skills/humanizer/SKILL.md` 逐条执行同等流程，并在记录中注明
+“humanizer skill 未加载，按 SKILL.md 手动执行”。
+
 ## 6. 证据与声明边界
 
 写具体事实时，先建一张内部核对表：
@@ -319,6 +336,7 @@ MB_LIVE_BASE_URL=https://www.gemasterbatch.com \
 
 - 内容回答了一个明确搜索意图；
 - 证据和声明边界清楚；
+- 已完成 `humanizer` pass，并记录改写段落、保留项和剩余风险；
 - 有出站内链和站内入口；
 - Featured Image hero-safe，Alt 正确；
 - manifest/build/test 一致；

@@ -26,6 +26,9 @@
 - 已发布文章的 HTML 是正文事实来源，旧 Markdown 不得覆盖。
 - 新文章必须有至少一个站内入口，避免孤儿页。
 - Featured Image 必须 hero-safe；带文字封面只做正文内嵌图。
+- 每篇新文章或大幅改写的文章必须完成 `humanizer` pass，再跑构建、测试和发布；
+  如当前会话未加载该 skill，按 `~/.codex/skills/humanizer/SKILL.md` 执行同等流程
+  并记录。润色不得改动事实、数字、牌号、测试条件、内链、SEO 字段或声明边界。
 
 ## Page-level Redesign Gate
 

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Masterbatch SEO Schema Roles
  * Description: Aligns Rank Math JSON-LD types with the public page role.
- * Version: 1.1.1
+ * Version: 1.1.2
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -299,6 +299,9 @@ function mb_seo_sitemap_image_map() {
 		),
 		'film-packaging'                    => array(
 			'film-packaging-hero.webp',
+		),
+		'pipe-profile'                      => array(
+			'pipe-profile-hero.webp',
 		),
 		'desiccant-masterbatch'             => array(
 			'desiccant-category-factory-building.webp',

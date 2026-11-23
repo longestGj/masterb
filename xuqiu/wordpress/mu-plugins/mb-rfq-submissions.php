@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Masterbatch RFQ Submissions
  * Description: Stores and emails masterbatch RFQ submissions from the website form.
- * Version: 0.2.0
+ * Version: 0.3.1
  * Author: GE CHEMICAL website project
  */
 
@@ -168,10 +168,17 @@ final class MB_RFQ_Submission {
 			self::send_ga4_email_failure_event( $data, (int) $post_id );
 		}
 
+		// Shared event ID lets the browser Pixel and the server-side
+		// Conversions API report the same Lead without double counting.
+		$meta_event_id = wp_generate_uuid4();
+		update_post_meta( $post_id, '_mb_meta_event_id', $meta_event_id );
+		self::send_meta_lead_event( $data, (int) $post_id, $meta_event_id );
+
 		return array(
 			'status'     => 'success',
 			'id'         => (int) $post_id,
 			'email_sent' => $email_sent,
+			'meta_event_id'    => $meta_event_id,
 			'product_interest' => $data['product_interest'],
 			'form_context'     => $data['form_context'],
 			'source_page'      => $data['source_page'],
@@ -237,6 +244,81 @@ final class MB_RFQ_Submission {
 			'form_context'     => $data['form_context'],
 			'source_page'      => $data['source_page'],
 		);
+	}
+
+	/**
+	 * Best-effort Meta Conversions API Lead event for a stored inquiry.
+	 *
+	 * Disabled until both the Pixel ID and the CAPI token are configured.
+	 * The token is read from the environment and never stored; the customer
+	 * email is only sent as a SHA-256 hash for matching. The event ID is the
+	 * same one the browser Pixel uses, so Meta deduplicates the two reports.
+	 *
+	 * @param array<string,string> $data      Sanitized form data.
+	 * @param int                  $post_id   Stored inquiry ID.
+	 * @param string               $event_id  Shared Pixel/CAPI event ID.
+	 * @return void
+	 */
+	private static function send_meta_lead_event( $data, $post_id, $event_id ) {
+		if ( ! function_exists( 'mb_meta_pixel_id' ) || ! function_exists( 'mb_meta_capi_token' ) ) {
+			return;
+		}
+
+		$pixel_id = mb_meta_pixel_id();
+		$token    = mb_meta_capi_token();
+		if ( '' === $pixel_id || '' === $token ) {
+			return;
+		}
+
+		$user_data = array(
+			'em'                => hash( 'sha256', strtolower( trim( $data['email'] ) ) ),
+			'client_ip_address' => (string) ( $_SERVER['REMOTE_ADDR'] ?? '' ),
+			'client_user_agent' => (string) ( $_SERVER['HTTP_USER_AGENT'] ?? '' ),
+		);
+		if ( ! empty( $_COOKIE['_fbp'] ) ) {
+			$user_data['fbp'] = sanitize_text_field( wp_unslash( $_COOKIE['_fbp'] ) );
+		}
+		if ( ! empty( $_COOKIE['_fbc'] ) ) {
+			$user_data['fbc'] = sanitize_text_field( wp_unslash( $_COOKIE['_fbc'] ) );
+		}
+
+		$payload = array(
+			'access_token' => $token,
+			'data'         => array(
+				array(
+					'event_name'       => 'Lead',
+					'event_time'       => time(),
+					'event_id'         => $event_id,
+					'action_source'    => 'website',
+					'event_source_url' => '' !== $data['source_page'] ? $data['source_page'] : home_url( '/request-a-quote/' ),
+					'user_data'        => $user_data,
+					'custom_data'      => array(
+						'content_name'     => '' !== $data['form_context'] ? $data['form_context'] : 'rfq',
+						'content_category' => $data['product_interest'],
+					),
+				),
+			),
+		);
+
+		$test_code = function_exists( 'mb_meta_test_event_code' ) ? mb_meta_test_event_code() : '';
+		if ( '' !== $test_code ) {
+			$payload['test_event_code'] = $test_code;
+		}
+
+		$response = wp_remote_post(
+			'https://graph.facebook.com/v21.0/' . $pixel_id . '/events',
+			array(
+				'timeout' => 5,
+				'headers' => array( 'Content-Type' => 'application/json' ),
+				'body'    => wp_json_encode( $payload ),
+			)
+		);
+
+		$ok = ! is_wp_error( $response ) && 200 === (int) wp_remote_retrieve_response_code( $response );
+		update_post_meta( $post_id, '_mb_meta_capi_sent', $ok ? '1' : '0' );
+		if ( ! $ok ) {
+			error_log( 'Masterbatch RFQ stored but Meta CAPI delivery failed for inquiry #' . $post_id );
+		}
 	}
 
 	/**
@@ -376,6 +458,14 @@ final class MB_RFQ_Submission {
 	 * @return void
 	 */
 	private static function redirect( $status, $context = array() ) {
+		if ( 'success' === $status ) {
+			$thank_you = self::thank_you_url( $context );
+			if ( '' !== $thank_you ) {
+				wp_safe_redirect( $thank_you );
+				exit;
+			}
+		}
+
 		$fallback = home_url( '/request-a-quote/' );
 		$referer  = wp_get_referer();
 		$target   = wp_validate_redirect( $referer, $fallback );
@@ -399,8 +489,53 @@ final class MB_RFQ_Submission {
 			$target = add_query_arg( $analytics_args, $target );
 		}
 
+		$meta_event_id = sanitize_text_field( (string) ( $context['meta_event_id'] ?? '' ) );
+		if ( '' !== $meta_event_id ) {
+			$target = add_query_arg( 'mb_eid', $meta_event_id, $target );
+		}
+
 		wp_safe_redirect( $target . '#request-form' );
 		exit;
+	}
+
+	/**
+	 * Build the success destination when the Thank You page is published.
+	 *
+	 * @param array<string,mixed> $context Safe analytics context.
+	 * @return string Empty string when the confirmation page is unavailable.
+	 */
+	public static function thank_you_url( $context = array() ) {
+		$page = get_page_by_path( 'thank-you' );
+		if ( ! $page || 'publish' !== get_post_status( $page ) ) {
+			return '';
+		}
+
+		$target = get_permalink( $page );
+		if ( ! $target ) {
+			return '';
+		}
+
+		$target = add_query_arg( 'rfq_status', 'success', $target );
+		$source_page = wp_parse_url( (string) ( $context['source_page'] ?? '' ) );
+		$analytics_args = array_filter(
+			array(
+				'rfq_context' => sanitize_key( (string) ( $context['form_context'] ?? '' ) ),
+				'rfq_product' => sanitize_text_field( (string) ( $context['product_interest'] ?? '' ) ),
+				'rfq_source'  => isset( $source_page['path'] )
+					? sanitize_text_field( $source_page['path'] )
+					: '',
+			)
+		);
+		if ( $analytics_args ) {
+			$target = add_query_arg( $analytics_args, $target );
+		}
+
+		$meta_event_id = sanitize_text_field( (string) ( $context['meta_event_id'] ?? '' ) );
+		if ( '' !== $meta_event_id ) {
+			$target = add_query_arg( 'mb_eid', $meta_event_id, $target );
+		}
+
+		return $target;
 	}
 }
 

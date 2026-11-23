@@ -42,6 +42,10 @@ test("ships the Contact template, dedicated style and page condition", () => {
   expect(style).toContain("var(--ge-color-primary)");
   expect(style).toContain("var(--ge-container)");
   expect(style).toContain("var(--ge-font-display)");
+  expect(style).toContain("minmax(360px, 0.9fr) minmax(0, 1.1fr)");
+  expect(style).toContain("clamp(3.2rem, 5.1vw, 4.5rem)");
+  expect(style).toContain("display: block");
+  expect(style).toContain("display: inline");
   expect(style).toContain(
     "details.contact-advanced:not([open]) .contact-form__grid",
   );

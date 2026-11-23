@@ -29,14 +29,15 @@ function verifyBalancedBlocks(source, label) {
   expect(stack, label).toEqual([]);
 }
 
-test("ships five balanced WordPress article packages", async () => {
-  expect(manifest).toHaveLength(5);
+test("ships six balanced WordPress article packages", async () => {
+  expect(manifest).toHaveLength(6);
   expect(manifest.map((article) => article.slug)).toEqual([
     "masterbatch-for-blown-film",
     "black-specks-in-masterbatch-film",
     "how-to-vet-a-masterbatch-supplier",
     "how-to-choose-carbon-black-content",
     "black-masterbatch-for-injection-molding",
+    "black-masterbatch-let-down-ratio",
   ]);
 
   for (const article of manifest) {
@@ -92,6 +93,25 @@ test("ships five balanced WordPress article packages", async () => {
   expect(injection).toContain('href="/products/black-masterbatch/bk040/"');
   expect(injection).toContain('href="/technical-documents/"');
   expect(injection).toContain("The current BK020 to BK040 pages list an adjustable MFI");
+
+  const letDown = fs.readFileSync(
+    path.join(
+      POST_ROOT,
+      "black-masterbatch-let-down-ratio.wordpress.html",
+    ),
+    "utf8",
+  );
+  expect(letDown).toContain(
+    "Masterbatch addition % = target carbon black % / carbon black content in masterbatch % × 100",
+  );
+  expect(letDown).toContain("2.5 / 40 × 100 = 6.25%");
+  expect(letDown).toContain('href="/products/black-masterbatch/bk020/"');
+  expect(letDown).toContain('href="/products/black-masterbatch/bk030/"');
+  expect(letDown).toContain('href="/products/black-masterbatch/bk040/"');
+  expect(letDown).toContain('href="/technical-documents/"');
+  expect(letDown).toContain(
+    'href="/request-a-quote/?intent=black-masterbatch&amp;source=let-down-ratio-guide"',
+  );
 });
 
 test("ships the shared technical article template and renderer", async () => {

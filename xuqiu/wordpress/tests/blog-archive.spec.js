@@ -58,7 +58,7 @@ test("serves the live Blog archive with the latest posts", async ({
   await expect(page.locator(".blog-feature")).toHaveCount(1);
   await expect(page.locator(".blog-feature h3 a")).toHaveAttribute(
     "href",
-    `${liveBaseUrl}/blog/black-masterbatch-for-injection-molding/`,
+    `${liveBaseUrl}/blog/black-masterbatch-let-down-ratio/`,
   );
   await expect(page.locator(".blog-secondary-card")).toHaveCount(2);
   await expect(page.locator(".blog-reading-index a")).toHaveCount(3);

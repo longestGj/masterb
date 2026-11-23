@@ -131,6 +131,32 @@ const articles = [
     featuredAlt:
       "Illustrative schematic of an injection molding machine showing the hopper, heated barrel and screw, nozzle, mold and clamp",
   },
+  {
+    source: path.join(
+      outputRoot,
+      "black-masterbatch-let-down-ratio.wordpress.html",
+    ),
+    output: "black-masterbatch-let-down-ratio",
+    prebuilt: true,
+    title: "Black Masterbatch Let-Down Ratio: How to Calculate It",
+    heroTitle: "Black masterbatch let-down ratio: how to calculate it.",
+    slug: "black-masterbatch-let-down-ratio",
+    seoTitle: "Black Masterbatch Let-Down Ratio: Calculation Guide",
+    description:
+      "Calculate black masterbatch addition from target carbon black and masterbatch loading, then verify the feeder rate and ratio in a controlled trial.",
+    excerpt:
+      "Calculate a starting black masterbatch addition rate, convert it to feeder output, and verify the ratio with a controlled trial.",
+    primaryKeyword: "black masterbatch let-down ratio",
+    category: "Masterbatch Guides",
+    categorySlug: "masterbatch-guides",
+    tags: [
+      "let-down ratio",
+      "black masterbatch",
+      "masterbatch dosage",
+    ],
+    featuredImage: "images/black-masterbatch-let-down-ratio-hero.webp",
+    featuredAlt: "Black masterbatch granules in a close product view",
+  },
 ];
 
 function inline(text) {

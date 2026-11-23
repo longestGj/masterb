@@ -81,21 +81,22 @@ body.mtm-contact-v1 textarea {
 
 .contact-hero__grid {
   display: grid;
-  grid-template-columns: minmax(300px, 0.72fr) minmax(0, 1.28fr);
-  gap: clamp(2.5rem, 5vw, 5rem);
+  grid-template-columns: minmax(360px, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(2.25rem, 4vw, 4rem);
   align-items: start;
 }
 
 .contact-hero__intro {
   position: sticky;
   top: calc(var(--ge-header-height) + 1.5rem);
+  min-width: 0;
   padding-top: 0.75rem;
 }
 
 .contact-hero h1 {
-  max-width: 610px;
+  max-width: 100%;
   margin-top: 0.75rem;
-  font-size: clamp(4rem, 6.2vw, 6.4rem);
+  font-size: clamp(3.2rem, 5.1vw, 4.5rem);
   line-height: 0.91;
   letter-spacing: -0.06em;
 }
@@ -824,12 +825,14 @@ body.mtm-contact-v1 .contact-form .mtm-rfq-form__field--full {
 }
 
 body.mtm-contact-v1 .contact-form .mtm-rfq-form__field label {
+  display: block;
   color: var(--ge-color-text);
   font-size: 0.7rem;
   font-weight: 700;
 }
 
 body.mtm-contact-v1 .contact-form .mtm-rfq-form__req {
+  display: inline;
   color: var(--ge-color-primary);
 }
 

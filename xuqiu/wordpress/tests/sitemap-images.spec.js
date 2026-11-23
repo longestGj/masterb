@@ -33,13 +33,14 @@ function sitemapImages(xml) {
 test("ships explicit template-image mappings for Rank Math", () => {
   const source = fs.readFileSync(SEO_PLUGIN, "utf8");
 
-  expect(source).toContain("Version: 1.1.1");
+  expect(source).toContain("Version: 1.1.2");
   expect(source).toContain("function mb_seo_sitemap_image_map()");
   expect(source).toContain("'rank_math/sitemap/entry'");
   expect(source).toContain("'home-factory-building.webp'");
   expect(source).toContain("'guide-black-granules.webp'");
   expect(source).toContain("'bk040-product-hero.webp'");
   expect(source).toContain("'dm2476g-product-hero.webp'");
+  expect(source).toContain("'pipe-profile-hero.webp'");
   expect(source).toContain("'home-masterbatch-packaging.webp'");
   expect(source).toContain("set_url_scheme(");
   expect(source).toContain("'https'");
@@ -67,6 +68,7 @@ test("publishes mapped images in the live page sitemap", async ({
     [`${liveBaseUrl}/products/desiccant-masterbatch/`, 3],
     [`${liveBaseUrl}/products/black-masterbatch/bk040/`, 2],
     [`${liveBaseUrl}/products/desiccant-masterbatch/dm2476g/`, 2],
+    [`${liveBaseUrl}/products/black-masterbatch/pipe-profile/`, 1],
     [`${liveBaseUrl}/about-quality/`, 3],
     [`${liveBaseUrl}/technical-documents/`, 1],
   ]);
